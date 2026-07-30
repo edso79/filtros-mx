@@ -91,6 +91,43 @@ La distinción importa y estaba implícita: **solo cuenta como fuga un envoltori
 
 Un cero verdadero y un cero del instrumento se ven igual en el resultado. Solo los separa mirar el DOM.
 
+## Cuarta pasada: el detector se rompió tres veces y hubo que rehacerlo
+
+Cinco sitios más, y ninguno dio regla nueva. Lo que dieron fue mejor: **tres modos de fallo del instrumento, los tres del mismo origen** — clasificar por nombre de clase.
+
+| Sitio | Qué pasó |
+|---|---|
+| `elsiglodedurango.com.mx` | 100% cubierto. No usa `.lapub` pese a ser del mismo grupo que el de Torreón: la marca compartida no implica plantilla compartida |
+| `criteriohidalgo.com` | **Ciego.** Tiene publicidad servida (doubleclick, pubmatic) y devolvió cero: sus contenedores se llaman `mx-auto my-[10px] py-[10px]` |
+| `zetatijuana.com` | **Falso positivo.** Marcó `.tdc-zone`, que es el sistema de columnas del tema tagDiv. Uno de los elementos era el envoltorio del encabezado — ocultarlo rompe el sitio |
+| `riodoce.mx` | **Falso positivo masivo.** 28 contenedores de notas de Elementor marcados como publicidad |
+| `imagenzacatecas.com` | No cargó |
+
+**El nombre de clase no generaliza.** Lo que sí generaliza es el contenido: un hueco publicitario contiene el slot de una red, o lleva al lado la etiqueta "Publicidad" que el propio publicador está obligado a poner.
+
+### v3: detectar por contenido
+
+El medidor se rehízo para partir de **semillas** —`ins.adsbygoogle`, `div-gpt-ad`, `data-advadstrackid`, iframes de redes conocidas, y etiquetas de texto "Publicidad"— y subir desde ahí mientras el ancestro siga sin arrastrar contenido editorial.
+
+Resultado contra los mismos casos:
+
+| Sitio | v2 | v3 |
+|---|---|---|
+| `riodoce.mx` | 28 falsos positivos | **1 unidad real** (`.google-auto-placed`) |
+| `criteriohidalgo.com` | 0 (ciego) | **10 unidades** |
+
+Además la v3 reporta `sospechaDeCeguera`: si hay red publicitaria en el tráfico y cero unidades encontradas, el instrumento avisa de que está ciego en lugar de devolver un cero silencioso.
+
+### Y un límite que no es del instrumento, sino del método
+
+En `criteriohidalgo.com` la v3 **encuentra** las diez unidades, pero mírense sus selectores: `.py-4`, `.my-4`, `.bg-white.p-4`, `.col-span-full.md:col-span-4`.
+
+Son clases utilitarias de Tailwind. **No hay selector que apunte al anuncio sin apuntar también a media página.** Una regla sobre `.py-4` ocultaría contenido arbitrario del sitio.
+
+> **Un sitio construido con CSS utilitario no se puede atender con reglas cosméticas clásicas.** No es que falte trabajo de curaduría: es que no existe el selector.
+
+Eso tiene consecuencia directa sobre el proyecto. Los bloqueadores resuelven estos casos con **selectores extendidos** (`:has()`, `:contains()`), que uBlock Origin completo sí aplica y que **Manifest V3 no permite del mismo modo**. A medida que más medios se rehacen con Tailwind, la fracción del problema que una lista declarativa puede resolver se encoge — y encoge más para una extensión MV3 que para uBO completo.
+
 ## Lo que discrimina no es la región: es el maquetado
 
 La tentación es concluir "los medios regionales están desatendidos". **El dato lo desmiente:** `elimparcial.com`, regional de Sonora, sale al 100%.
