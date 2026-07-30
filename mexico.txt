@@ -1,0 +1,101 @@
+[Adblock Plus 2.0]
+! Title: Lista México
+! Description: Curaduría de filtros publicitarios para sitios mexicanos. Complemento de EasyList y EasyPrivacy, no sustituto.
+! Version: 2026.0730.0
+! Last modified: 2026-07-30T00:00:00Z
+! Expires: 4 days
+! Homepage: PENDIENTE
+! License: https://www.gnu.org/licenses/gpl-3.0.txt
+!
+! ===========================================================================
+! ESTA LISTA ESTÁ VACÍA A PROPÓSITO.
+!
+! No contiene ninguna regla todavía. Las reglas de filtrado se escriben
+! observando sitios reales, no de memoria: una regla inventada rompe páginas
+! y el usuario no sabe por qué. Ver CONTRIBUIR.md antes de agregar la primera.
+! ===========================================================================
+!
+! CÓMO SE USA
+! Esta lista es un COMPLEMENTO. Se activa ADEMÁS de EasyList y EasyPrivacy,
+! nunca en lugar de ellas. Las listas base cubren las redes publicitarias
+! globales; esta atiende lo que queda fuera en sitios mexicanos.
+!
+! POR QUÉ EXISTE
+! Los dominios .mx reciben poca atención de curaduría en las listas en
+! español, que atienden sobre todo a España, Argentina y Brasil. Medido el
+! 29-jul-2026: 117 de 3,459 referencias en EasyList Spanish, 75 de ~6,750 en
+! el filtro español/portugués de AdGuard.
+!
+! LO QUE ESTA LISTA NO AFIRMA
+! No se afirma que bloquee más ni mejor que ninguna otra lista. Que un sitio
+! no tenga regla propia no significa que muestre anuncios. Hasta que haya
+! medición publicada, esta lista es una contribución, no una mejora
+! demostrada.
+!
+! ATRIBUCIÓN
+! Deriva de trabajo previo de EasyList, EasyPrivacy y Peter Lowe. Ver
+! ATRIBUCION.md. Licencia GPLv3: cualquier obra derivada se comparte igual.
+
+
+! ===========================================================================
+! REGLAS DE RED
+! Bloquean la petición. Formato: ||dominio^ o ||dominio/ruta
+! ===========================================================================
+
+! --- Noticias nacionales ---
+
+! --- Noticias locales y regionales ---
+
+! --- Farándula y entretenimiento ---
+
+! --- Deportes ---
+
+! --- Recetas y hogar ---
+
+! --- Clasificados ---
+
+! --- Lotería y resultados ---
+
+! --- Letras y música ---
+
+! --- Clima y servicios ---
+
+! --- Foros y comunidad ---
+
+
+! ===========================================================================
+! REGLAS COSMÉTICAS
+! Ocultan el elemento sin bloquear la petición. Formato: dominio##selector
+!
+! Las listas regionales existentes son 73-77% cosméticas (medido el
+! 29-jul-2026). Es de esperarse que esta sección crezca más que la de red.
+! Una regla cosmética NO reduce tráfico: cierra el hueco que deja el anuncio.
+! ===========================================================================
+
+! --- Noticias nacionales ---
+
+! --- Noticias locales y regionales ---
+
+! --- Farándula y entretenimiento ---
+
+! --- Deportes ---
+
+! --- Recetas y hogar ---
+
+! --- Clasificados ---
+
+! --- Lotería y resultados ---
+
+! --- Letras y música ---
+
+! --- Clima y servicios ---
+
+! --- Foros y comunidad ---
+
+
+! ===========================================================================
+! EXCEPCIONES
+! Reglas que DESBLOQUEAN algo que una lista base rompió. Cada una necesita
+! el motivo escrito: sin motivo no se sabe si sigue haciendo falta.
+! Formato: @@||dominio^
+! ===========================================================================
