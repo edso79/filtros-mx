@@ -2,28 +2,33 @@
 
 Complemento de EasyList y EasyPrivacy con reglas para sitios mexicanos. **Gratuita, abierta y sin versión de paga.**
 
-> ## ⚠️ La lista está vacía. Todavía no sirve para nada.
->
-> `mexico.txt` no tiene ninguna regla. La estructura está lista; el contenido se escribe observando sitios reales, uno por uno. Suscribirse hoy no bloquea nada.
+> **2 reglas. Cubre 2 sitios.** Es un principio, no un producto terminado.
 
 ## Qué es
 
-Las listas de filtros en español existen, están vivas y se activan solas según el idioma del navegador. Pero atienden sobre todo a España, Argentina y Brasil. Medido el 29 de julio de 2026:
+Medimos 9 sitios mexicanos el 30 de julio de 2026, ejecutando los selectores cosméticos de las cinco listas principales contra el DOM real de cada uno. Resultado: **las listas existentes ocultan el 79% del área publicitaria, y el 21% que sobrevive está concentrado en 2 de los 9 sitios.**
 
-| Lista | Referencias a `.mx` | Total |
-|---|---|---|
-| EasyList Spanish | 117 | 3,459 |
-| AdGuard español/portugués | 75 | ~6,750 |
+Método, datos y límites: [`documentos/medicion-eje-visual-2026-07-30.md`](../documentos/medicion-eje-visual-2026-07-30.md).
 
-Esta lista atiende ese hueco. **No sustituye a las listas base: se usa además de ellas.**
+Lo que separa a un sitio cubierto de uno que no **no es la región, es el maquetado**:
+
+| Montaje de anuncios | Cobertura |
+|---|---|
+| Estándar — Google Ad Manager, Taboola, Freestar, adsbygoogle | ~100% |
+| Envoltorio propio o de plugin de WordPress | 0-22% |
+
+Las reglas genéricas nombran los contenedores estándar. No pueden nombrar una clase que se inventó un desarrollador en Torreón. Ahí está el hueco, y es lo que esta lista atiende.
+
+> El caso que lo resume: EasyList Spanish trae la regla `.pub`; `elsiglodetorreon.com.mx` usa `.lapub`. **Falla por dos letras**, y con ella se quedan fuera los 9 contenedores publicitarios del sitio.
+
+**No sustituye a las listas base: se usa además de ellas.**
 
 ## Qué NO afirma
 
-- **No decimos que bloquee más ni mejor que ninguna otra lista.** Nadie lo ha medido.
-- **Que un sitio no tenga regla propia no significa que muestre anuncios.** Las reglas genéricas de EasyList tapan la mayoría de las redes publicitarias de terceros.
-- Hasta que haya una medición publicada, esto es una contribución, no una mejora demostrada.
-
-Si algún día hay medición, se publica con su método y sus límites, no como cifra suelta.
+- **No decimos que bloquee más ni mejor que ninguna otra lista.** En 6 de los 9 sitios medidos las listas existentes ya lo resuelven al 100%, y ahí esta lista no aporta nada.
+- **La medición es de 9 sitios elegidos a mano.** El 21% no es una estimación poblacional: con la fuga concentrada en 2 sitios, cambiar uno mueve el resultado decenas de puntos.
+- **No está demostrado que el hueco sea mexicano.** No se midieron sitios de España o Argentina. La hipótesis alternativa —que los medios pequeños están peor cubiertos en todas partes— sigue viva y es plausible.
+- **Que un sitio no tenga regla propia no significa que muestre anuncios.**
 
 ## Compromisos
 
@@ -52,7 +57,8 @@ Este trabajo se apoya en EasyList, EasyPrivacy y la lista de Peter Lowe. Ver [AT
 
 | | |
 |---|---|
-| Reglas | 0 |
+| Reglas | 2, ambas verificadas |
+| Sitios cubiertos | 2 de 9 medidos (los otros 7 ya los cubren las listas base) |
 | Publicada | No |
 | Licencia ratificada por el equipo | **Pendiente** |
 | Mantenimiento comprometido | **Pendiente por escrito** |

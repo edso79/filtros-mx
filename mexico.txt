@@ -1,18 +1,19 @@
 [Adblock Plus 2.0]
 ! Title: Lista México
 ! Description: Curaduría de filtros publicitarios para sitios mexicanos. Complemento de EasyList y EasyPrivacy, no sustituto.
-! Version: 2026.0730.0
+! Version: 2026.0730.1
 ! Last modified: 2026-07-30T00:00:00Z
 ! Expires: 4 days
 ! Homepage: PENDIENTE
 ! License: https://www.gnu.org/licenses/gpl-3.0.txt
 !
 ! ===========================================================================
-! ESTA LISTA ESTÁ VACÍA A PROPÓSITO.
+! 2 reglas, ambas verificadas en el sitio real el 30-jul-2026.
 !
-! No contiene ninguna regla todavía. Las reglas de filtrado se escriben
-! observando sitios reales, no de memoria: una regla inventada rompe páginas
-! y el usuario no sabe por qué. Ver CONTRIBUIR.md antes de agregar la primera.
+! Toda regla se escribe observando el sitio, nunca de memoria: una regla
+! inventada rompe páginas y el usuario culpa al sitio, no al bloqueador.
+! Cada una lleva encima su respaldo con sitio, fecha y resultado de la prueba
+! de recarga. Sin respaldo no entra. Ver CONTRIBUIR.md.
 ! ===========================================================================
 !
 ! CÓMO SE USA
@@ -75,6 +76,21 @@
 ! --- Noticias nacionales ---
 
 ! --- Noticias locales y regionales ---
+
+!   elsiglodetorreon.com.mx — verificado 2026-07-30. Envoltorio propio de sus 9
+!   contenedores publicitarios (#portadaA..#portadaN). Ninguna lista lo cubre:
+!   EasyList Spanish trae ".pub" y el sitio usa ".lapub" — falla por dos letras.
+!   Prueba de recarga: sin perdida de titulares, enlaces, imagenes ni texto;
+!   cierra 546 px de hueco. documentos/medicion-eje-visual-2026-07-30.md
+elsiglodetorreon.com.mx##.lapub
+
+!   zocalo.com.mx — verificado 2026-07-30. Envoltorio del plugin Advanced Ads de
+!   WordPress: los contenedores llevan data-advadstrackid y rutas de Google Ad
+!   Manager. 14 unidades sin cubrir por ninguna lista.
+!   Prueba de recarga: sin perdida de titulares, enlaces, imagenes ni texto;
+!   cierra 848 px de hueco. El <nav> que aparece colapsado es un desplegable
+!   cerrado por defecto, identico con y sin la regla.
+zocalo.com.mx##.banner-medio
 
 ! --- Farándula y entretenimiento ---
 
