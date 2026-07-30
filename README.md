@@ -8,7 +8,7 @@ Complemento de EasyList y EasyPrivacy con reglas para sitios mexicanos. **Gratui
 
 Medimos 9 sitios mexicanos el 30 de julio de 2026, ejecutando los selectores cosméticos de las cinco listas principales contra el DOM real de cada uno. Resultado: **las listas existentes ocultan el 79% del área publicitaria, y el 21% que sobrevive está concentrado en 2 de los 9 sitios.**
 
-Método, datos y límites: [`documentos/medicion-eje-visual-2026-07-30.md`](../documentos/medicion-eje-visual-2026-07-30.md).
+Método, datos y límites: [`MEDICION.md`](MEDICION.md).
 
 Lo que separa a un sitio cubierto de uno que no **no es la región, es el maquetado**:
 
