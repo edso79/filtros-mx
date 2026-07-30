@@ -69,6 +69,28 @@ Ampliado el mismo día a regionales mexicanos, con la métrica de área acotada 
 
 Ese conteo por sitios —5 de 14— es más robusto que cualquier porcentaje de área, porque no depende de la métrica que cambió a mitad del ejercicio.
 
+## Tercera pasada: 3 sitios más, y dos refinamientos del método
+
+| Sitio | Resultado |
+|---|---|
+| `tribuna.com.mx` | **Cubierto.** Lo que sobrevive son iframes de Google Ad Manager, no envoltorios — ver refinamiento 1 |
+| `eldiariodechihuahua.mx` | **8 contenedores `.banner` sin cubrir**, todos con `<p>Publicidad</p>` y slot `div-gpt-ad`. Regla escrita |
+| `lajornadamaya.mx` | **Sin publicidad.** Cero iframes, solo analítica. No es un cero del instrumento: es un sitio sin anuncios |
+
+**Corpus mexicano: 17 sitios.**
+
+### Refinamiento 1 — un iframe publicitario que sobrevive al filtro cosmético no es fuga
+
+En `tribuna.com.mx` sobrevivían tres `google_ads_iframe_…` de 300x250. **No cuentan**: son el anuncio mismo, no su envoltorio, y la regla de red mata la petición antes de que se rendericen.
+
+La distinción importa y estaba implícita: **solo cuenta como fuga un envoltorio que ocupa espacio con independencia de si el anuncio carga.** Todas las reglas escritas hasta hoy apuntan a envoltorios, así que ninguna cambia — pero la regla queda escrita para que nadie cuente iframes como hueco.
+
+### Refinamiento 2 — un cero puede ser verdadero, y hay que distinguirlo
+
+`lajornadamaya.mx` devolvió cero unidades. Tras el falso cero de `elsiglodetorreon.com.mx`, la disciplina obliga a inspeccionar: cero iframes, ningún contenedor publicitario, y de terceros solo `googletagmanager`, `analytics.google.com` y Cloudflare Insights. **El sitio no tiene publicidad.**
+
+Un cero verdadero y un cero del instrumento se ven igual en el resultado. Solo los separa mirar el DOM.
+
 ## Lo que discrimina no es la región: es el maquetado
 
 La tentación es concluir "los medios regionales están desatendidos". **El dato lo desmiente:** `elimparcial.com`, regional de Sonora, sale al 100%.

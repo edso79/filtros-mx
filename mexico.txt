@@ -1,14 +1,14 @@
 [Adblock Plus 2.0]
 ! Title: Lista México
 ! Description: Curaduría de filtros publicitarios para sitios mexicanos. Complemento de EasyList y EasyPrivacy, no sustituto.
-! Version: 2026.0730.3
+! Version: 2026.0730.4
 ! Last modified: 2026-07-30T00:00:00Z
 ! Expires: 4 days
 ! Homepage: PENDIENTE
 ! License: https://www.gnu.org/licenses/gpl-3.0.txt
 !
 ! ===========================================================================
-! 4 reglas, todas verificadas en el sitio real el 30-jul-2026.
+! 6 reglas, todas verificadas en el sitio real el 30-jul-2026.
 !
 ! Toda regla se escribe observando el sitio, nunca de memoria: una regla
 ! inventada rompe páginas y el usuario culpa al sitio, no al bloqueador.
@@ -32,7 +32,7 @@
 ! regionales de España y Argentina salieron entre 32% y 46% de cobertura,
 ! peor que el promedio mexicano (30-jul-2026). El hueco es de los medios
 ! pequeños en cualquier país. Y no se afirma que esta lista bloquee más ni
-! mejor que ninguna otra: de 14 sitios mexicanos medidos, 8 los resuelven al
+! mejor que ninguna otra: de 17 sitios mexicanos medidos, 9 los resuelven al
 ! 100% las listas existentes y ahí esta lista no aporta nada. Que un sitio no
 ! tenga regla propia no significa que muestre anuncios.
 !
@@ -111,6 +111,17 @@ periodicocorreo.com.mx##.zone-ads
 !   contenedores reservan alto (min-height:165px), no observado con anuncio
 !   servido. Revisar en una carga con inventario lleno.
 elmanana.com.mx##.ad-zone
+
+!   eldiariodechihuahua.mx — verificado 2026-07-30. Los 8 elementos .banner del
+!   sitio contienen "<p>Publicidad</p>" y un slot div-gpt-ad: 8 de 8, ninguno
+!   es contenido editorial. Se incluye .side-banner-home porque envuelve a uno
+!   y quedaria con hueco residual.
+!   Prueba de recarga: sin perdida de titulares, enlaces ni imagenes; cierra
+!   561 px. Los 87 caracteres perdidos son las etiquetas "PUBLICIDAD".
+!   OJO: ".banner" es una clase generica y aqui solo es seguro porque se
+!   comprobo uno por uno EN ESTE sitio. No promoverla a regla generica.
+eldiariodechihuahua.mx##.banner
+eldiariodechihuahua.mx##.side-banner-home
 
 ! --- Farándula y entretenimiento ---
 

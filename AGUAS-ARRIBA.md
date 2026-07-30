@@ -48,7 +48,15 @@ EasyList recibe reportes en el rastreador de incidencias de su repositorio. Un r
 > **Regla propuesta:** `elmanana.com.mx##.ad-zone`
 > **Verificado el 30-jul-2026 como seguro**, sin pérdida de nada. **Reportar con la salvedad:** al medir, los espacios estaban sin llenar y la página no encogió. El beneficio está inferido de que reservan alto (`min-height:165px`), no observado con anuncio servido. Conviene volver a mirarlo con inventario lleno antes de reportar.
 
-### 5. Global, no regional — proveedores que EasyList aún no alcanza
+### 5. `eldiariodechihuahua.mx` — contenedores `.banner`
+
+> **Sitio:** https://www.eldiariodechihuahua.mx
+> **Qué pasa:** los 8 elementos `.banner` del sitio contienen `<p>Publicidad</p>` y un slot `div-gpt-ad`. **8 de 8**; ninguno es contenido editorial. `.side-banner-home` envuelve a uno y quedaría con hueco residual.
+> **Reglas propuestas:** `eldiariodechihuahua.mx##.banner` y `eldiariodechihuahua.mx##.side-banner-home`
+> **Verificado el 30-jul-2026:** sin pérdida de titulares, enlaces ni imágenes. Cierra 561 px. Los 87 caracteres perdidos son las etiquetas "PUBLICIDAD".
+> **Advertir al reportar:** `.banner` es una clase genérica. Aquí solo es segura porque se comprobó elemento por elemento en este sitio. No proponerla como regla genérica.
+
+### 6. Global, no regional — proveedores que EasyList aún no alcanza
 
 Observados en `unotv.com`, no cubiertos por EasyList ni EasyPrivacy. **No son mexicanos**, así que su sitio natural es EasyPrivacy, no una lista regional:
 
@@ -60,6 +68,20 @@ Observados en `unotv.com`, no cubiertos por EasyList ni EasyPrivacy. **No son me
 **Les falta la prueba de recarga.** No reportar hasta hacerla.
 
 ---
+
+## Un patrón que puede valer más que las cinco reglas juntas
+
+`periodicocorreo.com.mx` (Guanajuato) y `eldiariodechihuahua.mx` (Chihuahua) comparten el mismo maquetado publicitario, hasta en los nombres de clase:
+
+```html
+<p>Publicidad</p>
+<div class="mr-banner">
+  <div id="div-gpt-ad-…">
+```
+
+Dos periódicos de estados distintos con `.mr-banner`, la misma etiqueta y la misma estructura **es un CMS o una agencia compartida**, no una coincidencia. Si atiende a más regionales mexicanos, una sola regla sobre ese patrón cubriría a todos de golpe.
+
+**Antes de proponer nada hay que averiguar cuántos sitios lo usan.** Con dos casos no se propone una regla que afecta a terceros. Es la pieza de mayor rendimiento pendiente, y es barata: buscar `.mr-banner` en los regionales que faltan por medir.
 
 ## Una pista que NO se reporta todavía
 

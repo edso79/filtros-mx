@@ -2,11 +2,11 @@
 
 Complemento de EasyList y EasyPrivacy con reglas para sitios mexicanos. **Gratuita, abierta y sin versión de paga.**
 
-> **4 reglas. Cubre 4 sitios de 14 medidos.** Es un principio, no un producto terminado.
+> **6 reglas. Cubre 5 sitios de 17 medidos.** Es un principio, no un producto terminado.
 
 ## Qué es
 
-Medimos 14 sitios mexicanos el 30 de julio de 2026, ejecutando los selectores cosméticos de las cinco listas principales contra el DOM real de cada uno. Resultado: **8 quedan cubiertos al 100%, y 5 tienen al menos un contenedor publicitario que ninguna lista nombra.**
+Medimos 17 sitios mexicanos el 30 de julio de 2026, ejecutando los selectores cosméticos de las cinco listas principales contra el DOM real de cada uno. Resultado: **9 quedan cubiertos, 1 no tiene publicidad, y 6 tienen al menos un contenedor que ninguna lista nombra.**
 
 Método, datos y límites: [`MEDICION.md`](MEDICION.md).
 
@@ -14,8 +14,8 @@ Lo que separa a un sitio cubierto de uno que no **no es la región, es el maquet
 
 | Montaje de anuncios | Cobertura |
 |---|---|
-| Estándar — Google Ad Manager, Taboola, Freestar, adsbygoogle | ~100% |
-| Envoltorio propio o de plugin de WordPress | 0-22% |
+| Estándar — Google Ad Manager, Taboola, Freestar, adsbygoogle | Completa |
+| Envoltorio propio o de plugin de WordPress | Poca o ninguna |
 
 Las reglas genéricas nombran los contenedores estándar. No pueden nombrar una clase que se inventó un desarrollador. Ahí está el hueco, y es lo que esta lista atiende.
 
@@ -25,9 +25,9 @@ Las reglas genéricas nombran los contenedores estándar. No pueden nombrar una 
 
 ## Qué NO afirma
 
-- **México NO está peor cubierto que otros países, y lo medimos.** Tres regionales de España y Argentina salieron entre 32% y 46% de cobertura, *peor* que el promedio mexicano de 79%. El hueco es de los medios pequeños en cualquier país, no de México. Detalle: [`CONTROLES.md`](CONTROLES.md).
-- **No decimos que bloquee más ni mejor que ninguna otra lista.** En 8 de los 14 sitios medidos las listas existentes ya lo resuelven al 100%, y ahí esta lista no aporta nada.
-- **La medición es de 14 sitios elegidos a mano.** No es una estimación poblacional: con la fuga concentrada en pocos sitios, cambiar uno mueve el resultado.
+- **México NO está peor cubierto que otros países, y lo medimos.** En tres regionales de España y Argentina sobreviven contenedores propios sin cubrir, igual que en los mexicanos. El hueco es de los medios pequeños en cualquier país, no de México. Detalle: [`CONTROLES.md`](CONTROLES.md).
+- **No decimos que bloquee más ni mejor que ninguna otra lista.** En 9 de los 17 sitios medidos las listas existentes ya lo resuelven, y ahí esta lista no aporta nada.
+- **La medición es de 17 sitios elegidos a mano.** No es una estimación poblacional: con la fuga concentrada en pocos sitios, cambiar uno mueve el resultado.
 - **Que un sitio no tenga regla propia no significa que muestre anuncios.**
 
 ## Por qué existe entonces
@@ -69,8 +69,8 @@ Este trabajo se apoya en EasyList, EasyPrivacy y la lista de Peter Lowe. Ver [AT
 
 | | |
 |---|---|
-| Reglas | 4, todas verificadas |
-| Sitios cubiertos | 4 de 14 medidos (8 los cubren ya las listas base) |
+| Reglas | 6, todas verificadas |
+| Sitios cubiertos | 5 de 17 medidos (9 los cubren ya las listas base) |
 | Publicada | No |
 | Licencia ratificada por el equipo | **Pendiente** |
 | Mantenimiento comprometido | **Pendiente por escrito** |
