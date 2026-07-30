@@ -20,10 +20,14 @@ EasyList recibe reportes en el rastreador de incidencias de su repositorio. Un r
 
 ## Pendientes de reportar
 
-### 1. `elsiglodetorreon.com.mx` — contenedores `.lapub`
+### 1. `elsiglodetorreon.com.mx` — **la regla que ya existe quedó obsoleta**
+
+Este no es un hueco sin cubrir: es una regla suya que dejó de funcionar. Conviene reportarlo así, porque es más útil y más fácil de aceptar.
 
 > **Sitio:** https://www.elsiglodetorreon.com.mx
-> **Qué pasa:** los 9 contenedores publicitarios del sitio (`#portadaA` … `#portadaN`) usan la clase `.lapub`. EasyList Spanish trae la regla `.pub`, que no coincide.
+> **Regla existente:** `elsiglodetorreon.com.mx##.col-4 > div.bg-light:has(> div.pub)`
+> **Qué pasa:** ese selector **coincide con 0 elementos** en el sitio actual, comprobado el 30-jul-2026 en un navegador con soporte de `:has()` (control: `div:has(> div)` coincide con 40 elementos, así que el soporte no es el problema). El sitio tampoco tiene ningún `.pub`.
+> **Lo que sí hay:** 15 contenedores con clase `.lapub`, 8 de ellos visibles.
 > **Regla propuesta:** `elsiglodetorreon.com.mx##.lapub`
 > **Verificado el 30-jul-2026:** sin pérdida de titulares, enlaces, imágenes ni texto. Cierra 546 px de alto.
 
@@ -48,13 +52,16 @@ EasyList recibe reportes en el rastreador de incidencias de su repositorio. Un r
 > **Regla propuesta:** `elmanana.com.mx##.ad-zone`
 > **Verificado el 30-jul-2026 como seguro**, sin pérdida de nada. **Reportar con la salvedad:** al medir, los espacios estaban sin llenar y la página no encogió. El beneficio está inferido de que reservan alto (`min-height:165px`), no observado con anuncio servido. Conviene volver a mirarlo con inventario lleno antes de reportar.
 
-### 5. `eldiariodechihuahua.mx` — contenedores `.banner`
+### 5. `eldiariodechihuahua.mx` — **añadir el dominio a una regla que ya existe**
+
+El reporte más barato de todos: no hace falta regla nueva, solo un dominio más en una que ya mantienen.
 
 > **Sitio:** https://www.eldiariodechihuahua.mx
-> **Qué pasa:** los 8 elementos `.banner` del sitio contienen `<p>Publicidad</p>` y un slot `div-gpt-ad`. **8 de 8**; ninguno es contenido editorial. `.side-banner-home` envuelve a uno y quedaría con hueco residual.
-> **Reglas propuestas:** `eldiariodechihuahua.mx##.banner` y `eldiariodechihuahua.mx##.side-banner-home`
+> **Qué pasa:** sus 8 elementos `.banner` contienen `<p>Publicidad</p>` y un slot `div-gpt-ad` — 8 de 8, ninguno editorial. El sitio **no aparece en ninguna regla de ninguna lista**.
+> **Lo que ya existe:** una regla multi-dominio que termina en `##.banner` y que ya incluye `diario.mx`, `elimparcial.com`, `informador.mx`, `laverdadnoticias.com` y unos sesenta más.
+> **Petición:** **añadir `eldiariodechihuahua.mx` a esa lista de dominios.** Es el mismo CMS que `diario.mx`, que ya está dentro.
 > **Verificado el 30-jul-2026:** sin pérdida de titulares, enlaces ni imágenes. Cierra 561 px. Los 87 caracteres perdidos son las etiquetas "PUBLICIDAD".
-> **Advertir al reportar:** `.banner` es una clase genérica. Aquí solo es segura porque se comprobó elemento por elemento en este sitio. No proponerla como regla genérica.
+> **Aparte:** `.side-banner-home` envuelve a uno de los ocho y quedaría con hueco residual. Si aceptan, proponer también `eldiariodechihuahua.mx##.side-banner-home`.
 
 ### 6. Global, no regional — proveedores que EasyList aún no alcanza
 
@@ -69,19 +76,23 @@ Observados en `unotv.com`, no cubiertos por EasyList ni EasyPrivacy. **No son me
 
 ---
 
-## Un patrón que puede valer más que las cinco reglas juntas
+## El patrón `.mr-banner`: rastreado y descartado como regla genérica
 
-`periodicocorreo.com.mx` (Guanajuato) y `eldiariodechihuahua.mx` (Chihuahua) comparten el mismo maquetado publicitario, hasta en los nombres de clase:
+La hipótesis era que `.mr-banner` fuera la firma de un CMS extendido, y que **una sola regla cubriera decenas de medios**. Se rastreó el 30-jul-2026 y **no se sostiene.**
 
-```html
-<p>Publicidad</p>
-<div class="mr-banner">
-  <div id="div-gpt-ad-…">
-```
+**La firma real del CMS** no es la clase, es la ruta: sirve sus recursos desde `/core/<slug>/assets/` y declara `<meta name="application-name">`.
 
-Dos periódicos de estados distintos con `.mr-banner`, la misma etiqueta y la misma estructura **es un CMS o una agencia compartida**, no una coincidencia. Si atiende a más regionales mexicanos, una sola regla sobre ese patrón cubriría a todos de golpe.
+| Sitio | Huella | Veredicto |
+|---|---|---|
+| `periodicocorreo.com.mx` | `/core/correo/assets` | Confirmado |
+| `eldiariodechihuahua.mx` | `/core/dch/assets` | Confirmado |
+| `diario.mx` | `/core/dmx/assets` | Confirmado — **y ya está cubierto** |
 
-**Antes de proponer nada hay que averiguar cuántos sitios lo usan.** Con dos casos no se propone una regla que afecta a terceros. Es la pieza de mayor rendimiento pendiente, y es barata: buscar `.mr-banner` en los regionales que faltan por medir.
+**3 de 36 sitios mexicanos probados.** El CMS existe y es identificable, pero es angosto: no da para una regla genérica, y de los tres, dos ya tienen regla propia en esta lista y el tercero ya lo cubre EasyList.
+
+**Conclusión: no se propone ninguna regla genérica sobre `.mr-banner`.** Una regla que afecta a terceros necesita justificar su alcance, y el alcance resultó ser tres sitios.
+
+Lo que sí salió del rastreo, y vale más: descubrir que `diario.mx` ya está dentro de la regla multi-dominio `##.banner`, lo que convierte el reporte de `eldiariodechihuahua.mx` en "añadan un dominio" en vez de "acepten una regla nueva".
 
 ## Una pista que NO se reporta todavía
 

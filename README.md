@@ -19,7 +19,7 @@ Lo que separa a un sitio cubierto de uno que no **no es la región, es el maquet
 
 Las reglas genéricas nombran los contenedores estándar. No pueden nombrar una clase que se inventó un desarrollador. Ahí está el hueco, y es lo que esta lista atiende.
 
-> El caso que lo resume: EasyList Spanish trae la regla `.pub`; `elsiglodetorreon.com.mx` usa `.lapub`. **Falla por dos letras**, y con ella se quedan fuera los 9 contenedores publicitarios del sitio.
+> El caso que lo resume: EasyList tiene una regla para `elsiglodetorreon.com.mx`, y hoy **coincide con cero elementos** — quedó obsoleta cuando el sitio cambió su maquetado. Los contenedores son `.lapub`.
 
 **No sustituye a las listas base: se usa además de ellas.**
 

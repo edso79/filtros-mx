@@ -81,8 +81,10 @@
 ! --- Noticias locales y regionales ---
 
 !   elsiglodetorreon.com.mx — verificado 2026-07-30. Envoltorio propio de sus 9
-!   contenedores publicitarios (#portadaA..#portadaN). Ninguna lista lo cubre:
-!   EasyList Spanish trae ".pub" y el sitio usa ".lapub" — falla por dos letras.
+!   contenedores publicitarios (#portadaA..#portadaN). Ninguna regla vigente los alcanza:
+!   EasyList tiene una regla para el sitio —".col-4 > div.bg-light:has(> div.pub)"—
+!   que el 30-jul-2026 coincide con CERO elementos: quedo obsoleta. Comprobado
+!   con soporte de :has() activo (control: "div:has(> div)" da 40).
 !   Prueba de recarga: sin perdida de titulares, enlaces, imagenes ni texto;
 !   cierra 546 px de hueco. Ver MEDICION.md
 elsiglodetorreon.com.mx##.lapub
