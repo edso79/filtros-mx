@@ -53,6 +53,22 @@ La versión corregida reconoce además contenedores propios por sus clases (`lap
 
 **Sobrevive el 21% del área publicitaria.** Y está concentrada: de 1,881,732 px² visibles, **1,714,766 —el 91%— están en `elsiglodetorreon.com.mx` y `zocalo.com.mx`.**
 
+## Segunda pasada: 5 sitios más
+
+Ampliado el mismo día a regionales mexicanos, con la métrica de área acotada al alto de ventana (ver limitación 1 en `controles-espana-argentina-2026-07-30.md`):
+
+| Sitio | Unidades | % oculto | Contenedor sin cubrir |
+|---|---|---|---|
+| `vanguardia.com.mx` | 8 | **100%** | — |
+| `am.com.mx` | 9 | **100%** | — |
+| `noroeste.com.mx` | 1 | **100%** | — |
+| `periodicocorreo.com.mx` | 11 | **64%** | `.zone-ads` (3 unidades, hasta 300x804) |
+| `elmanana.com.mx` | 1 | **0%** | `.ad-zone` (12 contenedores) |
+
+**Corpus mexicano acumulado: 14 sitios.** Ocho quedan al 100% y **cinco tienen al menos un contenedor publicitario que ninguna lista cubre**: `elsiglodetorreon.com.mx`, `zocalo.com.mx`, `periodicocorreo.com.mx`, `elmanana.com.mx` y `eluniversal.com.mx` (`.aviopo-banner`, 300x497).
+
+Ese conteo por sitios —5 de 14— es más robusto que cualquier porcentaje de área, porque no depende de la métrica que cambió a mitad del ejercicio.
+
 ## Lo que discrimina no es la región: es el maquetado
 
 La tentación es concluir "los medios regionales están desatendidos". **El dato lo desmiente:** `elimparcial.com`, regional de Sonora, sale al 100%.
