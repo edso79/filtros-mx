@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Lista México
 ! Description: Curaduría de filtros publicitarios para sitios mexicanos. Complemento de EasyList y EasyPrivacy, no sustituto.
-! Version: 2026.0730.1
+! Version: 2026.0730.2
 ! Last modified: 2026-07-30T00:00:00Z
 ! Expires: 4 days
 ! Homepage: PENDIENTE
@@ -22,16 +22,19 @@
 ! globales; esta atiende lo que queda fuera en sitios mexicanos.
 !
 ! POR QUÉ EXISTE
-! Los dominios .mx reciben poca atención de curaduría en las listas en
-! español, que atienden sobre todo a España, Argentina y Brasil. Medido el
-! 29-jul-2026: 117 de 3,459 referencias en EasyList Spanish, 75 de ~6,750 en
-! el filtro español/portugués de AdGuard.
+! Porque estos sitios tienen publicidad visible que ninguna lista cubre. Las
+! reglas genéricas nombran los montajes publicitarios estándar y no pueden
+! nombrar una clase que se inventó un desarrollador. Se trabajan sitios
+! mexicanos porque son los que conocemos y podemos verificar.
 !
 ! LO QUE ESTA LISTA NO AFIRMA
-! No se afirma que bloquee más ni mejor que ninguna otra lista. Que un sitio
-! no tenga regla propia no significa que muestre anuncios. Hasta que haya
-! medición publicada, esta lista es una contribución, no una mejora
-! demostrada.
+! MÉXICO NO ESTÁ PEOR CUBIERTO QUE OTROS PAÍSES, y está medido: tres
+! regionales de España y Argentina salieron entre 32% y 46% de cobertura,
+! peor que el promedio mexicano de 79% (30-jul-2026). El hueco es de los
+! medios pequeños en cualquier país. No se afirma que esta lista bloquee más
+! ni mejor que ninguna otra: en 6 de 9 sitios medidos las listas existentes
+! ya resuelven al 100%. Que un sitio no tenga regla propia no significa que
+! muestre anuncios.
 !
 ! ATRIBUCIÓN
 ! Deriva de trabajo previo de EasyList, EasyPrivacy y Peter Lowe. Ver
@@ -81,7 +84,7 @@
 !   contenedores publicitarios (#portadaA..#portadaN). Ninguna lista lo cubre:
 !   EasyList Spanish trae ".pub" y el sitio usa ".lapub" — falla por dos letras.
 !   Prueba de recarga: sin perdida de titulares, enlaces, imagenes ni texto;
-!   cierra 546 px de hueco. documentos/medicion-eje-visual-2026-07-30.md
+!   cierra 546 px de hueco. Ver MEDICION.md
 elsiglodetorreon.com.mx##.lapub
 
 !   zocalo.com.mx — verificado 2026-07-30. Envoltorio del plugin Advanced Ads de
@@ -114,7 +117,7 @@ zocalo.com.mx##.banner-medio
 !
 ! Observadas en unotv.com el 30-jul-2026, en dos cargas independientes, y
 ! confirmadas como no cubiertas por EasyList, EasyPrivacy ni EasyList Spanish.
-! Medición completa: documentos/medicion-unotv-2026-07-30.md
+! Comprobado contra las tres listas descargadas ese dia.
 !
 ! NO están activas porque falta lo que CONTRIBUIR.md exige y no se hizo:
 ! recargar el sitio CON la regla aplicada y comprobar que nada más se rompe.

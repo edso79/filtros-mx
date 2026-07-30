@@ -17,7 +17,7 @@ Lo que separa a un sitio cubierto de uno que no **no es la región, es el maquet
 | Estándar — Google Ad Manager, Taboola, Freestar, adsbygoogle | ~100% |
 | Envoltorio propio o de plugin de WordPress | 0-22% |
 
-Las reglas genéricas nombran los contenedores estándar. No pueden nombrar una clase que se inventó un desarrollador en Torreón. Ahí está el hueco, y es lo que esta lista atiende.
+Las reglas genéricas nombran los contenedores estándar. No pueden nombrar una clase que se inventó un desarrollador. Ahí está el hueco, y es lo que esta lista atiende.
 
 > El caso que lo resume: EasyList Spanish trae la regla `.pub`; `elsiglodetorreon.com.mx` usa `.lapub`. **Falla por dos letras**, y con ella se quedan fuera los 9 contenedores publicitarios del sitio.
 
@@ -25,10 +25,16 @@ Las reglas genéricas nombran los contenedores estándar. No pueden nombrar una 
 
 ## Qué NO afirma
 
+- **México NO está peor cubierto que otros países, y lo medimos.** Tres regionales de España y Argentina salieron entre 32% y 46% de cobertura, *peor* que el promedio mexicano de 79%. El hueco es de los medios pequeños en cualquier país, no de México. Detalle: [`CONTROLES.md`](CONTROLES.md).
 - **No decimos que bloquee más ni mejor que ninguna otra lista.** En 6 de los 9 sitios medidos las listas existentes ya lo resuelven al 100%, y ahí esta lista no aporta nada.
 - **La medición es de 9 sitios elegidos a mano.** El 21% no es una estimación poblacional: con la fuga concentrada en 2 sitios, cambiar uno mueve el resultado decenas de puntos.
-- **No está demostrado que el hueco sea mexicano.** No se midieron sitios de España o Argentina. La hipótesis alternativa —que los medios pequeños están peor cubiertos en todas partes— sigue viva y es plausible.
 - **Que un sitio no tenga regla propia no significa que muestre anuncios.**
+
+## Por qué existe entonces
+
+Porque estos sitios tienen publicidad visible que ninguna lista cubre, y alguien tiene que escribir las reglas. Se trabajan sitios mexicanos porque son los que conocemos y podemos verificar — no porque estén peor.
+
+**Y por eso mismo, lo que se pueda, se reporta aguas arriba a EasyList Spanish antes que quedarse aquí.** Si el problema es global, la regla sirve más allá donde la mantiene más gente.
 
 ## Compromisos
 
