@@ -94,6 +94,34 @@
 
 
 ! ===========================================================================
+! CANDIDATAS — DESACTIVADAS, LES FALTA EL PASO 4 DE CONTRIBUIR.md
+!
+! Observadas en unotv.com el 30-jul-2026, en dos cargas independientes, y
+! confirmadas como no cubiertas por EasyList, EasyPrivacy ni EasyList Spanish.
+! Medición completa: documentos/medicion-unotv-2026-07-30.md
+!
+! NO están activas porque falta lo que CONTRIBUIR.md exige y no se hizo:
+! recargar el sitio CON la regla aplicada y comprobar que nada más se rompe.
+! Para activarlas, hacer esa prueba y quitar el "! " del inicio de la línea.
+!
+! Advertencia de alcance: ninguna de las dos es mexicana. Freestar y Mantis
+! son proveedores globales. Lo correcto es reportarlas también a EasyList o
+! EasyPrivacy, donde sirven a todo el mundo y no solo a quien se suscriba aquí.
+!
+!   unotv.com — observado 2026-07-30, iframe de sincronizacion de cookies de
+!   Freestar (/load-cookie.html). No transporta contenido.
+! ||static.fsrv.io^
+!
+!   unotv.com — observado 2026-07-30, clasificacion contextual del articulo
+!   para segmentacion publicitaria de Freestar (/freestar/article/classification).
+! ||api.mantis-intelligence.com^
+!
+! NO BLOQUEAR, anotado para que nadie lo intente:
+!   cdn.amxinfra.com sirve las imagenes de las notas. Bloquearlo rompe el sitio.
+! ===========================================================================
+
+
+! ===========================================================================
 ! EXCEPCIONES
 ! Reglas que DESBLOQUEAN algo que una lista base rompió. Cada una necesita
 ! el motivo escrito: sin motivo no se sabe si sigue haciendo falta.
