@@ -126,6 +126,31 @@ Cuando un reporte se envíe, anotar aquí la fecha y el enlace. Cuando una regla
 
 ---
 
+# Enlaces de un clic
+
+Cada enlace abre el formulario de incidencia de EasyList Spanish **ya escrito** — título y cuerpo pre-llenados con los textos de arriba. Hace falta sesión de GitHub. El trabajo restante: revisar que se vea bien y pulsar **Submit new issue**.
+
+**Respetar el orden: mandar la 1 y la 2 primero.** Si esas dos entran, el canal funciona y las otras tres van después. No mandar las cinco de golpe.
+
+**1. eldiariodechihuahua.mx**
+[Abrir incidencia pre-llenada](https://github.com/easylist/easylistspanish/issues/new?title=eldiariodechihuahua.mx%3A%20add%20domain%20to%20existing%20%23%23.banner%20rule&body=This%20site%20is%20not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0AAll%208%20%60.banner%60%20elements%20on%20the%20homepage%20contain%20%60%3Cp%3EPublicidad%3C%2Fp%3E%60%20and%20a%20%60div-gpt-ad%60%20slot.%208%20of%208%20%E2%80%94%20none%20is%20editorial%20content.%0A%0AThe%20site%20runs%20the%20same%20CMS%20as%20diario.mx%20(both%20serve%20from%20%60%2Fcore%2F%3Cslug%3E%2Fassets%2F%60)%2C%20and%20diario.mx%20is%20already%20included%20in%20the%20existing%20multi-domain%20rule%20ending%20in%20%60%23%23.banner%60.%0A%0ARequest%3A%20add%20%60eldiariodechihuahua.mx%60%20to%20that%20domain%20list.%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%3A%20no%20loss%20of%20headlines%2C%20links%20or%20images.%20Closes%20561px.%20The%2087%20characters%20of%20text%20removed%20are%20the%20%22PUBLICIDAD%22%20labels%20inside%20the%20containers%20themselves.%0A%0AOptional%2C%20same%20site%3A%20%60eldiariodechihuahua.mx%23%23.side-banner-home%60%20wraps%20one%20of%20the%20eight%20and%20leaves%20residual%20space%20when%20the%20inner%20one%20is%20hidden.)
+
+**2. elsiglodetorreon.com.mx**
+[Abrir incidencia pre-llenada](https://github.com/easylist/easylistspanish/issues/new?title=elsiglodetorreon.com.mx%3A%20existing%20rule%20matches%20zero%20elements&body=The%20existing%20rule%20for%20this%20site%20no%20longer%20matches%20anything%3A%0A%0A%60%60%60%0Aelsiglodetorreon.com.mx%23%23.col-4%20%3E%20div.bg-light%3Ahas(%3E%20div.pub)%0A%60%60%60%0A%0AVerified%202026-07-30%20in%20a%20browser%20with%20%60%3Ahas()%60%20support%20(control%20selector%20%60div%3Ahas(%3E%20div)%60%20matched%2040%20elements%2C%20so%20support%20is%20not%20the%20issue).%20The%20selector%20matches%200%20elements%2C%20and%20the%20site%20has%20no%20%60.pub%60%20elements%20at%20all.%0A%0AThe%20ad%20containers%20are%20now%20%60.lapub%60%20%E2%80%94%2015%20of%20them%2C%208%20visible%20on%20the%20homepage%2C%20ids%20%60%23portadaA%60%20through%20%60%23portadaN%60.%0A%0AProposed%20replacement%3A%0A%0A%60%60%60%0Aelsiglodetorreon.com.mx%23%23.lapub%0A%60%60%60%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%20or%20text.%20Closes%20546px%20of%20vertical%20space.)
+
+**3. zocalo.com.mx**
+[Abrir incidencia pre-llenada](https://github.com/easylist/easylistspanish/issues/new?title=zocalo.com.mx%3A%20uncovered%20ad%20containers%20(.banner-medio)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0A14%20ad%20containers%20wrapped%20in%20%60.banner-medio%60.%20They%20carry%20the%20Advanced%20Ads%20WordPress%20plugin%20attribute%20%60data-advadstrackid%60%20and%20Google%20Ad%20Manager%20paths.%0A%0AProposed%20rule%3A%0A%0A%60%60%60%0Azocalo.com.mx%23%23.banner-medio%0A%60%60%60%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%20or%20text.%20Closes%20848px.%0A%0ANote%3A%20a%20%60%3Cnav%3E%60%20shows%20as%20collapsed%20after%20applying%20the%20rule.%20It%20is%20a%20dropdown%20that%20is%20closed%20by%20default%20%E2%80%94%20identical%20with%20and%20without%20the%20rule.)
+
+**4. periodicocorreo.com.mx**
+[Abrir incidencia pre-llenada](https://github.com/easylist/easylistspanish/issues/new?title=periodicocorreo.com.mx%3A%20uncovered%20ad%20containers%20(.zone-ads)&body=The%20site%20has%203%20existing%20rules%2C%20none%20of%20which%20covers%20its%20ad%20zones.%0A%0A4%20%60.zone-ads%60%20containers%2C%20each%20holding%20%60%3Cp%3EPublicidad%3C%2Fp%3E%60%2C%20adsbygoogle%20and%20%60div-gpt-ad%60%20slots.%20Three%20remain%20visible%2C%20at%20300x310%20and%20300x804%20in%20the%20sidebar.%0A%0AProposed%20rule%3A%0A%0A%60%60%60%0Aperiodicocorreo.com.mx%23%23.zone-ads%0A%60%60%60%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%3A%20no%20loss%20of%20headlines%2C%20links%20or%20images.%20Closes%2092px.%20The%2086%20characters%20of%20text%20removed%20are%20the%20%22Publicidad%22%20labels%20inside%20the%20zones%20themselves.)
+
+**5. elmanana.com.mx**
+[Abrir incidencia pre-llenada](https://github.com/easylist/easylistspanish/issues/new?title=elmanana.com.mx%3A%20uncovered%20ad%20containers%20(.ad-zone)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0A12%20%60.ad-zone%60%20containers%2C%20each%20holding%20a%20%60div%5Bdata-ad-slot%3D%22banner-N%22%5D%60.%0A%0AProposed%20rule%3A%0A%0A%60%60%60%0Aelmanana.com.mx%23%23.ad-zone%0A%60%60%60%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%20or%20text%20%E2%80%94%20the%20rule%20is%20safe.%0A%0ACaveat%2C%20stated%20up%20front%3A%20at%20the%20time%20of%20testing%20the%20slots%20were%20unfilled%2C%20so%20the%20page%20height%20did%20not%20change.%20The%20benefit%20is%20inferred%20from%20the%20containers%20reserving%20height%20(%60min-height%3A165px%60)%2C%20not%20observed%20with%20an%20ad%20served.%20Worth%20a%20second%20look%20on%20a%20page%20load%20with%20filled%20inventory.)
+
+Cuando una se envíe, anotar la fecha y el enlace de la incidencia en el **Registro** de arriba.
+
+---
+
 # Texto listo para pegar
 
 Los reportes de arriba explican el *por qué*. Lo de abajo es el *qué se pega*, uno por incidencia, en el rastreador de EasyList.
