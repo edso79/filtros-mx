@@ -2,8 +2,8 @@
 
 **Fecha:** 30 de julio de 2026
 **Pregunta:** con las listas que un usuario mexicano ya recibe, ¿cuánta superficie publicitaria sigue siendo visible?
-**Corpus:** 9 sitios mexicanos.
-**Resultado: sobrevive el 21% del área publicitaria, y el 91% de esa fuga está en 2 de los 9 sitios.**
+**Corpus final:** 17 sitios mexicanos, medidos en cuatro pasadas el mismo día. *(El documento es cronológico: cada pasada corrige a la anterior. Las cifras de una pasada no se comparan con las de otra — la métrica de área cambió a mitad del ejercicio.)*
+**Resultado: 9 sitios quedan cubiertos por las listas existentes, 1 no tiene publicidad, 6 tienen al menos un contenedor que ninguna lista nombra, y 1 de esos 6 resultó ser autopromoción del propio sitio.**
 
 ---
 
@@ -66,6 +66,8 @@ Ampliado el mismo día a regionales mexicanos, con la métrica de área acotada 
 | `elmanana.com.mx` | 1 | **0%** | `.ad-zone` (12 contenedores) |
 
 **Corpus mexicano acumulado: 14 sitios.** Ocho quedan al 100% y **cinco tienen al menos un contenedor publicitario que ninguna lista cubre**: `elsiglodetorreon.com.mx`, `zocalo.com.mx`, `periodicocorreo.com.mx`, `elmanana.com.mx` y `eluniversal.com.mx` (`.aviopo-banner`, 300x497).
+
+> **Precisión del 31-jul-2026 sobre `.aviopo-banner`:** al inspeccionarlo para escribirle regla resultó ser **autopromoción de primera parte** — un carrusel "Banner Aviso Oportuno" que enlaza a `empleos.eluniversal.com.mx`, el portal de clasificados del propio periódico. **No se le escribe regla:** ocultar la autopromoción de un sitio es una decisión de política distinta a ocultar publicidad, y EasyList tampoco lo hace. Queda contado como hueco *medido* pero excluido de la lista *a propósito*.
 
 Ese conteo por sitios —5 de 14— es más robusto que cualquier porcentaje de área, porque no depende de la métrica que cambió a mitad del ejercicio.
 

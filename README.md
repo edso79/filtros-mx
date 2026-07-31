@@ -6,7 +6,7 @@ Complemento de EasyList y EasyPrivacy con reglas para sitios mexicanos. **Gratui
 
 ## Qué es
 
-Medimos 17 sitios mexicanos el 30 de julio de 2026, ejecutando los selectores cosméticos de las cinco listas principales contra el DOM real de cada uno. Resultado: **9 quedan cubiertos, 1 no tiene publicidad, y 6 tienen al menos un contenedor que ninguna lista nombra.**
+Medimos 17 sitios mexicanos el 30 de julio de 2026, ejecutando los selectores cosméticos de las cinco listas principales contra el DOM real de cada uno. Resultado: **9 quedan cubiertos, 1 no tiene publicidad, y 6 tienen al menos un contenedor que ninguna lista nombra.** De esos 6, uno resultó ser autopromoción del propio sitio y se excluyó a propósito — los otros **5 son los que esta lista cubre**.
 
 Método, datos y límites: [`MEDICION.md`](MEDICION.md).
 

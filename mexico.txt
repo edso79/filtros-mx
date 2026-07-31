@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Filtros MX
 ! Description: Curaduría de filtros publicitarios para sitios mexicanos. Complemento de EasyList y EasyPrivacy, no sustituto.
-! Version: 2026.0731.1
+! Version: 2026.0731.2
 ! Last modified: 2026-07-31T00:00:00Z
 ! Expires: 4 days
 ! Homepage: https://github.com/edso79/filtros-mx
@@ -80,6 +80,13 @@
 ! ===========================================================================
 
 ! --- Noticias nacionales ---
+
+!   eluniversal.com.mx — SIN REGLA, a proposito (31-jul-2026). Su unico hueco
+!   medido (.aviopo-banner, 300x497) resulto ser autopromocion de primera
+!   parte: un carrusel que enlaza a empleos.eluniversal.com.mx, el portal de
+!   clasificados del propio periodico. Ocultar la autopromocion de un sitio
+!   es una decision de politica distinta a ocultar publicidad, y EasyList
+!   tampoco lo hace. Se anota para que nadie "complete" el hueco sin leer esto.
 
 ! --- Noticias locales y regionales ---
 

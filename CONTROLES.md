@@ -8,7 +8,7 @@
 
 ## Por qué este control
 
-La medición del eje visual encontró que las listas existentes dejan visible el 21% del área publicitaria en sitios mexicanos, concentrado en 2 de 9 sitios. Pero identificó también el mecanismo: **los sitios con contenedores publicitarios propios quedan sin cubrir, porque una regla genérica no puede nombrar una clase que se inventó un desarrollador.**
+La medición del eje visual encontró que en el corpus mexicano hay sitios cuyos contenedores publicitarios ninguna lista nombra *(al cierre del día: 6 de 17 sitios)*. Pero identificó también el mecanismo: **los sitios con contenedores publicitarios propios quedan sin cubrir, porque una regla genérica no puede nombrar una clase que se inventó un desarrollador.**
 
 Ese mecanismo **no tiene nada de mexicano**. Un desarrollador en Murcia o en La Plata puede inventarse una clase igual de bien. Si la hipótesis alternativa es cierta, la premisa que le quedaba al proyecto —*México está desatendido*— es falsa.
 
@@ -22,9 +22,7 @@ Era la última premisa sin falsificar. Se comprobó con el mismo instrumento, so
 | `eldia.com` (La Plata) | Argentina | **46%** | `.publi_trio_row` |
 | `eldiadecordoba.es` | España | **32%** | `.board-advertising` (12 unidades) |
 
-Contra el corpus mexicano, donde 6 de 9 sitios salieron a ~100% y el conjunto quedó en 79% cubierto.
-
-**Los tres controles están peor cubiertos que el promedio mexicano.**
+En el corpus mexicano, la mayoría de los sitios salieron cubiertos y una minoría con hueco *(al cierre: 6 de 17 con al menos un contenedor sin nombrar)*. **En los tres controles sobrevive al menos un contenedor propio sin cubrir — proporción de sitios afectados igual o peor que la mexicana.** *(Corrección del 31-jul-2026: esta sección comparaba porcentajes de área entre lotes con métrica distinta, cosa que el propio proyecto prohibió ese mismo día. Se reescribió en términos de conteo de sitios, que sí es comparable.)*
 
 Y el mecanismo es idéntico, hasta en el detalle de que los contenedores llevan nombre en español: `.publi_trio_row` en La Plata es hermano de `.lapub` en Torreón y de `.banner-medio` en Saltillo. Ninguna lista los nombra, en ningún país.
 
