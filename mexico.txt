@@ -125,6 +125,9 @@ elmanana.com.mx##.ad-zone
 !   OJO: ".banner" es una clase generica y aqui solo es seguro porque se
 !   comprobo uno por uno EN ESTE sitio. No promoverla a regla generica.
 eldiariodechihuahua.mx##.banner
+
+!   eldiariodechihuahua.mx — verificado 2026-07-30 en la misma prueba. Envuelve
+!   a uno de los ocho .banner y quedaria con hueco residual al ocultarlo.
 eldiariodechihuahua.mx##.side-banner-home
 
 ! --- Farándula y entretenimiento ---
