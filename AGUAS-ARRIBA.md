@@ -68,7 +68,7 @@ Este no es un hueco sin cubrir: es una regla suya que dejó de funcionar. Convie
 > **Sitio:** https://www.elmanana.com.mx
 > **Qué pasa:** 12 contenedores `.ad-zone`, cada uno con un `div[data-ad-slot="banner-N"]`.
 > **Regla propuesta:** `elmanana.com.mx##.ad-zone`
-> **Verificado el 30-jul-2026 como seguro**, sin pérdida de nada. **Reportar con la salvedad:** al medir, los espacios estaban sin llenar y la página no encogió. El beneficio está inferido de que reservan alto (`min-height:165px`), no observado con anuncio servido. Conviene volver a mirarlo con inventario lleno antes de reportar.
+> **Verificado el 30-jul-2026 como seguro**, sin pérdida de nada. **Revisado de nuevo el 31-jul en una segunda carga, día distinto: sigue sin llenar** — 12 contenedores, cero iframes — y el primero reserva una caja visible de 616x165. El beneficio ya es observado, no inferido: la regla quita cajas vacías reservadas. La salvedad va incluida en el texto del reporte.
 
 ### 5. `eldiariodechihuahua.mx` — **añadir el dominio a una regla que ya existe** ✅ ENVIADO: [#357](https://github.com/easylist/easylistspanish/issues/357)
 
@@ -152,7 +152,7 @@ Cada enlace abre el formulario de incidencia de EasyList Spanish **ya escrito** 
 [Abrir incidencia pre-llenada](https://github.com/easylist/easylistspanish/issues/new?title=periodicocorreo.com.mx%3A%20uncovered%20ad%20containers%20(.zone-ads)&body=The%20site%20has%203%20existing%20rules%2C%20none%20of%20which%20covers%20its%20ad%20zones.%0A%0A4%20%60.zone-ads%60%20containers%2C%20each%20holding%20%60%3Cp%3EPublicidad%3C%2Fp%3E%60%2C%20adsbygoogle%20and%20%60div-gpt-ad%60%20slots.%20Three%20remain%20visible%2C%20at%20300x310%20and%20300x804%20in%20the%20sidebar.%0A%0AProposed%20rule%3A%0A%0A%60%60%60%0Aperiodicocorreo.com.mx%23%23.zone-ads%0A%60%60%60%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%3A%20no%20loss%20of%20headlines%2C%20links%20or%20images.%20Closes%2092px.%20The%2086%20characters%20of%20text%20removed%20are%20the%20%22Publicidad%22%20labels%20inside%20the%20zones%20themselves.)
 
 **5. elmanana.com.mx**
-[Abrir incidencia pre-llenada](https://github.com/easylist/easylistspanish/issues/new?title=elmanana.com.mx%3A%20uncovered%20ad%20containers%20(.ad-zone)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0A12%20%60.ad-zone%60%20containers%2C%20each%20holding%20a%20%60div%5Bdata-ad-slot%3D%22banner-N%22%5D%60.%0A%0AProposed%20rule%3A%0A%0A%60%60%60%0Aelmanana.com.mx%23%23.ad-zone%0A%60%60%60%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%20or%20text%20%E2%80%94%20the%20rule%20is%20safe.%0A%0ACaveat%2C%20stated%20up%20front%3A%20at%20the%20time%20of%20testing%20the%20slots%20were%20unfilled%2C%20so%20the%20page%20height%20did%20not%20change.%20The%20benefit%20is%20inferred%20from%20the%20containers%20reserving%20height%20(%60min-height%3A165px%60)%2C%20not%20observed%20with%20an%20ad%20served.%20Worth%20a%20second%20look%20on%20a%20page%20load%20with%20filled%20inventory.)
+[Abrir incidencia pre-llenada](https://github.com/easylist/easylistspanish/issues/new?title=elmanana.com.mx%3A%20uncovered%20ad%20containers%20(.ad-zone)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0A12%20%60.ad-zone%60%20containers%2C%20each%20holding%20a%20%60div%5Bdata-ad-slot%3D%22banner-N%22%5D%60.%0A%0AProposed%20rule%3A%0A%0A%60%60%60%0Aelmanana.com.mx%23%23.ad-zone%0A%60%60%60%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%20or%20text%20%E2%80%94%20the%20rule%20is%20safe.%0A%0ACaveat%2C%20stated%20up%20front%3A%20on%20two%20separate%20page%20loads%20(2026-07-30%20and%202026-07-31)%20the%20slots%20were%20unfilled%3A%2012%20containers%2C%20zero%20ad%20iframes.%20The%20first%20container%20still%20reserves%20a%20visible%20616x165%20empty%20box%20(%60min-height%3A165px%60)%2C%20which%20is%20exactly%20what%20this%20rule%20removes.%20Not%20yet%20observed%20with%20an%20ad%20actually%20served.)
 
 Cuando una se envíe, anotar la fecha y el enlace de la incidencia en el **Registro** de arriba.
 
@@ -280,10 +280,7 @@ Proposed rule:
 Tested by applying the rule and reloading: no loss of headlines, links,
 images or text — the rule is safe.
 
-Caveat, stated up front: at the time of testing the slots were unfilled, so
-the page height did not change. The benefit is inferred from the containers
-reserving height (`min-height:165px`), not observed with an ad served.
-Worth a second look on a page load with filled inventory.
+Caveat, stated up front: on two separate page loads (2026-07-30 and 2026-07-31) the slots were unfilled: 12 containers, zero ad iframes. The first container still reserves a visible 616x165 empty box (min-height:165px), which is exactly what this rule removes. Not yet observed with an ad actually served.
 ```
 
 ---

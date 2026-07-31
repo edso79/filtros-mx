@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Filtros MX
 ! Description: Curaduría de filtros publicitarios para sitios mexicanos. Complemento de EasyList y EasyPrivacy, no sustituto.
-! Version: 2026.0731.2
+! Version: 2026.0731.3
 ! Last modified: 2026-07-31T00:00:00Z
 ! Expires: 4 days
 ! Homepage: https://github.com/edso79/filtros-mx
@@ -118,10 +118,10 @@ periodicocorreo.com.mx##.zone-ads
 !   elmanana.com.mx — verificado 2026-07-30. 12 contenedores .ad-zone, cada
 !   uno con un div data-ad-slot="banner-N" dentro. Ninguna lista los cubre.
 !   Prueba de recarga: sin perdida de titulares, enlaces, imagenes ni texto.
-!   AVISO: al medir estaban sin llenar, asi que la pagina no encogio. La
-!   regla esta verificada como SEGURA; su beneficio esta inferido de que los
-!   contenedores reservan alto (min-height:165px), no observado con anuncio
-!   servido. Revisar en una carga con inventario lleno.
+!   AVISO: en dos cargas de dias distintos (30 y 31 jul) los espacios estaban
+!   sin llenar — 12 contenedores, cero iframes — y el primero reserva una caja
+!   visible de 616x165. El beneficio observado es quitar cajas vacias
+!   reservadas; aun no se observa con anuncio servido.
 elmanana.com.mx##.ad-zone
 
 !   eldiariodechihuahua.mx — verificado 2026-07-30. Los 8 elementos .banner del
