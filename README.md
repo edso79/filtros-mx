@@ -41,17 +41,36 @@ Porque estos sitios tienen publicidad visible que ninguna lista cubre, y alguien
 1. **Nada se cobra.** No hay plan de paga, no hay funciones reservadas, no habrá.
 2. **Ningún anunciante puede pagar para pasar el filtro.** No existe ni existirá lista blanca pagada.
 3. **No se recolecta nada.** La lista es un archivo de texto: no ejecuta código, no reporta, no sabe quién la usa.
-4. **Si deja de mantenerse, se retira.** Una lista sin mantener es peor que ninguna — el usuario se cree protegido y no lo está. Si esto se abandona, se despublica y se dice.
+4. **Si deja de mantenerse, se retira.** Una lista sin mantener es peor que ninguna — el usuario se cree protegido y no lo está. Qué significa eso en concreto, y cada cuándo se revisa: [MANTENIMIENTO.md](MANTENIMIENTO.md).
 
-## Cómo suscribirse
+## Esto no es un bloqueador. Es una lista para tu bloqueador.
 
-Se agrega como lista personalizada en uBlock Origin, uBlock Origin Lite o AdGuard, pegando esta URL:
+**Filtros MX no se instala.** No es una extensión y no hay nada que descargar.
+
+Es un archivo de texto con reglas. Quien bloquea es tu bloqueador — **uBlock Origin**, uBlock Origin Lite o AdGuard — y esta lista le dice qué ocultar en unos sitios mexicanos que sus listas base no cubren.
+
+Si no tienes bloqueador, primero instala uno. **uBlock Origin** es gratuito, abierto y el más recomendado.
+
+## Cómo agregarla
+
+**En uBlock Origin** (Chrome, Firefox, Edge):
+
+1. Clic en el icono de uBlock Origin → el engrane (**Panel de control**)
+2. Pestaña **Listas de filtros**
+3. Hasta abajo, **Personalizado** → marca **Importar…**
+4. Pega esta URL en el recuadro:
 
 ```
 https://raw.githubusercontent.com/edso79/filtros-mx/main/mexico.txt
 ```
 
+5. **Aplicar cambios**
+
+**En AdGuard:** Configuración → Bloqueador de anuncios → Filtros → Filtros personalizados → Añadir filtro, y pega la misma URL.
+
 Funciona en cualquier bloqueador que acepte el formato de Adblock Plus.
+
+> **Déjala junto a las que ya tienes activadas, no en lugar de ellas.** Esta lista cubre 5 sitios; EasyList cubre decenas de miles. Sola no sirve de gran cosa.
 
 ## Cómo contribuir
 
@@ -79,6 +98,6 @@ Las licencias de las listas base se verificaron contra su fuente el 31-jul-2026 
 |---|---|
 | Reglas | 6, todas verificadas |
 | Sitios cubiertos | 5 de 17 medidos (9 los cubren ya las listas base) |
-| Publicada | No — falta crear el repositorio público |
-| Licencia ratificada | **Pendiente** |
-| Mantenimiento comprometido | **Pendiente por escrito** |
+| Publicada | Sí |
+| Licencia | GPLv3 |
+| Mantenimiento | Revisión mensual — ver [MANTENIMIENTO.md](MANTENIMIENTO.md) |
