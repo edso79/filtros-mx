@@ -57,4 +57,6 @@ Si una lista base rompe un sitio mexicano, la solución es una excepción (`@@||
 
 ## Reportar un anuncio no bloqueado
 
-*Pendiente: definir el canal cuando el proyecto se publique.* Lo mínimo que hay que pedir: el sitio, la URL exacta, una captura, y qué listas tenía activas quien reporta.
+Abrir una incidencia en https://github.com/edso79/filtros-mx/issues
+
+Lo mínimo que hay que incluir: el sitio, la URL exacta, una captura, y qué listas tenía activas quien reporta. Sin eso no se puede reproducir, y una regla que no se puede reproducir no se escribe.

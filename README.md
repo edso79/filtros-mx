@@ -1,4 +1,4 @@
-# Lista México — filtros publicitarios para sitios mexicanos
+# Filtros MX — filtros publicitarios para sitios mexicanos
 
 Complemento de EasyList y EasyPrivacy con reglas para sitios mexicanos. **Gratuita, abierta y sin versión de paga.**
 
@@ -45,9 +45,13 @@ Porque estos sitios tienen publicidad visible que ninguna lista cubre, y alguien
 
 ## Cómo suscribirse
 
-*Pendiente: falta la URL pública.*
+Se agrega como lista personalizada en uBlock Origin, uBlock Origin Lite o AdGuard, pegando esta URL:
 
-Cuando la haya, se agrega como lista personalizada en uBlock Origin, uBlock Origin Lite o AdGuard. Funciona en cualquier bloqueador que acepte el formato de Adblock Plus.
+```
+https://raw.githubusercontent.com/edso79/filtros-mx/main/mexico.txt
+```
+
+Funciona en cualquier bloqueador que acepte el formato de Adblock Plus.
 
 ## Cómo contribuir
 
@@ -61,9 +65,13 @@ Cuando una regla se acepte allá, **se retira de aquí**: dos copias de la misma
 
 ## Licencia y atribución
 
+Copyright (C) 2026 Edgar Alonso Sosa Camargo.
+
 GPLv3 — ver [LICENSE](LICENSE). Cualquier obra derivada se comparte igual.
 
-Este trabajo se apoya en EasyList, EasyPrivacy y la lista de Peter Lowe. Ver [ATRIBUCION.md](ATRIBUCION.md); la atribución es obligación legal, no cortesía.
+Las 6 reglas son originales: se escribieron observando sitios, no se copiaron de ninguna lista. **Esta lista no es obra derivada de EasyList ni de ninguna otra**, así que hoy no arrastra sus cláusulas — la GPLv3 es elección propia. Eso cambia en cuanto se copie o adapte una regla ajena.
+
+Las licencias de las listas base se verificaron contra su fuente el 31-jul-2026 y una afirmación resultó falsa. Ver [ATRIBUCION.md](ATRIBUCION.md).
 
 ## Estado
 
@@ -71,6 +79,6 @@ Este trabajo se apoya en EasyList, EasyPrivacy y la lista de Peter Lowe. Ver [AT
 |---|---|
 | Reglas | 6, todas verificadas |
 | Sitios cubiertos | 5 de 17 medidos (9 los cubren ya las listas base) |
-| Publicada | No |
-| Licencia ratificada por el equipo | **Pendiente** |
+| Publicada | No — falta crear el repositorio público |
+| Licencia ratificada | **Pendiente** |
 | Mantenimiento comprometido | **Pendiente por escrito** |

@@ -1,11 +1,12 @@
 [Adblock Plus 2.0]
-! Title: Lista México
+! Title: Filtros MX
 ! Description: Curaduría de filtros publicitarios para sitios mexicanos. Complemento de EasyList y EasyPrivacy, no sustituto.
-! Version: 2026.0731.0
+! Version: 2026.0731.1
 ! Last modified: 2026-07-31T00:00:00Z
 ! Expires: 4 days
-! Homepage: PENDIENTE
+! Homepage: https://github.com/edso79/filtros-mx
 ! License: https://www.gnu.org/licenses/gpl-3.0.txt
+! Copyright: (C) 2026 Edgar Alonso Sosa Camargo
 !
 ! ===========================================================================
 ! 6 reglas, todas verificadas en el sitio real el 30-jul-2026.
