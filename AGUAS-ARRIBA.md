@@ -49,21 +49,21 @@ Este no es un hueco sin cubrir: es una regla suya que dejó de funcionar. Convie
 > **Regla propuesta:** `elsiglodetorreon.com.mx##.lapub`
 > **Verificado el 30-jul-2026:** sin pérdida de titulares, enlaces, imágenes ni texto. Cierra 546 px de alto.
 
-### 2. `zocalo.com.mx` — contenedores `.banner-medio`
+### 2. `zocalo.com.mx` — contenedores `.banner-medio` ✅ ENVIADO: [#359](https://github.com/easylist/easylistspanish/issues/359)
 
 > **Sitio:** https://www.zocalo.com.mx
 > **Qué pasa:** 14 contenedores del plugin **Advanced Ads** de WordPress, con atributo `data-advadstrackid` y rutas de Google Ad Manager, envueltos en `.banner-medio`.
 > **Regla propuesta:** `zocalo.com.mx##.banner-medio`
 > **Verificado el 30-jul-2026:** sin pérdida de titulares, enlaces, imágenes ni texto. Cierra 848 px de alto.
 
-### 3. `periodicocorreo.com.mx` — contenedores `.zone-ads`
+### 3. `periodicocorreo.com.mx` — contenedores `.zone-ads` ✅ ENVIADO: [#360](https://github.com/easylist/easylistspanish/issues/360)
 
 > **Sitio:** https://periodicocorreo.com.mx
 > **Qué pasa:** 4 zonas `.zone-ads`, cada una con `<p>Publicidad</p>`, `adsbygoogle` y slots `div-gpt-ad`. Tres quedan visibles, de 300x310 y 300x804 en la columna lateral.
 > **Regla propuesta:** `periodicocorreo.com.mx##.zone-ads`
 > **Verificado el 30-jul-2026:** sin pérdida de titulares, enlaces ni imágenes. Cierra 92 px. Los 86 caracteres de texto que desaparecen son las etiquetas "Publicidad" de las propias zonas.
 
-### 4. `elmanana.com.mx` — contenedores `.ad-zone`
+### 4. `elmanana.com.mx` — contenedores `.ad-zone` ✅ ENVIADO: [#361](https://github.com/easylist/easylistspanish/issues/361)
 
 > **Sitio:** https://www.elmanana.com.mx
 > **Qué pasa:** 12 contenedores `.ad-zone`, cada uno con un `div[data-ad-slot="banner-N"]`.
@@ -126,8 +126,11 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 |---|---|---|---|
 | 2026-07-31 | `eldiariodechihuahua.mx` — añadir dominio a `##.banner` | [#357](https://github.com/easylist/easylistspanish/issues/357) | Abierta |
 | 2026-07-31 | `elsiglodetorreon.com.mx` — regla obsoleta, proponer `.lapub` | [#358](https://github.com/easylist/easylistspanish/issues/358) | Abierta |
+| 2026-07-31 | `zocalo.com.mx` — proponer `.banner-medio` | [#359](https://github.com/easylist/easylistspanish/issues/359) | Abierta |
+| 2026-07-31 | `periodicocorreo.com.mx` — proponer `.zone-ads` | [#360](https://github.com/easylist/easylistspanish/issues/360) | Abierta |
+| 2026-07-31 | `elmanana.com.mx` — proponer `.ad-zone` | [#361](https://github.com/easylist/easylistspanish/issues/361) | Abierta |
 
-Los otros tres reportes esperan a ver cómo se reciben estos dos.
+**Los cinco reportes están enviados.** Lo que quede por hacer ahora depende de la respuesta del mantenedor.
 
 Cuando una regla se acepte aguas arriba, **retirarla de `mexico.txt`**: mantener dos copias de la misma regla es trabajo duplicado y una de las dos se quedará vieja.
 
