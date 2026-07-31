@@ -10,11 +10,29 @@ Para dos personas cuyo riesgo principal es abandonar el proyecto, eso último no
 
 ---
 
-## Cómo se reporta
+## A dónde se manda — verificado el 31-jul-2026
 
-EasyList recibe reportes en el rastreador de incidencias de su repositorio. Un reporte útil lleva: la URL exacta, qué se ve, la regla propuesta y la prueba de que no rompe el sitio.
+**Los cinco reportes van a EasyList Spanish, no a EasyList.** Comprobado: la regla multi-dominio `##.banner` que ya incluye `diario.mx` vive en `easylistspanish.txt`, y todos nuestros sitios son de habla hispana.
 
-**No abrir un reporte sin haber hecho la prueba de recarga de `CONTRIBUIR.md`.** Un reporte con una regla sin verificar cuesta tiempo del voluntario que lo revise y quema credibilidad para el siguiente.
+Hay tres canales. Los dos primeros los declara la propia lista en su encabezado `! Please report...`:
+
+| Canal | Dónde | Cuándo conviene |
+|---|---|---|
+| **GitHub** | https://github.com/easylist/easylistspanish/issues | **El recomendado.** Queda rastro público, se puede editar, y es donde vive el archivo |
+| Foro | https://forums.lanik.us/viewforum.php?f=103 | Alternativa oficial. Requiere registro |
+| Correo | `easylistspanish@protonmail.com` | Si no quieres cuenta en ninguno de los dos |
+
+*(El foro respondió `HTTP 429` al comprobarlo — límite de peticiones, no caída. Con un navegador normal abre bien.)*
+
+**Escribe en inglés.** Los mantenedores de EasyList son internacionales; el foro español es para reportes de usuarios, pero las incidencias técnicas se leen mejor en inglés. Los textos de abajo ya están en inglés.
+
+**No abras un reporte sin haber hecho la prueba de recarga de `CONTRIBUIR.md`.** Un reporte con una regla sin verificar cuesta tiempo del voluntario que lo revise y quema credibilidad para el siguiente.
+
+### Por cuál empezar
+
+No los mandes los cinco de golpe. **Empieza por `eldiariodechihuahua.mx`** —solo pide añadir un dominio a una regla que ya mantienen— y por `elsiglodetorreon.com.mx`, que les avisa de que una regla suya lleva tiempo muerta. Son los dos más fáciles de aceptar.
+
+Si esos dos entran, ya sabes que el canal funciona y que los reportes están bien formados. Los otros tres van después.
 
 ---
 
