@@ -105,3 +105,140 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 ## Registro
 
 Cuando un reporte se envíe, anotar aquí la fecha y el enlace. Cuando una regla se acepte aguas arriba, **retirarla de `mexico.txt`**: mantener dos copias de la misma regla es trabajo duplicado y una de las dos se quedará vieja.
+
+---
+
+# Texto listo para pegar
+
+Los reportes de arriba explican el *por qué*. Lo de abajo es el *qué se pega*, uno por incidencia, en el rastreador de EasyList.
+
+**Una incidencia por sitio.** Agruparlas hace que se revisen más lento y que un rechazo arrastre a las demás.
+
+---
+
+### Incidencia 1 — `elsiglodetorreon.com.mx`
+
+**Título:** `elsiglodetorreon.com.mx — existing rule matches zero elements`
+
+```
+The existing rule for this site no longer matches anything:
+
+    elsiglodetorreon.com.mx##.col-4 > div.bg-light:has(> div.pub)
+
+Verified 2026-07-30 in a browser with :has() support (control selector
+`div:has(> div)` matched 40 elements, so support is not the issue).
+The selector matches 0 elements, and the site has no `.pub` elements at all.
+
+The ad containers are now `.lapub` — 15 of them, 8 visible on the homepage,
+ids `#portadaA` through `#portadaN`.
+
+Proposed replacement:
+
+    elsiglodetorreon.com.mx##.lapub
+
+Tested by applying the rule and reloading: no loss of headlines, links,
+images or text. Closes 546px of vertical space.
+```
+
+---
+
+### Incidencia 2 — `eldiariodechihuahua.mx`
+
+**Título:** `eldiariodechihuahua.mx — add domain to existing ##.banner rule`
+
+```
+This site is not covered by any rule in EasyList, EasyPrivacy or
+EasyList Spanish.
+
+All 8 `.banner` elements on the homepage contain `<p>Publicidad</p>` and a
+`div-gpt-ad` slot. 8 of 8 — none is editorial content.
+
+The site runs the same CMS as diario.mx (both serve from /core/<slug>/assets/),
+and diario.mx is already included in the existing multi-domain rule ending in
+`##.banner`.
+
+Request: add `eldiariodechihuahua.mx` to that domain list.
+
+Tested by applying the rule and reloading: no loss of headlines, links or
+images. Closes 561px. The 87 characters of text removed are the "PUBLICIDAD"
+labels inside the containers themselves.
+
+Optional, same site: `eldiariodechihuahua.mx##.side-banner-home` wraps one of
+the eight and leaves residual space when the inner one is hidden.
+```
+
+---
+
+### Incidencia 3 — `zocalo.com.mx`
+
+**Título:** `zocalo.com.mx — uncovered ad containers (.banner-medio)`
+
+```
+Not covered by any rule in EasyList, EasyPrivacy or EasyList Spanish.
+
+14 ad containers wrapped in `.banner-medio`. They carry the Advanced Ads
+WordPress plugin attribute `data-advadstrackid` and Google Ad Manager paths.
+
+Proposed rule:
+
+    zocalo.com.mx##.banner-medio
+
+Tested by applying the rule and reloading: no loss of headlines, links,
+images or text. Closes 848px.
+
+Note: a `<nav>` shows as collapsed after applying the rule. It is a
+dropdown that is closed by default — identical with and without the rule.
+```
+
+---
+
+### Incidencia 4 — `periodicocorreo.com.mx`
+
+**Título:** `periodicocorreo.com.mx — uncovered ad containers (.zone-ads)`
+
+```
+The site has 3 existing rules, none of which covers its ad zones.
+
+4 `.zone-ads` containers, each holding `<p>Publicidad</p>`, adsbygoogle and
+`div-gpt-ad` slots. Three remain visible, at 300x310 and 300x804 in the
+sidebar.
+
+Proposed rule:
+
+    periodicocorreo.com.mx##.zone-ads
+
+Tested by applying the rule and reloading: no loss of headlines, links or
+images. Closes 92px. The 86 characters of text removed are the "Publicidad"
+labels inside the zones themselves.
+```
+
+---
+
+### Incidencia 5 — `elmanana.com.mx`
+
+**Título:** `elmanana.com.mx — uncovered ad containers (.ad-zone)`
+
+```
+Not covered by any rule in EasyList, EasyPrivacy or EasyList Spanish.
+
+12 `.ad-zone` containers, each holding a `div[data-ad-slot="banner-N"]`.
+
+Proposed rule:
+
+    elmanana.com.mx##.ad-zone
+
+Tested by applying the rule and reloading: no loss of headlines, links,
+images or text — the rule is safe.
+
+Caveat, stated up front: at the time of testing the slots were unfilled, so
+the page height did not change. The benefit is inferred from the containers
+reserving height (`min-height:165px`), not observed with an ad served.
+Worth a second look on a page load with filled inventory.
+```
+
+---
+
+## Lo que NO se reporta, y por qué
+
+- **`static.fsrv.io` y `api.mantis-intelligence.com`** (Freestar, vistos en `unotv.com`): les falta la prueba de recarga. Un reporte sin verificar cuesta tiempo del voluntario que lo revise y quema credibilidad para el siguiente.
+- **Cualquier regla genérica sobre `.mr-banner` o `data-advadstrackid`**: sin haberla probado en 10+ sitios, una regla que afecta a terceros no se propone.
