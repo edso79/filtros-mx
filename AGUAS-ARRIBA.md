@@ -38,7 +38,7 @@ Si esos dos entran, ya sabes que el canal funciona y que los reportes están bie
 
 ## Pendientes de reportar
 
-### 1. `elsiglodetorreon.com.mx` — **la regla que ya existe quedó obsoleta**
+### 1. `elsiglodetorreon.com.mx` — **la regla que ya existe quedó obsoleta** ✅ ENVIADO: [#358](https://github.com/easylist/easylistspanish/issues/358)
 
 Este no es un hueco sin cubrir: es una regla suya que dejó de funcionar. Conviene reportarlo así, porque es más útil y más fácil de aceptar.
 
@@ -70,7 +70,7 @@ Este no es un hueco sin cubrir: es una regla suya que dejó de funcionar. Convie
 > **Regla propuesta:** `elmanana.com.mx##.ad-zone`
 > **Verificado el 30-jul-2026 como seguro**, sin pérdida de nada. **Reportar con la salvedad:** al medir, los espacios estaban sin llenar y la página no encogió. El beneficio está inferido de que reservan alto (`min-height:165px`), no observado con anuncio servido. Conviene volver a mirarlo con inventario lleno antes de reportar.
 
-### 5. `eldiariodechihuahua.mx` — **añadir el dominio a una regla que ya existe**
+### 5. `eldiariodechihuahua.mx` — **añadir el dominio a una regla que ya existe** ✅ ENVIADO: [#357](https://github.com/easylist/easylistspanish/issues/357)
 
 El reporte más barato de todos: no hace falta regla nueva, solo un dominio más en una que ya mantienen.
 
@@ -122,7 +122,14 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 
 ## Registro
 
-Cuando un reporte se envíe, anotar aquí la fecha y el enlace. Cuando una regla se acepte aguas arriba, **retirarla de `mexico.txt`**: mantener dos copias de la misma regla es trabajo duplicado y una de las dos se quedará vieja.
+| Fecha | Reporte | Incidencia | Estado |
+|---|---|---|---|
+| 2026-07-31 | `eldiariodechihuahua.mx` — añadir dominio a `##.banner` | [#357](https://github.com/easylist/easylistspanish/issues/357) | Abierta |
+| 2026-07-31 | `elsiglodetorreon.com.mx` — regla obsoleta, proponer `.lapub` | [#358](https://github.com/easylist/easylistspanish/issues/358) | Abierta |
+
+Los otros tres reportes esperan a ver cómo se reciben estos dos.
+
+Cuando una regla se acepte aguas arriba, **retirarla de `mexico.txt`**: mantener dos copias de la misma regla es trabajo duplicado y una de las dos se quedará vieja.
 
 ---
 
