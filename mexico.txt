@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
 ! Title: Lista México
 ! Description: Curaduría de filtros publicitarios para sitios mexicanos. Complemento de EasyList y EasyPrivacy, no sustituto.
-! Version: 2026.0730.4
-! Last modified: 2026-07-30T00:00:00Z
+! Version: 2026.0731.0
+! Last modified: 2026-07-31T00:00:00Z
 ! Expires: 4 days
 ! Homepage: PENDIENTE
 ! License: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -28,17 +28,19 @@
 ! mexicanos porque son los que conocemos y podemos verificar.
 !
 ! LO QUE ESTA LISTA NO AFIRMA
-! MÉXICO NO ESTÁ PEOR CUBIERTO QUE OTROS PAÍSES, y está medido: tres
-! regionales de España y Argentina salieron entre 32% y 46% de cobertura,
-! peor que el promedio mexicano (30-jul-2026). El hueco es de los medios
-! pequeños en cualquier país. Y no se afirma que esta lista bloquee más ni
+! MÉXICO NO ESTÁ PEOR CUBIERTO QUE OTROS PAÍSES, y está medido: en tres
+! regionales de España y Argentina sobreviven contenedores propios sin
+! cubrir, igual que en los mexicanos (30-jul-2026). El hueco es de los
+! medios pequeños en cualquier país. Y no se afirma que esta lista bloquee más ni
 ! mejor que ninguna otra: de 17 sitios mexicanos medidos, 9 los resuelven al
 ! 100% las listas existentes y ahí esta lista no aporta nada. Que un sitio no
 ! tenga regla propia no significa que muestre anuncios.
 !
-! ATRIBUCIÓN
-! Deriva de trabajo previo de EasyList, EasyPrivacy y Peter Lowe. Ver
-! ATRIBUCION.md. Licencia GPLv3: cualquier obra derivada se comparte igual.
+! ATRIBUCIÓN Y LICENCIA
+! Las 6 reglas son originales: se escribieron observando sitios, no se copiaron
+! de ninguna lista. Esta lista NO es obra derivada de EasyList ni de ninguna
+! otra, asi que hoy no arrastra sus clausulas. La GPLv3 es eleccion propia.
+! En cuanto se copie o adapte una regla ajena, cambia: ver ATRIBUCION.md.
 
 
 ! ===========================================================================
