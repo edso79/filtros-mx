@@ -40,11 +40,11 @@ Es la quinta premisa que este proyecto mata con su propia medición. Las anterio
 
 **1. El nombre y el encuadre de la lista dejan de sostenerse.** "Lista México" implica una brecha mexicana que no existe. Lo que la lista realmente hace es **cubrir sitios con maquetado publicitario propio que ninguna lista nombra** — cierto, útil y sin nada de regional.
 
-**2. La contribución correcta es aguas arriba, no una lista aparte.** Si el problema es global, una lista mexicana separada solo le sirve a quien se suscriba, mientras que las mismas reglas en EasyList Spanish le sirven a todos y **las mantiene alguien más**. Para dos personas cuyo riesgo principal es abandonar el proyecto, eso último no es un detalle: es la diferencia entre una contribución que sobrevive y una que se pudre.
+**2. La contribución correcta es aguas arriba, no una lista aparte.** Si el problema es global, una lista mexicana separada solo le sirve a quien se suscriba, mientras que las mismas reglas en EasyList Spanish le sirven a todos y **las mantiene alguien más**. Eso último no es un detalle: es la diferencia entre una contribución que sobrevive al abandono y una que se pudre.
 
 **3. Las dos reglas escritas siguen siendo válidas y siguen haciendo falta.** `elsiglodetorreon.com.mx` y `zocalo.com.mx` tienen publicidad visible que nadie cubre, y eso no cambió. Lo que cambió es el argumento de por qué existen, no su utilidad.
 
-**4. Lo que el proyecto no tiene es un motivo distintivo.** No hay nada que estos dos ingenieros puedan hacer por los medios mexicanos que no sea igual de necesario para los andaluces. Bajo el modelo abierto eso **no lo mata** — no hay que diferenciarse de nadie para escribir reglas útiles y publicarlas gratis. Pero sí retira el último argumento de que esto era *nuestro* hueco.
+**4. Lo que el proyecto no tiene es un motivo distintivo.** No hay nada que este equipo pueda hacer por los medios mexicanos que no sea igual de necesario para los andaluces. Bajo el modelo abierto eso **no lo mata** — no hay que diferenciarse de nadie para escribir reglas útiles y publicarlas gratis. Pero sí retira el último argumento de que esto era *nuestro* hueco.
 
 ## Limitaciones, y una es de mi propio instrumento
 
