@@ -27,7 +27,7 @@ Lo único que hay:
 
 **Eso es un permiso informal del autor, no una licencia.** No concede por escrito derechos de redistribución con condiciones conocidas, y no se puede tratar como si fuera CC BY-SA ni GPL.
 
-**Qué significa en la práctica para este proyecto:** `mexico.txt` **no contiene ni una sola entrada tomada de la lista de Peter Lowe** — sus 6 reglas salieron de observar sitios. Mientras eso siga así, no hay obligación que cumplir ni riesgo que correr.
+**Qué significa en la práctica para este proyecto:** `mexico.txt` **no contiene ni una sola entrada tomada de la lista de Peter Lowe** — las 6 reglas que llegó a tener salieron de observar sitios, y desde el 3-ago-2026 está vacía. Mientras eso siga así, no hay obligación que cumplir ni riesgo que correr.
 
 **Si algún día se quiere incorporar material suyo, hay que escribirle a `pgl@yoyo.org` y pedirlo**, no asumirlo.
 

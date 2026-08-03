@@ -27,12 +27,23 @@ No está expresado en horas al mes, porque nadie puede estimar eso de verdad. Es
 - Que el sitio **reutilice la clase para contenido editorial**. Si eso pasa, la regla empieza a ocultar notas y la comprobación automática lo sigue reportando como correcto. Es el daño más grave que esta lista puede causar.
 - Contenedores que inyecta JavaScript, que no aparecen en el HTML servido.
 
-**La regla que más vigilancia pide es `eldiariodechihuahua.mx##.banner`.** Se verificó elemento por elemento —los 8 contenían publicidad, ninguno era editorial— pero `.banner` es un nombre genérico y nada impide que ese sitio lo reutilice mañana.
+*(Aquí decía que la regla más delicada era `eldiariodechihuahua.mx##.banner`, por ser `.banner` un nombre genérico. Se retiró el 3-ago-2026 al aceptarse aguas arriba — y **el riesgo no desapareció, cambió de dueño**: ahora `.banner` sobre ese dominio lo mantiene EasyList Spanish. Si alguna vez ese sitio reutiliza la clase para contenido editorial, se reporta allá.)*
+
+## Qué se revisa cuando la lista está vacía
+
+Desde el 3-ago-2026 la lista tiene **0 reglas activas**: las 6 se aceptaron aguas arriba. Una lista vacía no puede pudrirse por reglas muertas, así que la revisión mensual cambia de objeto — **no se suspende**:
+
+1. **¿Siguen cubiertos los 5 sitios aguas arriba?** Si EasyList Spanish borra o rompe alguna de las reglas que aportamos, el hueco vuelve y esta lista vuelve a tener trabajo. Es lo que sustituye a "¿siguen vivas mis reglas?".
+2. **¿Apareció un hueco nuevo?** El corpus de 17 sitios sigue ahí para volver a medirlo.
+3. **La revisión trimestral con ojos sigue igual**, aplicada a los 5 sitios: confirmar que las reglas de aguas arriba ocultan publicidad y no contenido.
+
+**El compromiso de despublicar sigue vigente y sigue midiéndose igual:** si se saltan dos revisiones mensuales seguidas, se retira. Estar vacía no es excusa para dejar de mirar — es cuando más fácil sería olvidarla.
 
 ## Registro de revisiones
 
 | Fecha | Resultado | Quién |
 |---|---|---|
 | 2026-07-31 | 6 de 6 reglas vivas. Sin cambios | Revisión inicial |
+| 2026-08-03 | **Las 5 incidencias aguas arriba se aceptaron. Las 6 reglas se retiran; la lista queda en 0.** Verificado contra la lista publicada (`202608031801`) y contra el DOM de `periodicocorreo.com.mx` y `eldiariodechihuahua.mx`: ninguna de las 6 aporta ya nada medible | Revisión por evento (cierre de #357–#361) |
 
 Cuando una revisión encuentre algo, se anota aquí — incluso si no se arregla en el momento. **Un registro con huecos es información:** dice que la lista lleva tiempo sin mirarse, y eso es exactamente lo que un usuario merece poder ver antes de confiar en ella.

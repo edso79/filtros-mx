@@ -2,11 +2,21 @@
 
 Complemento de EasyList y EasyPrivacy con reglas para sitios mexicanos. **Gratuita, abierta y sin versión de paga.**
 
-> **6 reglas. Cubre 5 sitios de 17 medidos.** Es un principio, no un producto terminado.
+> **0 reglas activas — porque las 6 que tenía se aceptaron en EasyList Spanish el 3-ago-2026.** Lo que esta lista cubría ahora lo cubre una lista que ya viene activada en tu bloqueador. **Hoy no necesitas instalar esta.**
+
+## Lo primero, para no hacerte perder el tiempo
+
+Esta lista **está vacía hoy**. No oculta nada, y no tiene sentido que la agregues.
+
+Los 5 sitios mexicanos que cubría —`elsiglodetorreon.com.mx`, `zocalo.com.mx`, `elmanana.com.mx`, `eldiariodechihuahua.mx` y `periodicocorreo.com.mx`— quedaron cubiertos por **EasyList Spanish**, que la mayoría de los bloqueadores activa sola según el idioma del navegador. Reportamos los 5 huecos el 31-jul-2026 y el mantenedor los arregló todos el 3-ago. Detalle: [`AGUAS-ARRIBA.md`](AGUAS-ARRIBA.md).
+
+**Eso es el éxito del proyecto, no su fracaso.** El objetivo nunca fue tener una lista grande; era que estos sitios dejaran de mostrar publicidad a quien usa un bloqueador. Se logró en el lugar donde le sirve a todo el mundo y donde **lo mantiene más gente que nosotros dos**.
+
+Sigue publicada porque no se rompe a quien ya la tenga puesta, y porque vuelve a llenarse en cuanto se mida un hueco nuevo que aguas arriba no tome.
 
 ## Qué es
 
-Medimos 17 sitios mexicanos el 30 de julio de 2026, ejecutando los selectores cosméticos de las cinco listas principales contra el DOM real de cada uno. Resultado: **9 quedan cubiertos, 1 no tiene publicidad, y 6 tienen al menos un contenedor que ninguna lista nombra.** De esos 6, uno resultó ser autopromoción del propio sitio y se excluyó a propósito — los otros **5 son los que esta lista cubre**.
+Medimos 17 sitios mexicanos el 30 de julio de 2026, ejecutando los selectores cosméticos de las cinco listas principales contra el DOM real de cada uno. Resultado: **9 quedan cubiertos, 1 no tiene publicidad, y 6 tienen al menos un contenedor que ninguna lista nombra.** De esos 6, uno resultó ser autopromoción del propio sitio y se excluyó a propósito — los otros **5 son los que esta lista cubrió, y que desde el 3-ago-2026 cubre EasyList Spanish**.
 
 Método, datos y límites: [`MEDICION.md`](MEDICION.md).
 
@@ -19,7 +29,7 @@ Lo que separa a un sitio cubierto de uno que no **no es la región, es el maquet
 
 Las reglas genéricas nombran los contenedores estándar. No pueden nombrar una clase que se inventó un desarrollador. Ahí está el hueco, y es lo que esta lista atiende.
 
-> El caso que lo resume: EasyList tiene una regla para `elsiglodetorreon.com.mx`, y hoy **coincide con cero elementos** — quedó obsoleta cuando el sitio cambió su maquetado. Los contenedores son `.lapub`.
+> El caso que lo resume: EasyList tenía una regla para `elsiglodetorreon.com.mx` que **coincidía con cero elementos** — quedó obsoleta cuando el sitio cambió su maquetado. Los contenedores eran `.lapub`. Lo reportamos, y el 3-ago-2026 el mantenedor reemplazó la regla muerta. **Encontrar una regla ajena que se murió resultó valer tanto como escribir una nueva.**
 
 **No sustituye a las listas base: se usa además de ellas.**
 
@@ -53,6 +63,8 @@ Si no tienes bloqueador, primero instala uno. **uBlock Origin** es gratuito, abi
 
 ## Cómo agregarla
 
+> **Hoy no hace falta.** La lista tiene 0 reglas: agregarla no cambia nada. Estas instrucciones sirven para cuando vuelva a tener contenido, y para quien quiera dejarla puesta desde ya.
+
 **En uBlock Origin** (Chrome, Firefox, Edge):
 
 1. Clic en el icono de uBlock Origin → el engrane (**Panel de control**)
@@ -70,7 +82,7 @@ https://raw.githubusercontent.com/edso79/filtros-mx/main/mexico.txt
 
 Funciona en cualquier bloqueador que acepte el formato de Adblock Plus.
 
-> **Déjala junto a las que ya tienes activadas, no en lugar de ellas.** Esta lista cubre 5 sitios; EasyList cubre decenas de miles. Sola no sirve de gran cosa.
+> **Déjala junto a las que ya tienes activadas, no en lugar de ellas.** Esta lista llegó a cubrir 5 sitios; EasyList cubre decenas de miles. Sola no sirve de gran cosa — y hoy, vacía, no sirve de nada sin ellas.
 
 ## Cómo contribuir
 
@@ -82,13 +94,15 @@ Si el hueco no es mexicano —y medimos que no lo es—, la regla rinde más en 
 
 Cuando una regla se acepte allá, **se retira de aquí**: dos copias de la misma regla es trabajo duplicado, y una de las dos se queda vieja.
 
+**Eso ya pasó, con las 6.** Es la razón de que la lista esté vacía. La regla se cumplió aunque dejara al proyecto sin contenido — que es cuando se sabe si una regla era de verdad.
+
 ## Licencia y atribución
 
 Copyright (C) 2026 Edgar Alonso Sosa Camargo.
 
 GPLv3 — ver [LICENSE](LICENSE). Cualquier obra derivada se comparte igual.
 
-Las 6 reglas son originales: se escribieron observando sitios, no se copiaron de ninguna lista. **Esta lista no es obra derivada de EasyList ni de ninguna otra**, así que hoy no arrastra sus cláusulas — la GPLv3 es elección propia. Eso cambia en cuanto se copie o adapte una regla ajena.
+Las 6 reglas que tuvo eran originales: se escribieron observando sitios, no se copiaron de ninguna lista. **Esta lista no es obra derivada de EasyList ni de ninguna otra**, así que hoy no arrastra sus cláusulas — la GPLv3 es elección propia. Eso cambia en cuanto se copie o adapte una regla ajena.
 
 Las licencias de las listas base se verificaron contra su fuente el 31-jul-2026 y una afirmación resultó falsa. Ver [ATRIBUCION.md](ATRIBUCION.md).
 
@@ -96,8 +110,9 @@ Las licencias de las listas base se verificaron contra su fuente el 31-jul-2026 
 
 | | |
 |---|---|
-| Reglas | 6, todas verificadas |
-| Sitios cubiertos | 5 de 17 medidos (9 los cubren ya las listas base) |
-| Publicada | Sí |
+| Reglas activas | **0** — las 6 se aceptaron aguas arriba el 3-ago-2026 |
+| Reglas aportadas a EasyList Spanish | 5 incidencias, 5 aceptadas ([#357–#361](https://github.com/easylist/easylistspanish/issues)) |
+| Sitios cubiertos | 5 de 17 medidos — **hoy los cubre EasyList Spanish, no esta lista** |
+| Publicada | Sí, vacía. No se despublica: la estructura y el compromiso siguen |
 | Licencia | GPLv3 |
 | Mantenimiento | Revisión mensual — ver [MANTENIMIENTO.md](MANTENIMIENTO.md) |

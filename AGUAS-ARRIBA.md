@@ -30,15 +30,19 @@ Hay tres canales. Los dos primeros los declara la propia lista en su encabezado 
 
 ### Por cuál empezar
 
+*(Histórico: así se decidió el orden el 31-jul. Salió bien — se enviaron los cinco y entraron los cinco. Se conserva como método para el siguiente lote.)*
+
 No los mandes los cinco de golpe. **Empieza por `eldiariodechihuahua.mx`** —solo pide añadir un dominio a una regla que ya mantienen— y por `elsiglodetorreon.com.mx`, que les avisa de que una regla suya lleva tiempo muerta. Son los dos más fáciles de aceptar.
 
 Si esos dos entran, ya sabes que el canal funciona y que los reportes están bien formados. Los otros tres van después.
 
 ---
 
-## Pendientes de reportar
+## Los reportes, y en qué acabó cada uno
 
-### 1. `elsiglodetorreon.com.mx` — **la regla que ya existe quedó obsoleta** ✅ ENVIADO: [#358](https://github.com/easylist/easylistspanish/issues/358)
+*Se conservan íntegros. Son el modelo de reporte que funcionó: cinco de cinco aceptados.*
+
+### 1. `elsiglodetorreon.com.mx` — **la regla que ya existe quedó obsoleta** ✅ ACEPTADA: [#358](https://github.com/easylist/easylistspanish/issues/358)
 
 Este no es un hueco sin cubrir: es una regla suya que dejó de funcionar. Conviene reportarlo así, porque es más útil y más fácil de aceptar.
 
@@ -49,28 +53,28 @@ Este no es un hueco sin cubrir: es una regla suya que dejó de funcionar. Convie
 > **Regla propuesta:** `elsiglodetorreon.com.mx##.lapub`
 > **Verificado el 30-jul-2026:** sin pérdida de titulares, enlaces, imágenes ni texto. Cierra 546 px de alto.
 
-### 2. `zocalo.com.mx` — contenedores `.banner-medio` ✅ ENVIADO: [#359](https://github.com/easylist/easylistspanish/issues/359)
+### 2. `zocalo.com.mx` — contenedores `.banner-medio` ✅ ACEPTADA: [#359](https://github.com/easylist/easylistspanish/issues/359)
 
 > **Sitio:** https://www.zocalo.com.mx
 > **Qué pasa:** 14 contenedores del plugin **Advanced Ads** de WordPress, con atributo `data-advadstrackid` y rutas de Google Ad Manager, envueltos en `.banner-medio`.
 > **Regla propuesta:** `zocalo.com.mx##.banner-medio`
 > **Verificado el 30-jul-2026:** sin pérdida de titulares, enlaces, imágenes ni texto. Cierra 848 px de alto.
 
-### 3. `periodicocorreo.com.mx` — contenedores `.zone-ads` ✅ ENVIADO: [#360](https://github.com/easylist/easylistspanish/issues/360)
+### 3. `periodicocorreo.com.mx` — contenedores `.zone-ads` ⚠️ CERRADA CON OTRO ARREGLO: [#360](https://github.com/easylist/easylistspanish/issues/360)
 
 > **Sitio:** https://periodicocorreo.com.mx
 > **Qué pasa:** 4 zonas `.zone-ads`, cada una con `<p>Publicidad</p>`, `adsbygoogle` y slots `div-gpt-ad`. Tres quedan visibles, de 300x310 y 300x804 en la columna lateral.
 > **Regla propuesta:** `periodicocorreo.com.mx##.zone-ads`
 > **Verificado el 30-jul-2026:** sin pérdida de titulares, enlaces ni imágenes. Cierra 92 px. Los 86 caracteres de texto que desaparecen son las etiquetas "Publicidad" de las propias zonas.
 
-### 4. `elmanana.com.mx` — contenedores `.ad-zone` ✅ ENVIADO: [#361](https://github.com/easylist/easylistspanish/issues/361)
+### 4. `elmanana.com.mx` — contenedores `.ad-zone` ✅ ACEPTADA: [#361](https://github.com/easylist/easylistspanish/issues/361)
 
 > **Sitio:** https://www.elmanana.com.mx
 > **Qué pasa:** 12 contenedores `.ad-zone`, cada uno con un `div[data-ad-slot="banner-N"]`.
 > **Regla propuesta:** `elmanana.com.mx##.ad-zone`
 > **Verificado el 30-jul-2026 como seguro**, sin pérdida de nada. **Revisado de nuevo el 31-jul en una segunda carga, día distinto: sigue sin llenar** — 12 contenedores, cero iframes — y el primero reserva una caja visible de 616x165. El beneficio ya es observado, no inferido: la regla quita cajas vacías reservadas. La salvedad va incluida en el texto del reporte.
 
-### 5. `eldiariodechihuahua.mx` — **añadir el dominio a una regla que ya existe** ✅ ENVIADO: [#357](https://github.com/easylist/easylistspanish/issues/357)
+### 5. `eldiariodechihuahua.mx` — **añadir el dominio a una regla que ya existe** ✅ ACEPTADA: [#357](https://github.com/easylist/easylistspanish/issues/357)
 
 El reporte más barato de todos: no hace falta regla nueva, solo un dominio más en una que ya mantienen.
 
@@ -122,25 +126,45 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 
 ## Registro
 
-| Fecha | Reporte | Incidencia | Estado |
-|---|---|---|---|
-| 2026-07-31 | `eldiariodechihuahua.mx` — añadir dominio a `##.banner` | [#357](https://github.com/easylist/easylistspanish/issues/357) | Abierta |
-| 2026-07-31 | `elsiglodetorreon.com.mx` — regla obsoleta, proponer `.lapub` | [#358](https://github.com/easylist/easylistspanish/issues/358) | Abierta |
-| 2026-07-31 | `zocalo.com.mx` — proponer `.banner-medio` | [#359](https://github.com/easylist/easylistspanish/issues/359) | Abierta |
-| 2026-07-31 | `periodicocorreo.com.mx` — proponer `.zone-ads` | [#360](https://github.com/easylist/easylistspanish/issues/360) | Abierta |
-| 2026-07-31 | `elmanana.com.mx` — proponer `.ad-zone` | [#361](https://github.com/easylist/easylistspanish/issues/361) | Abierta |
+| Fecha | Reporte | Incidencia | Estado | Qué entró aguas arriba |
+|---|---|---|---|---|
+| 2026-07-31 | `eldiariodechihuahua.mx` — añadir dominio a `##.banner` | [#357](https://github.com/easylist/easylistspanish/issues/357) | **Aceptada** 3-ago | El dominio, en la regla multi-dominio que se pidió |
+| 2026-07-31 | `elsiglodetorreon.com.mx` — regla obsoleta, proponer `.lapub` | [#358](https://github.com/easylist/easylistspanish/issues/358) | **Aceptada** 3-ago | `##.lapub` tal cual + `##.pubBoxDG` + borraron la regla muerta |
+| 2026-07-31 | `zocalo.com.mx` — proponer `.banner-medio` | [#359](https://github.com/easylist/easylistspanish/issues/359) | **Aceptada** 3-ago | `##.banner-medio` tal cual + `.anuncio-lateral-detalle` + `##.banner-top` |
+| 2026-07-31 | `periodicocorreo.com.mx` — proponer `.zone-ads` | [#360](https://github.com/easylist/easylistspanish/issues/360) | **Cerrada, arreglo distinto** 3-ago | `###floor-ad` + el dominio en `##.banner`. **No** `.zone-ads` |
+| 2026-07-31 | `elmanana.com.mx` — proponer `.ad-zone` | [#361](https://github.com/easylist/easylistspanish/issues/361) | **Aceptada** 3-ago | `##.ad-zone` tal cual |
 
-**Los cinco reportes están enviados.** Lo que quede por hacer ahora depende de la respuesta del mantenedor.
+## Resultado: 5 de 5 cerradas como completadas en ~3 días
 
-Cuando una regla se acepte aguas arriba, **retirarla de `mexico.txt`**: mantener dos copias de la misma regla es trabajo duplicado y una de las dos se quedará vieja.
+Los cinco reportes se enviaron el 31-jul y **los cinco se cerraron con commit el 3-ago-2026**, entre las 09:03 y las 09:16 UTC. Ninguno recibió comentario: el mantenedor arregló y cerró.
+
+Verificado el 3-ago contra la lista publicada que consumen los usuarios (`easylist-downloads.adblockplus.org/easylistspanish.txt`, versión `202608031801`), no solo contra el repositorio. Los cambios ya están en circulación.
+
+**Consecuencia inmediata: `mexico.txt` se quedó con 0 reglas activas.** Las 6 se retiraron el 3-ago. El registro de cuáles eran y por qué se fueron vive en el propio `mexico.txt`, en la sección RETIRADAS, para que nadie las reescriba dentro de seis meses creyendo que encontró un hueco.
+
+### Los dos casos que hubo que medir, no suponer
+
+**Cerrada no es lo mismo que "entró mi regla".** Dos de las seis no se podían retirar por el hecho de que la incidencia estuviera cerrada:
+
+- **`periodicocorreo.com.mx`** — el mantenedor **no** aceptó `.zone-ads`; arregló el sitio de otra forma. Y `.banner` está *dentro* de `.zone-ads`, así que la sospecha razonable era que quedara hueco residual. Medido contra el DOM real el 3-ago: con solo las reglas de aguas arriba, el área visible de las 4 zonas cae a **0**, desaparecen las **12** etiquetas "PUBLICIDAD" y el documento encoge **877 px**. Nuestra regla aporta **0 área y 0 altura** encima. Cubierto.
+- **`eldiariodechihuahua.mx##.side-banner-home`** — no se pidió ni se aceptó aguas arriba, y se retira igual: medido el 3-ago, el contenedor colapsa solo con `##.banner` (área visible 0, altura extra 0). El hueco residual que se temía el 30-jul **no se produce**.
+
+Si alguno de los dos hubiera dado un número distinto de cero, esa regla se habría quedado. La comprobación no era ceremonia.
+
+### Qué aprendió el proyecto con esto
+
+1. **El canal funciona, y rápido.** Tres días de la incidencia al archivo publicado, sin discusión. La hipótesis de `AGUAS-ARRIBA.md` —que la vía principal debía ser aguas arriba— queda confirmada por observación, no por argumento.
+2. **Un reporte bien formado se acepta sin negociar.** Los cinco llevaban sitio, selector, prueba de recarga y salvedades declaradas por adelantado. Ninguno necesitó una segunda ronda.
+3. **Reportar una regla muerta ajena vale tanto como proponer una nueva.** El de `elsiglodetorreon` fue el más productivo de los cinco: además de aceptar el reemplazo, borraron la regla obsoleta y agregaron una que no habíamos visto.
+4. **El mantenedor puede arreglar mejor que lo propuesto.** En `zocalo` y `elsiglodetorreon` agregaron selectores extra. Proponer la regla no es imponerla.
 
 ---
 
 # Enlaces de un clic
 
-Cada enlace abre el formulario de incidencia de EasyList Spanish **ya escrito** — título y cuerpo pre-llenados con los textos de arriba. Hace falta sesión de GitHub. El trabajo restante: revisar que se vea bien y pulsar **Submit new issue**.
+> **YA SE USARON LOS CINCO. No los vuelvas a pulsar** — abrirían incidencias duplicadas de cosas ya arregladas, que es justo lo que quema credibilidad con un mantenedor. Se conservan como plantilla para el siguiente lote.
 
-**Respetar el orden: mandar la 1 y la 2 primero.** Si esas dos entran, el canal funciona y las otras tres van después. No mandar las cinco de golpe.
+Cada enlace abre el formulario de incidencia de EasyList Spanish **ya escrito** — título y cuerpo pre-llenados con los textos de arriba. Hace falta sesión de GitHub. El trabajo restante: revisar que se vea bien y pulsar **Submit new issue**.
 
 **1. eldiariodechihuahua.mx**
 [Abrir incidencia pre-llenada](https://github.com/easylist/easylistspanish/issues/new?title=eldiariodechihuahua.mx%3A%20add%20domain%20to%20existing%20%23%23.banner%20rule&body=This%20site%20is%20not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0AAll%208%20%60.banner%60%20elements%20on%20the%20homepage%20contain%20%60%3Cp%3EPublicidad%3C%2Fp%3E%60%20and%20a%20%60div-gpt-ad%60%20slot.%208%20of%208%20%E2%80%94%20none%20is%20editorial%20content.%0A%0AThe%20site%20runs%20the%20same%20CMS%20as%20diario.mx%20(both%20serve%20from%20%60%2Fcore%2F%3Cslug%3E%2Fassets%2F%60)%2C%20and%20diario.mx%20is%20already%20included%20in%20the%20existing%20multi-domain%20rule%20ending%20in%20%60%23%23.banner%60.%0A%0ARequest%3A%20add%20%60eldiariodechihuahua.mx%60%20to%20that%20domain%20list.%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%3A%20no%20loss%20of%20headlines%2C%20links%20or%20images.%20Closes%20561px.%20The%2087%20characters%20of%20text%20removed%20are%20the%20%22PUBLICIDAD%22%20labels%20inside%20the%20containers%20themselves.%0A%0AOptional%2C%20same%20site%3A%20%60eldiariodechihuahua.mx%23%23.side-banner-home%60%20wraps%20one%20of%20the%20eight%20and%20leaves%20residual%20space%20when%20the%20inner%20one%20is%20hidden.)
