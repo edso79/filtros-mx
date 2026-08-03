@@ -38,6 +38,32 @@ Si esos dos entran, ya sabes que el canal funciona y que los reportes están bie
 
 ---
 
+## Siguiente lote — PREPARADO, no enviado
+
+### `quadratin.com.mx` — contenedores propios sin cubrir
+
+**El primero encontrado con ayuda de la extensión** (detector de `extension/src/contenido.js`), no enteramente a mano. Verificado el 3-ago-2026 a 1280 px de ancho.
+
+> **Sitio:** https://www.quadratin.com.mx
+> **Qué pasa:** el sitio **no tiene ni una sola regla cosmética** en EasyList, EasyPrivacy ni EasyList Spanish. Tres contenedores propios con anuncio servido de Google Ad Manager sobreviven en portada.
+> **Reglas propuestas:**
+> ```
+> quadratin.com.mx##.banner--cinturon2
+> quadratin.com.mx##.banner--faro
+> quadratin.com.mx###custom_html-2
+> ```
+> **Verificado (prueba de recarga, las tres a la vez):** sin pérdida de titulares, enlaces, texto, menús, formularios ni carruseles. Cierra 712 px. Las 2 imágenes que desaparecen son marcadores SVG vacíos de carga diferida dentro de los propios contenedores.
+> **Tamaños:** 630x598, 1110x90 y 350x758, los tres con anuncio servido.
+
+**Lo que NO se propone, y por qué importa decirlo:**
+
+- **NO añadir `quadratin.com.mx` a la regla multi-dominio `##.banner`.** Era la tentación —es el reporte más barato, como el de `eldiariodechihuahua.mx`— y la prueba de recarga lo desmintió: **quita 16 titulares, 14 enlaces y 1,019 caracteres.** `.banner--sidebar` envuelve el bloque editorial "LO ÚLTIMO". De 6 elementos `.banner` del sitio, solo 3 son publicidad.
+- **NO reportar los contenedores `#div-gpt-ad-*`.** Ya los cubre la regla genérica `[id^="div-gpt-ad"]` de EasyList.
+
+**PENDIENTE ANTES DE ENVIAR: segunda carga en otro día.** Es el estándar que hizo que los cinco de julio entraran sin discusión, y a esto le falta.
+
+---
+
 ## Los reportes, y en qué acabó cada uno
 
 *Se conservan íntegros. Son el modelo de reporte que funcionó: cinco de cinco aceptados.*
