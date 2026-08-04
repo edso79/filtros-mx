@@ -62,6 +62,25 @@ Si esos dos entran, ya sabes que el canal funciona y que los reportes están bie
 
 **PENDIENTE ANTES DE ENVIAR: segunda carga en otro día.** Es el estándar que hizo que los cinco de julio entraran sin discusión, y a esto le falta.
 
+### `tribuna.com.mx` — familia de huecos con nombre propio
+
+Encontrado con el detector el 3-ago-2026, ampliando el corpus. **Una sola regla cubre el sitio entero**, que es el mejor caso posible: menos que mantener aguas arriba.
+
+> **Sitio:** https://www.tribuna.com.mx (Sonora)
+> **Qué pasa:** el sitio **no tiene ni una regla cosmética** en ninguna lista. Sus huecos publicitarios llevan identificadores propios con un prefijo común, y **los 8 encontrados son publicidad, ninguno editorial**:
+> - Portada: `Tribuna_Home_Rectangle_1/2/3`, `Tribuna_Home_Horizontal_1/2`
+> - Secciones: `Tribuna_Secciones_Horizontal_1`, `Tribuna_Secciones_Rectangle_1`, `Tribuna_Secciones_HalfPage_1`
+>
+> **Regla propuesta:**
+> ```
+> tribuna.com.mx##[id^="Tribuna_"]
+> ```
+> **Verificado el 3-ago-2026 a 1280 px, en DOS tipos de página** (portada y sección de deportes): sin pérdida de titulares, enlaces, texto, menús ni formularios. En secciones cierra 120 px. Los slots vacíos reservan 30 px cada uno.
+
+**Por qué el prefijo y no los identificadores sueltos:** los individuales cambian por página —`Home` en portada, `Secciones` en sección— así que una regla por identificador dejaría fuera el resto del sitio y obligaría a volver. El prefijo `Tribuna_` es del propio medio y se comprobó elemento por elemento en las dos plantillas.
+
+**PENDIENTE ANTES DE ENVIAR: segunda carga en otro día**, y conviene mirar además una nota individual, que es la tercera plantilla y no se revisó.
+
 ---
 
 ## Los reportes, y en qué acabó cada uno
