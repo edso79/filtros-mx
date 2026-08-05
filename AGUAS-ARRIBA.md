@@ -38,7 +38,9 @@ Si esos dos entran, ya sabes que el canal funciona y que los reportes están bie
 
 ---
 
-## Siguiente lote — PREPARADO, no enviado
+## Siguiente lote — LISTO PARA ENVIAR (segunda carga hecha el 5-ago-2026)
+
+Los dos reportes cumplen ya el estándar completo de julio: prueba de recarga **en dos días distintos** (3 y 5 de agosto), todas las plantillas revisadas, y la comprobación contra reglas existentes hecha. Lo único que falta es pulsar **Submit new issue** — eso lo decide y lo hace una persona.
 
 ### `quadratin.com.mx` — contenedores propios sin cubrir
 
@@ -60,26 +62,33 @@ Si esos dos entran, ya sabes que el canal funciona y que los reportes están bie
 - **NO añadir `quadratin.com.mx` a la regla multi-dominio `##.banner`.** Era la tentación —es el reporte más barato, como el de `eldiariodechihuahua.mx`— y la prueba de recarga lo desmintió: **quita 16 titulares, 14 enlaces y 1,019 caracteres.** `.banner--sidebar` envuelve el bloque editorial "LO ÚLTIMO". De 6 elementos `.banner` del sitio, solo 3 son publicidad.
 - **NO reportar los contenedores `#div-gpt-ad-*`.** Ya los cubre la regla genérica `[id^="div-gpt-ad"]` de EasyList.
 
-**PENDIENTE ANTES DE ENVIAR: segunda carga en otro día.** Es el estándar que hizo que los cinco de julio entraran sin discusión, y a esto le falta.
+**Segunda carga hecha el 5-ago-2026:** los tres selectores presentes con las mismas dimensiones (630×598, 1110×90, 350×758), **los tres con anuncio servido**, y la prueba de recarga volvió a pasar: cero pérdida de titulares, enlaces, texto, menús, formularios y carruseles; cierra 712 px. Además, en la carga intermedia del mismo día los slots aparecieron como cajas vacías reservadas — el reporte declara ambos estados. **LISTO PARA ENVIAR:**
+
+[**Abrir incidencia pre-llenada de quadratin.com.mx**](https://github.com/easylist/easylistspanish/issues/new?title=quadratin.com.mx%3A%20uncovered%20ad%20containers&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0ASite%3A%20https%3A%2F%2Fwww.quadratin.com.mx%20(Michoacan%2C%20Mexico)%0AViewport%3A%201280px%20(the%20mobile%20layout%20hides%20these%20units%20with%20Bootstrap%20d-none%2C%20so%20measure%20on%20desktop%20width)%0A%0AThree%20ad%20containers%20with%20Google%20Ad%20Manager%20slots%20survive%20on%20the%20homepage%3A%0A%0A%20%20%20%20quadratin.com.mx%23%23.banner--cinturon2%0A%20%20%20%20quadratin.com.mx%23%23.banner--faro%0A%20%20%20%20quadratin.com.mx%23%23%23custom_html-2%0A%0ASizes%3A%20630x598%2C%201110x90%20and%20350x758.%20All%20three%20held%20served%20ads%20on%20both%20test%20days%3B%20on%20one%20intermediate%20load%20the%20slots%20were%20empty%20reserved%20boxes%2C%20which%20the%20rules%20also%20remove.%0A%0ATested%20by%20applying%20the%20three%20rules%20and%20reloading%2C%20on%20two%20separate%20days%20(2026-08-03%20and%202026-08-05)%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20text%2C%20menus%2C%20forms%20or%20carousels.%20Closes%20712px%20of%20vertical%20space.%0A%0ANote%3A%20the%20site's%20%23div-gpt-ad-*%20containers%20are%20already%20covered%20by%20the%20generic%20rule%20%5Bid%5E%3D%22div-gpt-ad%22%5D%20and%20are%20NOT%20part%20of%20this%20request.%0A%0AOne%20caution%20we%20checked%20so%20you%20don't%20have%20to%3A%20please%20do%20NOT%20solve%20this%20by%20adding%20the%20domain%20to%20the%20multi-domain%20%23%23.banner%20rule.%20On%20this%20site%20.banner--sidebar%20wraps%20an%20editorial%20%22LO%20ULTIMO%22%20block%3A%20hiding%20.banner%20removes%2016%20headlines%2C%2014%20links%20and%20~1%2C000%20characters%20of%20text.%20Only%203%20of%20its%206%20.banner%20elements%20are%20ads.)
+
+*(El cuerpo incluye la advertencia de NO resolverlo metiendo el dominio en la multi-dominio `##.banner` — es exactamente como el mantenedor resolvió `periodicocorreo`, y aquí rompería el sitio.)*
 
 ### `tribuna.com.mx` — familia de huecos con nombre propio
 
 Encontrado con el detector el 3-ago-2026, ampliando el corpus. **Una sola regla cubre el sitio entero**, que es el mejor caso posible: menos que mantener aguas arriba.
 
 > **Sitio:** https://www.tribuna.com.mx (Sonora)
-> **Qué pasa:** el sitio **no tiene ni una regla cosmética** en ninguna lista. Sus huecos publicitarios llevan identificadores propios con un prefijo común, y **los 8 encontrados son publicidad, ninguno editorial**:
+> **Qué pasa:** el sitio **no tiene ni una regla cosmética** en ninguna lista. Sus huecos publicitarios llevan identificadores propios con un prefijo común, una familia por plantilla, y **los 12 encontrados son publicidad, ninguno editorial**:
 > - Portada: `Tribuna_Home_Rectangle_1/2/3`, `Tribuna_Home_Horizontal_1/2`
 > - Secciones: `Tribuna_Secciones_Horizontal_1`, `Tribuna_Secciones_Rectangle_1`, `Tribuna_Secciones_HalfPage_1`
+> - Notas: `Tribuna_Notas_Rectangle_1/2`, `Tribuna_Notas_Horizontal_1`, `Tribuna_Notas_HalfPage_1`
 >
 > **Regla propuesta:**
 > ```
 > tribuna.com.mx##[id^="Tribuna_"]
 > ```
-> **Verificado el 3-ago-2026 a 1280 px, en DOS tipos de página** (portada y sección de deportes): sin pérdida de titulares, enlaces, texto, menús ni formularios. En secciones cierra 120 px. Los slots vacíos reservan 30 px cada uno.
+> **Verificado el 3-ago-2026 (portada y sección) y el 5-ago-2026 (portada de nuevo, nota individual y página de video), a 1280 px:** sin pérdida de titulares, enlaces, imágenes, texto, menús ni formularios en ninguna plantilla. En la página de video la regla casa 0 elementos — inofensiva. Los slots vacíos reservan tiras visibles de 30 px que la regla también cierra.
 
-**Por qué el prefijo y no los identificadores sueltos:** los individuales cambian por página —`Home` en portada, `Secciones` en sección— así que una regla por identificador dejaría fuera el resto del sitio y obligaría a volver. El prefijo `Tribuna_` es del propio medio y se comprobó elemento por elemento en las dos plantillas.
+**Por qué el prefijo y no los identificadores sueltos:** los individuales cambian por plantilla —`Home`, `Secciones`, `Notas`— así que una regla por identificador dejaría fuera plantillas enteras y obligaría a volver. **La nota individual del 5-ago lo demostró:** reveló la familia `Tribuna_Notas_*`, que una lista fija de identificadores se habría perdido completa.
 
-**PENDIENTE ANTES DE ENVIAR: segunda carga en otro día**, y conviene mirar además una nota individual, que es la tercera plantilla y no se revisó.
+**Segunda carga hecha el 5-ago-2026, tercera plantilla incluida. LISTO PARA ENVIAR:**
+
+[**Abrir incidencia pre-llenada de tribuna.com.mx**](https://github.com/easylist/easylistspanish/issues/new?title=tribuna.com.mx%3A%20uncovered%20ad%20containers%20(%5Bid%5E%3D%22Tribuna_%22%5D)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0ASite%3A%20https%3A%2F%2Fwww.tribuna.com.mx%20(Sonora%2C%20Mexico)%0AViewport%3A%201280px%0A%0AThe%20site's%20ad%20slots%20carry%20its%20own%20IDs%20with%20a%20common%20prefix%2C%20one%20family%20per%20template%3A%0A%0A%20%20%20%20homepage%3A%20Tribuna_Home_Rectangle_1%2F2%2F3%2C%20Tribuna_Home_Horizontal_1%2F2%0A%20%20%20%20sections%3A%20Tribuna_Secciones_Horizontal_1%2C%20Tribuna_Secciones_Rectangle_1%2C%20Tribuna_Secciones_HalfPage_1%0A%20%20%20%20articles%3A%20Tribuna_Notas_Rectangle_1%2F2%2C%20Tribuna_Notas_Horizontal_1%2C%20Tribuna_Notas_HalfPage_1%0A%0A12%20slots%20checked%20one%20by%20one%20across%20the%20three%20templates%3A%20every%20one%20is%20an%20ad%20slot%20(Google%20Ad%20Manager%20iframes%20or%20reserved%20boxes)%2C%20none%20contains%20editorial%20content.%0A%0AProposed%20rule%3A%0A%0A%20%20%20%20tribuna.com.mx%23%23%5Bid%5E%3D%22Tribuna_%22%5D%0A%0AThe%20prefix%20rather%20than%20an%20ID%20list%2C%20deliberately%3A%20the%20IDs%20change%20per%20template%20(Home%2FSecciones%2FNotas)%2C%20so%20a%20fixed%20list%20would%20miss%20whole%20templates%20and%20need%20a%20follow-up%20report.%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%20on%20homepage%2C%20section%20and%20article%20pages%2C%20on%20two%20separate%20days%20(2026-08-03%20and%202026-08-05)%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20text%2C%20menus%20or%20forms.%20Empty%20slots%20reserve%20visible%2030px%20strips%20which%20the%20rule%20also%20removes.)
 
 ---
 
