@@ -38,9 +38,12 @@ Si esos dos entran, ya sabes que el canal funciona y que los reportes están bie
 
 ---
 
-## Siguiente lote — LISTO PARA ENVIAR (segunda carga hecha el 5-ago-2026)
+## Siguiente lote — tribuna ENVIADA (#362), quadratin PENDIENTE DE ENVIAR
 
-Los dos reportes cumplen ya el estándar completo de julio: prueba de recarga **en dos días distintos** (3 y 5 de agosto), todas las plantillas revisadas, y la comprobación contra reglas existentes hecha. Lo único que falta es pulsar **Submit new issue** — eso lo decide y lo hace una persona.
+Los dos reportes cumplen el estándar completo de julio: prueba de recarga **en dos días distintos** (3 y 5 de agosto), todas las plantillas revisadas, y la comprobación contra reglas existentes hecha.
+
+- **`tribuna.com.mx` — enviada el 6-ago-2026: [#362](https://github.com/easylist/easylistspanish/issues/362).** Su enlace de un clic ya se usó; no volver a pulsarlo.
+- **`quadratin.com.mx` — verificada y lista, SIN ENVIAR.** Su enlace de un clic sigue abajo, esperando el Submit.
 
 ### `quadratin.com.mx` — contenedores propios sin cubrir
 
@@ -86,9 +89,11 @@ Encontrado con el detector el 3-ago-2026, ampliando el corpus. **Una sola regla 
 
 **Por qué el prefijo y no los identificadores sueltos:** los individuales cambian por plantilla —`Home`, `Secciones`, `Notas`— así que una regla por identificador dejaría fuera plantillas enteras y obligaría a volver. **La nota individual del 5-ago lo demostró:** reveló la familia `Tribuna_Notas_*`, que una lista fija de identificadores se habría perdido completa.
 
-**Segunda carga hecha el 5-ago-2026, tercera plantilla incluida. LISTO PARA ENVIAR:**
+**Segunda carga hecha el 5-ago-2026, tercera plantilla incluida. ✅ ENVIADA el 6-ago-2026: [#362](https://github.com/easylist/easylistspanish/issues/362).**
 
-[**Abrir incidencia pre-llenada de tribuna.com.mx**](https://github.com/easylist/easylistspanish/issues/new?title=tribuna.com.mx%3A%20uncovered%20ad%20containers%20(%5Bid%5E%3D%22Tribuna_%22%5D)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0ASite%3A%20https%3A%2F%2Fwww.tribuna.com.mx%20(Sonora%2C%20Mexico)%0AViewport%3A%201280px%0A%0AThe%20site's%20ad%20slots%20carry%20its%20own%20IDs%20with%20a%20common%20prefix%2C%20one%20family%20per%20template%3A%0A%0A%20%20%20%20homepage%3A%20Tribuna_Home_Rectangle_1%2F2%2F3%2C%20Tribuna_Home_Horizontal_1%2F2%0A%20%20%20%20sections%3A%20Tribuna_Secciones_Horizontal_1%2C%20Tribuna_Secciones_Rectangle_1%2C%20Tribuna_Secciones_HalfPage_1%0A%20%20%20%20articles%3A%20Tribuna_Notas_Rectangle_1%2F2%2C%20Tribuna_Notas_Horizontal_1%2C%20Tribuna_Notas_HalfPage_1%0A%0A12%20slots%20checked%20one%20by%20one%20across%20the%20three%20templates%3A%20every%20one%20is%20an%20ad%20slot%20(Google%20Ad%20Manager%20iframes%20or%20reserved%20boxes)%2C%20none%20contains%20editorial%20content.%0A%0AProposed%20rule%3A%0A%0A%20%20%20%20tribuna.com.mx%23%23%5Bid%5E%3D%22Tribuna_%22%5D%0A%0AThe%20prefix%20rather%20than%20an%20ID%20list%2C%20deliberately%3A%20the%20IDs%20change%20per%20template%20(Home%2FSecciones%2FNotas)%2C%20so%20a%20fixed%20list%20would%20miss%20whole%20templates%20and%20need%20a%20follow-up%20report.%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%20on%20homepage%2C%20section%20and%20article%20pages%2C%20on%20two%20separate%20days%20(2026-08-03%20and%202026-08-05)%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20text%2C%20menus%20or%20forms.%20Empty%20slots%20reserve%20visible%2030px%20strips%20which%20the%20rule%20also%20removes.)
+*(El enlace pre-llenado de abajo ya se usó — se conserva solo como plantilla del formato. NO volver a pulsarlo: duplicaría la incidencia.)*
+
+[Incidencia pre-llenada de tribuna.com.mx — YA ENVIADA](https://github.com/easylist/easylistspanish/issues/new?title=tribuna.com.mx%3A%20uncovered%20ad%20containers%20(%5Bid%5E%3D%22Tribuna_%22%5D)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0ASite%3A%20https%3A%2F%2Fwww.tribuna.com.mx%20(Sonora%2C%20Mexico)%0AViewport%3A%201280px%0A%0AThe%20site's%20ad%20slots%20carry%20its%20own%20IDs%20with%20a%20common%20prefix%2C%20one%20family%20per%20template%3A%0A%0A%20%20%20%20homepage%3A%20Tribuna_Home_Rectangle_1%2F2%2F3%2C%20Tribuna_Home_Horizontal_1%2F2%0A%20%20%20%20sections%3A%20Tribuna_Secciones_Horizontal_1%2C%20Tribuna_Secciones_Rectangle_1%2C%20Tribuna_Secciones_HalfPage_1%0A%20%20%20%20articles%3A%20Tribuna_Notas_Rectangle_1%2F2%2C%20Tribuna_Notas_Horizontal_1%2C%20Tribuna_Notas_HalfPage_1%0A%0A12%20slots%20checked%20one%20by%20one%20across%20the%20three%20templates%3A%20every%20one%20is%20an%20ad%20slot%20(Google%20Ad%20Manager%20iframes%20or%20reserved%20boxes)%2C%20none%20contains%20editorial%20content.%0A%0AProposed%20rule%3A%0A%0A%20%20%20%20tribuna.com.mx%23%23%5Bid%5E%3D%22Tribuna_%22%5D%0A%0AThe%20prefix%20rather%20than%20an%20ID%20list%2C%20deliberately%3A%20the%20IDs%20change%20per%20template%20(Home%2FSecciones%2FNotas)%2C%20so%20a%20fixed%20list%20would%20miss%20whole%20templates%20and%20need%20a%20follow-up%20report.%0A%0ATested%20by%20applying%20the%20rule%20and%20reloading%20on%20homepage%2C%20section%20and%20article%20pages%2C%20on%20two%20separate%20days%20(2026-08-03%20and%202026-08-05)%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20text%2C%20menus%20or%20forms.%20Empty%20slots%20reserve%20visible%2030px%20strips%20which%20the%20rule%20also%20removes.)
 
 ---
 
@@ -187,6 +192,7 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 | 2026-07-31 | `zocalo.com.mx` — proponer `.banner-medio` | [#359](https://github.com/easylist/easylistspanish/issues/359) | **Aceptada** 3-ago | `##.banner-medio` tal cual + `.anuncio-lateral-detalle` + `##.banner-top` |
 | 2026-07-31 | `periodicocorreo.com.mx` — proponer `.zone-ads` | [#360](https://github.com/easylist/easylistspanish/issues/360) | **Cerrada, arreglo distinto** 3-ago | `###floor-ad` + el dominio en `##.banner`. **No** `.zone-ads` |
 | 2026-07-31 | `elmanana.com.mx` — proponer `.ad-zone` | [#361](https://github.com/easylist/easylistspanish/issues/361) | **Aceptada** 3-ago | `##.ad-zone` tal cual |
+| 2026-08-06 | `tribuna.com.mx` — proponer `##[id^="Tribuna_"]` | [#362](https://github.com/easylist/easylistspanish/issues/362) | **Abierta** | — |
 
 ## Resultado: 5 de 5 cerradas como completadas en ~3 días
 
