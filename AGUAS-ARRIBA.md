@@ -73,6 +73,19 @@ Los slots estaban como cajas vacías reservadas en esta carga — **el mismo há
 
 **NO se envía hasta la segunda carga en día distinto.**
 
+### En preparación: `lavozdemichoacan.com.mx` — falta la segunda carga
+
+Hallazgo del detector del 6-ago-2026 (barrido vespertino). **La clase publicitaria propia del sitio**: `lv-` = La Voz. **9 unidades en portada y 6 en nota, todas con anuncio servido, cero editorial**, sin regla en ninguna lista. Es el cierre más grande medido hasta ahora: **1,725 px** en portada.
+
+> **Regla candidata:** `lavozdemichoacan.com.mx##.lv-ads`
+> Recarga limpia en ambas plantillas: cero pérdida de titulares, enlaces, imágenes, texto, menús y formularios. El envoltorio utilitario (`.home-e.py-4`) contiene un `.lv-ads` adentro — una sola regla basta.
+
+**NO se envía hasta la segunda carga en día distinto.**
+
+### Anotado SIN preparar reporte: `elheraldodesaltillo.mx` — huecos con nombre frágil
+
+Tiene 3 huecos reales con anuncio servido, pero los únicos nombres disponibles son **generados por el tema tagDiv** (`#tdi_110`, `.vc_column.tdi_86…`, `#elher-<hash>`): cambian con cada reconstrucción del sitio. Proponerlos sembraría reglas destinadas a morir como la de Torreón. Queda para revisión con ojos — buscar un gancho estable en el DOM — o como caso de la familia "nombre frágil" del censo.
+
 ### En preparación: `criteriohidalgo.com` — el ex-intratable, falta la segunda carga
 
 **El caso que el censo declaró intratable, reclasificado con medición el 6-ago-2026** (detalle en `documentos/censo-intratabilidad-2026-07-30.md`, sección "Revisita"). Sus envoltorios siguen siendo Tailwind puro e inatacables por clase, pero el selector anclado al contenido los nombra:
