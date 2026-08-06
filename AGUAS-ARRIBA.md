@@ -57,6 +57,22 @@ Encontrado por el detector el 6-ago-2026 al ampliar el corpus. **`#StickHeader_U
 
 **NO se envía hasta la segunda carga en día distinto.**
 
+### En preparación: `elmanana.com` (Reynosa) — falta la segunda carga
+
+Hallazgo del 6-ago-2026 con una aclaración que evita un susto: **`elmanana.com` y `elmanana.com.mx` son periódicos hermanos en plataformas distintas** — `.com` es Reynosa (plataforma nueva) y `.com.mx` es Nuevo Laredo, cuyos 12 `.ad-zone` **siguen vivos**: la regla aceptada en julio está bien. Pero las reglas cosméticas son por dominio, y el `.com` **no tiene ni una en ninguna lista**.
+
+Su plataforma nombra la publicidad con familia propia: `template-publicidad-cuadrada-independiente` (5 unidades de 309×250), `-dos-columnas` y `-notas`, más un `#stickyunit` de 1280×90. **24 elementos de la familia en portada, cero editorial** — el único texto que se pierde son 10 etiquetas "PUBLICIDAD" y el "×" del sticky, igual que en el reporte de `periodicocorreo` de julio. En nota individual la familia casa 0: inofensiva.
+
+> **Reglas candidatas:**
+> ```
+> elmanana.com##[class^="template-publicidad-cuadrada"]
+> elmanana.com###stickyunit
+> ```
+
+Los slots estaban como cajas vacías reservadas en esta carga — **el mismo hábito de su hermano de julio**, y se declarará igual en el reporte.
+
+**NO se envía hasta la segunda carga en día distinto.**
+
 ### `quadratin.com.mx` — contenedores propios sin cubrir
 
 **El primero encontrado con ayuda de la extensión** (detector de `extension/src/contenido.js`), no enteramente a mano. Verificado el 3-ago-2026 a 1280 px de ancho.
