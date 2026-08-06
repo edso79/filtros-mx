@@ -38,12 +38,24 @@ Si esos dos entran, ya sabes que el canal funciona y que los reportes están bie
 
 ---
 
-## Siguiente lote — tribuna ENVIADA (#362), quadratin PENDIENTE DE ENVIAR
+## Segundo lote — ENVIADO COMPLETO el 6-ago-2026
 
-Los dos reportes cumplen el estándar completo de julio: prueba de recarga **en dos días distintos** (3 y 5 de agosto), todas las plantillas revisadas, y la comprobación contra reglas existentes hecha.
+Los dos reportes cumplieron el estándar completo de julio: prueba de recarga **en dos días distintos** (3 y 5 de agosto), todas las plantillas revisadas, y la comprobación contra reglas existentes hecha.
 
-- **`tribuna.com.mx` — enviada el 6-ago-2026: [#362](https://github.com/easylist/easylistspanish/issues/362).** Su enlace de un clic ya se usó; no volver a pulsarlo.
-- **`quadratin.com.mx` — verificada y lista, SIN ENVIAR.** Su enlace de un clic sigue abajo, esperando el Submit.
+- **`tribuna.com.mx` — [#362](https://github.com/easylist/easylistspanish/issues/362)**, abierta.
+- **`quadratin.com.mx` — [#363](https://github.com/easylist/easylistspanish/issues/363)**, abierta.
+
+**Los dos enlaces de un clic ya se usaron; no volver a pulsarlos** — duplicarían las incidencias.
+
+Es el primer lote del ciclo completo con la extensión en medio: el detector encontró los huecos, la verificación los depuró (2 candidatos cayeron por estar ya cubiertos por una genérica, uno por regla frágil), y los reportes salieron con la evidencia de dos días.
+
+### En preparación: `pulsoslp.com.mx` — falta la segunda carga
+
+Encontrado por el detector el 6-ago-2026 al ampliar el corpus. **`#StickHeader_UP1`** (1265×90, anuncio servido), presente **en portada y en nota** con el mismo identificador, sin regla en ninguna lista. Prueba de recarga limpia en ambas plantillas: cero pérdida de titulares, enlaces, texto, menús y formularios.
+
+> **Regla candidata:** `pulsoslp.com.mx###StickHeader_UP1`
+
+**NO se envía hasta la segunda carga en día distinto.**
 
 ### `quadratin.com.mx` — contenedores propios sin cubrir
 
@@ -65,9 +77,11 @@ Los dos reportes cumplen el estándar completo de julio: prueba de recarga **en 
 - **NO añadir `quadratin.com.mx` a la regla multi-dominio `##.banner`.** Era la tentación —es el reporte más barato, como el de `eldiariodechihuahua.mx`— y la prueba de recarga lo desmintió: **quita 16 titulares, 14 enlaces y 1,019 caracteres.** `.banner--sidebar` envuelve el bloque editorial "LO ÚLTIMO". De 6 elementos `.banner` del sitio, solo 3 son publicidad.
 - **NO reportar los contenedores `#div-gpt-ad-*`.** Ya los cubre la regla genérica `[id^="div-gpt-ad"]` de EasyList.
 
-**Segunda carga hecha el 5-ago-2026:** los tres selectores presentes con las mismas dimensiones (630×598, 1110×90, 350×758), **los tres con anuncio servido**, y la prueba de recarga volvió a pasar: cero pérdida de titulares, enlaces, texto, menús, formularios y carruseles; cierra 712 px. Además, en la carga intermedia del mismo día los slots aparecieron como cajas vacías reservadas — el reporte declara ambos estados. **LISTO PARA ENVIAR:**
+**Segunda carga hecha el 5-ago-2026:** los tres selectores presentes con las mismas dimensiones (630×598, 1110×90, 350×758), **los tres con anuncio servido**, y la prueba de recarga volvió a pasar: cero pérdida de titulares, enlaces, texto, menús, formularios y carruseles; cierra 712 px. Además, en la carga intermedia del mismo día los slots aparecieron como cajas vacías reservadas — el reporte declara ambos estados. **✅ ENVIADA el 6-ago-2026: [#363](https://github.com/easylist/easylistspanish/issues/363).**
 
-[**Abrir incidencia pre-llenada de quadratin.com.mx**](https://github.com/easylist/easylistspanish/issues/new?title=quadratin.com.mx%3A%20uncovered%20ad%20containers&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0ASite%3A%20https%3A%2F%2Fwww.quadratin.com.mx%20(Michoacan%2C%20Mexico)%0AViewport%3A%201280px%20(the%20mobile%20layout%20hides%20these%20units%20with%20Bootstrap%20d-none%2C%20so%20measure%20on%20desktop%20width)%0A%0AThree%20ad%20containers%20with%20Google%20Ad%20Manager%20slots%20survive%20on%20the%20homepage%3A%0A%0A%20%20%20%20quadratin.com.mx%23%23.banner--cinturon2%0A%20%20%20%20quadratin.com.mx%23%23.banner--faro%0A%20%20%20%20quadratin.com.mx%23%23%23custom_html-2%0A%0ASizes%3A%20630x598%2C%201110x90%20and%20350x758.%20All%20three%20held%20served%20ads%20on%20both%20test%20days%3B%20on%20one%20intermediate%20load%20the%20slots%20were%20empty%20reserved%20boxes%2C%20which%20the%20rules%20also%20remove.%0A%0ATested%20by%20applying%20the%20three%20rules%20and%20reloading%2C%20on%20two%20separate%20days%20(2026-08-03%20and%202026-08-05)%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20text%2C%20menus%2C%20forms%20or%20carousels.%20Closes%20712px%20of%20vertical%20space.%0A%0ANote%3A%20the%20site's%20%23div-gpt-ad-*%20containers%20are%20already%20covered%20by%20the%20generic%20rule%20%5Bid%5E%3D%22div-gpt-ad%22%5D%20and%20are%20NOT%20part%20of%20this%20request.%0A%0AOne%20caution%20we%20checked%20so%20you%20don't%20have%20to%3A%20please%20do%20NOT%20solve%20this%20by%20adding%20the%20domain%20to%20the%20multi-domain%20%23%23.banner%20rule.%20On%20this%20site%20.banner--sidebar%20wraps%20an%20editorial%20%22LO%20ULTIMO%22%20block%3A%20hiding%20.banner%20removes%2016%20headlines%2C%2014%20links%20and%20~1%2C000%20characters%20of%20text.%20Only%203%20of%20its%206%20.banner%20elements%20are%20ads.)
+*(El enlace de abajo ya se usó — se conserva como plantilla del formato. NO volver a pulsarlo.)*
+
+[Incidencia pre-llenada de quadratin.com.mx — YA ENVIADA](https://github.com/easylist/easylistspanish/issues/new?title=quadratin.com.mx%3A%20uncovered%20ad%20containers&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0ASite%3A%20https%3A%2F%2Fwww.quadratin.com.mx%20(Michoacan%2C%20Mexico)%0AViewport%3A%201280px%20(the%20mobile%20layout%20hides%20these%20units%20with%20Bootstrap%20d-none%2C%20so%20measure%20on%20desktop%20width)%0A%0AThree%20ad%20containers%20with%20Google%20Ad%20Manager%20slots%20survive%20on%20the%20homepage%3A%0A%0A%20%20%20%20quadratin.com.mx%23%23.banner--cinturon2%0A%20%20%20%20quadratin.com.mx%23%23.banner--faro%0A%20%20%20%20quadratin.com.mx%23%23%23custom_html-2%0A%0ASizes%3A%20630x598%2C%201110x90%20and%20350x758.%20All%20three%20held%20served%20ads%20on%20both%20test%20days%3B%20on%20one%20intermediate%20load%20the%20slots%20were%20empty%20reserved%20boxes%2C%20which%20the%20rules%20also%20remove.%0A%0ATested%20by%20applying%20the%20three%20rules%20and%20reloading%2C%20on%20two%20separate%20days%20(2026-08-03%20and%202026-08-05)%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20text%2C%20menus%2C%20forms%20or%20carousels.%20Closes%20712px%20of%20vertical%20space.%0A%0ANote%3A%20the%20site's%20%23div-gpt-ad-*%20containers%20are%20already%20covered%20by%20the%20generic%20rule%20%5Bid%5E%3D%22div-gpt-ad%22%5D%20and%20are%20NOT%20part%20of%20this%20request.%0A%0AOne%20caution%20we%20checked%20so%20you%20don't%20have%20to%3A%20please%20do%20NOT%20solve%20this%20by%20adding%20the%20domain%20to%20the%20multi-domain%20%23%23.banner%20rule.%20On%20this%20site%20.banner--sidebar%20wraps%20an%20editorial%20%22LO%20ULTIMO%22%20block%3A%20hiding%20.banner%20removes%2016%20headlines%2C%2014%20links%20and%20~1%2C000%20characters%20of%20text.%20Only%203%20of%20its%206%20.banner%20elements%20are%20ads.)
 
 *(El cuerpo incluye la advertencia de NO resolverlo metiendo el dominio en la multi-dominio `##.banner` — es exactamente como el mantenedor resolvió `periodicocorreo`, y aquí rompería el sitio.)*
 
@@ -193,6 +207,7 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 | 2026-07-31 | `periodicocorreo.com.mx` — proponer `.zone-ads` | [#360](https://github.com/easylist/easylistspanish/issues/360) | **Cerrada, arreglo distinto** 3-ago | `###floor-ad` + el dominio en `##.banner`. **No** `.zone-ads` |
 | 2026-07-31 | `elmanana.com.mx` — proponer `.ad-zone` | [#361](https://github.com/easylist/easylistspanish/issues/361) | **Aceptada** 3-ago | `##.ad-zone` tal cual |
 | 2026-08-06 | `tribuna.com.mx` — proponer `##[id^="Tribuna_"]` | [#362](https://github.com/easylist/easylistspanish/issues/362) | **Abierta** | — |
+| 2026-08-06 | `quadratin.com.mx` — proponer `.banner--cinturon2`, `.banner--faro`, `#custom_html-2` | [#363](https://github.com/easylist/easylistspanish/issues/363) | **Abierta** | — |
 
 ## Resultado: 5 de 5 cerradas como completadas en ~3 días
 
