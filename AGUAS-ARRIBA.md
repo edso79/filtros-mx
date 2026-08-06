@@ -73,6 +73,20 @@ Los slots estaban como cajas vacías reservadas en esta carga — **el mismo há
 
 **NO se envía hasta la segunda carga en día distinto.**
 
+### En preparación: `criteriohidalgo.com` — el ex-intratable, falta la segunda carga
+
+**El caso que el censo declaró intratable, reclasificado con medición el 6-ago-2026** (detalle en `documentos/censo-intratabilidad-2026-07-30.md`, sección "Revisita"). Sus envoltorios siguen siendo Tailwind puro e inatacables por clase, pero el selector anclado al contenido los nombra:
+
+> **Regla candidata:**
+> ```
+> criteriohidalgo.com##div:has(> [id^="div-gpt-ad"])
+> ```
+> Casa 11 envoltorios, todos publicitarios, cero editorial. Recarga limpia; cierra 200 px de tiras reservadas. **EasyList ya acepta `:has()` bajo `##`** — la vieja regla de Torreón lo era.
+
+**Salvedad para el reporte:** los slots estaban vacíos en la primera carga; los propios slots ya los cubre la genérica `[id^="div-gpt-ad"]` — lo que esta regla cierra es el envoltorio residual.
+
+**NO se envía hasta la segunda carga en día distinto.**
+
 ### `quadratin.com.mx` — contenedores propios sin cubrir
 
 **El primero encontrado con ayuda de la extensión** (detector de `extension/src/contenido.js`), no enteramente a mano. Verificado el 3-ago-2026 a 1280 px de ancho.
