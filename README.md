@@ -76,6 +76,8 @@ Si no tienes bloqueador, primero instala uno. **uBlock Origin** es gratuito, abi
 https://raw.githubusercontent.com/edso79/filtros-mx/main/mexico.txt
 ```
 
+> **Esta URL no va a cambiar, y es a propósito.** El proyecto tiene dominio propio (`filtrosmx.com`) y aun así la lista se sirve desde GitHub: un dominio caduca y GitHub no. Si algún día caducara, quien lo comprara podría servirle reglas arbitrarias a todo el que la tenga suscrita — y los bloqueadores las descargan y aplican en silencio. **Desconfía de cualquier URL de esta lista que no apunte a `raw.githubusercontent.com/edso79/filtros-mx`.**
+
 5. **Aplicar cambios**
 
 **En AdGuard:** Configuración → Bloqueador de anuncios → Filtros → Filtros personalizados → Añadir filtro, y pega la misma URL.
