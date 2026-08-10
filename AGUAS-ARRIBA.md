@@ -95,11 +95,44 @@ Su plataforma nombra la publicidad con familia propia: `template-publicidad-cuad
 > elmanana.com###stickyunit
 > ```
 
-Los slots estaban como cajas vacías reservadas en esta carga — **el mismo hábito de su hermano de julio**, y se declarará igual en el reporte.
+Los slots estaban como cajas vacías reservadas en esta carga — **el mismo hábito de su hermano de julio**, y se declara igual en el reporte.
 
-**NO se envía hasta la segunda carga en día distinto.**
+**Segunda carga hecha el 10-ago-2026, y es la única de las cuatro que sobrevivió.** Medido con **toda la cobertura de las listas aplicada encima**: siguen **23 contenedores visibles y 1,095,975 px²**, sin pérdida de titulares, enlaces, imágenes, menús ni campos. No es redundante con lo que ya existe. **LISTO PARA ENVIAR:**
 
-### En preparación: `lavozdemichoacan.com.mx` — falta la segunda carga
+[**Abrir incidencia pre-llenada de elmanana.com**](https://github.com/easylist/easylistspanish/issues/new?title=elmanana.com%3A%20uncovered%20ad%20containers%20(template-publicidad-*)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0ASite%3A%20https%3A%2F%2Fwww.elmanana.com%20(Reynosa%2C%20Tamaulipas%2C%20Mexico)%0AViewport%3A%201280px%0A%0ANote%20this%20is%20NOT%20the%20same%20site%20as%20elmanana.com.mx%20(Nuevo%20Laredo)%2C%20which%20is%20already%20covered%20by%20elmanana.com.mx%23%23.ad-zone.%20They%20are%20sibling%20newspapers%20on%20different%20platforms%3B%20the%20.com%20runs%20a%20newer%20CMS%20with%20its%20own%20ad%20container%20family.%20The%20.com.mx%20rule%20still%20works%20correctly%20%E2%80%94%20checked%20on%20the%20same%20day.%0A%0AThe%20platform%20names%20its%20ad%20containers%20with%20a%20common%20prefix%2C%20plus%20a%20sticky%20unit%3A%0A%0A%20%20%20%20template-publicidad-cuadrada-independiente%20%20%20(5%20units%2C%20309x250)%0A%20%20%20%20template-publicidad-cuadrada-dos-columnas%0A%20%20%20%20template-publicidad-cuadrada-notas%0A%20%20%20%20%23stickyunit%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(1280x90)%0A%0A24%20elements%20of%20the%20family%20on%20the%20homepage%2C%20checked%20one%20by%20one%3A%20every%20one%20is%20an%20ad%20container%2C%20none%20holds%20editorial%20content.%20On%20article%20pages%20the%20family%20matches%200%20elements%2C%20so%20the%20rules%20are%20inert%20there.%0A%0AProposed%20rules%3A%0A%0A%20%20%20%20elmanana.com%23%23%5Bclass%5E%3D%22template-publicidad-cuadrada%22%5D%0A%20%20%20%20elmanana.com%23%23%23stickyunit%0A%0ATested%20by%20applying%20the%20rules%20and%20reloading%2C%20on%20two%20separate%20days%20(2026-08-06%20and%202026-08-10)%2C%20with%20all%20EasyList%2FEasyPrivacy%2FEasyList%20Spanish%20rules%20also%20applied%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20menus%20or%20form%20fields.%20Measured%20on%20top%20of%20the%20existing%20lists%2C%20these%20rules%20still%20remove%2023%20visible%20ad%20containers%20and%20~1%2C095%2C975%20px2%20of%20ad%20surface%2C%20so%20they%20are%20not%20redundant%20with%20current%20coverage.%0A%0AThe%20only%20text%20removed%20is%2010%20%22PUBLICIDAD%22%20labels%20inside%20the%20containers%20themselves%20plus%20the%20%22x%22%20of%20the%20sticky%20unit%20%E2%80%94%20same%20situation%20declared%20in%20the%20periodicocorreo.com.mx%20report%20in%20July.%0A%0ACaveat%20stated%20up%20front%3A%20on%20both%20test%20days%20the%20slots%20were%20empty%20reserved%20boxes%20rather%20than%20served%20ads.%20The%20rules%20remove%20the%20reserved%20space%2C%20which%20is%20the%20observed%20benefit.%0A%0AFound%20with%20Filtros%20MX%20(https%3A%2F%2Fgithub.com%2Fedso79%2Ffiltros-mx).)
+
+*(El cuerpo aclara por adelantado que NO es el mismo sitio que `elmanana.com.mx`, para que nadie lo cierre como duplicado de la regla de julio.)*
+
+## Segundas cargas del 10-ago-2026: de 4 candidatas, sobrevive 1
+
+Se midieron las cuatro contra **toda la cobertura de las listas aplicada** —específicas y genéricas— en vez de solo comprobar si algún selector las nombra. El resultado cambió tres de cuatro veredictos.
+
+| Candidata | Aporte real sobre las listas | Veredicto |
+|---|---|---|
+| **`elmanana.com`** | **23 unidades, 1,095,975 px²** | ✅ **SE REPORTA** |
+| `lavozdemichoacan.com.mx` | 32 px de altura, 0 área | ❌ ya cubierto |
+| `criteriohidalgo.com` | 0 área, 0 altura | ❌ ya cubierto |
+| `pulsoslp.com.mx` | Contenedor a 1265×**0**, sin anuncio hoy | ⏸ sin observar beneficio |
+
+**El mecanismo que las tumbó, y que nadie había medido:** las listas ocultan la publicidad *dentro* del envoltorio, el envoltorio se queda sin contenido y **colapsa solo**. Ninguna regla los nombra —8 de 9 `.lv-ads` no las alcanza ningún selector— y aun así quedan invisibles. Un hueco que no se ve no es un hueco que reportar.
+
+De ahí salió el **quinto defecto del detector**, ya corregido: medía cobertura por *selector* y no por *efecto*. Ahora descarta el envoltorio cuya publicidad interna ya está cubierta (`colapsariaAlVaciarse`). Sin eso, tres de cuatro candidatas se habrían reportado de más — al mismo mantenedor que acaba de atendernos siete veces.
+
+### `pulsoslp.com.mx` — en pausa, sin beneficio observado
+
+El 6-ago el contenedor medía 1265×90 con anuncio servido; el 10-ago existe pero mide **1265×0** y no sirve nada, ni tras recorrer la página para disparar la carga diferida. La regla sigue siendo segura (recarga limpia, cero pérdida), pero **el beneficio no se ha observado dos veces**. Se espera a una carga que lo muestre servido antes de reportar — es el mismo criterio que se aplicó a `elmanana.com.mx` en julio, donde la salvedad se declaró por adelantado.
+
+### Descartada: `lavozdemichoacan.com.mx` — ya cubierto en efecto
+
+Las 9 `.lv-ads` (7 visibles, 8 con anuncio servido, 852,160 px² en crudo) **caen a 0 área visible** con las listas aplicadas. Aporte de una regla propia: **32 px de altura en toda la página**. No justifica el tiempo de un mantenedor. *(Se conserva anotado: si el sitio cambia y dejan de colapsar, vuelve a ser candidata.)*
+
+### Descartada: `criteriohidalgo.com` — ya cubierto en efecto
+
+Los 11 envoltorios `div:has(> [id^="div-gpt-ad"])` caen a **0** con las listas aplicadas: la genérica `[id^="div-gpt-ad"]` vacía los slots y los envoltorios colapsan. **Aporte: 0 área, 0 altura.** Es exactamente la salvedad que la revisita del censo dejó anotada el 6-ago —*"lo que esta regla cierra es el envoltorio residual"*— ahora cuantificada: ese residual es cero.
+
+**Lo que NO cambia:** el sitio sigue siendo **atacable**, que era la conclusión de la revisita. Lo que se cae es que haga falta una regla nueva.
+
+### En preparación: `lavozdemichoacan.com.mx` — ~~falta la segunda carga~~ DESCARTADA (ver arriba)
 
 Hallazgo del detector del 6-ago-2026 (barrido vespertino). **La clase publicitaria propia del sitio**: `lv-` = La Voz. **9 unidades en portada y 6 en nota, todas con anuncio servido, cero editorial**, sin regla en ninguna lista. Es el cierre más grande medido hasta ahora: **1,725 px** en portada.
 
