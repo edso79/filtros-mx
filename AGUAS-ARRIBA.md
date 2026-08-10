@@ -38,7 +38,33 @@ Si esos dos entran, ya sabes que el canal funciona y que los reportes están bie
 
 ---
 
-## Segundo lote — ENVIADO COMPLETO el 6-ago-2026
+## Segundo lote — CERRADO el 10-ago-2026: uno cubierto, uno a medias
+
+Los dos se cerraron como completados, **y los dos con arreglos distintos a lo propuesto**. Verificado contra la lista publicada (`202608101702`) y contra el DOM, que es lo que separa "cerrado" de "cubierto".
+
+### ✅ `tribuna.com.mx` (#362) — CUBIERTO, con otra regla
+
+El mantenedor no usó `[id^="Tribuna_"]`: **añadió `tribuna.com.mx` a la regla multi-dominio `##.ads`**. Verificado el 10-ago en las **tres plantillas**: portada (5 unidades), sección (3) y nota (4). **Las 12 caen dentro de un `.ads`; nuestra regla aporta 0 área, 0 altura y 0 unidades.** Cubierto de verdad.
+
+### ⚠️ `quadratin.com.mx` (#363) — CUBIERTO A MEDIAS
+
+El mantenedor resolvió **por medidas** en vez de por nombre: `###text-111`, `###text-115`, `##div[style="width:336px; height:280px;"]`, `##div[style^="width:630px; height:598px;"]`, más el dominio en las multi-dominio `##img[width="336"]` y `##img[width="728"]`.
+
+Medido el 10-ago con **solo sus reglas** aplicadas:
+
+| Lo que reportamos | Estado con su arreglo |
+|---|---|
+| `.banner--cinturon2` | **Cubierto** (0×0) — su regla de 630×598 lo vacía |
+| `.banner--faro` | **VISIBLE, 1110×90** — dentro, un rotador sirviendo **970×90** |
+| `#custom_html-2` | **VISIBLE, 350×446** — dentro, un **iframe de Google Ad Manager de 350×350 servido** |
+
+**Sobreviven 256,000 px² de publicidad servida y 114 px de altura.**
+
+**La causa, y es lo que vale del hallazgo:** una regla anclada a **medidas exactas** es frágil frente a un sitio que **rota creatividades de tamaños distintos**. `img[width="728"]` no alcanza un banner de 970×90; `img[width="336"]` no alcanza un iframe de 350×350. Las reglas por **nombre de contenedor** (`.banner--faro`, `#custom_html-2`) no tienen ese problema.
+
+**Pendiente:** segunda observación del residuo en otro día antes de comentar en #363 — precisamente porque el rotador varía, y una sola carga podría haber caído en una creatividad desafortunada. Si se confirma, va como seguimiento educado en la incidencia existente, **no** como incidencia nueva.
+
+## Segundo lote — enviado completo el 6-ago-2026
 
 Los dos reportes cumplieron el estándar completo de julio: prueba de recarga **en dos días distintos** (3 y 5 de agosto), todas las plantillas revisadas, y la comprobación contra reglas existentes hecha.
 
@@ -249,8 +275,8 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 | 2026-07-31 | `zocalo.com.mx` — proponer `.banner-medio` | [#359](https://github.com/easylist/easylistspanish/issues/359) | **Aceptada** 3-ago | `##.banner-medio` tal cual + `.anuncio-lateral-detalle` + `##.banner-top` |
 | 2026-07-31 | `periodicocorreo.com.mx` — proponer `.zone-ads` | [#360](https://github.com/easylist/easylistspanish/issues/360) | **Cerrada, arreglo distinto** 3-ago | `###floor-ad` + el dominio en `##.banner`. **No** `.zone-ads` |
 | 2026-07-31 | `elmanana.com.mx` — proponer `.ad-zone` | [#361](https://github.com/easylist/easylistspanish/issues/361) | **Aceptada** 3-ago | `##.ad-zone` tal cual |
-| 2026-08-06 | `tribuna.com.mx` — proponer `##[id^="Tribuna_"]` | [#362](https://github.com/easylist/easylistspanish/issues/362) | **Abierta** | — |
-| 2026-08-06 | `quadratin.com.mx` — proponer `.banner--cinturon2`, `.banner--faro`, `#custom_html-2` | [#363](https://github.com/easylist/easylistspanish/issues/363) | **Abierta** | — |
+| 2026-08-06 | `tribuna.com.mx` — proponer `##[id^="Tribuna_"]` | [#362](https://github.com/easylist/easylistspanish/issues/362) | **Cerrada, arreglo distinto** 10-ago — **cubre** (verificado en 3 plantillas) | Dominio añadido a la multi-dominio `##.ads` |
+| 2026-08-06 | `quadratin.com.mx` — proponer `.banner--cinturon2`, `.banner--faro`, `#custom_html-2` | [#363](https://github.com/easylist/easylistspanish/issues/363) | **Cerrada, arreglo distinto** 10-ago — **cubre a medias** | Reglas por medidas + 2 multi-dominio de `img[width]`. Sobreviven 2 unidades servidas |
 
 ## Resultado: 5 de 5 cerradas como completadas en ~3 días
 
