@@ -42,7 +42,7 @@ Desde el 3-ago-2026 la lista tiene **0 reglas activas**: las 6 se aceptaron agua
 2. **¿Apareció un hueco nuevo?** El corpus de 17 sitios sigue ahí para volver a medirlo.
 3. **La revisión trimestral con ojos sigue igual**, aplicada a los 5 sitios: confirmar que las reglas de aguas arriba ocultan publicidad y no contenido.
 
-**El compromiso de despublicar sigue vigente y sigue midiéndose igual:** si se saltan dos revisiones mensuales seguidas, se retira. Estar vacía no es excusa para dejar de mirar — es cuando más fácil sería olvidarla.
+**El compromiso sigue vigente y se mide igual:** aviso a los 60 días sin revisión, retiro a los 90 (ver arriba). Estar vacía no es excusa para dejar de mirar — es cuando más fácil sería olvidarla.
 
 ## La fecha única: 10 de agosto
 
@@ -54,5 +54,6 @@ Es el único día del año con obligaciones fijas: se revisa el acuerdo de mante
 |---|---|---|
 | 2026-07-31 | 6 de 6 reglas vivas. Sin cambios | Revisión inicial |
 | 2026-08-03 | **Las 5 incidencias aguas arriba se aceptaron. Las 6 reglas se retiran; la lista queda en 0.** Verificado contra la lista publicada (`202608031801`) y contra el DOM de `periodicocorreo.com.mx` y `eldiariodechihuahua.mx`: ninguna de las 6 aporta ya nada medible | Revisión por evento (cierre de #357–#361) |
+| 2026-08-10 | **Los 5 sitios de julio siguen cubiertos.** Cerraron #362 y #363, las dos con arreglos distintos a lo propuesto: `tribuna.com.mx` **cubierto** (verificado en 3 plantillas), `quadratin.com.mx` **cubierto a medias** — sobreviven `.banner--faro` y `#custom_html-2` con anuncio servido, 256,000 px², pendiente de segunda observación. Enviada #364 (`elmanana.com`). Verificado contra la lista publicada `202608101702` | Revisión por evento (cierre de #362–#363) |
 
 Cuando una revisión encuentre algo, se anota aquí — incluso si no se arregla en el momento. **Un registro con huecos es información:** dice que la lista lleva tiempo sin mirarse, y eso es exactamente lo que un usuario merece poder ver antes de confiar en ella.
