@@ -44,6 +44,10 @@ Desde el 3-ago-2026 la lista tiene **0 reglas activas**: las 6 se aceptaron agua
 
 **El compromiso de despublicar sigue vigente y sigue midiéndose igual:** si se saltan dos revisiones mensuales seguidas, se retira. Estar vacía no es excusa para dejar de mirar — es cuando más fácil sería olvidarla.
 
+## La fecha única: 10 de agosto
+
+Es el único día del año con obligaciones fijas: se revisa el acuerdo de mantenimiento, se confirma que el dominio `filtrosmx.com` se renovó, y que la tarjeta asociada en Cloudflare sigue vigente. Con la renovación automática activada, lo que puede matar el dominio ya no es el olvido sino una tarjeta caducada.
+
 ## Registro de revisiones
 
 | Fecha | Resultado | Quién |
