@@ -16,7 +16,12 @@ No está expresado en horas al mes, porque nadie puede estimar eso de verdad. Es
 >
 > **Una revisión con ojos cada tres meses.** Abrir los sitios y confirmar que las reglas siguen ocultando publicidad y no contenido. Esto no se puede automatizar.
 >
-> **Si se saltan dos revisiones mensuales seguidas, la lista se despublica.** No se deja ahí "por si acaso": una lista sin mantener es peor que ninguna.
+> **Si se dejan de hacer, la respuesta es graduada** (acordado el 10-ago-2026, contando desde la última revisión anotada abajo):
+>
+> - **A los 60 días:** aviso de abandono al inicio de este repositorio y en la ficha de la Chrome Web Store — *"sin mantenimiento desde [fecha]"*.
+> - **A los 90 días:** se despublica la lista y se retira la extensión.
+
+**Por qué el aviso va antes que el retiro.** Lo que este compromiso protege es que **nadie se crea protegido cuando no lo está**. Decirlo a los 60 días cumple eso de inmediato y es reversible en un minuto; retirar a los 60 castigaría una ausencia temporal —una enfermedad, un cambio de trabajo— con un daño total e irreversible para quien ya la tenía instalada. El detalle y las razones, en `documentos/acuerdo-mantenimiento-2026-08-10.md`, que es el documento que manda si alguna vez discrepan.
 
 ## Qué comprueba la revisión automática, y qué no
 
