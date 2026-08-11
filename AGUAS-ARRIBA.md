@@ -62,7 +62,43 @@ Medido el 10-ago con **solo sus reglas** aplicadas:
 
 **La causa, y es lo que vale del hallazgo:** una regla anclada a **medidas exactas** es frágil frente a un sitio que **rota creatividades de tamaños distintos**. `img[width="728"]` no alcanza un banner de 970×90; `img[width="336"]` no alcanza un iframe de 350×350. Las reglas por **nombre de contenedor** (`.banner--faro`, `#custom_html-2`) no tienen ese problema.
 
-**Pendiente:** segunda observación del residuo en otro día antes de comentar en #363 — precisamente porque el rotador varía, y una sola carga podría haber caído en una creatividad desafortunada. Si se confirma, va como seguimiento educado en la incidencia existente, **no** como incidencia nueva.
+**CONFIRMADO el 11-ago-2026, segunda observación en día distinto** (lista publicada `202608111652`):
+
+- `.banner--faro` visible a 1110×90, hoy sirviendo **iframes de 728×90 y 728×70** — el 10-ago era una creatividad de 970×90. **La rotación quedó observada directamente entre días**, y además cambió de vehículo: la creatividad llegó por iframe, que `img[width="728"]` no puede tocar (la imagen de respaldo sí queda oculta por su regla).
+- `#custom_html-2` visible a 350×758 con su **iframe de 350×350 servido** los dos días (hoy además una imagen de 336×336, que su `img[width="336"]` sí oculta — el iframe queda).
+- `.banner--cinturon2` cubierto los dos días por su regla de medidas. Ese quedó resuelto.
+
+*Nota de método que dejó esta medición:* también sobreviven envoltorios de Refinery89 (`#r89-*-wrapper`), y **NO se reportan**: solo existen porque el panel de medición no bloquea red — con bloqueo activo esos scripts ni cargan (observado vía `ERR_BLOCKED_BY_CLIENT` el 6-ago). Los dos residuos de arriba, en cambio, sirven desde **iframes del propio dominio**, que el bloqueo de red no toca. **Lo que solo aparece sin bloqueador no es un hueco reportable.**
+
+**Seguimiento listo para pegar en [#363](https://github.com/easylist/easylistspanish/issues/363)** (comentario, NO incidencia nueva — lo envía Edgar):
+
+```
+Follow-up with a second observation on a different day (2026-08-10 and
+2026-08-11), with the current published list (202608111652) applied:
+
+Two of the three reported containers still show served ads:
+
+- `.banner--faro` — visible at 1110x90. On Aug 10 it served a 970x90
+  creative; on Aug 11 it served 728x90 and 728x70 iframes. The
+  img[width="728"] rule hides the fallback image, but the rotator often
+  delivers via iframe, which that rule cannot reach.
+- `#custom_html-2` — visible at 350x758, with a 350x350 ad iframe served
+  on both days (plus a 336x336 image on Aug 11, which img[width="336"]
+  does hide — the iframe remains).
+- `.banner--cinturon2` — fully covered by your div[style^="width:630px..."]
+  rule on both days. That one is solved, thanks.
+
+The pattern across both days: the site rotates creative sizes and delivery
+(970x90 image / 728x90 iframe / 350x350 iframe), so size-anchored rules
+cover whichever creative happened to load when tested. The two container
+names don't change between loads:
+
+    quadratin.com.mx##.banner--faro
+    quadratin.com.mx###custom_html-2
+
+Both were reload-tested on two separate days (2026-08-03 and 2026-08-05,
+re-checked Aug 10-11): no loss of headlines, links, text, menus or forms.
+```
 
 ## Segundo lote — enviado completo el 6-ago-2026
 
@@ -125,6 +161,8 @@ De ahí salió el **quinto defecto del detector**, ya corregido: medía cobertur
 ### `pulsoslp.com.mx` — en pausa, sin beneficio observado
 
 El 6-ago el contenedor medía 1265×90 con anuncio servido; el 10-ago existe pero mide **1265×0** y no sirve nada, ni tras recorrer la página para disparar la carga diferida. La regla sigue siendo segura (recarga limpia, cero pérdida), pero **el beneficio no se ha observado dos veces**. Se espera a una carga que lo muestre servido antes de reportar — es el mismo criterio que se aplicó a `elmanana.com.mx` en julio, donde la salvedad se declaró por adelantado.
+
+*Tercera carga, 11-ago-2026: sigue a 1265×0, slot GPT sin llenar (esperas de 4 y 2 segundos incluidas). Sigue en pausa.*
 
 ### Descartada: `lavozdemichoacan.com.mx` — ya cubierto en efecto
 
