@@ -70,7 +70,7 @@ Medido el 10-ago con **solo sus reglas** aplicadas:
 
 *Nota de método que dejó esta medición:* también sobreviven envoltorios de Refinery89 (`#r89-*-wrapper`), y **NO se reportan**: solo existen porque el panel de medición no bloquea red — con bloqueo activo esos scripts ni cargan (observado vía `ERR_BLOCKED_BY_CLIENT` el 6-ago). Los dos residuos de arriba, en cambio, sirven desde **iframes del propio dominio**, que el bloqueo de red no toca. **Lo que solo aparece sin bloqueador no es un hueco reportable.**
 
-**Seguimiento listo para pegar en [#363](https://github.com/easylist/easylistspanish/issues/363)** (comentario, NO incidencia nueva — lo envía Edgar):
+**Seguimiento ENVIADO el 11-ago-2026** como comentario en [#363](https://github.com/easylist/easylistspanish/issues/363), sin reabrir la incidencia — reabrir es decisión del mantenedor; el comentario le llega igual. **Queda en observación:** si lo toma, verificar contra la lista publicada Y contra el DOM antes de dar el residuo por cubierto — cerrado ≠ aceptado, la lección de siempre. El texto enviado:
 
 ```
 Follow-up with a second observation on a different day (2026-08-10 and
@@ -351,7 +351,7 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 | 2026-07-31 | `periodicocorreo.com.mx` — proponer `.zone-ads` | [#360](https://github.com/easylist/easylistspanish/issues/360) | **Cerrada, arreglo distinto** 3-ago | `###floor-ad` + el dominio en `##.banner`. **No** `.zone-ads` |
 | 2026-07-31 | `elmanana.com.mx` — proponer `.ad-zone` | [#361](https://github.com/easylist/easylistspanish/issues/361) | **Aceptada** 3-ago | `##.ad-zone` tal cual |
 | 2026-08-06 | `tribuna.com.mx` — proponer `##[id^="Tribuna_"]` | [#362](https://github.com/easylist/easylistspanish/issues/362) | **Cerrada, arreglo distinto** 10-ago — **cubre** (verificado en 3 plantillas) | Dominio añadido a la multi-dominio `##.ads` |
-| 2026-08-06 | `quadratin.com.mx` — proponer `.banner--cinturon2`, `.banner--faro`, `#custom_html-2` | [#363](https://github.com/easylist/easylistspanish/issues/363) | **Cerrada, arreglo distinto** 10-ago — **cubre a medias** | Reglas por medidas + 2 multi-dominio de `img[width]`. Sobreviven 2 unidades servidas |
+| 2026-08-06 | `quadratin.com.mx` — proponer `.banner--cinturon2`, `.banner--faro`, `#custom_html-2` | [#363](https://github.com/easylist/easylistspanish/issues/363) | **Cerrada, arreglo distinto** 10-ago — **cubre a medias**. Seguimiento con segunda observación **enviado el 11-ago**; en espera de respuesta | Reglas por medidas + 2 multi-dominio de `img[width]`. Sobreviven 2 unidades servidas |
 | 2026-08-10 | `elmanana.com` (Reynosa) — proponer `[class^="template-publicidad-cuadrada"]` y `#stickyunit` | [#364](https://github.com/easylist/easylistspanish/issues/364) | **Abierta** | — |
 
 ## Resultado: 5 de 5 cerradas como completadas en ~3 días
