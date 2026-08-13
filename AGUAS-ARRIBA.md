@@ -148,6 +148,14 @@ Los 1,095,977 px² medidos coinciden con los 1,095,975 px² del reporte: dos px�
 
 **Pendiente antes de decir nada al mantenedor:** `###stickyunit` es redundante en UNA sola observación. Hace falta la segunda en día distinto, igual que para proponer. El 13-ago se hicieron **dos cargas separadas el mismo día** y las dos lo dieron a 1264×0 — eso descarta que sea artefacto de una carga suelta, pero **no cumple el estándar de día distinto** y no autoriza a enviarlo.
 
+**Cómo hacer la segunda observación (un comando, cualquier día que no sea el 13-ago):**
+
+```bash
+node herramientas/extension/medir-sitio.mjs https://www.elmanana.com/ --reforzado --selector "#stickyunit"
+```
+
+Si vuelve a salir `0/1 visibles, 0 px2` queda confirmado. El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y si faltara se reinstala con `npx @puppeteer/browsers install chrome@stable`.
+
 **Comentario redactado, a la espera de esa segunda observación.** Cuando llegue, rellenar la fecha y pegarlo en #364 (que sigue abierta, así que no hay que reabrir nada):
 
 > Follow-up on the two rules proposed here. Measured again on 2026-08-13 and
