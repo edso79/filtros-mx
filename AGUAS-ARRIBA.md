@@ -146,7 +146,26 @@ Los slots estaban como cajas vacías reservadas en esta carga — **el mismo há
 
 Los 1,095,977 px² medidos coinciden con los 1,095,975 px² del reporte: dos px² de redondeo. La salvedad declarada en el cuerpo —cajas vacías reservadas, y el beneficio es quitar el espacio— **se sostiene bajo bloqueo real**.
 
-**Pendiente antes de decir nada al mantenedor:** `###stickyunit` es redundante en UNA sola observación. Hace falta la segunda en día distinto, igual que para proponer. Cuando la haya, el comentario correcto es corto: que de las dos reglas solo la primera sigue aportando.
+**Pendiente antes de decir nada al mantenedor:** `###stickyunit` es redundante en UNA sola observación. Hace falta la segunda en día distinto, igual que para proponer. El 13-ago se hicieron **dos cargas separadas el mismo día** y las dos lo dieron a 1264×0 — eso descarta que sea artefacto de una carga suelta, pero **no cumple el estándar de día distinto** y no autoriza a enviarlo.
+
+**Comentario redactado, a la espera de esa segunda observación.** Cuando llegue, rellenar la fecha y pegarlo en #364 (que sigue abierta, así que no hay que reabrir nada):
+
+> Follow-up on the two rules proposed here. Measured again on 2026-08-13 and
+> <SEGUNDA FECHA> with all EasyList / EasyPrivacy / EasyList Spanish rules
+> applied, including generic cosmetic rules, in a browser with network
+> blocking active:
+>
+> - `elmanana.com##[class^="template-publicidad-cuadrada"]` — still worth
+>   adding. 23 of 23 containers stay visible: 1,095,977 px² and 3,560 px of
+>   vertical space. The ad slots inside no longer load, and the wrappers do
+>   not collapse — they keep their reserved height.
+> - `elmanana.com###stickyunit` — **no longer needed, please drop it.** With
+>   generic cosmetic rules applied it already measures 1264x0, so the rule
+>   would add nothing.
+>
+> Flagging it so you don't spend time on a rule that isn't pulling weight.
+
+*(Retirar una regla propia porque ya no aporta es el mismo movimiento que vació `mexico.txt` el 3-ago. Cuesta poco y es exactamente lo que hace que el siguiente reporte se lea con confianza.)*
 
 *(El enlace de abajo ya se usó — se conserva como plantilla. NO volver a pulsarlo.)*
 
