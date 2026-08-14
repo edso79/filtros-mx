@@ -163,7 +163,7 @@ node herramientas/extension/medir-sitio.mjs https://www.elmanana.com/ --reforzad
 
 El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y si faltara se reinstala con `npx @puppeteer/browsers install chrome@stable`.
 
-**Comentario LISTO PARA PEGAR en #364** (sigue abierta, así que no hay que reabrir nada). Lo envía Edgar:
+**✅ COMENTARIO ENVIADO el 14-ago-2026** por Edgar, en la incidencia abierta (sin cerrarla ni reabrir nada: la primera regla sigue pendiente de aplicarse). Texto tal cual salió:
 
 > Follow-up on the two rules proposed here. Measured again on 2026-08-13 and
 > 2026-08-14 with all EasyList / EasyPrivacy / EasyList Spanish rules
@@ -181,6 +181,8 @@ El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y 
 > Flagging it so you don't spend time on a rule that isn't pulling weight.
 
 *(Retirar una regla propia porque ya no aporta es el mismo movimiento que vació `mexico.txt` el 3-ago. Cuesta poco y es exactamente lo que hace que el siguiente reporte se lea con confianza.)*
+
+**Queda vigilar la respuesta.** Si el mantenedor aplica la regla que sí aporta, **verificar contra la lista publicada y contra el DOM antes de dar nada por cubierto** — es la lección de `periodicocorreo` en julio y de `tribuna` en agosto: cerrado no es aceptado, y aceptado no siempre es lo que se propuso.
 
 *(El enlace de abajo ya se usó — se conserva como plantilla. NO volver a pulsarlo.)*
 
@@ -454,7 +456,7 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 | 2026-07-31 | `elmanana.com.mx` — proponer `.ad-zone` | [#361](https://github.com/easylist/easylistspanish/issues/361) | **Aceptada** 3-ago | `##.ad-zone` tal cual |
 | 2026-08-06 | `tribuna.com.mx` — proponer `##[id^="Tribuna_"]` | [#362](https://github.com/easylist/easylistspanish/issues/362) | **Cerrada, arreglo distinto** 10-ago — **cubre** (verificado en 3 plantillas) | Dominio añadido a la multi-dominio `##.ads` |
 | 2026-08-06 | `quadratin.com.mx` — proponer `.banner--cinturon2`, `.banner--faro`, `#custom_html-2` | [#363](https://github.com/easylist/easylistspanish/issues/363) | **Cerrada, arreglo distinto** 10-ago — **cubre a medias**. Seguimiento con segunda observación **enviado el 11-ago**; en espera de respuesta | Reglas por medidas + 2 multi-dominio de `img[width]`. Sobreviven 2 unidades servidas |
-| 2026-08-10 | `elmanana.com` (Reynosa) — proponer `[class^="template-publicidad-cuadrada"]` y `#stickyunit` | [#364](https://github.com/easylist/easylistspanish/issues/364) | **Abierta** | — |
+| 2026-08-10 | `elmanana.com` (Reynosa) — proponer `[class^="template-publicidad-cuadrada"]` y `#stickyunit` | [#364](https://github.com/easylist/easylistspanish/issues/364) | **Abierta.** Seguimiento con la segunda observación **enviado el 14-ago**: se confirma la regla que aporta y se pide **retirar `###stickyunit`**, ya redundante | — |
 
 ## Resultado: 5 de 5 cerradas como completadas en ~3 días
 
