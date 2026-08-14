@@ -188,6 +188,36 @@ El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y 
 
 *(El cuerpo aclara por adelantado que NO es el mismo sitio que `elmanana.com.mx`, para que nadie lo cierre como duplicado de la regla de julio.)*
 
+## En preparación: `imagendelgolfo.mx` — el más grande medido hasta hoy (14-ago-2026)
+
+Encontrado al ampliar el corpus el 14-ago. **Ninguna de las tres listas menciona el dominio** (verificado con `grep` sobre `easylist.txt`, `easyprivacy.txt` y `easylistspanish.txt`), y con el bloqueo puesto no se le oculta **ni un elemento**.
+
+> **Regla candidata:** `imagendelgolfo.mx##.bannersaas`
+
+| Selector | Con bloqueo real + Reforzado | Prueba de pérdida | Veredicto |
+|---|---|---|---|
+| **`.bannersaas`** | **17/31 visibles, 1,746,600 px², 3,500 px de alto** | limpia: 0 titulares, 0 enlaces, 0 texto, 0 campos | ✅ **candidata** |
+| `.banner-container` | 10/10, 1,066,500 px², 900 px | limpia | envoltorio de las anteriores |
+| `.sass-com-badv-content` | 7/8, 864,800 px², 2,600 px | limpia | dentro de `.bannersaas` |
+| `.sass-bs-m2c-bannerContent` | 1/1, 989,045 px² | **ROMPE: −5 titulares, −12 enlaces, −622 caracteres** | ❌ **NO TOCAR** |
+
+**Es más grande que #364**: 1,746,600 px² contra 1,095,977. Los tamaños son los estándar de IAB —970×90, 336×280, 336×600— y **miden exactamente igual con y sin bloqueador**: las cajas reservan su espacio y no colapsan al vaciarse. Es el mecanismo de `elmanana.com`, que ya se aceptó como argumento válido.
+
+### La trampa, a un sufijo de distancia
+
+`.sass-bs-m2c-bannerContent**Aux**` es publicitario. `.sass-bs-m2c-bannerContent`, **sin el sufijo**, es la columna editorial de la portada —350×2826, con «El ocaso del glaciar Jamapa» dentro— y ocultarla se lleva 5 titulares y 12 enlaces. Dos clases hermanas, una borra publicidad y la otra borra el periódico. **Ninguna regla de este sitio se propone sin pasar la prueba de pérdida.**
+
+### Pista viva, sin afirmar nada: el CMS es Bluestack
+
+El prefijo `saas` no es decorativo: el sitio corre sobre **Bluestack CMS** (`bluestack.la`), un CMS de terceros. Si la familia `.bannersaas` viaja con el CMS, la regla valdría para más medios y sería candidata a multi-dominio, que es lo que más rinde aguas arriba.
+
+**No se afirma hasta contarlo.** El precedente es `.mr-banner`, que prometía lo mismo y apareció en **3 de 36** sitios: demasiado angosto. Aquí hay que medir en cuántos sitios del corpus aparece `.bannersaas` antes de proponer nada que afecte a terceros.
+
+### Lo que falta antes de enviar
+
+1. **Segunda carga en día distinto** — el estándar que hizo entrar los cinco de julio sin discusión.
+2. **Plantilla de nota**, que hoy no se pudo sacar: la portada se arma por JavaScript y el sitio devuelve 403 a navegadores no estándar. Con Chrome for Testing sí entra, así que va con la segunda carga.
+
 ## Remedición del 14-ago-2026: los 4 que el arnés perdió el 13-ago
 
 El barrido del 13-ago se llevó por delante 4 sitios por un defecto del propio arnés, no por nada de los sitios. Con el arnés corregido, los cuatro se midieron hoy en modo Reforzado. **Ninguno da hueco reportable, y uno abre trabajo:**
