@@ -146,20 +146,27 @@ Los slots estaban como cajas vacías reservadas en esta carga — **el mismo há
 
 Los 1,095,977 px² medidos coinciden con los 1,095,975 px² del reporte: dos px² de redondeo. La salvedad declarada en el cuerpo —cajas vacías reservadas, y el beneficio es quitar el espacio— **se sostiene bajo bloqueo real**.
 
-**Pendiente antes de decir nada al mantenedor:** `###stickyunit` es redundante en UNA sola observación. Hace falta la segunda en día distinto, igual que para proponer. El 13-ago se hicieron **dos cargas separadas el mismo día** y las dos lo dieron a 1264×0 — eso descarta que sea artefacto de una carga suelta, pero **no cumple el estándar de día distinto** y no autoriza a enviarlo.
+**✅ SEGUNDA OBSERVACIÓN EN DÍA DISTINTO — 14-ago-2026. El estándar queda cumplido y el comentario se puede enviar.** Misma orden, mismo modo Reforzado, 19 peticiones frenadas:
 
-**Cómo hacer la segunda observación (un comando, cualquier día que no sea el 13-ago):**
+| Regla propuesta | 13-ago | 14-ago | Veredicto |
+|---|---|---|---|
+| `[class^="template-publicidad-cuadrada"]` | 23/23 visibles, 1,095,977 px², 3,560 px | **23/23 visibles, 1,095,977 px², 3,560 px** | ✅ **se sostiene, cifra idéntica** |
+| `###stickyunit` | oculto, 1264×0 | **oculto, 1264×0** | ⚠️ **redundante, confirmado** |
+
+Que las cifras del selector bueno coincidan **al px²** entre dos días es lo que separa una medición de una anécdota: el hallazgo de #364 no depende de qué día se cargó la página.
+
+**Cómo se hizo (un comando, reproducible):**
 
 ```bash
 node herramientas/extension/medir-sitio.mjs https://www.elmanana.com/ --reforzado --selector "#stickyunit"
 ```
 
-Si vuelve a salir `0/1 visibles, 0 px2` queda confirmado. El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y si faltara se reinstala con `npx @puppeteer/browsers install chrome@stable`.
+El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y si faltara se reinstala con `npx @puppeteer/browsers install chrome@stable`.
 
-**Comentario redactado, a la espera de esa segunda observación.** Cuando llegue, rellenar la fecha y pegarlo en #364 (que sigue abierta, así que no hay que reabrir nada):
+**Comentario LISTO PARA PEGAR en #364** (sigue abierta, así que no hay que reabrir nada). Lo envía Edgar:
 
 > Follow-up on the two rules proposed here. Measured again on 2026-08-13 and
-> <SEGUNDA FECHA> with all EasyList / EasyPrivacy / EasyList Spanish rules
+> 2026-08-14 with all EasyList / EasyPrivacy / EasyList Spanish rules
 > applied, including generic cosmetic rules, in a browser with network
 > blocking active:
 >
@@ -180,6 +187,27 @@ Si vuelve a salir `0/1 visibles, 0 px2` queda confirmado. El arnés localiza Chr
 [Incidencia pre-llenada de elmanana.com — YA ENVIADA](https://github.com/easylist/easylistspanish/issues/new?title=elmanana.com%3A%20uncovered%20ad%20containers%20(template-publicidad-*)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%0A%0ASite%3A%20https%3A%2F%2Fwww.elmanana.com%20(Reynosa%2C%20Tamaulipas%2C%20Mexico)%0AViewport%3A%201280px%0A%0ANote%20this%20is%20NOT%20the%20same%20site%20as%20elmanana.com.mx%20(Nuevo%20Laredo)%2C%20which%20is%20already%20covered%20by%20elmanana.com.mx%23%23.ad-zone.%20They%20are%20sibling%20newspapers%20on%20different%20platforms%3B%20the%20.com%20runs%20a%20newer%20CMS%20with%20its%20own%20ad%20container%20family.%20The%20.com.mx%20rule%20still%20works%20correctly%20%E2%80%94%20checked%20on%20the%20same%20day.%0A%0AThe%20platform%20names%20its%20ad%20containers%20with%20a%20common%20prefix%2C%20plus%20a%20sticky%20unit%3A%0A%0A%20%20%20%20template-publicidad-cuadrada-independiente%20%20%20(5%20units%2C%20309x250)%0A%20%20%20%20template-publicidad-cuadrada-dos-columnas%0A%20%20%20%20template-publicidad-cuadrada-notas%0A%20%20%20%20%23stickyunit%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(1280x90)%0A%0A24%20elements%20of%20the%20family%20on%20the%20homepage%2C%20checked%20one%20by%20one%3A%20every%20one%20is%20an%20ad%20container%2C%20none%20holds%20editorial%20content.%20On%20article%20pages%20the%20family%20matches%200%20elements%2C%20so%20the%20rules%20are%20inert%20there.%0A%0AProposed%20rules%3A%0A%0A%20%20%20%20elmanana.com%23%23%5Bclass%5E%3D%22template-publicidad-cuadrada%22%5D%0A%20%20%20%20elmanana.com%23%23%23stickyunit%0A%0ATested%20by%20applying%20the%20rules%20and%20reloading%2C%20on%20two%20separate%20days%20(2026-08-06%20and%202026-08-10)%2C%20with%20all%20EasyList%2FEasyPrivacy%2FEasyList%20Spanish%20rules%20also%20applied%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20menus%20or%20form%20fields.%20Measured%20on%20top%20of%20the%20existing%20lists%2C%20these%20rules%20still%20remove%2023%20visible%20ad%20containers%20and%20~1%2C095%2C975%20px2%20of%20ad%20surface%2C%20so%20they%20are%20not%20redundant%20with%20current%20coverage.%0A%0AThe%20only%20text%20removed%20is%2010%20%22PUBLICIDAD%22%20labels%20inside%20the%20containers%20themselves%20plus%20the%20%22x%22%20of%20the%20sticky%20unit%20%E2%80%94%20same%20situation%20declared%20in%20the%20periodicocorreo.com.mx%20report%20in%20July.%0A%0ACaveat%20stated%20up%20front%3A%20on%20both%20test%20days%20the%20slots%20were%20empty%20reserved%20boxes%20rather%20than%20served%20ads.%20The%20rules%20remove%20the%20reserved%20space%2C%20which%20is%20the%20observed%20benefit.%0A%0AFound%20with%20Filtros%20MX%20(https%3A%2F%2Fgithub.com%2Fedso79%2Ffiltros-mx).)
 
 *(El cuerpo aclara por adelantado que NO es el mismo sitio que `elmanana.com.mx`, para que nadie lo cierre como duplicado de la regla de julio.)*
+
+## Remedición del 14-ago-2026: los 4 que el arnés perdió el 13-ago
+
+El barrido del 13-ago se llevó por delante 4 sitios por un defecto del propio arnés, no por nada de los sitios. Con el arnés corregido, los cuatro se midieron hoy en modo Reforzado. **Ninguno da hueco reportable, y uno abre trabajo:**
+
+| Sitio | Frenadas | Ocultos | Descartes | Veredicto |
+|---|---|---|---|---|
+| `poresto.com` *(ver nota)* | 5 | 7 | 0/0/0 | ✅ limpio |
+| `sipse.com` | 3 | 8 | 6 ya cubiertos en efecto | ✅ cubierto |
+| `elsiglocoahuila.mx` | 6 | 22 | 2 sobrecobertura, 4 ya cubiertos | ✅ cubierto |
+| `elorbe.com` | 4 | 21 | 0/0/0 | ⚠️ **CEGUERA** — mirar el DOM a mano |
+
+Las cuatro son mediciones **válidas**: hay peticiones frenadas y elementos ocultos en todas, que es el criterio que se fijó el 13-ago tras el falso "limpio" de `proyectopuente` con cero en todo.
+
+**`elorbe.com` se suma a `cuartopoder.mx` y `tabascohoy.com`**: tres sitios donde el bloqueo de red actúa pero **ninguna regla cosmética les aplica y el detector no encuentra contenedor nombrable**. Es exactamente para lo que existe la señal, y el precedente es `criteriohidalgo` el 6-ago: a mano apareció `div:has(> [id^="div-gpt-ad"])`, que el detector no sabe proponer porque nombra por clase.
+
+### `poresto.net` no es el dominio: salta a `poresto.com`
+
+Falló dos barridos seguidos con «no encuentro el tabId», y el arnés no decía a dónde había ido. Al listar las pestañas quedó claro: **`poresto.net` redirige a `poresto.com`, otro dominio.** Importa para el reporte, porque las reglas cosméticas son por dominio y proponer `poresto.net` habría sido proponer una regla inerte — el mismo error de identidad que casi se comete con los dos `elmanana`.
+
+**Trampa de método que costó el rodeo:** `curl -L` devuelve **200 en `poresto.net` sin mostrar redirección**, porque el salto es de cliente, no HTTP. **Comprobar redirecciones con curl no descarta nada** cuando el sitio salta por JavaScript.
 
 ## Segundas cargas del 10-ago-2026: de 4 candidatas, sobrevive 1
 
