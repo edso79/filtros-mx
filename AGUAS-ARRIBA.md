@@ -232,6 +232,10 @@ El 6-ago el contenedor medía 1265×90 con anuncio servido; el 10-ago existe per
 
 *Tercera carga, 11-ago-2026: sigue a 1265×0, slot GPT sin llenar (esperas de 4 y 2 segundos incluidas). Sigue en pausa.*
 
+**❌ DESCARTADO el 14-ago-2026, cuarta observación.** Medido con bloqueo real y modo Reforzado (15 peticiones frenadas, 15 elementos ocultos, **0 huecos reportables**): `#StickHeader_UP1` casa 1 elemento y sale **1249×0, oculto**. Marcador final: **una carga con anuncio servido (6-ago) contra tres sin él (10, 11 y 14-ago)**.
+
+La regla nunca fue peligrosa —recarga limpia en las dos plantillas— pero eso no basta: **lo que se le lleva a un mantenedor es un beneficio observado, y aquí el beneficio aparece una vez de cada cuatro.** Se conserva anotado igual que `lavozdemichoacan.com.mx`: si una carga futura lo muestra servido, vuelve a ser candidata sin empezar de cero.
+
 ### Descartada: `lavozdemichoacan.com.mx` — ya cubierto en efecto
 
 Las 9 `.lv-ads` (7 visibles, 8 con anuncio servido, 852,160 px² en crudo) **caen a 0 área visible** con las listas aplicadas. Aporte de una regla propia: **32 px de altura en toda la página**. No justifica el tiempo de un mantenedor. *(Se conserva anotado: si el sitio cambia y dejan de colapsar, vuelve a ser candidata.)*
