@@ -190,18 +190,37 @@ El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y 
 
 *(El cuerpo aclara por adelantado que NO es el mismo sitio que `elmanana.com.mx`, para que nadie lo cierre como duplicado de la regla de julio.)*
 
-## En preparación: `imagendelgolfo.mx` — el más grande medido hasta hoy (14-ago-2026)
+## LISTA PARA ENVIAR: `imagendelgolfo.mx` — el más grande medido del proyecto (2ª carga y nota, 17-ago-2026)
 
-Encontrado al ampliar el corpus el 14-ago. **Ninguna de las tres listas menciona el dominio** (verificado con `grep` sobre `easylist.txt`, `easyprivacy.txt` y `easylistspanish.txt`), y con el bloqueo puesto no se le oculta **ni un elemento**.
+Encontrado al ampliar el corpus el 14-ago. **Ninguna de las tres listas menciona el dominio** (verificado con `grep` sobre `easylist.txt`, `easyprivacy.txt` y `easylistspanish.txt`), y con el bloqueo puesto no se le oculta **ni un elemento** — 0 ocultos por cosméticas en las tres páginas medidas.
 
 > **Regla candidata:** `imagendelgolfo.mx##.bannersaas`
 
-| Selector | Con bloqueo real + Reforzado | Prueba de pérdida | Veredicto |
-|---|---|---|---|
-| **`.bannersaas`** | **17/31 visibles, 1,746,600 px², 3,500 px de alto** | limpia: 0 titulares, 0 enlaces, 0 texto, 0 campos | ✅ **candidata** |
-| `.banner-container` | 10/10, 1,066,500 px², 900 px | limpia | envoltorio de las anteriores |
-| `.sass-com-badv-content` | 7/8, 864,800 px², 2,600 px | limpia | dentro de `.bannersaas` |
-| `.sass-bs-m2c-bannerContent` | 1/1, 989,045 px² | **ROMPE: −5 titulares, −12 enlaces, −622 caracteres** | ❌ **NO TOCAR** |
+### Portada, dos días separados por un fin de semana
+
+| Selector | 14-ago | 17-ago | Prueba de pérdida | Veredicto |
+|---|---|---|---|---|
+| **`.bannersaas`** | 17/31, **1,746,600 px²**, 3,500 px | 17/31, **1,746,600 px²**, 3,500 px | limpia los dos días | ✅ **candidata** |
+| `.banner-container` | 10/10, 1,066,500 px², 900 px | idéntico | limpia | envoltorio de las anteriores |
+| `.sass-com-badv-content` | 7/8, 864,800 px², 2,600 px | idéntico | limpia | dentro de `.bannersaas` |
+| `.sass-bs-m2c-bannerContent` | 1/1, 989,045 px² | 1/1, **1,000,245 px²** | **ROMPE los dos días: −5 titulares, −12 enlaces** | ❌ **NO TOCAR** |
+
+**Los tres selectores publicitarios repiten la cifra al píxel; el editorial es el único que se movió.** Esa asimetría es en sí misma la prueba: las cajas de anuncio son de tamaño IAB reservado y no dependen del contenido del día, mientras la columna de titulares sí. El texto perdido por el selector malo también varió —622 caracteres el 14, 533 el 17— pero **los titulares y enlaces perdidos fueron idénticos**.
+
+### Plantilla de nota — medida el 17-ago, dos notas reales
+
+| Nota | `.bannersaas` | Prueba de pérdida |
+|---|---|---|
+| `…concentra-operativos-20260324-0084.html` | **5/11 visibles, 689,730 px², 930 px** | limpia |
+| `…isidro-cano-hoy-21-de-marzo-20260320-0078.html` | **7/15 visibles, 1,091,160 px², 1,430 px** | limpia |
+
+**La regla cubre las dos plantillas, y en la nota las unidades son otras** —1185×90, 803×250, 300×250, contra 970×90 / 336×280 / 336×600 de la portada—: no es la misma página repetida, es la misma clase envolviendo inventario distinto.
+
+**Y la trampa editorial no existe fuera de la portada:** `.sass-bs-m2c-bannerContent` y `.sass-com-badv-content` **casan 0 elementos** en ambas notas. `.bannersaas` es segura en las dos plantillas.
+
+### Por qué por clase y no por identificador
+
+Los ids de las unidades de portada son `#home_desktop_middle_4` … `_11`. **Llevan `home_` en el nombre**, así que están atados a esa plantilla y en la nota son otros. Nombrar por id daría una regla que se cae al cambiar de página — el mismo defecto que dejó a `proyectopuente.com.mx` sin reporte posible. Sirve GAM (`securepubads.g.doubleclick.net`), con Comscore y GTM detrás.
 
 **Es más grande que #364**: 1,746,600 px² contra 1,095,977. Los tamaños son los estándar de IAB —970×90, 336×280, 336×600— y **miden exactamente igual con y sin bloqueador**: las cajas reservan su espacio y no colapsan al vaciarse. Es el mecanismo de `elmanana.com`, que ya se aceptó como argumento válido.
 
@@ -215,10 +234,33 @@ El prefijo `saas` no es decorativo: el sitio corre sobre **Bluestack CMS** (`blu
 
 **No se afirma hasta contarlo.** El precedente es `.mr-banner`, que prometía lo mismo y apareció en **3 de 36** sitios: demasiado angosto. Aquí hay que medir en cuántos sitios del corpus aparece `.bannersaas` antes de proponer nada que afecte a terceros.
 
-### Lo que falta antes de enviar
+### Estado: CUMPLE el estándar de envío (17-ago-2026)
 
-1. **Segunda carga en día distinto** — el estándar que hizo entrar los cinco de julio sin discusión.
-2. **Plantilla de nota**, que hoy no se pudo sacar: la portada se arma por JavaScript y el sitio devuelve 403 a navegadores no estándar. Con Chrome for Testing sí entra, así que va con la segunda carga.
+1. ✅ **Segunda carga en día distinto** — el estándar que hizo entrar los cinco de julio sin discusión. Repite al píxel.
+2. ✅ **Plantilla de nota** — dos notas, ambas con superficie y ambas limpias. El 14-ago no se pudo: la portada se arma por JavaScript y el sitio devuelve **403 a todo lo que no sea un navegador real** — `curl` no entra ni declarando ser Chrome, ni en portada ni en `sitemap.xml` ni en `feed`. Las URLs de nota hubo que sacarlas de un buscador; medirlas, con Chrome for Testing.
+3. ✅ **Prueba de pérdida limpia** en las tres páginas, con `--probar-perdida`, no a ojo.
+
+**Lo envía Edgar**, como todos. El cuerpo ya está redactado y el enlace pre-llenado, al final de esta sección.
+
+**Cómo se hizo (dos comandos, reproducibles):**
+
+```bash
+node herramientas/extension/medir-sitio.mjs https://imagendelgolfo.mx/ --reforzado --probar-perdida --selector ".bannersaas" --selector ".banner-container" --selector ".sass-com-badv-content" --selector ".sass-bs-m2c-bannerContent"
+```
+
+```bash
+node herramientas/extension/medir-sitio.mjs "https://imagendelgolfo.mx/estado/veracruz-se-mantiene-como-paso-constante-de-migrantes-concentra-operativos-20260324-0084.html" "https://imagendelgolfo.mx/estado/clima-en-veracruz-ya-despeja-con-vientos-del-este-nieblas-en-la-noche-preve-isidro-cano-hoy-21-de-marzo-20260320-0078.html" --reforzado --probar-perdida --selector ".bannersaas" --selector ".sass-bs-m2c-bannerContent" --selector ".sass-com-badv-content"
+```
+
+### Texto de la incidencia, listo para enviar
+
+El cuerpo declara por adelantado las tres cosas que un mantenedor preguntaría: que las cajas están **vacías y reservadas**, no sirviendo anuncios (mismo aviso que en #364); que **no se propone nada multi-dominio** porque el conteo de Bluestack no está hecho; y **la advertencia de la clase hermana**, para que nadie “mejore” la regla con `.sass-bs-m2c-bannerContent` y se lleve la portada por delante.
+
+> ⚠️ **AÚN NO ENVIADA.** Este enlace abre la incidencia pre-llenada; **lo pulsa Edgar**. Cuando se envíe, anotar aquí el número y cambiar esta línea, como se hizo con #357–#364.
+
+[Incidencia pre-llenada de imagendelgolfo.mx — SIN ENVIAR](https://github.com/easylist/easylistspanish/issues/new?title=imagendelgolfo.mx%3A%20uncovered%20ad%20containers%20(.bannersaas)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%20The%20domain%20is%20not%20mentioned%20in%20any%20of%20the%20three%20lists%2C%20and%20with%20all%20of%20them%20applied%20not%20a%20single%20element%20on%20the%20site%20is%20hidden.%0A%0ASite%3A%20https%3A%2F%2Fimagendelgolfo.mx%20(Veracruz%2C%20Mexico)%0AViewport%3A%201280px%0AAd%20server%3A%20Google%20Ad%20Manager%20(securepubads.g.doubleclick.net)%0A%0AThe%20site%20runs%20on%20Bluestack%20CMS%2C%20which%20wraps%20every%20ad%20unit%20in%20one%20class%3A%0A%0A%20%20%20%20.bannersaas%0A%0AProposed%20rule%3A%0A%0A%20%20%20%20imagendelgolfo.mx%23%23.bannersaas%0A%0AMeasured%20with%20all%20EasyList%20%2F%20EasyPrivacy%20%2F%20EasyList%20Spanish%20rules%20applied%2C%20including%20generic%20cosmetic%20rules%2C%20in%20a%20browser%20with%20network%20blocking%20active.%0A%0AHomepage%2C%20two%20separate%20days%20(2026-08-14%20and%202026-08-17)%2C%20identical%20to%20the%20pixel%3A%0A%0A%20%20%20%2017%20of%2031%20containers%20visible%2C%201%2C746%2C600%20px2%2C%203%2C500%20px%20of%20vertical%20space%0A%0AArticle%20pages%20(2026-08-17)%3A%0A%0A%20%20%20%205%20of%2011%20visible%2C%20%20%20689%2C730%20px2%20%20%20(...concentra-operativos-20260324-0084.html)%0A%20%20%20%207%20of%2015%20visible%2C%201%2C091%2C160%20px2%20%20%20(...isidro-cano-hoy-21-de-marzo-20260320-0078.html)%0A%0AThe%20rule%20covers%20both%20templates.%20The%20unit%20sizes%20differ%20between%20them%20(970x90%20%2F%20336x280%20%2F%20336x600%20on%20the%20homepage%2C%201185x90%20%2F%20803x250%20%2F%20300x250%20on%20articles)%2C%20so%20this%20is%20distinct%20inventory%20rather%20than%20the%20same%20page%20measured%20twice.%0A%0AReload%20test%20on%20all%20three%20pages%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20menus%20or%20form%20fields.%0A%0AOne%20warning%20about%20a%20neighbouring%20class%2C%20in%20case%20it%20looks%20like%20a%20better%20target%3A%20%60.sass-bs-m2c-bannerContentAux%60%20(with%20the%20suffix)%20is%20advertising%2C%20but%20%60.sass-bs-m2c-bannerContent%60%20(without%20it)%20is%20the%20editorial%20column%20on%20the%20homepage.%20Hiding%20that%20one%20removes%205%20headlines%2C%2012%20links%20and%20around%20600%20characters%20of%20text%2C%20measured%20on%20both%20test%20days.%20%60.bannersaas%60%20does%20not%20touch%20it.%0A%0ANot%20proposing%20anything%20multi-domain.%20The%20class%20may%20travel%20with%20the%20CMS%2C%20but%20I%20have%20not%20counted%20how%20many%20sites%20use%20it%2C%20so%20this%20report%20stays%20scoped%20to%20this%20domain.%0A%0ACaveat%20stated%20up%20front%3A%20on%20every%20test%20day%20the%20slots%20were%20empty%20reserved%20boxes%20rather%20than%20served%20ads.%20The%20containers%20keep%20their%20reserved%20height%20and%20do%20not%20collapse%2C%20so%20what%20the%20rule%20removes%20is%20reserved%20space.%20Same%20situation%20as%20in%20the%20elmanana.com%20report%20(%23364).%0A%0AFound%20with%20Filtros%20MX%20(https%3A%2F%2Fgithub.com%2Fedso79%2Ffiltros-mx).%0A)
+
+> **Anotado para vigilar, no es un bloqueo:** las peticiones frenadas en este sitio son pocas —4 en portada, 6 en cada nota—. Hay carga real y los elementos casan, así que las mediciones son válidas, pero es un número bajo comparado con el resto del corpus (`zetatijuana` 43, `puentelibre` 19) y el 14-ago no quedó anotado para contrastar. Si una carga futura diera 0 frenadas y 0 ocultos, sería medición fallida y no sitio limpio — la lección de `proyectopuente`.
 
 ## Remedición del 14-ago-2026: los 4 que el arnés perdió el 13-ago
 
