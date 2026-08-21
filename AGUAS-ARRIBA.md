@@ -190,6 +190,68 @@ El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y 
 
 *(El cuerpo aclara por adelantado que NO es el mismo sitio que `elmanana.com.mx`, para que nadie lo cierre como duplicado de la regla de julio.)*
 
+## 🔶 EN PREPARACIÓN — `diariodemorelos.com`: falta la segunda carga (21-ago-2026)
+
+Encontrada en el sexto barrido del corpus. **Ninguna de las tres listas menciona el dominio** (verificado con `grep` sobre `easylist.txt`, `easyprivacy.txt` y `easylistspanish.txt` descargados el 21-ago).
+
+> **Regla candidata:** `diariodemorelos.com##.c-banner`
+
+### Lo medido el 21-ago-2026 — con bloqueo real y modo Reforzado
+
+| Página | `.c-banner` | Prueba de pérdida |
+|---|---|---|
+| Portada | **7/7 visibles, 818,793 px², 2,290 px** | limpia |
+| Nota «exposiciones-inah-conquistan-europa-asia…» | **5/8 visibles, 864,391 px², 2,650 px** | limpia |
+| Nota «intensa-movilizacion-bomberos-en-cuautla…» | **5/8 visibles, 864,391 px², 2,650 px** | limpia |
+
+**Las dos notas coinciden al píxel entre sí**, y en ambas 3 de las 8 cajas salen ya ocultas por cobertura existente: la regla aportaría sobre las 5 que quedan. Los tamaños son los canónicos de IAB — 970×250, 728×90, 300×600, 300×250 (×3) y un rascacielos de 120×600.
+
+**El nombre tiene precedente aguas arriba:** EasyList ya lleva `elnacional.cat##.c-banner`. No es un nombre inventado por este sitio, es la convención BEM de su maquetado (`c-banner c-banner--970x250`), y por eso se propone la clase base y no los modificadores de medida — **la lección de #363**, donde el mantenedor resolvió `quadratin` por medidas exactas y la regla se cayó en cuanto el sitio rotó creatividades de otro tamaño.
+
+### La trampa de este sitio: `.c-publications` es el propio periódico
+
+`.c-publications` (1000×459) parece publicitario y **no lo es**: son las portadas del Diario de Morelos, Círculo M, Guía Médica, Guía de Restaurantes y Aniversario, todas con imagen alojada en casa. La prueba de pérdida lo confirmó: **−8 enlaces, −8 imágenes, −161 caracteres**. Es el caso de `tabascohoy.com` otra vez, y el de `.banner--sidebar` en quadratin. **NO se toca.**
+
+### Lo que NO se propone, y por qué
+
+`.c-vbanners` (9,578,719 px²) y `.o-layout--v-banners` (11,963,820 px²) dan cifras enormes porque son **el contenedor de la columna lateral, que se extiende los 9,579 px de la página entera** — no la superficie del anuncio. Llevar esas cifras a un mantenedor sería inflar el reporte con altura de maquetado. La cifra honesta es la de `.c-banner`.
+
+### Lo que hay que declarar por adelantado
+
+**Las cajas están vacías también sin bloqueador.** Medido el mismo día con `--sin-extension`: 7/7 visibles, 818,793 px², **cifra idéntica**. Es decir, no es el bloqueo lo que las vacía — en esa carga el inventario no se llenó. Lo que la regla retira es **espacio reservado**, igual que en #361 (`elmanana.com.mx`) y #364, y el mecanismo ya se aceptó aguas arriba las dos veces. Sirve GAM (`securepubads.g.doubleclick.net`).
+
+### Estado: NO cumple todavía el estándar de envío
+
+1. ❌ **Segunda carga en día distinto** — es lo único que falta. Hoy es la primera.
+2. ✅ **Plantilla de nota** — dos notas reales, ambas con superficie y ambas limpias.
+3. ✅ **Prueba de pérdida limpia** en las tres páginas, con `--probar-perdida`.
+
+**Cómo se hizo (reproducible):**
+
+```bash
+node herramientas/extension/medir-sitio.mjs https://www.diariodemorelos.com/ --reforzado --probar-perdida --selector ".c-banner" --selector ".c-vbanners" --selector ".o-layout--v-banners" --selector ".c-publications"
+```
+
+> **El detector NO la encontró.** Reportó `huecos: 0` con señal de ceguera en las tres páginas mientras `.c-banner` seguía ahí. Es la **tercera confirmación** del límite estructural del 14-ago, tras `imagendelgolfo.mx` en dos observaciones: bajo bloqueo real la caja queda vacía y el detector, que reconoce por contenido, no tiene nada que reconocer. La encontró la cadena **señal de ceguera → `--explorar` → prueba de pérdida**, que es hoy la vía que halla lo grande.
+
+---
+
+## 🔻 ANOTADO SIN REPORTE — `hidrocalidodigital.com`: hay publicidad y superficie, y no hay nombre que proponer (21-ago-2026)
+
+7 contenedores, **2,233,212 px² y 1,788 px de alto**, y son **publicidad genuina de terceros**: cada uno lleva un rótulo `<p class="elementor-heading-title">PUBLICIDAD</p>` y una imagen alojada en el propio WordPress que enlaza **fuera del dominio** — al portal de citas de FONACOT y a un portal de consulta de plazas. No es autopromoción: los enlaces salen del sitio. La prueba de pérdida da −1 enlace, −1 imagen y −11 caracteres por caja, que es exactamente el anuncio y su rótulo, con **0 titulares perdidos**.
+
+**Lo que lo bloquea es el selector.** El único nombre que tienen los contenedores es un hash de Elementor:
+
+    .elementor-element-1102992, .elementor-element-a7ba817, .elementor-element-bd0377c, …
+
+Lo demás que comparten —`e-flex e-con-boxed e-con e-parent`— lo lleva **toda sección de Elementor de la página**, así que nombrar por ahí borraría el periódico. Es el precedente de `imparcialoaxaca` (descartado por hash de Elementor) y el de `proyectopuente.com.mx`, donde el id de tagDiv cambiaba entre plantillas.
+
+**Y aquí el detector se equivocó en un matiz que conviene anotar:** marcó `nombreFragil: false` en los siete. `esSeguro()` comprueba lo que casa hoy, y un hash de Elementor casa hoy perfectamente. Es el **octavo defecto** asomando en otra forma. No se afina sobre la marcha: afinarlo exige medirlo contra el corpus entero, y el error contrario ya costó el mejor hallazgo del proyecto.
+
+**Lo que sí queda, como pista viva y sin afirmar nada:** hay marca semántica. El contenedor se distingue por llevar dentro un heading cuyo texto es exactamente «PUBLICIDAD», y eso solo lo alcanza un **selector procedural** (`:has()` + texto), no una regla cosmética clásica. El motor propio lo aplicaría; uBO Lite y AdGuard MV3 no. **Antes de proponer nada hay que medir si los hashes de Elementor cambian entre días** — el proyecto lo ha supuesto siempre y nunca lo ha medido, y es el experimento que decide si esta familia de sitios es atacable o no.
+
+---
+
 ## ✅ ENVIADA — [#365](https://github.com/easylist/easylistspanish/issues/365): `imagendelgolfo.mx`, el más grande medido del proyecto (17-ago-2026)
 
 Encontrado al ampliar el corpus el 14-ago. **Ninguna de las tres listas menciona el dominio** (verificado con `grep` sobre `easylist.txt`, `easyprivacy.txt` y `easylistspanish.txt`), y con el bloqueo puesto no se le oculta **ni un elemento** — 0 ocultos por cosméticas en las tres páginas medidas.
