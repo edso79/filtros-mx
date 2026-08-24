@@ -100,6 +100,19 @@ Both were reload-tested on two separate days (2026-08-03 and 2026-08-05,
 re-checked Aug 10-11): no loss of headlines, links, text, menus or forms.
 ```
 
+**⚠️ EL RESIDUO SE TOMÓ A MEDIAS — verificado el 24-ago-2026.** `quadratin.com.mx##.banner--faro` **ya está en la lista publicada** (`202608241622`), sin comentario en la incidencia ni reapertura: apareció y punto. Medido contra el DOM con bloqueo real y Reforzado:
+
+| Residuo del seguimiento del 11-ago | Entonces | Ahora (24-ago) |
+|---|---|---|
+| `.banner--faro` | **VISIBLE 1110×90**, iframes 728×90 servidos | **0×0, oculto** ✅ |
+| `#custom_html-2` | **VISIBLE 350×758**, iframe GAM 350×350 **servido** | **VISIBLE 350×96**, 33,600 px², **1 imagen, sin iframe, nada servido** |
+
+**Se da por cerrado y NO se insiste, por el estándar del propio proyecto.** Lo que queda son 96 px de alto sin anuncio servido — por debajo de donde el proyecto ya decidió no molestar a un mantenedor: `imparcialoaxaca` se descartó a 20 px y `ntrzacatecas` a 60 px sin servir. **Un residuo que encogió de 758 px con iframe servido a 96 px con una imagen no es el mismo hallazgo**, y llevarlo otra vez sería gastar crédito en lo que ya no lo merece.
+
+**Queda en observación pasiva, mismo trato que `pulsoslp` y `lavozdemichoacan`:** si una carga futura lo enseña grande y sirviendo, vuelve a ser candidato. No antes.
+
+**Y un hallazgo del detector que sale de esta misma medición, anotado sin tocar código:** propuso `.row` como hueco (1140×90, alcance 2) con **`nombreFragil: false`**. `.row` es la clase de rejilla de Bootstrap — proponerla aguas arriba sería de las peores reglas imaginables. Es el **octavo defecto asomando por tercera vez**: `esSeguro()` comprueba lo que casa HOY, y `.row` casa hoy perfectamente. La novedad es la familia: con los hashes de Elementor del 21-ago el problema era que el nombre es **volátil**; aquí es que es **universal**, que es un agujero distinto. **No se afina sobre la marcha** — añadir un descarte sin medirlo contra el corpus entero es exactamente el error del 13-ago, que costó el mejor hallazgo del proyecto.
+
 ## Segundo lote — enviado completo el 6-ago-2026
 
 Los dos reportes cumplieron el estándar completo de julio: prueba de recarga **en dos días distintos** (3 y 5 de agosto), todas las plantillas revisadas, y la comprobación contra reglas existentes hecha.
@@ -119,7 +132,32 @@ Encontrado por el detector el 6-ago-2026 al ampliar el corpus. **`#StickHeader_U
 
 **NO se envía hasta la segunda carga en día distinto.**
 
-### En preparación: `elmanana.com` (Reynosa) — falta la segunda carga
+### ✅ ACEPTADA Y VERIFICADA — `elmanana.com` (Reynosa), [#364](https://github.com/easylist/easylistspanish/issues/364)
+
+> **CERRADA como completada el 24-ago-2026** (commit `a6bfa0b`, «M: Fix #364»), verificada contra la lista publicada `202608241622` y contra el DOM el mismo día.
+>
+> **Entraron TRES reglas, y solo una es la que se propuso:**
+>
+> ```
+> elmanana.com##div[class*="template-publicidad-"]     <- la buena, MAS AMPLIA que la propuesta
+> diariolibre.com,elmanana.com###stickyunit            <- entro pese a que pedimos retirarlo
+> elmanana.com##.ad-unit-leaderboard                   <- la anadio el mantenedor por su cuenta
+> ```
+>
+> **Medido con bloqueo real y Reforzado en portada:**
+>
+> | Selector | Antes (13 y 14-ago) | Ahora (24-ago) |
+> |---|---|---|
+> | `div[class*="template-publicidad-"]` | — | **0/24 visibles, 0 px²** |
+> | `[class^="template-publicidad-cuadrada"]` (lo propuesto) | 23/23 visibles, **1,095,977 px²**, 3,560 px | **0/23 visibles, 0 px²** |
+> | `#stickyunit` | oculto, 1264×0 | oculto, 0×0 |
+> | `.ad-unit-leaderboard` | — | **casa 0 elementos** |
+>
+> **El mantenedor eligió mejor que nosotros.** `[class*="template-publicidad-"]` casa **24** donde la propuesta casaba 23: el prefijo `cuadrada` dejaba fuera un miembro de la familia. Se anota como lección de redacción de reglas, no como corrección que haga falta pedir.
+>
+> **El seguimiento del 14-ago NO se aplicó, y no se insiste.** Pedimos retirar `###stickyunit` por redundante (medía 1264×0 dos días seguidos) y en cambio se añadió. **Es inocuo** —ocultar algo que ya mide cero no cuesta nada— y perseguir una regla que no hace daño gastaría el crédito que hace falta para el próximo reporte que sí importe. Se anota y se deja.
+>
+> **`.ad-unit-leaderboard` casa 0 elementos en portada el 24-ago.** Puede vivir en otra plantilla o venir de otra observación suya. No es problema nuestro ni se pregunta.
 
 Hallazgo del 6-ago-2026 con una aclaración que evita un susto: **`elmanana.com` y `elmanana.com.mx` son periódicos hermanos en plataformas distintas** — `.com` es Reynosa (plataforma nueva) y `.com.mx` es Nuevo Laredo, cuyos 12 `.ad-zone` **siguen vivos**: la regla aceptada en julio está bien. Pero las reglas cosméticas son por dominio, y el `.com` **no tiene ni una en ninguna lista**.
 
@@ -252,7 +290,29 @@ Lo demás que comparten —`e-flex e-con-boxed e-con e-parent`— lo lleva **tod
 
 ---
 
-## ✅ ENVIADA — [#365](https://github.com/easylist/easylistspanish/issues/365): `imagendelgolfo.mx`, el más grande medido del proyecto (17-ago-2026)
+## ✅ ACEPTADA Y VERIFICADA — [#365](https://github.com/easylist/easylistspanish/issues/365): `imagendelgolfo.mx`, el más grande medido del proyecto (enviada 17-ago · cerrada 24-ago-2026)
+
+> **CERRADA como completada el 24-ago-2026** (commit `fa4fc86`, «M: Fix #365»), y **verificada el mismo día contra la lista publicada Y contra el DOM**, que es lo que el proyecto exige antes de dar nada por cubierto.
+>
+> **La regla que entró es MÁS AMPLIA que la propuesta** — el mantenedor la hizo multi-dominio por su cuenta:
+>
+> ```
+> diariodelistmo.com,imagendelgolfo.mx,imagendeveracruz.mx##.bannersaas
+> ```
+>
+> Y de paso metió `imagendeveracruz.mx` en la multi-dominio `##.banner-container` que ya existía.
+>
+> **Medido con bloqueo real y modo Reforzado, lista `202608241622`, en las tres páginas del reporte original:**
+>
+> | Página | Antes (17-ago) | Ahora (24-ago) |
+> |---|---|---|
+> | Portada | 17/31 visibles, **1,746,600 px²**, 3,500 px | **0/31 visibles, 0 px²** |
+> | Nota `…concentra-operativos…` | 5/11 visibles, 689,730 px² | **0/11 visibles, 0 px²** |
+> | Nota `…isidro-cano…` | 7/15 visibles, 1,091,160 px² | **0/15 visibles, 0 px²** |
+>
+> Y el dato que cierra el círculo: el reporte se sostenía en que **no se ocultaba ni un elemento** del dominio. Hoy la portada oculta **31**, que son exactamente los `.bannersaas`. **La superficie más grande medida por el proyecto —1.7 millones de px²— dejó de existir para todos los usuarios de EasyList Spanish, no solo para los nuestros.**
+>
+> **Lo que esto le hace a la pista de Bluestack, sin pasarse de frenada:** el mantenedor la aplicó a **tres** dominios. Es la primera evidencia de que `.bannersaas` viaja con el CMS — pero **la aportó él, no nosotros, y sigue sin contarse cuántos sitios lo usan**. El precedente `.mr-banner` también dio 3, y ahí se descartó por angosto. **La pista sigue viva y sigue sin afirmarse.**
 
 Encontrado al ampliar el corpus el 14-ago. **Ninguna de las tres listas menciona el dominio** (verificado con `grep` sobre `easylist.txt`, `easyprivacy.txt` y `easylistspanish.txt`), y con el bloqueo puesto no se le oculta **ni un elemento** — 0 ocultos por cosméticas en las tres páginas medidas.
 
@@ -563,8 +623,9 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 | 2026-07-31 | `periodicocorreo.com.mx` — proponer `.zone-ads` | [#360](https://github.com/easylist/easylistspanish/issues/360) | **Cerrada, arreglo distinto** 3-ago | `###floor-ad` + el dominio en `##.banner`. **No** `.zone-ads` |
 | 2026-07-31 | `elmanana.com.mx` — proponer `.ad-zone` | [#361](https://github.com/easylist/easylistspanish/issues/361) | **Aceptada** 3-ago | `##.ad-zone` tal cual |
 | 2026-08-06 | `tribuna.com.mx` — proponer `##[id^="Tribuna_"]` | [#362](https://github.com/easylist/easylistspanish/issues/362) | **Cerrada, arreglo distinto** 10-ago — **cubre** (verificado en 3 plantillas) | Dominio añadido a la multi-dominio `##.ads` |
-| 2026-08-06 | `quadratin.com.mx` — proponer `.banner--cinturon2`, `.banner--faro`, `#custom_html-2` | [#363](https://github.com/easylist/easylistspanish/issues/363) | **Cerrada, arreglo distinto** 10-ago — **cubre a medias**. Seguimiento con segunda observación **enviado el 11-ago**; en espera de respuesta | Reglas por medidas + 2 multi-dominio de `img[width]`. Sobreviven 2 unidades servidas |
-| 2026-08-10 | `elmanana.com` (Reynosa) — proponer `[class^="template-publicidad-cuadrada"]` y `#stickyunit` | [#364](https://github.com/easylist/easylistspanish/issues/364) | **Abierta.** Seguimiento con la segunda observación **enviado el 14-ago**: se confirma la regla que aporta y se pide **retirar `###stickyunit`**, ya redundante | — |
+| 2026-08-06 | `quadratin.com.mx` — proponer `.banner--cinturon2`, `.banner--faro`, `#custom_html-2` | [#363](https://github.com/easylist/easylistspanish/issues/363) | **Cerrada, arreglo distinto** 10-ago — **cubre a medias**. Seguimiento enviado el 11-ago; **medio residuo tomado el 24-ago**, el otro medio encogió por debajo del estándar: se deja | Reglas por medidas + 2 multi-dominio de `img[width]`, y después `##.banner--faro`. Queda `#custom_html-2` a 350×96 sin servir |
+| 2026-08-10 | `elmanana.com` (Reynosa) — proponer `[class^="template-publicidad-cuadrada"]` y `#stickyunit` | [#364](https://github.com/easylist/easylistspanish/issues/364) | **ACEPTADA** 24-ago (`a6bfa0b`) — verificada contra lista publicada y DOM: **0/24 visibles, 0 px²** | `##div[class*="template-publicidad-"]`, **más amplia que la propuesta**. Además `###stickyunit` (que pedimos retirar) y `##.ad-unit-leaderboard`, que casa 0 |
+| 2026-08-17 | `imagendelgolfo.mx` — proponer `.bannersaas` | [#365](https://github.com/easylist/easylistspanish/issues/365) | **ACEPTADA** 24-ago (`fa4fc86`) — verificada en portada y dos notas: **0 visibles, 0 px²** en las tres | `diariodelistmo.com,imagendelgolfo.mx,imagendeveracruz.mx##.bannersaas` — **multi-dominio, la amplió él** |
 
 ## Resultado: 5 de 5 cerradas como completadas en ~3 días
 
