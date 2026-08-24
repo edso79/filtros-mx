@@ -228,7 +228,7 @@ El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y 
 
 *(El cuerpo aclara por adelantado que NO es el mismo sitio que `elmanana.com.mx`, para que nadie lo cierre como duplicado de la regla de julio.)*
 
-## 🔶 EN PREPARACIÓN — `diariodemorelos.com`: falta la segunda carga (21-ago-2026)
+## ✅ LISTA PARA ENVIAR — `diariodemorelos.com`: segunda carga hecha, repite al píxel (21 y 24-ago-2026)
 
 Encontrada en el sexto barrido del corpus. **Ninguna de las tres listas menciona el dominio** (verificado con `grep` sobre `easylist.txt`, `easyprivacy.txt` y `easylistspanish.txt` descargados el 21-ago).
 
@@ -258,9 +258,25 @@ Encontrada en el sexto barrido del corpus. **Ninguna de las tres listas menciona
 
 **Las cajas están vacías también sin bloqueador.** Medido el mismo día con `--sin-extension`: 7/7 visibles, 818,793 px², **cifra idéntica**. Es decir, no es el bloqueo lo que las vacía — en esa carga el inventario no se llenó. Lo que la regla retira es **espacio reservado**, igual que en #361 (`elmanana.com.mx`) y #364, y el mecanismo ya se aceptó aguas arriba las dos veces. Sirve GAM (`securepubads.g.doubleclick.net`).
 
-### Estado: NO cumple todavía el estándar de envío
+### Segunda observación — 24-ago-2026, tres días después
 
-1. ❌ **Segunda carga en día distinto** — es lo único que falta. Hoy es la primera.
+Misma orden, mismo modo Reforzado, mismas tres páginas. **Las tres cifras repiten al píxel:**
+
+| Página | 21-ago | 24-ago | Veredicto |
+|---|---|---|---|
+| Portada | 7/7, **818,793 px²**, 2,290 px | **7/7, 818,793 px², 2,290 px** | ✅ idéntico |
+| Nota «exposiciones-inah…» | 5/8, **864,391 px²**, 2,650 px | **5/8, 864,391 px², 2,650 px** | ✅ idéntico |
+| Nota «intensa-movilizacion…» | 5/8, **864,391 px²**, 2,650 px | **5/8, 864,391 px², 2,650 px** | ✅ idéntico |
+
+Prueba de pérdida **limpia** en las tres, otra vez. Y `.c-publications` **volvió a romper con la misma cifra** —−8 enlaces, −8 imágenes, −161 caracteres—: la trampa está confirmada en dos días, no es de una carga.
+
+**El dato que convierte esto en prueba y no en coincidencia:** los dos selectores que NO se proponen sí se movieron entre días — `.c-vbanners` pasó de 9,578,719 a 9,184,281 px² y `.o-layout--v-banners` de 11,963,820 a 11,471,167. Son la columna lateral, y su altura depende del contenido del día. **Las cajas IAB no se movieron ni un píxel porque su tamaño está reservado, y la columna sí.** Es exactamente la asimetría que validó `imagendelgolfo.mx` en #365.
+
+**Recomprobado el 24-ago contra las tres listas descargadas ese día:** `diariodemorelos` aparece **0 veces** en EasyList (78,972 líneas), EasyPrivacy (56,707) y EasyList Spanish (2,708). Y el precedente del nombre sigue vivo: `elnacional.cat##.c-banner` está en EasyList.
+
+### Estado: CUMPLE el estándar de envío (24-ago-2026)
+
+1. ✅ **Segunda carga en día distinto** — 21 y 24-ago, cifra idéntica en las tres páginas.
 2. ✅ **Plantilla de nota** — dos notas reales, ambas con superficie y ambas limpias.
 3. ✅ **Prueba de pérdida limpia** en las tres páginas, con `--probar-perdida`.
 
@@ -270,7 +286,60 @@ Encontrada en el sexto barrido del corpus. **Ninguna de las tres listas menciona
 node herramientas/extension/medir-sitio.mjs https://www.diariodemorelos.com/ --reforzado --probar-perdida --selector ".c-banner" --selector ".c-vbanners" --selector ".o-layout--v-banners" --selector ".c-publications"
 ```
 
-> **El detector NO la encontró.** Reportó `huecos: 0` con señal de ceguera en las tres páginas mientras `.c-banner` seguía ahí. Es la **tercera confirmación** del límite estructural del 14-ago, tras `imagendelgolfo.mx` en dos observaciones: bajo bloqueo real la caja queda vacía y el detector, que reconoce por contenido, no tiene nada que reconocer. La encontró la cadena **señal de ceguera → `--explorar` → prueba de pérdida**, que es hoy la vía que halla lo grande.
+> **El detector NO la encontró, y el 24-ago tampoco.** Reportó `huecos: 0` con señal de ceguera en las tres páginas los dos días, mientras `.c-banner` seguía ahí. Es la **tercera confirmación** del límite estructural del 14-ago, tras `imagendelgolfo.mx` en dos observaciones: bajo bloqueo real la caja queda vacía y el detector, que reconoce por contenido, no tiene nada que reconocer. La encontró la cadena **señal de ceguera → `--explorar` → prueba de pérdida**, que es hoy la vía que halla lo grande.
+
+### Texto de la incidencia, listo para enviar
+
+El cuerpo declara por adelantado las cuatro cosas que un mantenedor preguntaría: que las cajas están **vacías y reservadas** (y que eso no lo causa el bloqueo, medido también sin extensión); **por qué la clase base y no los modificadores de medida**, que es la lección de #363; la **advertencia de `.c-publications`**, para que nadie "mejore" la regla y se lleve las portadas del periódico; y que **no se proponen** `.c-vbanners` ni `.o-layout--v-banners` pese a sus cifras enormes, porque son altura de maquetado.
+
+```
+Not covered by any rule in EasyList, EasyPrivacy or EasyList Spanish. The domain is not mentioned in any of the three lists (re-checked 2026-08-24).
+
+Site: https://www.diariodemorelos.com (Morelos, Mexico)
+Viewport: 1280px
+Ad server: Google Ad Manager (securepubads.g.doubleclick.net)
+
+The site uses BEM naming and wraps every ad unit in one base class:
+
+    .c-banner        (with size modifiers: .c-banner--970x250, etc.)
+
+Proposed rule:
+
+    diariodemorelos.com##.c-banner
+
+Proposing the base class rather than the size modifiers on purpose: a rule anchored to exact sizes stops matching as soon as the site rotates a creative of another size. The name already has precedent in EasyList - elnacional.cat##.c-banner.
+
+Measured with all EasyList / EasyPrivacy / EasyList Spanish rules applied, including generic cosmetic rules, in a browser with network blocking active. Two separate days, identical to the pixel:
+
+Homepage (2026-08-21 and 2026-08-24):
+
+    7 of 7 containers visible, 818,793 px2, 2,290 px of vertical space
+    Container sizes: 1000x250, 1000x90, 301x600, 301x250 (x3), 120x600
+
+Article pages (same two days, two different articles, all four measurements identical):
+
+    5 of 8 visible, 864,391 px2, 2,650 px
+    .../noticias/exposiciones-inah-conquistan-europa-asia-mas-38-millones-personas-admiran-cultura-mexicana
+    .../noticias/intensa-movilizacion-bomberos-en-cuautla-por-irresponsable-quema-basura-en-secundaria
+
+On article pages 3 of the 8 are already hidden by existing coverage, so the rule adds the remaining 5.
+
+Reload test on all three pages, both days: no loss of headlines, links, images, menus or form fields.
+
+One warning about a neighbouring class, in case it looks like a target: .c-publications is NOT advertising. It holds the newspaper's own print-edition covers (Diario de Morelos, Circulo M, Guia Medica, Guia de Restaurantes), all self-hosted. Hiding it removes 8 links, 8 images and around 160 characters of text, measured on both days.
+
+Not proposing .c-vbanners or .o-layout--v-banners either. They report very large numbers (9-12 million px2), but that is the height of the entire sidebar column, not ad surface.
+
+Caveat stated up front: on both test days the slots were empty reserved boxes rather than served ads. Measured without a blocker as well and the figure is identical, so it is not the blocking that empties them - the inventory simply did not fill. What the rule removes is reserved space. Same situation as the elmanana.com.mx (#361) and elmanana.com (#364) reports, where the mechanism was accepted.
+
+Found with Filtros MX (https://github.com/edso79/filtros-mx).
+```
+
+**Lo envía Edgar**, como todos — el enlace ya va pre-llenado:
+
+[Incidencia pre-llenada de diariodemorelos.com — PENDIENTE DE ENVIAR](https://github.com/easylist/easylistspanish/issues/new?title=diariodemorelos.com%3A%20uncovered%20ad%20containers%20(.c-banner)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%20The%20domain%20is%20not%20mentioned%20in%20any%20of%20the%20three%20lists%20(re-checked%202026-08-24).%0A%0ASite%3A%20https%3A%2F%2Fwww.diariodemorelos.com%20(Morelos%2C%20Mexico)%0AViewport%3A%201280px%0AAd%20server%3A%20Google%20Ad%20Manager%20(securepubads.g.doubleclick.net)%0A%0AThe%20site%20uses%20BEM%20naming%20and%20wraps%20every%20ad%20unit%20in%20one%20base%20class%3A%0A%0A%20%20%20%20.c-banner%20%20%20%20%20%20%20%20(with%20size%20modifiers%3A%20.c-banner--970x250%2C%20etc.)%0A%0AProposed%20rule%3A%0A%0A%20%20%20%20diariodemorelos.com%23%23.c-banner%0A%0AProposing%20the%20base%20class%20rather%20than%20the%20size%20modifiers%20on%20purpose%3A%20a%20rule%20anchored%20to%20exact%20sizes%20stops%20matching%20as%20soon%20as%20the%20site%20rotates%20a%20creative%20of%20another%20size.%20The%20name%20already%20has%20precedent%20in%20EasyList%20-%20elnacional.cat%23%23.c-banner.%0A%0AMeasured%20with%20all%20EasyList%20%2F%20EasyPrivacy%20%2F%20EasyList%20Spanish%20rules%20applied%2C%20including%20generic%20cosmetic%20rules%2C%20in%20a%20browser%20with%20network%20blocking%20active.%20Two%20separate%20days%2C%20identical%20to%20the%20pixel%3A%0A%0AHomepage%20(2026-08-21%20and%202026-08-24)%3A%0A%0A%20%20%20%207%20of%207%20containers%20visible%2C%20818%2C793%20px2%2C%202%2C290%20px%20of%20vertical%20space%0A%20%20%20%20Container%20sizes%3A%201000x250%2C%201000x90%2C%20301x600%2C%20301x250%20(x3)%2C%20120x600%0A%0AArticle%20pages%20(same%20two%20days%2C%20two%20different%20articles%2C%20all%20four%20measurements%20identical)%3A%0A%0A%20%20%20%205%20of%208%20visible%2C%20864%2C391%20px2%2C%202%2C650%20px%0A%20%20%20%20...%2Fnoticias%2Fexposiciones-inah-conquistan-europa-asia-mas-38-millones-personas-admiran-cultura-mexicana%0A%20%20%20%20...%2Fnoticias%2Fintensa-movilizacion-bomberos-en-cuautla-por-irresponsable-quema-basura-en-secundaria%0A%0AOn%20article%20pages%203%20of%20the%208%20are%20already%20hidden%20by%20existing%20coverage%2C%20so%20the%20rule%20adds%20the%20remaining%205.%0A%0AReload%20test%20on%20all%20three%20pages%2C%20both%20days%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20menus%20or%20form%20fields.%0A%0AOne%20warning%20about%20a%20neighbouring%20class%2C%20in%20case%20it%20looks%20like%20a%20target%3A%20.c-publications%20is%20NOT%20advertising.%20It%20holds%20the%20newspaper's%20own%20print-edition%20covers%20(Diario%20de%20Morelos%2C%20Circulo%20M%2C%20Guia%20Medica%2C%20Guia%20de%20Restaurantes)%2C%20all%20self-hosted.%20Hiding%20it%20removes%208%20links%2C%208%20images%20and%20around%20160%20characters%20of%20text%2C%20measured%20on%20both%20days.%0A%0ANot%20proposing%20.c-vbanners%20or%20.o-layout--v-banners%20either.%20They%20report%20very%20large%20numbers%20(9-12%20million%20px2)%2C%20but%20that%20is%20the%20height%20of%20the%20entire%20sidebar%20column%2C%20not%20ad%20surface.%0A%0ACaveat%20stated%20up%20front%3A%20on%20both%20test%20days%20the%20slots%20were%20empty%20reserved%20boxes%20rather%20than%20served%20ads.%20Measured%20without%20a%20blocker%20as%20well%20and%20the%20figure%20is%20identical%2C%20so%20it%20is%20not%20the%20blocking%20that%20empties%20them%20-%20the%20inventory%20simply%20did%20not%20fill.%20What%20the%20rule%20removes%20is%20reserved%20space.%20Same%20situation%20as%20the%20elmanana.com.mx%20(%23361)%20and%20elmanana.com%20(%23364)%20reports%2C%20where%20the%20mechanism%20was%20accepted.%0A%0AFound%20with%20Filtros%20MX%20(https%3A%2F%2Fgithub.com%2Fedso79%2Ffiltros-mx).%0A)
+
+> Al enviarla, anotar aquí la fecha y el número. Y después, **vigilar la respuesta: si la aplican, verificar contra la lista publicada Y contra el DOM antes de dar nada por cubierto** — es lo que hizo falta con `periodicocorreo`, con `tribuna` y con las dos de esta semana.
 
 ---
 
