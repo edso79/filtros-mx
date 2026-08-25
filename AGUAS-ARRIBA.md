@@ -10,6 +10,118 @@ Que la mantenga alguien más no es un detalle: es la diferencia entre una contri
 
 ---
 
+## 🕐 EN PREPARACIÓN — barrido del 25-ago-2026: dos candidatas grandes, ninguna enviable todavía
+
+**Les falta lo mismo y es lo que decide: la segunda carga en día distinto.** Es el requisito
+que #365 y #366 cumplieron y que convirtió sus cifras en prueba. Con una sola observación no
+se manda nada.
+
+El barrido eligió los sitios por **estado no representado en el corpus** —Colima, Querétaro,
+BCS, Estado de México, Tlaxcala/Puebla y Nuevo León— **no buscando hueco**. Es el criterio
+del barrido del 21-ago, que evita el sesgo que el del 13-ago tuvo que declarar. Se evitaron
+a propósito los «soles» de OEM: ya está medido que ahí no hay nada que hacer.
+
+Resultado del barrido: **4 medidos y cubiertos o limpios, 2 candidatas, 1 no medible, 1
+dominio equivocado.**
+
+| Sitio | Estado | Veredicto |
+|---|---|---|
+| `codigoqro.mx` | Querétaro | **CANDIDATA** — 1,045,814 px² |
+| `posta.com.mx` | Nuevo León | **CANDIDATA** — 548,388 px² |
+| `bcsnoticias.mx` | BCS | cubierto (8 frenadas, 1 oculto, 0 huecos) |
+| `diariodecolima.mx` | Colima | cubierto (8 frenadas, 5 ocultos, 0 huecos) |
+| `lajornadadeoriente.com.mx` | Puebla/Tlaxcala | 14 frenadas, 19 ocultos, 0 huecos, **ceguera — sin explorar** |
+| `heraldoedomex.com.mx` | Estado de México | **NO MEDIBLE** — el content script no respondió |
+
+**`diariocolima.com` no es el dominio: redirige a `diariodecolima.mx`.** Es el tropiezo de
+`poresto.net` otra vez, y lo cazó el mensaje del arnés que lista las pestañas vistas —
+escrito el 14-ago exactamente para esto.
+
+---
+
+### 🕐 `codigoqro.mx` (Querétaro) — la más grande de las dos
+
+Ninguna de las tres listas publicadas menciona el dominio: **0 en EasyList Spanish
+(`202608251602`), 0 en EasyList, 0 en EasyPrivacy**, comprobado el 25-ago contra las listas
+descargadas ese día, no contra la caché del repositorio.
+
+Portada, con bloqueo real y modo Reforzado:
+
+| Selector | Casan | Visibles | Área visible | Altura |
+|---|---|---|---|---|
+| `.banner-container` | 7 | **7** | **1,045,814 px²** | 1,140 px |
+| `.soft-news-banner` | 3 | 3 | 225,000 px² | 750 px |
+| `.sidebar-banner` | 1 | 1 | 180,000 px² | 600 px |
+| `.banner-wrapper` | 10 | 10 | 226,260 px² | 1,380 px |
+
+**Publicidad genuina de terceros:** AdSense (`ca-pub-4629112407486041`), con
+`pagead2.googlesyndication.com` y `googleads.g.doubleclick.net` entre los proveedores.
+**Prueba de pérdida limpia en los cuatro selectores:** 0 titulares, 0 enlaces, 0 imágenes,
+0 campos, 0 caracteres.
+
+**El aviso que hay que llevar por delante: `banner-container` y `banner-wrapper` NO son
+nombres propios de este sitio.** Aparecen ya en las listas —23 y 15 veces en EasyList, 3 y 2
+en EasyList Spanish— lo que dice que son nombres de tema o de plugin que usan otros medios.
+Eso no los descalifica, porque esas reglas van por dominio, pero **obliga a proponerlos con
+dominio y jamás como genéricas**. `.banner-wrapper` además trae cinco cajas de 2 px de ancho:
+su cifra de área está inflada por elementos que no se ven.
+
+**Lo que probablemente basta es `.banner-container` sola**: envuelve a la mayoría de los
+`.banner-wrapper`. Hay que confirmarlo en la segunda carga en vez de proponer cuatro reglas
+donde una hace el trabajo.
+
+**Pendiente antes de enviar:** segunda carga en día distinto, plantilla de nota, y comprobar
+si el «contenido dentro 7/7» es anuncio realmente servido o iframe vacío que sobrevive al
+bloqueo. Bajo bloqueo lo segundo es lo esperable, y **el reporte no puede afirmar lo primero
+sin medirlo**.
+
+---
+
+### 🕐 `posta.com.mx` (Nuevo León) — nombres propios, y una trampa que la prueba de pérdida cazó
+
+Nuevo León estaba **sin medir**: `elhorizonte.mx` se nos sirvió sin publicidad el 21-ago y
+quedó anotado como no medible, no como sitio limpio. Este lo cubre.
+
+Ninguna de las tres listas menciona el dominio: **0 en las tres**, mismo día y mismo método
+que arriba.
+
+| Página | Selector | Casan | Visibles | Área visible | Altura |
+|---|---|---|---|---|---|
+| Portada | `[class^="publicidad_"]` | 7 | **5** | **548,388 px²** | 641 px |
+| Portada | `.publicidad_posta` | 3 | 3 | 472,122 px² | 378 px |
+| Portada | `.publicidad_ads` | 3 | 1 | 73,261 px² | 253 px |
+| Nota 1 | `[class^="publicidad_"]` | 1 | 1 | 164,868 px² | 132 px |
+| Nota 2 | `[class^="publicidad_"]` | 1 | 1 | 164,868 px² | 132 px |
+
+**Las dos notas dan la misma cifra al píxel**, que es la señal de espacio reservado que
+validó #365 y #366.
+
+**Publicidad genuina de terceros:** Google Ad Manager, con
+`/22672383948/posta.com.mx/responsive_portada_leaderboard_*` dentro de cada caja y
+`securepubads.g.doubleclick.net` como proveedor.
+
+**Se propone el prefijo y no las clases sueltas.** `[class^="publicidad_"]` cubre la familia
+entera —`publicidad_posta`, `publicidad_posta_lightback`, `publicidad_ads`,
+`publicidad_ads_box1`— con pérdida limpia, y **no lleva `div` por delante a propósito**:
+`.publicidad_ads` vive en un `<article>`, así que `div[class^="publicidad_"]` se deja fuera
+73,261 px². Es la lección de #363: nombrar la familia, no las medidas ni el caso de hoy.
+
+#### La trampa: `.logoheader` es el logotipo del periódico
+
+El detector propuso **cuatro** huecos y uno era `.logoheader` (1249×130, 162,370 px²), con
+`nombreFragil: false`. **La prueba de pérdida lo cazó: −1 enlace, −1 imagen.** Es el logo de
+la cabecera.
+
+Es el séptimo defecto en forma nueva: el 13-ago proponía ocultar el **menú**, hoy la
+**identidad del sitio**. No se afina el detector sobre la marcha —el error del 13-ago costó el
+mejor hallazgo del proyecto—, pero conviene anotar que **la salvaguarda que funcionó no fue
+`esSeguro()`, fue `--probar-perdida`**, escrita el 14-ago justo para los selectores que el
+filtro del detector no mira.
+
+**Pendiente antes de enviar:** segunda carga en día distinto.
+
+---
+
 ## A dónde se manda — verificado el 31-jul-2026
 
 **Los cinco reportes van a EasyList Spanish, no a EasyList.** Comprobado: la regla multi-dominio `##.banner` que ya incluye `diario.mx` vive en `easylistspanish.txt`, y todos nuestros sitios son de habla hispana.
