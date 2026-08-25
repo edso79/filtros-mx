@@ -157,6 +157,59 @@ filtro del detector no mira.
 
 ---
 
+
+---
+
+## ✅ Octavo barrido — 25-ago-2026, misma tarde: 6 sitios, **CERO candidatas**
+
+Se anota con el mismo detalle que los que salen bien, porque **un barrido vacío es un dato,
+no un turno perdido**: es lo que impide leer el de la mañana como si fuera la norma.
+
+Criterio, fijado antes de medir: **estados sin representación** (Estado de México, Tlaxcala) y
+**segundos medios en estados donde el único medido quedó descartado** (Michoacán, SLP, Oaxaca,
+Puebla). Ninguno se eligió buscando hueco.
+
+| Sitio | Estado | Veredicto |
+|---|---|---|
+| `asisucede.com.mx` | Estado de México | cubierto (7 frenadas, 13 ocultos) |
+| `mimorelia.com` | Michoacán | cubierto (4 frenadas, 9 ocultos, 6 descartes por sobrecobertura) |
+| `planoinformativo.com` | San Luis Potosí | cubierto (3 frenadas, 5 ocultos) |
+| `nvinoticias.com` | Oaxaca | **cubierto** — 12 contenedores, todos en 0×0 |
+| `lineadecontraste.com` | Tlaxcala | **sin publicidad de terceros** |
+| `intoleranciadiario.com` | Puebla | **NO MEDIBLE** — el content script no respondió |
+
+**Con esto el Estado de México y Tlaxcala entran al corpus**, que era el hueco declarado del
+barrido anterior. Ninguna de las tres listas menciona ninguno de los seis dominios.
+
+### `nvinoticias.com` — el mismo desenlace que `lajornadadeoriente`, el mismo día
+
+Saltó la señal de ceguera y sus contenedores tienen nombres propios y semánticos:
+`#js-dfp-tag-nvi_home_rectangle`, `#js-dfp-tag-nvi_oaxaca_rectangle`,
+`#js-dfp-tag-nvi_tech_pendon`, sirviendo GAM desde `//13661509/nvi-*`.
+
+**Y no aporta nada:** los 12 que casa `[id^="js-dfp-tag-"]` salen **0×0**, igual que los 12 de
+`div[id^="block-"][class*="block-dfp"]`. **0 px², 0 px de altura.** Lo que los cubre no nombra
+al dominio: `block-dfp` sale ya 7 veces en EasyList, así que una genérica se lo lleva.
+
+**Segundo sitio del día donde ids publicitarios impecables no valen un reporte.** Es la regla
+del 10-ago —comprobar por efecto— ganándose el sueldo dos veces en una tarde.
+
+### `lineadecontraste.com` — no tiene publicidad programática, y sus «banner» son el periódico
+
+Sus proveedores de terceros son **solo analítica** (Google Analytics, GTM, Scorecard,
+`stats.wp.com`): ningún servidor de anuncios, 0 iframes de terceros.
+
+Sus ocho cajas con pista publicitaria son del propio medio: `.masthead-banner` lleva **el
+logotipo**, `.banner-promotions-wrapper` un sello de certificación, y
+`.banner-exclusive-posts-wrapper` y `.banner-trending-posts-wrapper` **titulares editoriales**.
+
+**Anotado como prohibición, con el mismo trato que `tabascohoy.com` y `quadratin.com.mx`: este
+dominio no entra en ninguna multi-dominio de la familia `banner`.** Hoy `##.banner` no le casa
+—sus clases llevan prefijo— pero la nota queda escrita para que nadie lo proponga dentro de
+seis meses viendo los nombres y no el contenido.
+
+---
+
 ## A dónde se manda — verificado el 31-jul-2026
 
 **Los cinco reportes van a EasyList Spanish, no a EasyList.** Comprobado: la regla multi-dominio `##.banner` que ya incluye `diario.mx` vive en `easylistspanish.txt`, y todos nuestros sitios son de habla hispana.
