@@ -30,12 +30,47 @@ dominio equivocado.**
 | `posta.com.mx` | Nuevo León | **CANDIDATA** — 548,388 px² |
 | `bcsnoticias.mx` | BCS | cubierto (8 frenadas, 1 oculto, 0 huecos) |
 | `diariodecolima.mx` | Colima | cubierto (8 frenadas, 5 ocultos, 0 huecos) |
-| `lajornadadeoriente.com.mx` | Puebla/Tlaxcala | 14 frenadas, 19 ocultos, 0 huecos, **ceguera — sin explorar** |
-| `heraldoedomex.com.mx` | Estado de México | **NO MEDIBLE** — el content script no respondió |
+| `lajornadadeoriente.com.mx` | Puebla/Tlaxcala | **cubierto** — 18 contenedores, todos en 0×0 |
+| `heraldoedomex.com.mx` | Estado de México | **NO MEDIBLE** — no responde ni al navegador ni a curl |
 
 **`diariocolima.com` no es el dominio: redirige a `diariodecolima.mx`.** Es el tropiezo de
 `poresto.net` otra vez, y lo cazó el mensaje del arnés que lista las pestañas vistas —
 escrito el 14-ago exactamente para esto.
+
+---
+
+
+---
+
+### ✅ `lajornadadeoriente.com.mx` — cubierto entero, comprobado por EFECTO
+
+Saltó la señal de ceguera (14 peticiones frenadas, 19 elementos ocultos, 0 huecos) y sus
+contenedores son de los más limpios del corpus: **ids semánticos propios** —`#header_ad`,
+`#side1_ad`, `#side2_ad`, `#bottom1_ad`, `#bottom2_ad`, `#bottom3_ad`— sirviendo Google Ad
+Manager desde `/4424848/Jornada/`. Sobre el papel, una candidata de manual.
+
+**Con la cobertura puesta no aporta nada.** Los seis ids, y los 18 que casa
+`div[id$="_ad"]`, salen **0×0 y ocultos**: 0 px² y 0 px de altura. La prueba de pérdida sale
+limpia, pero da igual — no hay nada que ocultar que no esté ya oculto.
+
+Es `criteriohidalgo` y `lavozdemichoacan` otra vez: **un contenedor con buen nombre no es un
+hueco si las listas ya lo vacían**. Y es la razón de la regla del 10-ago —comprobar por
+efecto, no por selector— aplicada tal cual.
+
+**Dato para el diseño futuro de la señal de ceguera, no para tocarla hoy:** el mismo día saltó
+en `codigoqro.mx`, con 1,045,814 px² sin cubrir, y aquí, con cobertura total. **La señal no
+discrimina entre las dos situaciones: solo dice «ve a mirar».** Eso es exactamente lo que se
+le pide, y confirma lo anotado el 14-ago sobre que nombra mal su causa. No se afina.
+
+### ⛔ `heraldoedomex.com.mx` — no medible, y no cuenta como limpio
+
+Tres intentos: con `www`, sin `www`, y sin extensión. Con la extensión el content script
+nunca responde («Receiving end does not exist»); sin ella el navegador carga algo con
+**0 proveedores de terceros, 0 iframes y 0 pistas publicitarias**; y `curl` no llega a
+conectar siquiera (`http 000`).
+
+**Cuenta como no medible, igual que `elhorizonte.mx` y `debate.com.mx`, nunca como sitio
+cubierto.** El Estado de México sigue sin representación en el corpus.
 
 ---
 
