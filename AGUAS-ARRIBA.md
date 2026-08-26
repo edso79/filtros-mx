@@ -428,7 +428,35 @@ El arnés localiza Chrome for Testing solo — está en `~/.cache/puppeteer`, y 
 
 *(El cuerpo aclara por adelantado que NO es el mismo sitio que `elmanana.com.mx`, para que nadie lo cierre como duplicado de la regla de julio.)*
 
-## ✅ ENVIADA — [#366](https://github.com/easylist/easylistspanish/issues/366): `diariodemorelos.com`, tercera candidata más grande del proyecto (24-ago-2026)
+## ✅ ACEPTADA Y VERIFICADA — [#366](https://github.com/easylist/easylistspanish/issues/366): `diariodemorelos.com`, tercera candidata más grande del proyecto (enviada 24-ago · cerrada 26-ago-2026)
+
+> **CERRADA como completada el 26-ago-2026** (commit `8f1e5fc`, lista `202608261503`), **dos días después de enviarse** — la más rápida desde el lote de julio. Verificada el mismo día **contra la lista publicada Y contra el DOM**, que es lo que el proyecto exige antes de dar nada por cubierto. Cero comentarios en la incidencia: apareció la regla y se cerró.
+>
+> **La regla que entró es MUCHO más amplia que la propuesta** — el mantenedor la hizo multi-dominio con **nueve** dominios, otra vez por su cuenta:
+>
+> ```
+> atlanticohoy.com,cocheglobal.com,diario16plus.com,diariodemorelos.com,elnacional.cat,hibridosyelectricos.com,huleymantel.com,planetarealmadrid.com,zamora24horas.com##.c-banner
+> ```
+>
+> **Y ahí está el desenlace del precedente que citamos:** el reporte se apoyaba en que `elnacional.cat##.c-banner` ya existía en EasyList. El mantenedor no solo lo aceptó como argumento — **agrupó ese dominio y siete más en una sola regla de EasyList Spanish**. `elnacional.cat##.c-banner` sigue además en EasyList (línea 70966), así que hoy está por duplicado; **no es asunto nuestro y no se le dice nada**, por lo mismo que no se insistió con `###stickyunit` en #364.
+>
+> **Medido con bloqueo real y modo Reforzado, lista `202608261503`, en las tres páginas del reporte original:**
+>
+> | Página | Antes (21 y 24-ago) | Ahora (26-ago) |
+> |---|---|---|
+> | Portada | 7/7 visibles, **818,793 px²**, 2,290 px | **0/7 visibles, 0 px²** |
+> | Nota «exposiciones-inah…» | 5/8 visibles, **864,391 px²**, 2,650 px | **0/8 visibles, 0 px²** |
+> | Nota «intensa-movilizacion…» | 5/8 visibles, **864,391 px²**, 2,650 px | **0/8 visibles, 0 px²** |
+>
+> Los ocho salen `0x0(oculto)` uno por uno, no «no encontrados» — que es la diferencia entre cubierto y ausente, la misma que obligó a mirar dos veces los hashes de Elementor el 25-ago.
+>
+> **El contador de ocultos lo confirma por la otra punta:** la portada pasó de **7 a 14** elementos ocultos por cosméticas y las dos notas de **8 a 16**. El aumento es exactamente el número de `.c-banner` de cada página — +7 y +8. No es una cifra que colapse por casualidad.
+>
+> **La trampa quedó intacta, que era el riesgo real de este reporte:** `.c-publications` sigue **1/1 visible con 459,172 px²** en portada. El aviso del cuerpo funcionó — nadie «mejoró» la regla llevándose las portadas del periódico. Tampoco entraron `.c-vbanners` ni `.o-layout--v-banners`, que era lo correcto: siguen midiendo millones de px² porque son la altura de la columna lateral, y hoy se ve claro que **esa cifra se mueve sola entre días** (8,943,484 px² el 26-ago en portada contra 9,578,719 el 21 y 9,184,281 el 24) mientras las cajas IAB no se movieron ni un píxel hasta desaparecer.
+>
+> **Y el detector no la encontró tampoco hoy:** `huecos: 0` con señal de ceguera en las tres páginas, esta vez con razón —ya no queda nada— pero por el mismo motivo de siempre. La ceguera **no distingue entre «cubierto del todo» y «hay 800,000 px² y no los veo»**, que es lo anotado el 25-ago al saltar el mismo día en `codigoqro.mx` y en `lajornadadeoriente`.
+>
+> **Añadida a `revisar-aguas-arriba.mjs` el mismo día**, que pasa a vigilar **10 aportaciones**. Se hizo en el momento y no «cuando toque la revisión» por lo que costó descubrir el 24-ago: una aportación que no está en ese archivo es una aportación que nadie vigila.
 
 Encontrada en el sexto barrido del corpus. **Ninguna de las tres listas menciona el dominio** (verificado con `grep` sobre `easylist.txt`, `easyprivacy.txt` y `easylistspanish.txt` descargados el 21-ago).
 
@@ -896,7 +924,7 @@ El atributo `data-advadstrackid` es la firma del plugin **Advanced Ads** de Word
 | 2026-08-06 | `tribuna.com.mx` — proponer `##[id^="Tribuna_"]` | [#362](https://github.com/easylist/easylistspanish/issues/362) | **Cerrada, arreglo distinto** 10-ago — **cubre** (verificado en 3 plantillas) | Dominio añadido a la multi-dominio `##.ads` |
 | 2026-08-06 | `quadratin.com.mx` — proponer `.banner--cinturon2`, `.banner--faro`, `#custom_html-2` | [#363](https://github.com/easylist/easylistspanish/issues/363) | **Cerrada, arreglo distinto** 10-ago — **cubre a medias**. Seguimiento enviado el 11-ago; **medio residuo tomado el 24-ago**, el otro medio encogió por debajo del estándar: se deja | Reglas por medidas + 2 multi-dominio de `img[width]`, y después `##.banner--faro`. Queda `#custom_html-2` a 350×96 sin servir |
 | 2026-08-10 | `elmanana.com` (Reynosa) — proponer `[class^="template-publicidad-cuadrada"]` y `#stickyunit` | [#364](https://github.com/easylist/easylistspanish/issues/364) | **ACEPTADA** 24-ago (`a6bfa0b`) — verificada contra lista publicada y DOM: **0/24 visibles, 0 px²** | `##div[class*="template-publicidad-"]`, **más amplia que la propuesta**. Además `###stickyunit` (que pedimos retirar) y `##.ad-unit-leaderboard`, que casa 0 |
-| 2026-08-24 | `diariodemorelos.com` — proponer `.c-banner` | [#366](https://github.com/easylist/easylistspanish/issues/366) | **ABIERTA**, enviada el 24-ago | — |
+| 2026-08-24 | `diariodemorelos.com` — proponer `.c-banner` | [#366](https://github.com/easylist/easylistspanish/issues/366) | **ACEPTADA** 26-ago (`8f1e5fc`, 2 días) — verificada contra lista publicada y DOM: **0 visibles, 0 px²** en portada y dos notas | Multi-dominio de **9 dominios**, `##.c-banner` — **la amplió él**, absorbiendo el `elnacional.cat` que citamos como precedente |
 | 2026-08-17 | `imagendelgolfo.mx` — proponer `.bannersaas` | [#365](https://github.com/easylist/easylistspanish/issues/365) | **ACEPTADA** 24-ago (`fa4fc86`) — verificada en portada y dos notas: **0 visibles, 0 px²** en las tres | `diariodelistmo.com,imagendelgolfo.mx,imagendeveracruz.mx##.bannersaas` — **multi-dominio, la amplió él** |
 
 ## Resultado: 5 de 5 cerradas como completadas en ~3 días
