@@ -10,11 +10,31 @@ Que la mantenga alguien más no es un detalle: es la diferencia entre una contri
 
 ---
 
-## 🕐 EN PREPARACIÓN — barrido del 25-ago-2026: dos candidatas grandes, ninguna enviable todavía
+## ✅ LISTAS PARA ENVIAR — barrido del 25-ago-2026, **segunda carga hecha el 31-ago-2026**
 
-**Les falta lo mismo y es lo que decide: la segunda carga en día distinto.** Es el requisito
-que #365 y #366 cumplieron y que convirtió sus cifras en prueba. Con una sola observación no
-se manda nada.
+**Las dos cumplen ya el estándar de envío.** Lo que les faltaba era la segunda carga en día
+distinto —el requisito que #365 y #366 cumplieron y que convirtió sus cifras en prueba— y está
+hecha, seis días después: **las once filas medidas repiten al píxel**.
+
+Detalle completo, con el instrumento y los límites: `documentos/segunda-carga-codigoqro-posta-2026-08-31.md`.
+
+| Fila | 25-ago | 31-ago |
+|---|---|---|
+| cqro portada `.banner-container` | 7/7 · 1,045,814 px² · 1,140 px | **idéntico** |
+| cqro portada `.soft-news-banner` | 3/3 · 225,000 px² · 750 px | **idéntico** |
+| cqro portada `.sidebar-banner` | 1/1 · 180,000 px² · 600 px | **idéntico** |
+| cqro portada `.banner-wrapper` | 10/10 · 226,260 px² · 1,380 px | **idéntico** |
+| posta portada `[class^="publicidad_"]` | 5/7 · 548,388 px² · 641 px | **idéntico** |
+| posta portada `.publicidad_posta` | 3/3 · 472,122 px² · 378 px | **idéntico** |
+| posta portada `.publicidad_ads` | 1/3 · 73,261 px² · 253 px | **idéntico** |
+| posta nota 1 `.publicidad_posta` | 1/1 · 164,868 px² · 132 px | **idéntico** |
+| posta nota 1 `.publicidad_ads` | 0/0 · 0 px² · 0 px | **idéntico** |
+| posta nota 2 `.publicidad_posta` | 1/1 · 164,868 px² · 132 px | **idéntico** |
+| posta nota 2 `.publicidad_ads` | 0/0 · 0 px² · 0 px | **idéntico** |
+
+**0 menciones de ambos dominios en las tres listas**, recomprobado el 31-ago contra las
+descargadas ese día (EasyList Spanish `202608311832`). Y **ninguna incidencia previa** sobre
+ninguno de los dos, comprobado contra la API de GitHub — no se duplica nada.
 
 El barrido eligió los sitios por **estado no representado en el corpus** —Colima, Querétaro,
 BCS, Estado de México, Tlaxcala/Puebla y Nuevo León— **no buscando hueco**. Es el criterio
@@ -105,10 +125,119 @@ su cifra de área está inflada por elementos que no se ven.
 `.banner-wrapper`. Hay que confirmarlo en la segunda carga en vez de proponer cuatro reglas
 donde una hace el trabajo.
 
-**Pendiente antes de enviar:** segunda carga en día distinto, plantilla de nota, y comprobar
-si el «contenido dentro 7/7» es anuncio realmente servido o iframe vacío que sobrevive al
-bloqueo. Bajo bloqueo lo segundo es lo esperable, y **el reporte no puede afirmar lo primero
-sin medirlo**.
+#### Segunda carga — 31-ago-2026: los cuatro selectores idénticos, y los tres pendientes cerrados
+
+**(1) Cifra idéntica al píxel** en los cuatro selectores, seis días después.
+
+**(2) Plantilla de nota medida**, dos notas de secciones distintas, **idénticas entre sí**:
+
+| Selector | casan | visibles | área | altura |
+|---|---|---|---|---|
+| `.banner-container` | 4 | 4 | 590,991 px² | 614 px |
+| `.sidebar-banner` | 4 | 4 | 405,000 px² | 1,350 px |
+| `.soft-news-banner` | 0 | 0 | 0 px² | 0 px |
+| **unión de los tres** | **8** | **8** | **995,991 px²** | **1,964 px** |
+
+**(3) El «contenido dentro 7/7» era iframe vacío, no anuncio servido**, que es lo que se
+sospechaba y no se podía afirmar. Cada caja lleva **1 iframe, 0 imágenes y texto vacío**. El
+contraste sin extensión lo remata: la caja pasa de 970×**130** a 970×**132**, y el wrapper de
+**2**×90 a **970**×92. **El ancho depende de que el anuncio cargue; la altura está reservada y
+no.** El cuerpo del reporte lo declara por adelantado en vez de decir «se ven anuncios».
+
+**Cuántas reglas hacen falta, medido y no deducido.** El 25-ago se supuso que «probablemente
+basta `.banner-container` sola». **Es falso, y lo contrario también:**
+
+| Comprobación | Resultado |
+|---|---|
+| `.banner-container .banner-wrapper` | **7** |
+| `.soft-news-banner .banner-wrapper` | **3** |
+| `.sidebar-banner .banner-wrapper` | 0 |
+| los 4 cruces entre los otros tres | **0 en las dos direcciones** |
+
+Los 10 `.banner-wrapper` están dentro de los otros dos, así que **sobra**; y los tres restantes
+no se anidan entre sí, así que **hacen falta los tres**. `.banner-container` sola dejaría
+**405,000 px² sin cubrir en las notas**, donde `.sidebar-banner` lleva cuatro unidades en vez
+de una. *(El solapamiento se midió a propósito en vez de deducirlo de que la unión cuadrara con
+la suma: una suma que cuadra no distingue «no se solapan» de «el instrumento cuenta dos veces».)*
+
+**Publicidad genuina de terceros:** AdSense `ca-pub-4629112407486041`, servido desde
+`googleads.g.doubleclick.net`. Y **ninguna regla cosmética aplica a este dominio**: 0 elementos
+ocultos en las tres páginas.
+
+**Quinta observación del límite estructural del detector:** `huecos: 0` con señal de ceguera en
+las tres páginas, sobre 1,045,814 px² sin cubrir.
+
+### Estado: CUMPLE el estándar de envío (31-ago-2026)
+
+1. ✅ **Segunda carga en día distinto** — 25 y 31-ago, cifra idéntica en los cuatro selectores.
+2. ✅ **Plantilla de nota** — dos notas reales, ambas con superficie y ambas limpias.
+3. ✅ **Prueba de pérdida limpia** en las tres páginas, con `--probar-perdida`.
+
+**Cómo se hizo (reproducible):**
+
+```bash
+node herramientas/extension/medir-sitio.mjs https://codigoqro.mx/ --reforzado --probar-perdida --selector ".banner-container" --selector ".soft-news-banner" --selector ".sidebar-banner" --selector ".banner-wrapper"
+```
+
+### Texto de la incidencia, listo para enviar
+
+El cuerpo declara por adelantado lo que un mantenedor preguntaría: que las cajas están **vacías
+y reservadas** (y qué cambia sin bloqueador); **por qué tres reglas y no una**, con el
+anidamiento medido; **por qué NO se propone `.banner-wrapper`** pese a parecer un objetivo; y
+que **`banner-container` no es nombre propio del sitio**, con el precedente que lo respalda.
+
+```
+Not covered by any rule in EasyList, EasyPrivacy or EasyList Spanish. The domain is not mentioned in any of the three lists (re-checked 2026-08-31).
+
+Site: https://codigoqro.mx (Queretaro, Mexico)
+Viewport: 1280px
+Ad server: Google AdSense (ca-pub-4629112407486041)
+
+Every ad unit on the site sits in one of three containers:
+
+    .banner-container    (7 on the homepage, 4 on articles)
+    .soft-news-banner    (3 on the homepage, 0 on articles)
+    .sidebar-banner      (1 on the homepage, 4 on articles)
+
+Proposed rules:
+
+    codigoqro.mx##.banner-container
+    codigoqro.mx##.soft-news-banner
+    codigoqro.mx##.sidebar-banner
+
+All three are needed: measured, they do not nest inside one another in either direction. .banner-container on its own leaves 405,000 px2 uncovered on article pages, where .sidebar-banner carries four units instead of one.
+
+Deliberately NOT proposing .banner-wrapper, even though it looks like a target too: all 10 of them are already inside .banner-container (7) or .soft-news-banner (3), so it is redundant, and 5 of them are 2px wide, which inflates any area figure based on it.
+
+banner-container and banner-wrapper are not site-specific names - they already appear 22 and 14 times in EasyList. That is why these are proposed per-domain and never as generic rules. .soft-news-banner does appear to be site-specific: 0 occurrences in either list.
+
+Measured with all EasyList / EasyPrivacy / EasyList Spanish rules applied, including generic cosmetic rules, in a browser with network blocking active. Two separate days, identical to the pixel:
+
+Homepage (2026-08-25 and 2026-08-31):
+
+    .banner-container   7 of 7 visible, 1,045,814 px2, 1,140 px of vertical space
+    .soft-news-banner   3 of 3 visible,   225,000 px2,   750 px
+    .sidebar-banner     1 of 1 visible,   180,000 px2,   600 px
+    Combined: 11 containers, 1,450,814 px2, 2,490 px
+
+Article pages (two different articles, both identical):
+
+    Combined: 8 containers, 995,991 px2, 1,964 px
+    /nota/deportes/2026/08/29/mourinho
+    /nota/codigo-elite/2026/08/28/danna-y-belinda-estrenan-dolce-vita-su-esperada-colaboracion
+
+No existing cosmetic rule applies to this domain at all: 0 elements hidden on any of the three pages.
+
+Reload test on all three pages, both days: no loss of headlines, links, images, menus or form fields.
+
+Caveat stated up front: with a blocker active the boxes hold an empty AdSense iframe rather than a served ad, so what the rule removes is reserved space. Measured without a blocker, the same containers are 2px taller and the inner wrapper goes from 2px to 970px wide - the width depends on the ad loading, the height does not. Same situation as the elmanana.com (#364), imagendelgolfo.mx (#365) and diariodemorelos.com (#366) reports, where the mechanism was accepted.
+
+Found with Filtros MX (https://github.com/edso79/filtros-mx).
+```
+
+[Incidencia pre-llenada de codigoqro.mx — LA ENVÍA EDGAR](https://github.com/easylist/easylistspanish/issues/new?title=codigoqro.mx%3A%20uncovered%20ad%20containers%20(.banner-container%2C%20.soft-news-banner%2C%20.sidebar-banner)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%20The%20domain%20is%20not%20mentioned%20in%20any%20of%20the%20three%20lists%20(re-checked%202026-08-31).%0A%0ASite%3A%20https%3A%2F%2Fcodigoqro.mx%20(Queretaro%2C%20Mexico)%0AViewport%3A%201280px%0AAd%20server%3A%20Google%20AdSense%20(ca-pub-4629112407486041)%0A%0AEvery%20ad%20unit%20on%20the%20site%20sits%20in%20one%20of%20three%20containers%3A%0A%0A%20%20%20%20.banner-container%20%20%20%20(7%20on%20the%20homepage%2C%204%20on%20articles)%0A%20%20%20%20.soft-news-banner%20%20%20%20(3%20on%20the%20homepage%2C%200%20on%20articles)%0A%20%20%20%20.sidebar-banner%20%20%20%20%20%20(1%20on%20the%20homepage%2C%204%20on%20articles)%0A%0AProposed%20rules%3A%0A%0A%20%20%20%20codigoqro.mx%23%23.banner-container%0A%20%20%20%20codigoqro.mx%23%23.soft-news-banner%0A%20%20%20%20codigoqro.mx%23%23.sidebar-banner%0A%0AAll%20three%20are%20needed%3A%20measured%2C%20they%20do%20not%20nest%20inside%20one%20another%20in%20either%20direction.%20.banner-container%20on%20its%20own%20leaves%20405%2C000%20px2%20uncovered%20on%20article%20pages%2C%20where%20.sidebar-banner%20carries%20four%20units%20instead%20of%20one.%0A%0ADeliberately%20NOT%20proposing%20.banner-wrapper%2C%20even%20though%20it%20looks%20like%20a%20target%20too%3A%20all%2010%20of%20them%20are%20already%20inside%20.banner-container%20(7)%20or%20.soft-news-banner%20(3)%2C%20so%20it%20is%20redundant%2C%20and%205%20of%20them%20are%202px%20wide%2C%20which%20inflates%20any%20area%20figure%20based%20on%20it.%0A%0Abanner-container%20and%20banner-wrapper%20are%20not%20site-specific%20names%20-%20they%20already%20appear%2022%20and%2014%20times%20in%20EasyList.%20That%20is%20why%20these%20are%20proposed%20per-domain%20and%20never%20as%20generic%20rules.%20.soft-news-banner%20does%20appear%20to%20be%20site-specific%3A%200%20occurrences%20in%20either%20list.%0A%0AMeasured%20with%20all%20EasyList%20%2F%20EasyPrivacy%20%2F%20EasyList%20Spanish%20rules%20applied%2C%20including%20generic%20cosmetic%20rules%2C%20in%20a%20browser%20with%20network%20blocking%20active.%20Two%20separate%20days%2C%20identical%20to%20the%20pixel%3A%0A%0AHomepage%20(2026-08-25%20and%202026-08-31)%3A%0A%0A%20%20%20%20.banner-container%20%20%207%20of%207%20visible%2C%201%2C045%2C814%20px2%2C%201%2C140%20px%20of%20vertical%20space%0A%20%20%20%20.soft-news-banner%20%20%203%20of%203%20visible%2C%20%20%20225%2C000%20px2%2C%20%20%20750%20px%0A%20%20%20%20.sidebar-banner%20%20%20%20%201%20of%201%20visible%2C%20%20%20180%2C000%20px2%2C%20%20%20600%20px%0A%20%20%20%20Combined%3A%2011%20containers%2C%201%2C450%2C814%20px2%2C%202%2C490%20px%0A%0AArticle%20pages%20(two%20different%20articles%2C%20both%20identical)%3A%0A%0A%20%20%20%20Combined%3A%208%20containers%2C%20995%2C991%20px2%2C%201%2C964%20px%0A%20%20%20%20%2Fnota%2Fdeportes%2F2026%2F08%2F29%2Fmourinho%0A%20%20%20%20%2Fnota%2Fcodigo-elite%2F2026%2F08%2F28%2Fdanna-y-belinda-estrenan-dolce-vita-su-esperada-colaboracion%0A%0ANo%20existing%20cosmetic%20rule%20applies%20to%20this%20domain%20at%20all%3A%200%20elements%20hidden%20on%20any%20of%20the%20three%20pages.%0A%0AReload%20test%20on%20all%20three%20pages%2C%20both%20days%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20menus%20or%20form%20fields.%0A%0ACaveat%20stated%20up%20front%3A%20with%20a%20blocker%20active%20the%20boxes%20hold%20an%20empty%20AdSense%20iframe%20rather%20than%20a%20served%20ad%2C%20so%20what%20the%20rule%20removes%20is%20reserved%20space.%20Measured%20without%20a%20blocker%2C%20the%20same%20containers%20are%202px%20taller%20and%20the%20inner%20wrapper%20goes%20from%202px%20to%20970px%20wide%20-%20the%20width%20depends%20on%20the%20ad%20loading%2C%20the%20height%20does%20not.%20Same%20situation%20as%20the%20elmanana.com%20(%23364)%2C%20imagendelgolfo.mx%20(%23365)%20and%20diariodemorelos.com%20(%23366)%20reports%2C%20where%20the%20mechanism%20was%20accepted.%0A%0AFound%20with%20Filtros%20MX%20(https%3A%2F%2Fgithub.com%2Fedso79%2Ffiltros-mx).%0A)
+
+> Al enviarla, anotar aquí la fecha y el número. Y después, **verificar contra la lista publicada Y contra el DOM antes de dar nada por cubierto** — «cerrado ≠ aceptado».
 
 ---
 
@@ -153,7 +282,87 @@ mejor hallazgo del proyecto—, pero conviene anotar que **la salvaguarda que fu
 `esSeguro()`, fue `--probar-perdida`**, escrita el 14-ago justo para los selectores que el
 filtro del detector no mira.
 
-**Pendiente antes de enviar:** segunda carga en día distinto.
+**Remedido el 31-ago: la trampa sigue en pie, y con la misma cifra.** `.logoheader` vuelve a
+salir como hueco propuesto (1249×130, 162,370 px², `nombreFragil: false`) y la prueba de
+pérdida vuelve a marcarlo **ROMPE CONTENIDO: −1 enlace, −1 imagen**. **No entra en el reporte,
+y el cuerpo lo advierte** para que nadie de aguas arriba lo "mejore" añadiéndolo.
+
+#### Segunda carga — 31-ago-2026: las cinco filas idénticas
+
+**Cifra idéntica al píxel** en las tres páginas, seis días después. Las dos notas siguen dando
+la misma cifra entre sí (1/1, 164,868 px², 132 px), que es la señal de espacio reservado.
+
+**Publicidad genuina de terceros, comprobada sin extensión:** Google Ad Manager sirviendo
+`728x90` y `300x250` dentro de las propias cajas, desde
+`/22672383948/posta.com.mx/responsive_portada_leaderboard_1_0` y `_3_0`.
+
+**Y el matiz que el cuerpo declara en vez de esconder:** con bloqueo, **«con contenido dentro
+0» en todas las cajas de las tres páginas**. Son cajas vacías que siguen ocupando 548,388 px².
+Lo que la regla retira es espacio reservado — el mismo caso aceptado en #364, #365 y #366.
+
+**Lo que no se infla:** de los 5 visibles de portada, uno mide **301×10**. Son 3,010 px² de los
+548,388, y el cuerpo lo dice.
+
+### Estado: CUMPLE el estándar de envío (31-ago-2026)
+
+1. ✅ **Segunda carga en día distinto** — 25 y 31-ago, cifra idéntica en las tres páginas.
+2. ✅ **Plantilla de nota** — dos notas reales, idénticas entre sí y entre días.
+3. ✅ **Prueba de pérdida limpia** en las tres páginas, con `--probar-perdida`.
+
+**Cómo se hizo (reproducible):**
+
+```bash
+node herramientas/extension/medir-sitio.mjs https://www.posta.com.mx/ --reforzado --probar-perdida --selector "[class^=\"publicidad_\"]" --selector ".publicidad_posta" --selector ".publicidad_ads"
+```
+
+### Texto de la incidencia, listo para enviar
+
+```
+Not covered by any rule in EasyList, EasyPrivacy or EasyList Spanish. The domain is not mentioned in any of the three lists (re-checked 2026-08-31).
+
+Site: https://www.posta.com.mx (Nuevo Leon, Mexico)
+Viewport: 1280px
+Ad server: Google Ad Manager, slots under /22672383948/posta.com.mx/ (securepubads.g.doubleclick.net)
+
+The site wraps every ad unit in a class with the same prefix:
+
+    .publicidad_posta, .publicidad_posta_lightback, .publicidad_ads, .publicidad_ads_box1
+
+Proposed rule:
+
+    posta.com.mx##[class^="publicidad_"]
+
+Proposing the prefix rather than the individual classes so the whole family is covered, and without a div prefix on purpose: .publicidad_ads sits on an <article>, so div[class^="publicidad_"] would miss 73,261 px2 of it.
+
+publicidad_ is a common name - EasyList Spanish already carries .publicidad_cabecera, .publicidad_dfp and .publicidad_footer_sticky as generics, plus per-domain rules such as 0221.com.ar##.publicidad_cont. None of them match this site's classes, which is why it is still uncovered. Proposed per-domain, not as a generic.
+
+Measured with all EasyList / EasyPrivacy / EasyList Spanish rules applied, including generic cosmetic rules, in a browser with network blocking active. Two separate days, identical to the pixel:
+
+Homepage (2026-08-25 and 2026-08-31):
+
+    5 of 7 containers visible, 548,388 px2, 641 px of vertical space
+    Sizes: 1249x132, 1249x123, 1249x123, 290x253, 301x10
+
+Article pages (two different articles, both identical, both days):
+
+    1 of 1 visible, 164,868 px2, 132 px
+    /internacional/iso-la-nueva-droga-que-preocupa-a-la-onu-y-estas-son-sus-diferencias-con-el-fentanilo/vl2245616
+    /nuevo-leon/dos-hombres-lesionados-en-accidente-vial-apodaca/vl2247168
+
+Being precise about the homepage figure: one of the five visible boxes is 301x10, so 3,010 px2 of that total is a sliver. The bulk is the three 1249px bars and the 290x253 rectangle.
+
+Reload test on all three pages, both days: no loss of headlines, links, images, menus or form fields.
+
+One warning about a neighbouring class, in case it looks like a target: .logoheader is NOT advertising. It is the newspaper's own masthead logo (1249x130). Hiding it removes 1 link and 1 image, measured on both days.
+
+Caveat stated up front: with a blocker active all of these boxes are empty reserved space - that is what the rule removes. Without a blocker the same containers hold served GAM creatives (728x90 leaderboards and 300x250 rectangles, under /22672383948/posta.com.mx/responsive_portada_leaderboard_1_0 and _3_0). Same situation as the elmanana.com (#364), imagendelgolfo.mx (#365) and diariodemorelos.com (#366) reports, where the mechanism was accepted.
+
+Found with Filtros MX (https://github.com/edso79/filtros-mx).
+```
+
+[Incidencia pre-llenada de posta.com.mx — LA ENVÍA EDGAR](https://github.com/easylist/easylistspanish/issues/new?title=posta.com.mx%3A%20uncovered%20ad%20containers%20(%5Bclass%5E%3D%22publicidad_%22%5D)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%20The%20domain%20is%20not%20mentioned%20in%20any%20of%20the%20three%20lists%20(re-checked%202026-08-31).%0A%0ASite%3A%20https%3A%2F%2Fwww.posta.com.mx%20(Nuevo%20Leon%2C%20Mexico)%0AViewport%3A%201280px%0AAd%20server%3A%20Google%20Ad%20Manager%2C%20slots%20under%20%2F22672383948%2Fposta.com.mx%2F%20(securepubads.g.doubleclick.net)%0A%0AThe%20site%20wraps%20every%20ad%20unit%20in%20a%20class%20with%20the%20same%20prefix%3A%0A%0A%20%20%20%20.publicidad_posta%2C%20.publicidad_posta_lightback%2C%20.publicidad_ads%2C%20.publicidad_ads_box1%0A%0AProposed%20rule%3A%0A%0A%20%20%20%20posta.com.mx%23%23%5Bclass%5E%3D%22publicidad_%22%5D%0A%0AProposing%20the%20prefix%20rather%20than%20the%20individual%20classes%20so%20the%20whole%20family%20is%20covered%2C%20and%20without%20a%20div%20prefix%20on%20purpose%3A%20.publicidad_ads%20sits%20on%20an%20%3Carticle%3E%2C%20so%20div%5Bclass%5E%3D%22publicidad_%22%5D%20would%20miss%2073%2C261%20px2%20of%20it.%0A%0Apublicidad_%20is%20a%20common%20name%20-%20EasyList%20Spanish%20already%20carries%20.publicidad_cabecera%2C%20.publicidad_dfp%20and%20.publicidad_footer_sticky%20as%20generics%2C%20plus%20per-domain%20rules%20such%20as%200221.com.ar%23%23.publicidad_cont.%20None%20of%20them%20match%20this%20site's%20classes%2C%20which%20is%20why%20it%20is%20still%20uncovered.%20Proposed%20per-domain%2C%20not%20as%20a%20generic.%0A%0AMeasured%20with%20all%20EasyList%20%2F%20EasyPrivacy%20%2F%20EasyList%20Spanish%20rules%20applied%2C%20including%20generic%20cosmetic%20rules%2C%20in%20a%20browser%20with%20network%20blocking%20active.%20Two%20separate%20days%2C%20identical%20to%20the%20pixel%3A%0A%0AHomepage%20(2026-08-25%20and%202026-08-31)%3A%0A%0A%20%20%20%205%20of%207%20containers%20visible%2C%20548%2C388%20px2%2C%20641%20px%20of%20vertical%20space%0A%20%20%20%20Sizes%3A%201249x132%2C%201249x123%2C%201249x123%2C%20290x253%2C%20301x10%0A%0AArticle%20pages%20(two%20different%20articles%2C%20both%20identical%2C%20both%20days)%3A%0A%0A%20%20%20%201%20of%201%20visible%2C%20164%2C868%20px2%2C%20132%20px%0A%20%20%20%20%2Finternacional%2Fiso-la-nueva-droga-que-preocupa-a-la-onu-y-estas-son-sus-diferencias-con-el-fentanilo%2Fvl2245616%0A%20%20%20%20%2Fnuevo-leon%2Fdos-hombres-lesionados-en-accidente-vial-apodaca%2Fvl2247168%0A%0ABeing%20precise%20about%20the%20homepage%20figure%3A%20one%20of%20the%20five%20visible%20boxes%20is%20301x10%2C%20so%203%2C010%20px2%20of%20that%20total%20is%20a%20sliver.%20The%20bulk%20is%20the%20three%201249px%20bars%20and%20the%20290x253%20rectangle.%0A%0AReload%20test%20on%20all%20three%20pages%2C%20both%20days%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20menus%20or%20form%20fields.%0A%0AOne%20warning%20about%20a%20neighbouring%20class%2C%20in%20case%20it%20looks%20like%20a%20target%3A%20.logoheader%20is%20NOT%20advertising.%20It%20is%20the%20newspaper's%20own%20masthead%20logo%20(1249x130).%20Hiding%20it%20removes%201%20link%20and%201%20image%2C%20measured%20on%20both%20days.%0A%0ACaveat%20stated%20up%20front%3A%20with%20a%20blocker%20active%20all%20of%20these%20boxes%20are%20empty%20reserved%20space%20-%20that%20is%20what%20the%20rule%20removes.%20Without%20a%20blocker%20the%20same%20containers%20hold%20served%20GAM%20creatives%20(728x90%20leaderboards%20and%20300x250%20rectangles%2C%20under%20%2F22672383948%2Fposta.com.mx%2Fresponsive_portada_leaderboard_1_0%20and%20_3_0).%20Same%20situation%20as%20the%20elmanana.com%20(%23364)%2C%20imagendelgolfo.mx%20(%23365)%20and%20diariodemorelos.com%20(%23366)%20reports%2C%20where%20the%20mechanism%20was%20accepted.%0A%0AFound%20with%20Filtros%20MX%20(https%3A%2F%2Fgithub.com%2Fedso79%2Ffiltros-mx).%0A)
+
+> Al enviarla, anotar aquí la fecha y el número. Y después, **verificar contra la lista publicada Y contra el DOM antes de dar nada por cubierto** — «cerrado ≠ aceptado».
 
 ---
 
