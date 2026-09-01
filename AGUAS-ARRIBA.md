@@ -10,14 +10,82 @@ Que la mantenga alguien más no es un detalle: es la diferencia entre una contri
 
 ---
 
-## ✅ ENVIADAS el 31-ago-2026 — [#368](https://github.com/easylist/easylistspanish/issues/368) (`codigoqro.mx`) y [#369](https://github.com/easylist/easylistspanish/issues/369) (`posta.com.mx`), las dos abiertas
+## ✅ ACEPTADAS A MEDIAS Y VERIFICADAS el 1-sep-2026 — [#368](https://github.com/easylist/easylistspanish/issues/368) (`codigoqro.mx`) y [#369](https://github.com/easylist/easylistspanish/issues/369) (`posta.com.mx`)
+
+**Las dos cerraron al día siguiente de enviarse**, sin un solo comentario: commits `ed20593`
+(#368) y `4ac090f` (#369), en la lista publicada `202609011522`. Es el desenlace más rápido de
+los doce reportes, por debajo de los dos días de #366 — **y no autoriza a prometer nada sobre
+el siguiente**: en esta misma serie #364 tardó 14 días.
+
+**Y las dos entraron A MEDIAS. Es el caso exacto para el que existe la regla «cerrado ≠
+aceptado»:** darlas por cubiertas leyendo el correo de GitHub habría enterrado **301,266 px²
+de publicidad que sigue en pantalla**. Verificado contra la lista publicada **y contra el DOM**,
+con bloqueo real, Reforzado y 1280 px de ancho.
+
+### Qué se propuso y qué entró
+
+| Propuesto | ¿Entró? | Cómo |
+|---|---|---|
+| `codigoqro.mx##.banner-container` | ✅ | el dominio se sumó a la multi-dominio, que pasa de 6 a 7 sitios |
+| `codigoqro.mx##.sidebar-banner` | ✅ | regla propia, tal cual |
+| `codigoqro.mx##.soft-news-banner` | ❌ | **no aparece en ninguna de las tres listas** |
+| `posta.com.mx##[class^="publicidad_"]` | ⚠️ | entró `##.publicidad_posta`, **una clase suelta en vez del prefijo** |
+
+### Qué mide el DOM hoy
+
+| Página | Selector | 25 y 31-ago | 1-sep |
+|---|---|---|---|
+| cqro portada | `.banner-container` | 7/7 · 1,045,814 px² | **0/7 · 0 px²** |
+| cqro portada | `.sidebar-banner` | 1/1 · 180,000 px² | **0/1 · 0 px²** |
+| cqro portada | `.soft-news-banner` | 3/3 · 225,000 px² | **3/3 · 225,000 px² — intacto** |
+| cqro nota ×2 | los tres juntos | 8 cajas · 995,991 px² | **0 visibles · 0 px²** |
+| posta portada | `.publicidad_posta` | 3/3 · 472,122 px² | **0/3 · 0 px²** |
+| posta portada | `.publicidad_posta_lightback` | 1/1 | **0/1 — lleva las dos clases** |
+| posta portada | `.publicidad_ads` | 1/3 · 73,261 px² | **1/3 · 73,261 px² — intacto** |
+| posta portada | `.publicidad_ads_box1` | (dentro de los 548,388) | **1/1 · 3,005 px²** |
+| posta nota ×2 | `[class^="publicidad_"]` | 1/1 · 164,868 px² | **0/1 · 0 px²** |
+
+**El contador lo confirma por la otra punta, que es lo que separa «cubierto» de «ausente»:**
+`codigoqro.mx` pasó de **0 elementos ocultos a 8** en las tres páginas —exactamente 7+1 en
+portada y 4+4 en cada nota—, y `posta.com.mx` de **9 a 12** en portada (+3, los tres
+`.publicidad_posta`) y de **21 a 22** en cada nota (+1). Cifras de los dos días leídas del
+**JSON** de cada medición, no de la prosa de ningún documento.
+
+### Lo que queda, y por qué sí merece seguimiento
+
+**301,266 px² en total, los dos residuos en portada y limpios en la prueba de pérdida de hoy**
+(0 titulares, 0 enlaces, 0 imágenes, 0 campos, 0 texto):
+
+- **`codigoqro.mx##.soft-news-banner`** — 225,000 px², 750 px, tres cajas de 300×250. Se
+  propuso y **no entró**; el nombre es propio del sitio (0 apariciones en las tres listas).
+  Tiene toda la pinta de omisión, no de rechazo: el commit tomó 2 de 3 sin comentar la tercera.
+- **`posta.com.mx##.publicidad_ads`** — 73,261 px², una caja de 290×253 sobre un `<article>`.
+  Más **`.publicidad_ads_box1`**, 301×10 y 3,005 px², que **por sí sola estaría por debajo del
+  estándar** y se declara aparte para no inflar el residuo.
+
+**Por qué esto sí y `###stickyunit` no:** en #364 se decidió no insistir con una regla de más
+que no hacía daño. Aquí no sobra una regla, **falta superficie**: 750 px y 253 px de alto están
+muy por encima del listón que el propio proyecto fijó al descartar `ntrzacatecas` (60 px) y el
+residuo de #363 (96 px). Los dos comentarios de seguimiento están **redactados abajo, listos
+para pegar** — los envía Edgar, en la incidencia cerrada y **sin reabrirla**, que es como se
+hizo en #363 y #364.
+
+**Y una lección de método que este desenlace paga:** el reporte de posta explicaba por qué se
+proponía el prefijo y no las clases sueltas —para cubrir la familia entera— y aun así entró una
+clase. El seguimiento **no vuelve a pedir el prefijo**: pide las dos clases que faltan por
+nombre. Si el mantenedor prefiere clases concretas a un selector de atributo, discutirlo cuesta
+crédito y no cubre un píxel más.
+
+---
+
+## Cómo llegaron ahí — enviadas el 31-ago-2026
 
 **Las dos cumplían el estándar de envío y salieron el mismo día.** Lo que les faltaba era la
 segunda carga en día distinto —el requisito que #365 y #366 cumplieron y que convirtió sus
 cifras en prueba— y se hizo seis días después: **las once filas medidas repiten al píxel**.
 
-Con esto el proyecto lleva **doce reportes**: diez resueltos y **dos abiertos**, los primeros
-desde que #366 cerró el 26-ago.
+Con esto el proyecto llegó a **doce reportes**. *(Al enviarse eran diez resueltos y dos
+abiertos; el 1-sep los doce quedaron resueltos — dos de ellos a medias. Ver arriba.)*
 
 Detalle completo, con el instrumento y los límites: `documentos/segunda-carga-codigoqro-posta-2026-08-31.md`.
 
@@ -238,13 +306,52 @@ Caveat stated up front: with a blocker active the boxes hold an empty AdSense if
 Found with Filtros MX (https://github.com/edso79/filtros-mx).
 ```
 
-> ✅ **ENVIADA el 31-ago-2026 por Edgar — [#368](https://github.com/easylist/easylistspanish/issues/368), abierta.** Cuerpo verificado contra la API de GitHub: llegó **íntegro**, con las tres reglas propuestas, los 1,045,814 px² de portada, los 405,000 px² que justifican no proponer `.banner-container` sola, y la línea de cierre `Found with Filtros MX` — **que es la prueba de que no se truncó**. 0 comentarios al enviarse, y GitHub no la marcó como duplicado.
+> ✅ **ENVIADA el 31-ago-2026 por Edgar — [#368](https://github.com/easylist/easylistspanish/issues/368), cerrada el 1-sep.** Cuerpo verificado contra la API de GitHub: llegó **íntegro**, con las tres reglas propuestas, los 1,045,814 px² de portada, los 405,000 px² que justifican no proponer `.banner-container` sola, y la línea de cierre `Found with Filtros MX` — **que es la prueba de que no se truncó**. 0 comentarios al enviarse, y GitHub no la marcó como duplicado.
 
 *(El enlace de abajo ya se usó — se conserva como plantilla. NO volver a pulsarlo.)*
 
 [Incidencia pre-llenada de codigoqro.mx — YA ENVIADA](https://github.com/easylist/easylistspanish/issues/new?title=codigoqro.mx%3A%20uncovered%20ad%20containers%20(.banner-container%2C%20.soft-news-banner%2C%20.sidebar-banner)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%20The%20domain%20is%20not%20mentioned%20in%20any%20of%20the%20three%20lists%20(re-checked%202026-08-31).%0A%0ASite%3A%20https%3A%2F%2Fcodigoqro.mx%20(Queretaro%2C%20Mexico)%0AViewport%3A%201280px%0AAd%20server%3A%20Google%20AdSense%20(ca-pub-4629112407486041)%0A%0AEvery%20ad%20unit%20on%20the%20site%20sits%20in%20one%20of%20three%20containers%3A%0A%0A%20%20%20%20.banner-container%20%20%20%20(7%20on%20the%20homepage%2C%204%20on%20articles)%0A%20%20%20%20.soft-news-banner%20%20%20%20(3%20on%20the%20homepage%2C%200%20on%20articles)%0A%20%20%20%20.sidebar-banner%20%20%20%20%20%20(1%20on%20the%20homepage%2C%204%20on%20articles)%0A%0AProposed%20rules%3A%0A%0A%20%20%20%20codigoqro.mx%23%23.banner-container%0A%20%20%20%20codigoqro.mx%23%23.soft-news-banner%0A%20%20%20%20codigoqro.mx%23%23.sidebar-banner%0A%0AAll%20three%20are%20needed%3A%20measured%2C%20they%20do%20not%20nest%20inside%20one%20another%20in%20either%20direction.%20.banner-container%20on%20its%20own%20leaves%20405%2C000%20px2%20uncovered%20on%20article%20pages%2C%20where%20.sidebar-banner%20carries%20four%20units%20instead%20of%20one.%0A%0ADeliberately%20NOT%20proposing%20.banner-wrapper%2C%20even%20though%20it%20looks%20like%20a%20target%20too%3A%20all%2010%20of%20them%20are%20already%20inside%20.banner-container%20(7)%20or%20.soft-news-banner%20(3)%2C%20so%20it%20is%20redundant%2C%20and%205%20of%20them%20are%202px%20wide%2C%20which%20inflates%20any%20area%20figure%20based%20on%20it.%0A%0Abanner-container%20and%20banner-wrapper%20are%20not%20site-specific%20names%20-%20they%20already%20appear%2022%20and%2014%20times%20in%20EasyList.%20That%20is%20why%20these%20are%20proposed%20per-domain%20and%20never%20as%20generic%20rules.%20.soft-news-banner%20does%20appear%20to%20be%20site-specific%3A%200%20occurrences%20in%20either%20list.%0A%0AMeasured%20with%20all%20EasyList%20%2F%20EasyPrivacy%20%2F%20EasyList%20Spanish%20rules%20applied%2C%20including%20generic%20cosmetic%20rules%2C%20in%20a%20browser%20with%20network%20blocking%20active.%20Two%20separate%20days%2C%20identical%20to%20the%20pixel%3A%0A%0AHomepage%20(2026-08-25%20and%202026-08-31)%3A%0A%0A%20%20%20%20.banner-container%20%20%207%20of%207%20visible%2C%201%2C045%2C814%20px2%2C%201%2C140%20px%20of%20vertical%20space%0A%20%20%20%20.soft-news-banner%20%20%203%20of%203%20visible%2C%20%20%20225%2C000%20px2%2C%20%20%20750%20px%0A%20%20%20%20.sidebar-banner%20%20%20%20%201%20of%201%20visible%2C%20%20%20180%2C000%20px2%2C%20%20%20600%20px%0A%20%20%20%20Combined%3A%2011%20containers%2C%201%2C450%2C814%20px2%2C%202%2C490%20px%0A%0AArticle%20pages%20(two%20different%20articles%2C%20both%20identical)%3A%0A%0A%20%20%20%20Combined%3A%208%20containers%2C%20995%2C991%20px2%2C%201%2C964%20px%0A%20%20%20%20%2Fnota%2Fdeportes%2F2026%2F08%2F29%2Fmourinho%0A%20%20%20%20%2Fnota%2Fcodigo-elite%2F2026%2F08%2F28%2Fdanna-y-belinda-estrenan-dolce-vita-su-esperada-colaboracion%0A%0ANo%20existing%20cosmetic%20rule%20applies%20to%20this%20domain%20at%20all%3A%200%20elements%20hidden%20on%20any%20of%20the%20three%20pages.%0A%0AReload%20test%20on%20all%20three%20pages%2C%20both%20days%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20menus%20or%20form%20fields.%0A%0ACaveat%20stated%20up%20front%3A%20with%20a%20blocker%20active%20the%20boxes%20hold%20an%20empty%20AdSense%20iframe%20rather%20than%20a%20served%20ad%2C%20so%20what%20the%20rule%20removes%20is%20reserved%20space.%20Measured%20without%20a%20blocker%2C%20the%20same%20containers%20are%202px%20taller%20and%20the%20inner%20wrapper%20goes%20from%202px%20to%20970px%20wide%20-%20the%20width%20depends%20on%20the%20ad%20loading%2C%20the%20height%20does%20not.%20Same%20situation%20as%20the%20elmanana.com%20(%23364)%2C%20imagendelgolfo.mx%20(%23365)%20and%20diariodemorelos.com%20(%23366)%20reports%2C%20where%20the%20mechanism%20was%20accepted.%0A%0AFound%20with%20Filtros%20MX%20(https%3A%2F%2Fgithub.com%2Fedso79%2Ffiltros-mx).%0A)
 
-> Al enviarla, anotar aquí la fecha y el número. Y después, **verificar contra la lista publicada Y contra el DOM antes de dar nada por cubierto** — «cerrado ≠ aceptado».
+> ✅ **ACEPTADA A MEDIAS Y VERIFICADA el 1-sep-2026** (commit `ed20593`, lista `202609011522`). Entraron **2 de las 3 reglas**: el dominio se sumó a la multi-dominio `##.banner-container` (que pasa de 6 a 7 sitios) y `##.sidebar-banner` entró tal cual. **`.soft-news-banner` no está en ninguna de las tres listas.** Medido contra el DOM: portada **0/7 y 0/1**, notas **0/4 y 0/4**, y `.soft-news-banner` **3/3 con 225,000 px² intactos**. El contador va de **0 elementos ocultos a 8** en las tres páginas (7+1 y 4+4).
+
+### ✅ Seguimiento ENVIADO a #368 el 1-sep-2026 por Edgar, sin reabrir
+
+> Verificado contra la API de GitHub: llegó **byte a byte idéntico** al redactado (1,383 bytes), con la línea de cierre `Found with Filtros MX` — **la prueba de que no se truncó**. La incidencia **sigue cerrada** (`closed` / `completed`): se pulsó `Comment` y no `Reopen and comment`, que era lo único que podía romperse.
+
+**Texto enviado, tal cual:**
+
+```
+Follow-up, no need to reopen unless you prefer to.
+
+Two of the three proposed rules went in - thank you. .banner-container via the
+multi-domain rule and .sidebar-banner as its own. The third one,
+.soft-news-banner, does not appear in EasyList, EasyPrivacy or EasyList
+Spanish, so I am reporting it in case it was missed rather than rejected.
+
+Re-measured today against published list 202609011532, with network blocking
+active and generic cosmetic rules on, at 1280px:
+
+    Homepage
+      .banner-container   0 of 7 visible   (was 7 of 7, 1,045,814 px2)
+      .sidebar-banner     0 of 1 visible   (was 1 of 1,   180,000 px2)
+      .soft-news-banner   3 of 3 visible,    225,000 px2, 750 px   <-- unchanged
+    Article pages (the same two as in the report)
+      all three selectors 0 visible, 0 px2 (was 8 containers, 995,991 px2)
+
+The hidden-element counter confirms it from the other side: this domain went
+from 0 hidden elements on all three pages to 8, which is exactly 7 + 1 on the
+homepage and 4 + 4 on each article.
+
+What is left is three 300x250 AdSense boxes, homepage only:
+
+    codigoqro.mx##.soft-news-banner
+
+Reload test today: no loss of headlines, links, images, menus or form fields.
+.soft-news-banner looks site-specific - 0 occurrences in any of the three
+lists - so it should not need to be a generic.
+
+Found with Filtros MX (https://github.com/edso79/filtros-mx).
+```
 
 ---
 
@@ -367,13 +474,59 @@ Caveat stated up front: with a blocker active all of these boxes are empty reser
 Found with Filtros MX (https://github.com/edso79/filtros-mx).
 ```
 
-> ✅ **ENVIADA el 31-ago-2026 por Edgar — [#369](https://github.com/easylist/easylistspanish/issues/369), abierta.** Cuerpo verificado contra la API: llegó **íntegro**, con la regla del prefijo, los 548,388 px² de portada, los 164,868 px² de las notas, **el aviso de que `.logoheader` NO es publicidad** y la línea de cierre `Found with Filtros MX`. 0 comentarios al enviarse.
+> ✅ **ENVIADA el 31-ago-2026 por Edgar — [#369](https://github.com/easylist/easylistspanish/issues/369), cerrada el 1-sep.** Cuerpo verificado contra la API: llegó **íntegro**, con la regla del prefijo, los 548,388 px² de portada, los 164,868 px² de las notas, **el aviso de que `.logoheader` NO es publicidad** y la línea de cierre `Found with Filtros MX`. 0 comentarios al enviarse.
 
 *(El enlace de abajo ya se usó — se conserva como plantilla. NO volver a pulsarlo.)*
 
 [Incidencia pre-llenada de posta.com.mx — YA ENVIADA](https://github.com/easylist/easylistspanish/issues/new?title=posta.com.mx%3A%20uncovered%20ad%20containers%20(%5Bclass%5E%3D%22publicidad_%22%5D)&body=Not%20covered%20by%20any%20rule%20in%20EasyList%2C%20EasyPrivacy%20or%20EasyList%20Spanish.%20The%20domain%20is%20not%20mentioned%20in%20any%20of%20the%20three%20lists%20(re-checked%202026-08-31).%0A%0ASite%3A%20https%3A%2F%2Fwww.posta.com.mx%20(Nuevo%20Leon%2C%20Mexico)%0AViewport%3A%201280px%0AAd%20server%3A%20Google%20Ad%20Manager%2C%20slots%20under%20%2F22672383948%2Fposta.com.mx%2F%20(securepubads.g.doubleclick.net)%0A%0AThe%20site%20wraps%20every%20ad%20unit%20in%20a%20class%20with%20the%20same%20prefix%3A%0A%0A%20%20%20%20.publicidad_posta%2C%20.publicidad_posta_lightback%2C%20.publicidad_ads%2C%20.publicidad_ads_box1%0A%0AProposed%20rule%3A%0A%0A%20%20%20%20posta.com.mx%23%23%5Bclass%5E%3D%22publicidad_%22%5D%0A%0AProposing%20the%20prefix%20rather%20than%20the%20individual%20classes%20so%20the%20whole%20family%20is%20covered%2C%20and%20without%20a%20div%20prefix%20on%20purpose%3A%20.publicidad_ads%20sits%20on%20an%20%3Carticle%3E%2C%20so%20div%5Bclass%5E%3D%22publicidad_%22%5D%20would%20miss%2073%2C261%20px2%20of%20it.%0A%0Apublicidad_%20is%20a%20common%20name%20-%20EasyList%20Spanish%20already%20carries%20.publicidad_cabecera%2C%20.publicidad_dfp%20and%20.publicidad_footer_sticky%20as%20generics%2C%20plus%20per-domain%20rules%20such%20as%200221.com.ar%23%23.publicidad_cont.%20None%20of%20them%20match%20this%20site's%20classes%2C%20which%20is%20why%20it%20is%20still%20uncovered.%20Proposed%20per-domain%2C%20not%20as%20a%20generic.%0A%0AMeasured%20with%20all%20EasyList%20%2F%20EasyPrivacy%20%2F%20EasyList%20Spanish%20rules%20applied%2C%20including%20generic%20cosmetic%20rules%2C%20in%20a%20browser%20with%20network%20blocking%20active.%20Two%20separate%20days%2C%20identical%20to%20the%20pixel%3A%0A%0AHomepage%20(2026-08-25%20and%202026-08-31)%3A%0A%0A%20%20%20%205%20of%207%20containers%20visible%2C%20548%2C388%20px2%2C%20641%20px%20of%20vertical%20space%0A%20%20%20%20Sizes%3A%201249x132%2C%201249x123%2C%201249x123%2C%20290x253%2C%20301x10%0A%0AArticle%20pages%20(two%20different%20articles%2C%20both%20identical%2C%20both%20days)%3A%0A%0A%20%20%20%201%20of%201%20visible%2C%20164%2C868%20px2%2C%20132%20px%0A%20%20%20%20%2Finternacional%2Fiso-la-nueva-droga-que-preocupa-a-la-onu-y-estas-son-sus-diferencias-con-el-fentanilo%2Fvl2245616%0A%20%20%20%20%2Fnuevo-leon%2Fdos-hombres-lesionados-en-accidente-vial-apodaca%2Fvl2247168%0A%0ABeing%20precise%20about%20the%20homepage%20figure%3A%20one%20of%20the%20five%20visible%20boxes%20is%20301x10%2C%20so%203%2C010%20px2%20of%20that%20total%20is%20a%20sliver.%20The%20bulk%20is%20the%20three%201249px%20bars%20and%20the%20290x253%20rectangle.%0A%0AReload%20test%20on%20all%20three%20pages%2C%20both%20days%3A%20no%20loss%20of%20headlines%2C%20links%2C%20images%2C%20menus%20or%20form%20fields.%0A%0AOne%20warning%20about%20a%20neighbouring%20class%2C%20in%20case%20it%20looks%20like%20a%20target%3A%20.logoheader%20is%20NOT%20advertising.%20It%20is%20the%20newspaper's%20own%20masthead%20logo%20(1249x130).%20Hiding%20it%20removes%201%20link%20and%201%20image%2C%20measured%20on%20both%20days.%0A%0ACaveat%20stated%20up%20front%3A%20with%20a%20blocker%20active%20all%20of%20these%20boxes%20are%20empty%20reserved%20space%20-%20that%20is%20what%20the%20rule%20removes.%20Without%20a%20blocker%20the%20same%20containers%20hold%20served%20GAM%20creatives%20(728x90%20leaderboards%20and%20300x250%20rectangles%2C%20under%20%2F22672383948%2Fposta.com.mx%2Fresponsive_portada_leaderboard_1_0%20and%20_3_0).%20Same%20situation%20as%20the%20elmanana.com%20(%23364)%2C%20imagendelgolfo.mx%20(%23365)%20and%20diariodemorelos.com%20(%23366)%20reports%2C%20where%20the%20mechanism%20was%20accepted.%0A%0AFound%20with%20Filtros%20MX%20(https%3A%2F%2Fgithub.com%2Fedso79%2Ffiltros-mx).%0A)
 
-> Al enviarla, anotar aquí la fecha y el número. Y después, **verificar contra la lista publicada Y contra el DOM antes de dar nada por cubierto** — «cerrado ≠ aceptado».
+> ✅ **ACEPTADA A MEDIAS Y VERIFICADA el 1-sep-2026** (commit `4ac090f`, lista `202609011522`). **El prefijo no entró: entró `posta.com.mx##.publicidad_posta`, una clase suelta.** Medido contra el DOM: **las dos notas quedan en 0 px²** (eran 164,868 cada una) y la portada baja de **548,388 a 76,266 px²**. `.publicidad_posta_lightback` también cae, porque el elemento lleva las dos clases. Quedan `.publicidad_ads` (290×253, 73,261 px²) y `.publicidad_ads_box1` (301×10, 3,005 px²). El contador va de **9 a 12** ocultos en portada y de **21 a 22** en cada nota.
+
+### ✅ Seguimiento ENVIADO a #369 el 1-sep-2026 por Edgar, sin reabrir
+
+> Verificado contra la API de GitHub: llegó **byte a byte idéntico** al redactado (1,798 bytes), con la línea de cierre `Found with Filtros MX` — **la prueba de que no se truncó**. La incidencia **sigue cerrada** (`closed` / `completed`): se pulsó `Comment` y no `Reopen and comment`, que era lo único que podía romperse.
+
+**Texto enviado, tal cual:**
+
+```
+Follow-up, no need to reopen unless you prefer to.
+
+posta.com.mx##.publicidad_posta went in - thank you. Reporting what it covers
+and what it leaves, measured today against published list 202609011532, with
+network blocking active and generic cosmetic rules on, at 1280px:
+
+    Homepage
+      [class^="publicidad_"]       2 of 7 visible, 76,266 px2  (was 5 of 7, 548,388 px2)
+      .publicidad_posta            0 of 3 visible
+      .publicidad_posta_lightback  0 of 1 visible  (that element carries both classes)
+      .publicidad_ads              1 of 3 visible, 290x253, 73,261 px2  <-- left over
+      .publicidad_ads_box1         1 of 1 visible, 301x10,   3,005 px2  <-- left over
+    Article pages (the same two as in the report)
+      everything                   0 visible, 0 px2  (was 164,868 px2 each)
+
+The hidden-element counter confirms it: the homepage went from 9 hidden
+elements to 12 (+3, the three .publicidad_posta) and each article from 21 to
+22 (+1).
+
+The article pages are now fully covered. What is left is homepage only. Since
+you preferred a concrete class over the attribute prefix, here are the two
+remaining ones by name rather than re-proposing the prefix:
+
+    posta.com.mx##.publicidad_ads
+    posta.com.mx##.publicidad_ads_box1
+
+Being precise so this is not oversold: .publicidad_ads_box1 is a 301x10 sliver,
+3,005 px2, and would not be worth an issue on its own. The one that matters is
+.publicidad_ads at 290x253. Note it sits on an <article> element, not a div.
+
+Reload test today on all three pages: no loss of headlines, links, images,
+menus or form fields.
+
+Still true from the original report, in case it looks like a target:
+.logoheader is NOT advertising, it is the newspaper's own masthead logo.
+
+Found with Filtros MX (https://github.com/edso79/filtros-mx).
+```
 
 ---
 
