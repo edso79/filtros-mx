@@ -444,7 +444,9 @@ Found with Filtros MX (https://github.com/edso79/filtros-mx).
 
 ---
 
-### 🕐 SEGUNDO seguimiento a #368 — redactado el 3-sep-2026, lo envía Edgar
+### ✅ SEGUNDO seguimiento ENVIADO a #368 el 3-sep-2026 por Edgar, sin reabrir
+
+> Verificado contra la API de GitHub: llegó **byte a byte idéntico** al redactado (1,687 bytes), con la línea de cierre `Found with Filtros MX`, la regla propuesta y la oferta de retirarla. La incidencia **sigue cerrada** (`closed` / `completed`): se pulsó `Comment` y no `Reopen issue`.
 
 **Por qué se insiste una segunda vez sobre la misma incidencia, dicho de frente:** no se repite
 la petición, se trae **una medición que el mantenedor no tiene**. Su regla funcionó —los 10
@@ -456,7 +458,7 @@ El cuerpo abre reconociendo lo que su arreglo **sí** hace, antes de pedir nada,
 ofreciendo dejarlo: si la omisión fue deliberada, se retira la petición. **Eso es lo que evita
 gastar crédito** — el mismo criterio por el que en #364 no se insistió con `###stickyunit`.
 
-Va en la incidencia cerrada, con `Comment` y **nunca** con `Reopen and comment`.
+**Texto enviado, tal cual:**
 
 ```
 Follow-up on the follow-up - no need to reopen.
