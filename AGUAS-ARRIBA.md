@@ -10,7 +10,96 @@ Que la mantenga alguien más no es un detalle: es la diferencia entre una contri
 
 ---
 
+## 🔔 DESENLACE DE LOS DOS SEGUIMIENTOS — 3-sep-2026: uno cerrado del todo, otro sigue abierto en la práctica
+
+El 1-sep se enviaron dos comentarios de seguimiento, uno por incidencia. El 2-sep el mantenedor
+tocó las dos, con **un commit para cada una** — y los dos desenlaces son opuestos. Verificado
+contra la lista publicada `202609032032` **y contra el DOM**, con bloqueo real, Reforzado y
+1280 px, sobre las mismas tres páginas de cada reporte.
+
+| Incidencia | Qué pidió el seguimiento | Qué hizo el mantenedor | Resultado medido |
+|---|---|---|---|
+| [#369](https://github.com/easylist/easylistspanish/issues/369) `posta.com.mx` | `##.publicidad_ads` y `##.publicidad_ads_box1` | **las dos, tal cual** (commit `9e7efd4`) | **0 px² en las tres páginas** |
+| [#368](https://github.com/easylist/easylistspanish/issues/368) `codigoqro.mx` | `##.soft-news-banner` | **otra cosa**: el dominio a la multi-dominio `##.banner-wrapper` (commit `69c9737`) | **225,000 px² intactos, al píxel** |
+
+**Khrin comentó solo en #369** — «Ok, found it. Thanks», 2-sep 08:13 UTC. En #368 no hay
+comentario: solo el commit, que referencia nuestro seguimiento en su mensaje.
+
+### ✅ `posta.com.mx` (#369) — CERRADA DEL TODO Y VERIFICADA
+
+Entraron las dos clases pedidas por nombre, en el bloque contiguo a la que ya estaba:
+
+```
+posta.com.mx##.publicidad_ads
+posta.com.mx##.publicidad_ads_box1
+posta.com.mx##.publicidad_posta
+```
+
+| Página | Selector | 1-sep | 3-sep |
+|---|---|---|---|
+| portada | `[class^="publicidad_"]` | 2/7 · 76,266 px² · 263 px | **0/7 · 0 px² · 0 px** |
+| portada | `.publicidad_ads` | 1/3 · 73,261 px² · 253 px | **0/3 · 0 px²** |
+| portada | `.publicidad_ads_box1` | 1/1 · 3,005 px² · 10 px | **0/1 · 0 px²** |
+| nota ×2 | `[class^="publicidad_"]` | 0/1 · 0 px² | **0/1 · 0 px²** (ya lo estaban) |
+
+**El contador lo confirma por la otra punta:** la portada pasa de **12 elementos ocultos a 16**
+—exactamente +4, las tres `.publicidad_ads` más la `.publicidad_ads_box1`— y las notas siguen
+en 22, que es lo correcto: ahí esas clases casan 0 y no había nada que sumar.
+
+**El sitio queda en 0 px² de publicidad visible en las tres páginas**, desde los 548,388 px² de
+portada que medía el reporte. Cifras de los dos días leídas del **JSON** de cada medición.
+
+**Lo que enseña, y vale para el próximo reporte:** el 1-sep quedó escrito aquí que el
+seguimiento no volviera a pedir el prefijo sino las dos clases por nombre, porque discutir la
+forma cuesta crédito y no cubre un píxel. **Salió exactamente así.** Pedir por nombre lo que
+falta, sin re-litigar el selector rechazado, es lo que cerró esta incidencia en un día.
+
+### ⚠️ `codigoqro.mx` (#368) — el arreglo NO cubre lo reportado, y ahora está medido POR QUÉ
+
+El mantenedor no añadió `.soft-news-banner`. Añadió el dominio a otra multi-dominio:
+
+```
+ciudad.com.ar,codigoqro.mx,elcomercio.com,hazteveg.com,lmcipolletti.com,lmneuquen.com##.banner-wrapper
+```
+
+**Esa regla sí hace algo, y hay que decirlo antes de pedir nada:** oculta los 10
+`.banner-wrapper` de portada y los 4 de cada nota. El contador lo confirma —**8 elementos
+ocultos → 18** en portada y **8 → 12** en cada nota, exactamente +10 y +4.
+
+**Y aun así `.soft-news-banner` no ha encogido ni un píxel:**
+
+| Página | Selector | 1-sep | 3-sep |
+|---|---|---|---|
+| portada | `.soft-news-banner` | 3/3 · 225,000 px² · 750 px | **3/3 · 225,000 px² · 750 px** |
+| portada | `.banner-wrapper` | (sin cubrir) | **0/10 · 0 px²** |
+| nota ×2 | `.banner-wrapper` | (sin cubrir) | **0/4 · 0 px²** |
+
+**Esto es «cubierto no es colapsado» en dos números, y es un argumento nuevo, no la repetición
+del seguimiento anterior.** Los tres `.banner-wrapper` que viven dentro de `.soft-news-banner`
+están ocultos, y las tres cajas de 300×250 siguen midiendo lo mismo con un iframe dentro cada
+una: **la altura la reserva el contenedor, no el wrapper**. Es exactamente el modo de fallo que
+el proyecto midió el 13-ago-2026 y que costó el mejor hallazgo de su historia por deducirlo en
+vez de medirlo.
+
+**Se insiste, y por el mismo criterio de siempre:** 750 px y 225,000 px² están muy por encima
+del listón que el proyecto fijó al descartar `ntrzacatecas` (60 px) y el residuo de #363
+(96 px). La diferencia con `###stickyunit` sigue siendo la de entonces: allí **sobraba** una
+regla inocua, aquí **falta** superficie. La prueba de pérdida de hoy vuelve a salir limpia:
+0 titulares, 0 enlaces, 0 imágenes, 0 campos, 0 texto.
+
+**Segundo seguimiento redactado abajo, listo para pegar** — lo envía Edgar, en la incidencia
+cerrada y sin reabrirla. **Es el segundo sobre la misma incidencia, y eso se sopesa:** lo que
+lo justifica no es repetir la petición, es traer una medición que el mantenedor no tiene —que
+su regla funcionó y aun así la superficie no se movió.
+
+---
+
 ## ✅ ACEPTADAS A MEDIAS Y VERIFICADAS el 1-sep-2026 — [#368](https://github.com/easylist/easylistspanish/issues/368) (`codigoqro.mx`) y [#369](https://github.com/easylist/easylistspanish/issues/369) (`posta.com.mx`)
+
+> **Esto es el registro del 1-sep y sigue siendo exacto EN SU FECHA. No es el estado de hoy:**
+> los dos seguimientos que se redactaron aquí se enviaron ese día y tuvieron desenlace el 2-sep.
+> **#369 quedó cerrada del todo y #368 sigue con sus 225,000 px² a la vista** — ver la sección
+> del 3-sep, arriba.
 
 **Las dos cerraron al día siguiente de enviarse**, sin un solo comentario: commits `ed20593`
 (#368) y `4ac090f` (#369), en la lista publicada `202609011522`. Es el desenlace más rápido de
@@ -354,6 +443,60 @@ Found with Filtros MX (https://github.com/edso79/filtros-mx).
 ```
 
 ---
+
+### 🕐 SEGUNDO seguimiento a #368 — redactado el 3-sep-2026, lo envía Edgar
+
+**Por qué se insiste una segunda vez sobre la misma incidencia, dicho de frente:** no se repite
+la petición, se trae **una medición que el mantenedor no tiene**. Su regla funcionó —los 10
+wrappers están ocultos y el contador lo confirma— y **la superficie no se movió ni un píxel**.
+Eso es información nueva y accionable; volver a escribir «falta `.soft-news-banner`» no lo
+sería.
+
+El cuerpo abre reconociendo lo que su arreglo **sí** hace, antes de pedir nada, y cierra
+ofreciendo dejarlo: si la omisión fue deliberada, se retira la petición. **Eso es lo que evita
+gastar crédito** — el mismo criterio por el que en #364 no se insistió con `###stickyunit`.
+
+Va en la incidencia cerrada, con `Comment` y **nunca** con `Reopen and comment`.
+
+```
+Follow-up on the follow-up - no need to reopen.
+
+The multi-domain ##.banner-wrapper rule landed for codigoqro.mx on 2026-09-02,
+thank you. Measured today against published list 202609032032, it does work:
+all 10 .banner-wrapper on the homepage and all 4 on each article page are now
+hidden. The hidden-element counter confirms it from the other side - this
+domain went from 8 hidden elements to 18 on the homepage and from 8 to 12 on
+each article, exactly +10 and +4.
+
+What it does not do is remove the space, and that is the part worth reporting
+precisely rather than just re-asking:
+
+    Homepage
+      .banner-wrapper     0 of 10 visible   (was uncovered)
+      .soft-news-banner   3 of 3 visible, 225,000 px2, 750 px   <-- unchanged,
+                                                                    to the pixel
+    Article pages
+      everything          0 visible, 0 px2
+
+The three .banner-wrapper that sit inside .soft-news-banner are hidden, and the
+three 300x250 boxes still measure exactly what they measured on 2026-09-01: the
+height is reserved on the container, not on the wrapper. Hiding the wrapper
+empties the box without collapsing it.
+
+That leaves 225,000 px2 of reserved empty space on the homepage, and the rule
+that would remove it is the one from the original report:
+
+    codigoqro.mx##.soft-news-banner
+
+0 occurrences in EasyList, EasyPrivacy or EasyList Spanish, so it looks
+site-specific and should not need to be a generic. Reload test today: no loss
+of headlines, links, images, menus or form fields.
+
+If .soft-news-banner was left out on purpose rather than missed, say so and I
+will drop it.
+
+Found with Filtros MX (https://github.com/edso79/filtros-mx).
+```
 
 ### 🕐 `posta.com.mx` (Nuevo León) — nombres propios, y una trampa que la prueba de pérdida cazó
 
