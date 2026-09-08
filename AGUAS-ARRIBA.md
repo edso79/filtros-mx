@@ -10,7 +10,60 @@ Que la mantenga alguien más no es un detalle: es la diferencia entre una contri
 
 ---
 
-## 🔔 DESENLACE DE LOS DOS SEGUIMIENTOS — 3-sep-2026: uno cerrado del todo, otro sigue abierto en la práctica
+## ✅ #368 CERRADA DEL TODO — 8-sep-2026: entró `.soft-news-banner`, y el segundo seguimiento es lo que la cerró
+
+Khrin respondió el 8-sep a las 05:40 UTC —**«sorry for the late reply»**, cinco días después— con
+el commit [`bea82f4`](https://github.com/easylist/easylistspanish/commit/bea82f4202071401bee40661b795b84c48883b4d),
+que añade **exactamente la regla pedida**:
+
+```
+codigoqro.mx##.soft-news-banner
+```
+
+**Era omisión, no rechazo.** El segundo seguimiento ofrecía retirar la petición si la clase se
+había dejado fuera a propósito; la respuesta fue añadirla. **Con esto los cuatro selectores del
+dominio están cubiertos** y `codigoqro.mx` queda en **0 px² en las tres páginas**, desde los
+1,450,814 px² de portada que medía el reporte original.
+
+### Qué mide el DOM, contra la lista publicada `202609081751`
+
+| Página | Selector | 3-sep | 8-sep |
+|---|---|---|---|
+| portada | `.soft-news-banner` | 3/3 · 225,000 px² · 750 px | **0/3 · 0 px² · 0 px** |
+| portada | `.banner-container` | 0/7 · 0 px² | **0/7 · 0 px²** |
+| portada | `.sidebar-banner` | 0/1 · 0 px² | **0/1 · 0 px²** |
+| portada | `.banner-wrapper` | 0/10 · 0 px² | **0/10 · 0 px²** |
+| nota ×2 | los cuatro | 0 visibles · 0 px² | **0 visibles · 0 px²** |
+
+**El contador lo confirma por la otra punta:** la portada pasa de **18 elementos ocultos a 21**,
+exactamente +3 — las tres cajas de `.soft-news-banner`. Y **las tres salen `0×0` con
+`visible: false` una a una**, que es lo que separa cubierto de ausente. Las notas siguen en 12,
+que es lo correcto: ahí esa clase casa 0.
+
+### Lo que este desenlace enseña, y es lo que hay que llevarse
+
+**El segundo seguimiento estaba justificado, y el criterio con el que se decidió enviarlo
+resultó ser el bueno.** Lo que lo separaba de gastar crédito no era insistir más fuerte: era
+traer **una medición que el mantenedor no tenía** —que su regla `##.banner-wrapper` funcionaba,
+con el contador subiendo de 8 a 18, y que aun así la superficie no se movía ni un píxel— y
+**cerrar ofreciendo retirar la petición**. Esa oferta es la que convirtió la insistencia en un
+dato accionable en vez de en una queja repetida.
+
+**Y el contraste con `###stickyunit` (#364) queda confirmado, no solo argumentado:** allí
+sobraba una regla inocua y no se insistió; aquí faltaban 225,000 px² y se insistió dos veces.
+El criterio —**se persigue superficie que falta, no reglas que sobran**— acertó en los dos
+casos.
+
+**Van dos incidencias seguidas cerradas del todo por un seguimiento que pide por nombre lo que
+falta**, sin re-litigar el selector que no entró: #369 el 2-sep y esta el 8-sep. *(Dos casos no
+son una cadencia, igual que no lo eran los desenlaces de entre 1 y 14 días.)*
+
+**El proyecto queda con doce reportes y una sola fila «A medias»: #363**, cuyo residuo de 96 px
+está decidido desde el 24-ago que no se persigue por estar bajo el estándar propio.
+
+---
+
+## 🔔 DESENLACE DE LOS DOS SEGUIMIENTOS — 3-sep-2026: uno cerrado del todo, otro no *(y el otro cerró el 8-sep, arriba)*
 
 El 1-sep se enviaron dos comentarios de seguimiento, uno por incidencia. El 2-sep el mantenedor
 tocó las dos, con **un commit para cada una** — y los dos desenlaces son opuestos. Verificado
