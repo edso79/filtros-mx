@@ -1,0 +1,12 @@
+# Las reglas compiladas NO se versionan.
+#
+# Son ~4.7 MB derivados de listas de terceros que cambian a diario. Guardarlas
+# aqui volveria el repositorio un espejo desactualizado de EasyList, y cada
+# cambio ensuciaria el historial con miles de lineas ajenas.
+#
+# Se regeneran con:  node herramientas/extension/construir.mjs
+reglas/
+
+# Indice de reglas que GENERA Chrome al cargar la extension descomprimida.
+# No es nuestro y no debe viajar en el paquete de la tienda.
+_metadata/

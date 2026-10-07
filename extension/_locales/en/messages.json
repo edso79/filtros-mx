@@ -1,0 +1,389 @@
+{
+  "extName": {
+    "message": "Filtros MX — Ad blocker that catches the ads that slip through"
+  },
+  "extShortName": {
+    "message": "Filtros MX"
+  },
+  "idioma": {
+    "message": "en-US"
+  },
+  "extDescription": {
+    "message": "Blocks ads and trackers. If one slips through, it points it out and you remove it in one click. Free, open source, no telemetry."
+  },
+  "modoGrupo": {
+    "message": "Mode on this site"
+  },
+  "modoApagado": {
+    "message": "Off"
+  },
+  "modoBasico": {
+    "message": "Basic"
+  },
+  "modoCompleto": {
+    "message": "Full"
+  },
+  "notaApagado": {
+    "message": "Nothing is filtered on this site."
+  },
+  "notaBasico": {
+    "message": "Only this site's own rules. Cleans less, but almost never breaks anything."
+  },
+  "notaCompleto": {
+    "message": "Maximum cleanup. If something looks broken, try Basic."
+  },
+  "notaSinSitio": {
+    "message": "This isn't a website, so there's nothing to filter here."
+  },
+  "notaExcluido": {
+    "message": "Filtros MX stays off here on purpose: it is a government services site with nothing to block."
+  },
+  "recargar": {
+    "message": "Reload to apply the change"
+  },
+  "cifraOcultos": {
+    "message": "ad elements hidden"
+  },
+  "cifraRed": {
+    "message": "ad and tracker requests stopped"
+  },
+  "cifraRedAyuda": {
+    "message": "Ad and tracker requests stopped in this tab over the last 5 minutes. Chrome keeps no more than that."
+  },
+  "totalDesde": {
+    "message": "Since you installed it: <b>$P1$</b> ad elements hidden",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladosTitulo": {
+    "message": "Ads that slipped through"
+  },
+  "coladosExplica": {
+    "message": "No filter list covers them yet. Remove them in one click — it only affects your browser."
+  },
+  "coladoServido": {
+    "message": "Ad, $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoVacio": {
+    "message": "Empty ad space, $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoAlcance": {
+    "message": "Removing it hides $P1$ elements on this page",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladoFragil": {
+    "message": "May stop working if the site changes"
+  },
+  "quitar": {
+    "message": "Remove"
+  },
+  "quitado": {
+    "message": "Removed ✓"
+  },
+  "quitarEnApagado": {
+    "message": "This site is set to Off: switch to Basic or Full for this to take effect."
+  },
+  "reportar": {
+    "message": "Tell EasyList so it gets fixed for everyone"
+  },
+  "reportarNota": {
+    "message": "Opens GitHub with the text already written. You decide whether to send it."
+  },
+  "sinColados": {
+    "message": "No ads slipping through were detected on this page."
+  },
+  "ceguera": {
+    "message": "This page loads ads we could not pinpoint. If you see one, use “Remove an element”."
+  },
+  "sinReglaUno": {
+    "message": "There is 1 ad that cannot be removed with a safe rule. If it bothers you, use “Remove an element”."
+  },
+  "sinRegla": {
+    "message": "There are $P1$ ads that cannot be removed with a safe rule. If they bother you, use “Remove an element”.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tuyasTitulo": {
+    "message": "Removed by you on this site"
+  },
+  "tuyasExplica": {
+    "message": "They live only in this browser. You can undo them any time."
+  },
+  "mostrar": {
+    "message": "Show"
+  },
+  "elegir": {
+    "message": "Remove an element"
+  },
+  "elegirAyuda": {
+    "message": "Pick anything on the page with your mouse and it disappears — on future visits too."
+  },
+  "problema": {
+    "message": "Something looks wrong?"
+  },
+  "problemaAsunto": {
+    "message": "Filtros MX: problem on $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "reanalizar": {
+    "message": "Analyze again"
+  },
+  "analizando": {
+    "message": "Analyzing…"
+  },
+  "analizado": {
+    "message": "Analyzed ✓"
+  },
+  "noAnalizable": {
+    "message": "Cannot analyze here"
+  },
+  "opciones": {
+    "message": "Options"
+  },
+  "listasDel": {
+    "message": "lists from $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "resenaPide": {
+    "message": "Finding it useful? A review in the store helps more people find Filtros MX."
+  },
+  "resenaSi": {
+    "message": "Leave a review"
+  },
+  "resenaNo": {
+    "message": "Not now"
+  },
+  "insigniaColados": {
+    "message": "Filtros MX: some ads slipped through on this page. Click to remove them."
+  },
+  "selPista": {
+    "message": "Click what you want to remove · Esc to exit"
+  },
+  "selUno": {
+    "message": "1 element will be hidden"
+  },
+  "selVarios": {
+    "message": "$P1$ elements will be hidden",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "selMasGrande": {
+    "message": "Bigger"
+  },
+  "selMasChico": {
+    "message": "Smaller"
+  },
+  "selQuitar": {
+    "message": "Remove"
+  },
+  "selCancelar": {
+    "message": "Cancel"
+  },
+  "selListo": {
+    "message": "Done — it stays hidden on future visits too."
+  },
+  "selDeshacer": {
+    "message": "Undo"
+  },
+  "bTitulo": {
+    "message": "Done. Filtros MX is already blocking."
+  },
+  "bLema": {
+    "message": "Free, open source and no telemetry. Made in Mexico."
+  },
+  "bFijarTitulo": {
+    "message": "One step: pin it to the toolbar"
+  },
+  "bFijar": {
+    "message": "Click the puzzle piece <b>🧩</b> at the top right of Chrome, then the <b>pin</b> next to Filtros MX. That way you see how much it removed on every page, and it is at hand if something slips through."
+  },
+  "bHaceTitulo": {
+    "message": "What it does for you"
+  },
+  "bHace1": {
+    "message": "<b>Blocks ads and trackers</b> right away, using EasyList, EasyPrivacy and EasyList Spanish — the open lists used by millions of people. Nothing to configure."
+  },
+  "bHace2": {
+    "message": "<b>Catches the ones that slip through.</b> When an ad escapes every list, Filtros MX points it out in its icon and you remove it in one click."
+  },
+  "bHace3": {
+    "message": "<b>Removes whatever gets in your way.</b> With “Remove an element” you pick anything on the page and it disappears — on future visits too."
+  },
+  "bHaceYoutube": {
+    "message": "<b>YouTube without video ads.</b> Removes the ads before and during videos using the rules of uBlock Origin."
+  },
+  "bHace4": {
+    "message": "<b>You decide on every site.</b> Full for maximum cleanup, Basic if a site acts up, Off if you want to support it."
+  },
+  "bPrivTitulo": {
+    "message": "Your privacy, no fine print"
+  },
+  "bPriv1": {
+    "message": "<b>Zero telemetry.</b> Everything happens on your device: neither what you browse nor what gets blocked leaves your browser."
+  },
+  "bPriv2": {
+    "message": "<b>No paid “acceptable ads”.</b> No advertiser can pay to get past the filter. Ever."
+  },
+  "bPriv3": {
+    "message": "<b>Truly free.</b> No paid tier, no accounts, and the code is open for anyone to review."
+  },
+  "bTodosTitulo": {
+    "message": "It has already improved the web for everyone"
+  },
+  "bTodos": {
+    "message": "The ads Filtros MX found on Mexican news sites were reported to EasyList Spanish: <b>12 reports, 11 already fully fixed</b>. Today anyone using those lists blocks them, whatever blocker they use. If you find one, the extension drafts the report for you."
+  },
+  "bAbrirOpciones": {
+    "message": "Open options"
+  },
+  "bVerCodigo": {
+    "message": "See the code"
+  },
+  "oTitulo": {
+    "message": "Filtros MX — Options"
+  },
+  "oFiltrado": {
+    "message": "Filtering"
+  },
+  "oCosmeticas": {
+    "message": "Hide ad spaces"
+  },
+  "oCosmeticasAyuda": {
+    "message": "Closes the space the ad leaves behind. It is most of what the lists do: turning it off leaves almost everything without effect."
+  },
+  "oGenericas": {
+    "message": "Full cleanup on every site <span class=\"suave\">· recommended</span>"
+  },
+  "oGenericasAyuda": {
+    "message": "Also applies the general rules, which do not name any site. This is what cleans the most. If a site looks broken, set it to <em>Basic</em> from the icon. When off, every site starts in Basic."
+  },
+  "oDetector": {
+    "message": "Tell me about ads that slip through"
+  },
+  "oDetectorAyuda": {
+    "message": "Looks on every page for ads no list covers. The analysis is local: nothing leaves your device."
+  },
+  "oSitios": {
+    "message": "Sites with their own mode"
+  },
+  "oSitiosAyuda": {
+    "message": "What you set with the buttons in the icon, managed from here."
+  },
+  "oSitiosVacio": {
+    "message": "None: every site uses the default mode."
+  },
+  "oVolver": {
+    "message": "Back to default"
+  },
+  "oTuyas": {
+    "message": "Removed by you"
+  },
+  "oTuyasAyuda": {
+    "message": "What you removed with “Remove” or “Remove an element”. They are your own rules: they live on this device and are never sent anywhere."
+  },
+  "oTuyasVacio": {
+    "message": "None yet. “Remove an element”, in the icon, creates the first one."
+  },
+  "oMostrarDeNuevo": {
+    "message": "Show again"
+  },
+  "oAplicando": {
+    "message": "What is being applied"
+  },
+  "oFilaRed": {
+    "message": "Active network rules"
+  },
+  "oFilaLineas": {
+    "message": "Filter lines compiled"
+  },
+  "oFilaDominios": {
+    "message": "Sites with their own rules"
+  },
+  "oFilaSelectores": {
+    "message": "Rules to hide ads"
+  },
+  "oFilaExtendidas": {
+    "message": "Advanced rules applied by our own engine"
+  },
+  "oFilaNoExt": {
+    "message": "Not applicable: advanced rules outside the engine"
+  },
+  "oFilaNoScript": {
+    "message": "Not applicable: uBlock Origin scriptlets"
+  },
+  "oFilaNoRegex": {
+    "message": "Not applicable: regular expressions"
+  },
+  "oFilaNoPopup": {
+    "message": "Not applicable: pop-up blocking"
+  },
+  "oFilaYoutube": {
+    "message": "Rules for YouTube (uBlock Origin $P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaRecortadas": {
+    "message": "Cut by the Chrome limit"
+  },
+  "oFilaFecha": {
+    "message": "Lists compiled on"
+  },
+  "oComo": {
+    "message": "How it works"
+  },
+  "oComo1": {
+    "message": "Filtros MX blocks with the <strong>same public lists</strong> the most widely used blockers rely on — EasyList, EasyPrivacy and EasyList Spanish — maintained by hundreds of people. <strong>Your copy is from the date shown in the table above</strong> and is renewed with every version of the extension."
+  },
+  "oComo2": {
+    "message": "On top of that, it <strong>catches the ads no list covers</strong> on the page you are viewing, lets you remove them in one click and, if you want, drafts the report so they get fixed for everyone."
+  },
+  "oComo3": {
+    "message": "The table above also shows <strong>what could not be applied</strong>. A blocker that only shows off what made it in makes you believe you are better protected than you are."
+  },
+  "oCredito": {
+    "message": "The base lists are by The EasyList authors, under GPLv3 and CC BY-SA 3.0. The YouTube rules and engine are by uBlock Origin (Raymond Hill and contributors), under GPLv3."
+  },
+  "oVerBienvenida": {
+    "message": "See the welcome page again"
+  }
+}

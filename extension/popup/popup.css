@@ -1,0 +1,433 @@
+/* Interfaz de Filtros MX.
+ *
+ * Dos decisiones de fondo:
+ *
+ * 1. El verde de marca se reserva para lo que el usuario CONTROLA (el modo
+ *    activo, el boton de reporte) y para el dato que hace distinta a esta
+ *    extension (los huecos). Si se tinta todo de verde, deja de significar.
+ * 2. Se estiliza para los dos temas del navegador. Una extension que se ve
+ *    bien en claro y rota en oscuro parece a medio hacer, y esta compite en
+ *    la tienda con interfaces pulidas.
+ */
+
+:root {
+  --verde: #0f7b6c;
+  /* Color del texto que va ENCIMA del verde. En claro el verde es oscuro y
+     lleva blanco; en oscuro se aclara para servir de acento y entonces el
+     blanco encima da 2.45 de contraste — ilegible. Medido el 10-ago-2026. */
+  --sobre-verde: #ffffff;
+  --verde-tinte: #eaf5f3;
+  --texto: #16211f;
+  --suave: #64756f;
+  --linea: #e4eae8;
+  --fondo: #ffffff;
+  --panel: #f7faf9;
+  --aviso: #7a6414;
+  --aviso-tinte: #fdf8e7;
+  /* Ambar: el color de "se colo algo", el mismo de la insignia del icono. */
+  --ambar: #b45309;
+  --ambar-tinte: #fff7ed;
+  --ambar-linea: #f3c999;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --verde: #3fb89f;
+    --sobre-verde: #08100f;
+    --verde-tinte: #122b27;
+    --texto: #e9efed;
+    --suave: #97a8a3;
+    --linea: #26312e;
+    --fondo: #101716;
+    --panel: #161f1d;
+    --aviso: #d9bd6a;
+    --aviso-tinte: #211d10;
+    --ambar: #c2630f;
+    --ambar-tinte: #23180c;
+    --ambar-linea: #5a3a17;
+  }
+}
+
+* { box-sizing: border-box; }
+
+/* El atributo hidden solo aplica "display:none" con especificidad de tipo, asi
+   que CUALQUIER regla nuestra con display lo pisa. Paso con .recargar, que
+   aparecia siempre visible. Esta linea lo blinda para todo el documento. */
+[hidden] { display: none !important; }
+
+body {
+  width: 340px;
+  margin: 0;
+  padding: 14px;
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Marca: da identidad y ancla el popup --- */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.marca img { flex: none; border-radius: 7px; }
+.marca-txt { min-width: 0; }
+
+h1 {
+  font-size: 14.5px;
+  font-weight: 650;
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+#sitio {
+  display: block;
+  font-size: 11.5px;
+  color: var(--suave);
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+/* --- Selector de modo --- */
+.modos {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+}
+
+.modo {
+  flex: 1;
+  padding: 7px 4px;
+  border: none;
+  border-radius: 7px;
+  background: none;
+  color: var(--suave);
+  font-size: 12.5px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+
+.modo:hover:not(:disabled):not([aria-pressed="true"]) {
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+.modo[aria-pressed="true"] {
+  background: var(--verde);
+  color: var(--sobre-verde);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .12);
+}
+
+.modo[data-modo="apagado"][aria-pressed="true"] {
+  background: var(--suave);
+  color: var(--fondo);
+}
+
+.modo:disabled { opacity: .45; cursor: default; }
+
+.notaModo {
+  display: block;
+  color: var(--suave);
+  font-size: 11.5px;
+  margin: 7px 2px 0;
+  min-height: 15px;
+}
+
+/* Un cambio de modo no surte efecto hasta recargar. Sin este boton el usuario
+   pulsa, no ve nada y concluye que no funciona — paso en las pruebas. */
+.recargar {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid var(--verde);
+  border-radius: 8px;
+  background: none;
+  color: var(--verde);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+
+.recargar:hover { background: var(--verde); color: var(--sobre-verde); }
+
+/* --- Cifras: lo primero que se ve (1.0.0) --- */
+.cifras {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 8px;
+}
+
+.cifra {
+  flex: 1;
+  padding: 11px 8px;
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cifra b {
+  display: block;
+  font-size: 24px;
+  color: var(--verde);
+  font-weight: 620;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.cifra small {
+  display: block;
+  margin-top: 2px;
+  color: var(--suave);
+  font-size: 10.5px;
+  line-height: 1.3;
+}
+
+/* El total desde la instalacion: una linea, no una tarjeta mas. */
+.total {
+  margin: 0 0 12px;
+  font-size: 11.5px;
+  color: var(--suave);
+  text-align: center;
+}
+.total b { color: var(--texto); font-variant-numeric: tabular-nums; }
+
+/* Lo que se colo: el dato que hace distinta a la extension. Ambar, como la
+   insignia, para que el aviso del icono y esta tarjeta se reconozcan como lo
+   mismo. Solo aparece cuando hay algo. */
+.colados {
+  margin-top: 12px;
+  padding: 11px 12px 9px;
+  border: 1px solid var(--ambar-linea);
+  border-radius: 10px;
+  background: var(--ambar-tinte);
+}
+
+.pastilla {
+  display: inline-block;
+  min-width: 18px;
+  padding: 0 6px;
+  border-radius: 9px;
+  background: var(--ambar);
+  color: #fff;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+  vertical-align: 1px;
+}
+
+.colados li { background: var(--fondo); }
+.colados li.servido { border-left-color: var(--ambar); }
+
+/* "Quitar un elemento": la salida cuando el detector no ve y la persona si. */
+.secundario {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 9px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--texto);
+  font-size: 12.5px;
+  font-weight: 620;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color .12s, background .12s;
+}
+.secundario:hover:not(:disabled) { border-color: var(--verde); background: var(--verde-tinte); }
+.secundario:disabled { opacity: .5; cursor: default; }
+
+.centro { text-align: center; margin: 5px 0 0; }
+.explica.menor { font-size: 10.5px; margin: 2px 0 0; }
+
+.resena {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--verde-tinte);
+  font-size: 12px;
+}
+.resena p { margin: 0 0 8px; }
+.resena .fila { display: flex; gap: 10px; align-items: center; }
+
+/* --- Secciones --- */
+section {
+  border-top: 1px solid var(--linea);
+  padding-top: 13px;
+}
+
+h2 {
+  font-size: 12.5px;
+  font-weight: 650;
+  margin: 0 0 3px;
+  letter-spacing: -0.005em;
+}
+
+.explica {
+  font-size: 11.5px;
+  color: var(--suave);
+  margin: 0 0 11px;
+  line-height: 1.4;
+}
+
+.aviso {
+  font-size: 11.5px;
+  color: var(--aviso);
+  background: var(--aviso-tinte);
+  border-radius: 7px;
+  padding: 7px 9px;
+  margin: 9px 0 0;
+  line-height: 1.4;
+}
+
+.bien { font-weight: 600; margin: 12px 0 0; font-size: 12px; }
+
+/* --- Lista de huecos: cada uno es un hallazgo, no una fila --- */
+ul {
+  list-style: none;
+  margin: 0 0 11px;
+  padding: 0;
+  /* 172px daba de sobra cuando cada hueco ocupaba dos lineas. El aviso de
+     "nombre fragil" del 13-ago-2026 anadio una tercera, y con dos hallazgos el
+     segundo quedaba cortado a media advertencia — precisamente la que avisa de
+     que la regla puede alcanzar de mas. Un aviso a medio leer es peor que no
+     darlo. Sigue habiendo tope: un popup que crece sin limite tampoco sirve. */
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-left: 3px solid var(--linea);
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+/* Con anuncio servido pesa mas que una caja vacia: se distingue de un vistazo. */
+li.servido { border-left-color: var(--verde); }
+
+.hueco-info { flex: 1; min-width: 0; }
+
+/* Lo primero que se lee es QUE es (tama~no y estado), no el selector: el
+   selector es para quien reporta, el tama~no es para quien navega. */
+li .dato {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+li code {
+  display: block;
+  margin-top: 2px;
+  font: 11px/1.35 ui-monospace, "Cascadia Code", Consolas, monospace;
+  word-break: break-all;
+  color: var(--suave);
+}
+
+li span.nota {
+  display: block;
+  margin-top: 2px;
+  font-size: 10.5px;
+  color: var(--suave);
+}
+
+/* Un nombre fragil no invalida el hallazgo: invalida la REGLA. Se avisa sin
+   esconder el hueco, porque esconderlo es como se perdio el de elmanana. */
+li span.nota.fragil { color: var(--ambar); }
+
+/* Boton de accion por hallazgo: la regla local es la respuesta inmediata. */
+.mini {
+  flex: none;
+  padding: 5px 8px;
+  border: 1px solid var(--verde);
+  border-radius: 7px;
+  background: none;
+  color: var(--verde);
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+
+.mini:hover:not(:disabled) { background: var(--verde); color: var(--sobre-verde); }
+.mini:disabled { opacity: .6; cursor: default; }
+
+/* --- Acciones --- */
+.primario {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 8px;
+  background: var(--verde);
+  color: var(--sobre-verde);
+  font-size: 13px;
+  font-weight: 620;
+  font-family: inherit;
+  cursor: pointer;
+  transition: filter .12s;
+}
+
+.primario:hover { filter: brightness(1.08); }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--linea);
+  margin-top: 13px;
+  padding-top: 10px;
+}
+
+/* La fecha de compilacion de las listas, a la vista: unas listas viejas
+   protegen menos, y decirlo es mas barato que aparentar frescura. */
+.fecha {
+  display: block;
+  margin-top: 6px;
+  color: var(--suave);
+  font-size: 10.5px;
+  text-align: center;
+}
+
+.enlace {
+  border: none;
+  background: none;
+  color: var(--suave);
+  font-size: 11.5px;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 2px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.enlace:hover:not(:disabled) { color: var(--texto); }
+.enlace.verde { color: var(--verde); padding: 0; text-align: left; }
+.enlace:disabled { opacity: .55; cursor: default; text-decoration: none; }
+
+/* Foco visible para quien navega con teclado. */
+button:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+}

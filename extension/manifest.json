@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "short_name": "__MSG_extShortName__",
+  "version": "1.1.0",
+  "description": "__MSG_extDescription__",
+  "default_locale": "es",
+
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "storage",
+    "scripting",
+    "webNavigation"
+  ],
+
+  "host_permissions": ["<all_urls>"],
+
+  "background": {
+    "service_worker": "src/fondo.js",
+    "type": "module"
+  },
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "principal",
+        "enabled": true,
+        "path": "reglas/red.json"
+      }
+    ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/contenido.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "__MSG_extShortName__",
+    "default_icon": {
+      "16": "iconos/icono-16.png",
+      "32": "iconos/icono-32.png",
+      "48": "iconos/icono-48.png",
+      "128": "iconos/icono-128.png"
+    }
+  },
+
+  "options_page": "opciones/opciones.html",
+
+  "icons": {
+    "16": "iconos/icono-16.png",
+    "32": "iconos/icono-32.png",
+    "48": "iconos/icono-48.png",
+    "128": "iconos/icono-128.png"
+  }
+}

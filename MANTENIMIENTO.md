@@ -44,6 +44,16 @@ Desde el 3-ago-2026 la lista tiene **0 reglas activas**: las 6 se aceptaron agua
 
 **El compromiso sigue vigente y se mide igual:** aviso a los 60 días sin revisión, retiro a los 90 (ver arriba). Estar vacía no es excusa para dejar de mirar — es cuando más fácil sería olvidarla.
 
+## YouTube: lo único que caduca en días (desde la extensión 1.1.0, 7-oct-2026)
+
+La extensión quita los anuncios de video de YouTube con los *scriptlets* de uBlock Origin, compilados dentro del paquete. YouTube cambia su reproductor para esquivarlos, y uBlock publica los arreglos en sus listas en cuestión de horas. **Aquí cada arreglo tiene que salir en una versión nueva, y cada versión pasa unos 4 días por la revisión de la tienda.** Por eso YouTube tiene su propia regla:
+
+1. **En cada revisión mensual**, y antes de empaquetar cualquier versión: `node herramientas/extension/medir-youtube.mjs`. Doce videos; el criterio de aprobado está fijado en el propio script: **cero con anuncio y los doce reproduciéndose**.
+2. **Si falla:** recompilar (`construir.mjs` baja las reglas nuevas de uBlock), volver a medir y, si pasa, publicar versión.
+3. **Si no hay arreglo en una semana**, se quita la frase de YouTube de la ficha de la tienda hasta que lo haya. Prometer algo que ya no funciona es exactamente lo que este documento existe para evitar.
+
+Esto **no** cambia los plazos de arriba: el aviso de los 60 días y el retiro de los 90 cuentan igual. Lo que cambia es que YouTube puede romperse entre revisiones, y eso se dice en vez de esconderlo.
+
 ## La fecha única: 10 de agosto
 
 Es el único día del año con obligaciones fijas: se revisa el acuerdo de mantenimiento, se confirma que el dominio `filtrosmx.com` se renovó, y que la tarjeta asociada en Cloudflare sigue vigente. Con la renovación automática activada, lo que puede matar el dominio ya no es el olvido sino una tarjeta caducada.

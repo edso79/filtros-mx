@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="marca">
+    <img src="../iconos/icono-32.png" alt="" width="28" height="28">
+    <div class="marca-txt">
+      <h1>Filtros MX</h1>
+      <span id="sitio"></span>
+    </div>
+  </header>
+
+  <!-- Primero lo que la extension hizo por la persona: un bloqueador que
+       funciona bien parece no hacer nada si no lo ense~na. -->
+  <div class="cifras">
+    <div class="cifra">
+      <b id="nOcultos">0</b>
+      <small data-i18n="cifraOcultos"></small>
+    </div>
+    <div class="cifra" data-i18n-title="cifraRedAyuda">
+      <b id="nRed">–</b>
+      <small data-i18n="cifraRed"></small>
+    </div>
+  </div>
+  <p id="total" class="total" hidden></p>
+
+  <div class="modos" role="radiogroup" data-i18n-aria="modoGrupo">
+    <button class="modo" data-modo="apagado" data-i18n="modoApagado"></button>
+    <button class="modo" data-modo="basico" data-i18n="modoBasico"></button>
+    <button class="modo" data-modo="completo" data-i18n="modoCompleto"></button>
+  </div>
+  <small id="estadoNota" class="notaModo"></small>
+  <button id="recargar" class="recargar" data-i18n="recargar" hidden></button>
+
+  <section id="colados" class="colados" hidden>
+    <h2><span data-i18n="coladosTitulo"></span> <span id="nColados" class="pastilla"></span></h2>
+    <p class="explica" data-i18n="coladosExplica"></p>
+    <ul id="listaColados"></ul>
+    <button id="reportar" class="enlace verde" data-i18n="reportar"></button>
+    <p class="explica menor" data-i18n="reportarNota"></p>
+  </section>
+
+  <p id="sinColados" class="bien" data-i18n="sinColados" hidden></p>
+  <p id="aviso" class="aviso" hidden></p>
+
+  <button id="elegir" class="secundario">
+    <span aria-hidden="true">✕</span> <span data-i18n="elegir"></span>
+  </button>
+  <p class="explica centro" data-i18n="elegirAyuda"></p>
+
+  <section id="tuyas" hidden>
+    <h2 data-i18n="tuyasTitulo"></h2>
+    <p class="explica" data-i18n="tuyasExplica"></p>
+    <ul id="listaTuyas"></ul>
+  </section>
+
+  <div id="resena" class="resena" hidden>
+    <p data-i18n="resenaPide"></p>
+    <div class="fila">
+      <button id="resenaSi" class="mini" data-i18n="resenaSi"></button>
+      <button id="resenaNo" class="enlace" data-i18n="resenaNo"></button>
+    </div>
+  </div>
+
+  <footer>
+    <button id="reanalizar" class="enlace" data-i18n="reanalizar"></button>
+    <button id="problema" class="enlace" data-i18n="problema"></button>
+    <button id="opciones" class="enlace" data-i18n="opciones"></button>
+  </footer>
+  <small id="fechaListas" class="fecha"></small>
+
+  <script src="../src/i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

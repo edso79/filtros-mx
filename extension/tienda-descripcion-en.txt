@@ -1,0 +1,39 @@
+Blocks ads and trackers. And catches the ones that slip through.
+
+Filtros MX is a free, open-source ad blocker with zero telemetry, made in Mexico. It removes ads and trackers from the pages you visit using the open filter lists that millions of people rely on — EasyList, EasyPrivacy and EasyList Spanish — and it does something more: when an ad escapes all of those lists, it points it out so you can remove it in one click.
+
+★ WHAT IT DOES FOR YOU
+
+• Blocks ads, banners and trackers from the moment you install it. Nothing to configure.
+
+• YouTube without video ads: removes the ads before and during videos, using the rules of uBlock Origin.
+
+• Catches the ads that slip through. It finds the ads on the page that no list covers yet, the icon turns amber to let you know, and you remove them with one button.
+
+• Removes whatever gets in your way with “Remove an element”: pick anything on the page with your mouse and it disappears — on future visits too. Undo it any time.
+
+• You decide on every site: Full for maximum cleanup, Basic if a site acts up, Off if you want to support it. One click, no hidden menus.
+
+• Shows you what it did: ad elements hidden and tracker requests stopped on every page, plus the total since you installed it.
+
+• In English and Spanish.
+
+★ YOUR PRIVACY, NO FINE PRINT
+
+• Zero telemetry. All analysis happens on your device: neither what you browse nor what gets blocked leaves your browser. The extension does not connect to any server of ours.
+
+• No paid “acceptable ads”. No advertiser can pay to get past the filter. Ever.
+
+• Truly free: no paid tier, no reserved features and no accounts.
+
+• Open source under GPLv3: anyone can review exactly what it does.
+
+★ IT HAS ALREADY IMPROVED THE WEB FOR EVERYONE
+
+The ads Filtros MX found on Mexican news sites were reported to EasyList Spanish: 12 reports, 11 already fully fixed. Today anyone using those lists blocks them, whatever blocker they use. If you find one, the extension drafts the report and you decide whether to send it.
+
+Code: https://github.com/edso79/filtros-mx
+Privacy, in detail: https://filtrosmx.com/#privacidad
+Contact: contacto@filtrosmx.com
+
+The base lists are by The EasyList authors (GPLv3 / CC BY-SA 3.0). The YouTube rules and engine are by uBlock Origin, by Raymond Hill and contributors (GPLv3).

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Página de prueba — Filtros MX</title>
+  <!--
+    Campo de pruebas del boton "Ocultar aqui". Existe porque el 12-ago-2026 se
+    comprobo que, bajo bloqueo de red real, los sitios del corpus quedan
+    limpios y el detector (correctamente) reporta 0 huecos — no habia donde
+    ejercitar el boton en vivo. Esta pagina garantiza exactamente UN hueco:
+
+    - .caja-patrocinada: etiqueta "Publicidad" + caja con tamano. Ninguna
+      lista cubre a localhost, asi que DEBE aparecer como hueco reportable
+      con su boton "Ocultar aqui".
+    - #div-gpt-ad-prueba: mismo formato, pero con el id que la generica de
+      EasyList SI cubre — debe ser descartado por el detector (cubierto),
+      demostrando que no reporta de mas.
+
+    Se sirve con: node herramientas/extension/servir-prueba.mjs
+  -->
+  <style>
+    body { font: 16px/1.6 system-ui, sans-serif; max-width: 860px; margin: 0 auto; padding: 24px; }
+    h1 { letter-spacing: -0.02em; }
+    .nota { color: #667; font-size: 14px; }
+    .caja-patrocinada, #div-gpt-ad-prueba {
+      border: 1px dashed #b66; background: #fdf3f3; margin: 24px 0;
+      padding: 8px; text-align: center;
+    }
+    .caja-patrocinada p, #div-gpt-ad-prueba p { margin: 0 0 6px; font-size: 11px; color: #966; text-transform: uppercase; letter-spacing: .08em; }
+    .creatividad { width: 728px; max-width: 100%; height: 90px; background: #e8b4b4; display: flex; align-items: center; justify-content: center; color: #733; font-weight: 700; }
+    article { border-top: 1px solid #ddd; padding-top: 14px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>El Diario de Prueba</h1>
+  <p class="nota">Página local para verificar Filtros MX. El recuadro rosa de abajo
+  simula un anuncio que ninguna lista cubre: el detector debe encontrarlo.</p>
+
+<!-- OJO: el texto dentro de las cajas debe ser CORTO. El detector deja de
+     subir al envoltorio si, quitadas las palabras publicitarias, quedan mas
+     de 40 caracteres — la primera version de esta pagina tenia 41 y el
+     hueco no aparecia. El senuelo debe respetar la heuristica que prueba. -->
+  <div class="caja-patrocinada">
+    <p>Publicidad</p>
+    <div class="creatividad">ANUNCIO DE PRUEBA — 728×90</div>
+  </div>
+  <p class="nota">↑ A esta caja no la cubre ninguna lista: debe salir como
+  hueco con su botón "Ocultar aquí".</p>
+
+  <article>
+    <h2>Titular editorial uno: la página debe conservar esto</h2>
+    <p>Texto editorial de relleno. Si al ocultar el anuncio desaparece este
+    párrafo o el titular, algo anda mal.</p>
+  </article>
+
+  <div id="div-gpt-ad-prueba">
+    <p>Publicidad</p>
+    <div class="creatividad">ANUNCIO GPT DE PRUEBA</div>
+  </div>
+  <p class="nota">↑ A esta caja la cubre la genérica de EasyList
+  (<code>[id^="div-gpt-ad"]</code>): NO debe salir como hueco.</p>
+
+  <article>
+    <h2>Titular editorial dos: también debe sobrevivir</h2>
+    <p>Más texto editorial. <a href="#">Un enlace</a> que debe seguir aquí
+    después de cualquier ocultamiento.</p>
+  </article>
+</body>
+</html>

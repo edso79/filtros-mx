@@ -14,6 +14,21 @@ Verificado contra fuente primaria el **31 de julio de 2026**. Antes de esta fech
 
 Aplica igual a **EasyList Spanish**, que declara el mismo encabezado de licencia.
 
+## uBlock Origin: scriptlets y reglas de YouTube (extensión 1.1.0)
+
+Verificado el **7 de octubre de 2026** contra los archivos `LICENSE` de los dos repositorios.
+
+| | |
+|---|---|
+| Autoría | **Raymond Hill y colaboradores de uBlock Origin** |
+| Qué se toma | El motor de *scriptlets* (`src/js/resources/` y `platform/mv3/extension/js/offscreen/make-scriptlets.js`, fijado a **uBlock Origin 1.75.0**) y las reglas `+js()` de YouTube de las listas «uBlock filters», «quick fixes» y «unbreak» |
+| Licencia | **GNU GPL versión 3** — la misma de este proyecto, así que se puede incorporar sin cambiarla |
+| Fuente | https://github.com/gorhill/uBlock (`LICENSE.txt`) y https://github.com/uBlockOrigin/uAssets (`LICENSE`) |
+| Dónde vive | `herramientas/extension/ubo/` (código sin modificar, con su `LICENSE.txt`) y, compilado, `extension/reglas/scriptlets-*.js` |
+| Atribución | En la página de opciones y en la ficha de la tienda |
+
+**No se reescribieron a propósito.** YouTube cambia su reproductor cada pocas semanas para esquivarlos, y quien publica los arreglos es uBlock Origin. Tomar su código tal cual es lo que permite recoger esos arreglos recompilando, en vez de perseguirlos a mano.
+
 ## Lista de Peter Lowe
 
 > ⚠️ **No declara licencia. Ninguna.**

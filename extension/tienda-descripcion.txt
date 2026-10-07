@@ -1,0 +1,39 @@
+Bloquea anuncios y rastreadores. Y atrapa los que se cuelan.
+
+Filtros MX es un bloqueador de anuncios gratuito, de código abierto y sin telemetría, hecho en México. Quita la publicidad y los rastreadores de las páginas que visitas con las listas abiertas que usan millones de personas —EasyList, EasyPrivacy y EasyList Spanish— y hace algo más: cuando un anuncio se escapa de todas esas listas, te lo señala para que lo quites con un clic.
+
+★ LO QUE HACE POR TI
+
+• Bloquea anuncios, banners y rastreadores desde que la instalas. No hay nada que configurar.
+
+• YouTube sin anuncios de video: quita los anuncios antes y durante los videos, con las reglas de uBlock Origin.
+
+• Atrapa los anuncios que se cuelan. Detecta en la página la publicidad que ninguna lista cubre todavía, el icono se pone ámbar para avisarte, y la quitas con un botón.
+
+• Quita lo que te estorbe con «Quitar un elemento»: eliges cualquier cosa de la página con el ratón y desaparece, también en tus próximas visitas. Se deshace cuando quieras.
+
+• Tú mandas en cada sitio: Completo para la máxima limpieza, Básico si un sitio se porta raro, Apagado si lo quieres apoyar. Un clic, sin menús escondidos.
+
+• Te enseña lo que hizo: publicidad oculta y peticiones de rastreo frenadas en cada página, y el total desde que la instalaste.
+
+• En español y en inglés.
+
+★ TU PRIVACIDAD, SIN LETRA CHIQUITA
+
+• Cero telemetría. Todo el análisis ocurre en tu equipo: ni lo que ves ni lo que bloqueas sale de tu navegador. La extensión no se conecta a ningún servidor nuestro.
+
+• Sin «anuncios aceptables» pagados. Ningún anunciante puede pagar para pasar el filtro. Nunca.
+
+• Gratis de verdad: sin versión de paga, sin funciones reservadas y sin cuentas.
+
+• Código abierto bajo GPLv3: cualquiera puede revisar exactamente lo que hace.
+
+★ YA MEJORÓ INTERNET PARA TODOS
+
+Los anuncios que Filtros MX encontró en periódicos mexicanos se reportaron a EasyList Spanish: 12 reportes, 11 ya corregidos del todo. Hoy los bloquea cualquiera que use esas listas, use el bloqueador que use. Si tú encuentras uno, la extensión te prepara el reporte y decides si lo envías.
+
+Código: https://github.com/edso79/filtros-mx
+Privacidad, en detalle: https://filtrosmx.com/#privacidad
+Contacto: contacto@filtrosmx.com
+
+Las listas base son de The EasyList authors (GPLv3 / CC BY-SA 3.0). Las reglas y el motor de YouTube son de uBlock Origin, de Raymond Hill y colaboradores (GPLv3).

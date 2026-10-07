@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Filtros MX</title>
+  <link rel="stylesheet" href="../popup/popup.css">
+  <style>
+    /* Reusa la paleta del popup, como opciones. Es una pagina de UNA lectura:
+       se abre sola en la instalacion y no vuelve a molestar, asi que tiene que
+       vender en el primer vistazo y decir lo unico que hay que hacer —fijar el
+       icono— antes que cualquier otra cosa. Sin el icono fijado, Chrome lo
+       esconde en el menu de extensiones y la persona nunca ve lo que hace. */
+    body {
+      width: auto;
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 44px 24px 64px;
+      background: var(--panel);
+      font-size: 14px;
+    }
+    .cabecera { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+    .cabecera img { border-radius: 12px; }
+    .cabecera h1 { font-size: 25px; letter-spacing: -0.02em; line-height: 1.2; }
+    .lema { color: var(--suave); font-size: 14px; margin: 0 0 28px 68px; }
+    .tarjeta {
+      background: var(--fondo);
+      border: 1px solid var(--linea);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+    }
+    .tarjeta.destacada { border: 2px solid var(--verde); background: var(--verde-tinte); }
+    .tarjeta > h2 {
+      font-size: 12px;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--suave);
+      margin: 0 0 12px;
+    }
+    .tarjeta.destacada > h2 { color: var(--verde); }
+    .prosa { font-size: 14px; line-height: 1.6; margin: 0; }
+    .prosa b { font-weight: 650; }
+    ul.puntos { list-style: none; margin: 0; padding: 0; max-height: none; overflow: visible; }
+    ul.puntos li {
+      display: block;
+      padding: 11px 0 11px 26px;
+      position: relative;
+      background: none;
+      border: none;
+      border-top: 1px solid var(--linea);
+      border-radius: 0;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    ul.puntos li::before {
+      content: "✓";
+      position: absolute;
+      left: 2px;
+      top: 11px;
+      color: var(--verde);
+      font-weight: 700;
+    }
+    ul.puntos li:first-child { border-top: none; padding-top: 0; }
+    ul.puntos li:first-child::before { top: 0; }
+    ul.puntos li:last-child { padding-bottom: 0; }
+    ul.puntos b { font-weight: 650; }
+    .acciones { display: flex; gap: 10px; margin-top: 24px; align-items: center; }
+    .acciones .primario { width: auto; padding: 10px 18px; }
+    .acciones a { color: var(--verde); font-weight: 600; text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <div class="cabecera">
+    <img src="../iconos/icono-48.png" alt="" width="52" height="52">
+    <h1 data-i18n="bTitulo"></h1>
+  </div>
+  <p class="lema" data-i18n="bLema"></p>
+
+  <div class="tarjeta destacada">
+    <h2 data-i18n="bFijarTitulo"></h2>
+    <p class="prosa" data-i18n-html="bFijar"></p>
+  </div>
+
+  <div class="tarjeta">
+    <h2 data-i18n="bHaceTitulo"></h2>
+    <ul class="puntos">
+      <li data-i18n-html="bHace1"></li>
+      <li data-i18n-html="bHaceYoutube"></li>
+      <li data-i18n-html="bHace2"></li>
+      <li data-i18n-html="bHace3"></li>
+      <li data-i18n-html="bHace4"></li>
+    </ul>
+  </div>
+
+  <div class="tarjeta">
+    <h2 data-i18n="bPrivTitulo"></h2>
+    <ul class="puntos">
+      <li data-i18n-html="bPriv1"></li>
+      <li data-i18n-html="bPriv2"></li>
+      <li data-i18n-html="bPriv3"></li>
+    </ul>
+  </div>
+
+  <div class="tarjeta">
+    <h2 data-i18n="bTodosTitulo"></h2>
+    <p class="prosa" data-i18n-html="bTodos"></p>
+  </div>
+
+  <div class="acciones">
+    <button id="opciones" class="primario" data-i18n="bAbrirOpciones"></button>
+    <a href="https://github.com/edso79/filtros-mx" target="_blank" rel="noopener" data-i18n="bVerCodigo"></a>
+  </div>
+  <script src="../src/i18n.js"></script>
+  <script src="bienvenida.js"></script>
+</body>
+</html>

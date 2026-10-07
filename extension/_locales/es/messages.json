@@ -1,0 +1,389 @@
+{
+  "extName": {
+    "message": "Filtros MX — Bloqueador de anuncios que atrapa los que se cuelan"
+  },
+  "extShortName": {
+    "message": "Filtros MX"
+  },
+  "idioma": {
+    "message": "es-MX"
+  },
+  "extDescription": {
+    "message": "Bloquea anuncios y rastreadores. Si alguno se cuela, te lo señala y lo quitas con un clic. Gratis, abierto y sin telemetría."
+  },
+  "modoGrupo": {
+    "message": "Modo en este sitio"
+  },
+  "modoApagado": {
+    "message": "Apagado"
+  },
+  "modoBasico": {
+    "message": "Básico"
+  },
+  "modoCompleto": {
+    "message": "Completo"
+  },
+  "notaApagado": {
+    "message": "No filtra nada en este sitio."
+  },
+  "notaBasico": {
+    "message": "Solo las reglas de este sitio. Limpia menos, pero casi nunca rompe nada."
+  },
+  "notaCompleto": {
+    "message": "Máxima limpieza. Si algo se ve roto, prueba Básico."
+  },
+  "notaSinSitio": {
+    "message": "Esta página no es un sitio web: aquí no hay nada que filtrar."
+  },
+  "notaExcluido": {
+    "message": "Filtros MX no actúa aquí a propósito: es un sitio de trámites y no había nada que bloquear."
+  },
+  "recargar": {
+    "message": "Recargar para aplicar el cambio"
+  },
+  "cifraOcultos": {
+    "message": "elementos de publicidad ocultos"
+  },
+  "cifraRed": {
+    "message": "anuncios y rastreadores frenados"
+  },
+  "cifraRedAyuda": {
+    "message": "Peticiones de anuncios y rastreo frenadas en esta pestaña en los últimos 5 minutos: Chrome no guarda más."
+  },
+  "totalDesde": {
+    "message": "Desde que la instalaste: <b>$P1$</b> elementos de publicidad ocultos",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladosTitulo": {
+    "message": "Anuncios que se colaron"
+  },
+  "coladosExplica": {
+    "message": "Ninguna lista los cubre todavía. Quítalos con un clic: solo afecta a tu navegador."
+  },
+  "coladoServido": {
+    "message": "Anuncio de $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoVacio": {
+    "message": "Espacio de anuncio vacío, $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoAlcance": {
+    "message": "Quitarlo oculta $P1$ elementos de esta página",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladoFragil": {
+    "message": "Puede dejar de funcionar si el sitio cambia"
+  },
+  "quitar": {
+    "message": "Quitar"
+  },
+  "quitado": {
+    "message": "Quitado ✓"
+  },
+  "quitarEnApagado": {
+    "message": "Este sitio está en Apagado: cambia a Básico o Completo para que surta efecto."
+  },
+  "reportar": {
+    "message": "Avisar a EasyList para que lo corrija para todos"
+  },
+  "reportarNota": {
+    "message": "Abre GitHub con el texto ya escrito. Tú decides si lo envías."
+  },
+  "sinColados": {
+    "message": "No detectamos anuncios que se colaran en esta página."
+  },
+  "ceguera": {
+    "message": "Esta página carga publicidad que no pudimos ubicar. Si ves un anuncio, usa «Quitar un elemento»."
+  },
+  "sinReglaUno": {
+    "message": "Hay 1 anuncio que no se puede quitar con una regla segura. Si te estorba, usa «Quitar un elemento»."
+  },
+  "sinRegla": {
+    "message": "Hay $P1$ anuncios que no se pueden quitar con una regla segura. Si te estorban, usa «Quitar un elemento».",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tuyasTitulo": {
+    "message": "Quitados por ti en este sitio"
+  },
+  "tuyasExplica": {
+    "message": "Viven solo en este navegador. Puedes deshacerlos cuando quieras."
+  },
+  "mostrar": {
+    "message": "Mostrar"
+  },
+  "elegir": {
+    "message": "Quitar un elemento"
+  },
+  "elegirAyuda": {
+    "message": "Elige con el ratón cualquier cosa de la página y desaparece, también en tus próximas visitas."
+  },
+  "problema": {
+    "message": "¿Algo se ve mal?"
+  },
+  "problemaAsunto": {
+    "message": "Filtros MX: problema en $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "reanalizar": {
+    "message": "Volver a analizar"
+  },
+  "analizando": {
+    "message": "Analizando…"
+  },
+  "analizado": {
+    "message": "Analizado ✓"
+  },
+  "noAnalizable": {
+    "message": "Aquí no se puede analizar"
+  },
+  "opciones": {
+    "message": "Opciones"
+  },
+  "listasDel": {
+    "message": "listas del $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "resenaPide": {
+    "message": "¿Te está sirviendo? Una reseña en la tienda ayuda a que más gente encuentre Filtros MX."
+  },
+  "resenaSi": {
+    "message": "Dejar reseña"
+  },
+  "resenaNo": {
+    "message": "Ahora no"
+  },
+  "insigniaColados": {
+    "message": "Filtros MX: se colaron anuncios en esta página. Haz clic para quitarlos."
+  },
+  "selPista": {
+    "message": "Haz clic en lo que quieras quitar · Esc para salir"
+  },
+  "selUno": {
+    "message": "Se ocultará 1 elemento"
+  },
+  "selVarios": {
+    "message": "Se ocultarán $P1$ elementos",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "selMasGrande": {
+    "message": "Más grande"
+  },
+  "selMasChico": {
+    "message": "Más chico"
+  },
+  "selQuitar": {
+    "message": "Quitar"
+  },
+  "selCancelar": {
+    "message": "Cancelar"
+  },
+  "selListo": {
+    "message": "Listo: también quedará oculto en tus próximas visitas."
+  },
+  "selDeshacer": {
+    "message": "Deshacer"
+  },
+  "bTitulo": {
+    "message": "Listo. Filtros MX ya está bloqueando."
+  },
+  "bLema": {
+    "message": "Gratis, de código abierto y sin telemetría. Hecho en México."
+  },
+  "bFijarTitulo": {
+    "message": "Un paso: fíjalo en la barra"
+  },
+  "bFijar": {
+    "message": "Haz clic en la pieza de rompecabezas <b>🧩</b> arriba a la derecha de Chrome y luego en la <b>chincheta</b> junto a Filtros MX. Así ves en cada página cuánta publicidad quitó, y lo tienes a mano si algo se cuela."
+  },
+  "bHaceTitulo": {
+    "message": "Lo que hace por ti"
+  },
+  "bHace1": {
+    "message": "<b>Bloquea anuncios y rastreadores</b> desde ya, con EasyList, EasyPrivacy y EasyList Spanish: las listas abiertas que usan millones de personas. No hay nada que configurar."
+  },
+  "bHace2": {
+    "message": "<b>Atrapa los que se cuelan.</b> Cuando un anuncio se escapa de todas las listas, Filtros MX te lo señala en el icono y lo quitas con un clic."
+  },
+  "bHace3": {
+    "message": "<b>Quita lo que te estorbe.</b> Con «Quitar un elemento» eliges cualquier cosa de la página y desaparece, también en tus próximas visitas."
+  },
+  "bHaceYoutube": {
+    "message": "<b>YouTube sin anuncios de video.</b> Quita los anuncios antes y durante los videos con las reglas de uBlock Origin."
+  },
+  "bHace4": {
+    "message": "<b>Tú mandas en cada sitio.</b> Completo para la máxima limpieza, Básico si un sitio se porta raro, Apagado si lo quieres apoyar."
+  },
+  "bPrivTitulo": {
+    "message": "Tu privacidad, sin letra chiquita"
+  },
+  "bPriv1": {
+    "message": "<b>Cero telemetría.</b> Todo ocurre en tu equipo: ni lo que ves ni lo que bloqueas sale de tu navegador."
+  },
+  "bPriv2": {
+    "message": "<b>Sin «anuncios aceptables» pagados.</b> Ningún anunciante puede pagar para pasar el filtro. Nunca."
+  },
+  "bPriv3": {
+    "message": "<b>Gratis de verdad.</b> Sin versión de paga, sin cuentas y con el código abierto para quien quiera revisarlo."
+  },
+  "bTodosTitulo": {
+    "message": "Ya mejoró internet para todos"
+  },
+  "bTodos": {
+    "message": "Los anuncios que Filtros MX encontró en periódicos mexicanos se reportaron a EasyList Spanish: <b>12 reportes, 11 ya corregidos del todo</b>. Hoy los bloquea cualquiera que use esas listas, use el bloqueador que use. Si encuentras uno, la extensión te prepara el reporte."
+  },
+  "bAbrirOpciones": {
+    "message": "Abrir opciones"
+  },
+  "bVerCodigo": {
+    "message": "Ver el código"
+  },
+  "oTitulo": {
+    "message": "Filtros MX — Opciones"
+  },
+  "oFiltrado": {
+    "message": "Filtrado"
+  },
+  "oCosmeticas": {
+    "message": "Ocultar los espacios de publicidad"
+  },
+  "oCosmeticasAyuda": {
+    "message": "Cierra el espacio que deja el anuncio. Es la mayor parte del trabajo de las listas: apagarlo deja casi todo sin efecto."
+  },
+  "oGenericas": {
+    "message": "Limpieza completa en todos los sitios <span class=\"suave\">· recomendado</span>"
+  },
+  "oGenericasAyuda": {
+    "message": "Aplica también las reglas generales, que no nombran ningún sitio. Es lo que más limpia. Si un sitio se ve roto, ponlo en <em>Básico</em> desde el icono. Apagado, todos los sitios arrancan en Básico."
+  },
+  "oDetector": {
+    "message": "Avisarme de los anuncios que se cuelan"
+  },
+  "oDetectorAyuda": {
+    "message": "Busca en cada página la publicidad que ninguna lista cubre. El análisis es local: no sale nada de tu equipo."
+  },
+  "oSitios": {
+    "message": "Sitios con modo propio"
+  },
+  "oSitiosAyuda": {
+    "message": "Lo que fijas con los botones del icono, administrado desde aquí."
+  },
+  "oSitiosVacio": {
+    "message": "Ninguno: todos los sitios usan el modo predeterminado."
+  },
+  "oVolver": {
+    "message": "Volver al predeterminado"
+  },
+  "oTuyas": {
+    "message": "Quitados por ti"
+  },
+  "oTuyasAyuda": {
+    "message": "Lo que quitaste con «Quitar» o «Quitar un elemento». Son reglas tuyas: viven en este equipo y no se mandan a ningún lado."
+  },
+  "oTuyasVacio": {
+    "message": "Ninguno todavía. «Quitar un elemento», en el icono, crea el primero."
+  },
+  "oMostrarDeNuevo": {
+    "message": "Mostrar de nuevo"
+  },
+  "oAplicando": {
+    "message": "Qué se está aplicando"
+  },
+  "oFilaRed": {
+    "message": "Reglas de red activas"
+  },
+  "oFilaLineas": {
+    "message": "Líneas de filtro compiladas"
+  },
+  "oFilaDominios": {
+    "message": "Sitios con reglas propias"
+  },
+  "oFilaSelectores": {
+    "message": "Reglas para ocultar publicidad"
+  },
+  "oFilaExtendidas": {
+    "message": "Reglas avanzadas aplicadas por el motor propio"
+  },
+  "oFilaNoExt": {
+    "message": "No aplicables: reglas avanzadas fuera del motor"
+  },
+  "oFilaNoScript": {
+    "message": "No aplicables: scriptlets de uBlock Origin"
+  },
+  "oFilaNoRegex": {
+    "message": "No aplicables: expresiones regulares"
+  },
+  "oFilaNoPopup": {
+    "message": "No aplicables: bloqueo de ventanas emergentes"
+  },
+  "oFilaYoutube": {
+    "message": "Reglas para YouTube (uBlock Origin $P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaRecortadas": {
+    "message": "Recortadas por el límite de Chrome"
+  },
+  "oFilaFecha": {
+    "message": "Listas compiladas el"
+  },
+  "oComo": {
+    "message": "Cómo funciona"
+  },
+  "oComo1": {
+    "message": "Filtros MX bloquea con las <strong>mismas listas públicas</strong> que usan los bloqueadores más extendidos —EasyList, EasyPrivacy y EasyList Spanish—, mantenidas por cientos de personas. <strong>Tu copia es la del día que marca la tabla de arriba</strong> y se renueva con cada versión de la extensión."
+  },
+  "oComo2": {
+    "message": "Encima de eso, <strong>atrapa la publicidad que ninguna lista cubre</strong> en la página que estás viendo, te deja quitarla con un clic y, si quieres, prepara el reporte para que se corrija para todos."
+  },
+  "oComo3": {
+    "message": "La tabla de arriba enseña también <strong>lo que no se pudo aplicar</strong>. Un bloqueador que solo presume lo que sí entró te hace creer que estás más protegido de lo que estás."
+  },
+  "oCredito": {
+    "message": "Las listas base son de The EasyList authors, bajo GPLv3 y CC BY-SA 3.0. Las reglas y el motor de YouTube son de uBlock Origin (Raymond Hill y colaboradores), bajo GPLv3."
+  },
+  "oVerBienvenida": {
+    "message": "Volver a ver la página de bienvenida"
+  }
+}

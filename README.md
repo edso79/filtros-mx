@@ -1,20 +1,61 @@
-# Filtros MX — filtros publicitarios para sitios mexicanos
+# Filtros MX
 
-Complemento de EasyList y EasyPrivacy con reglas para sitios mexicanos. **Gratuita, abierta y sin versión de paga.**
+**Bloqueador de anuncios para Chrome, gratuito y de código abierto, hecho en México** — y la lista de filtros para sitios mexicanos de la que nació.
 
-> **0 reglas activas — porque las 6 que tenía se aceptaron en EasyList Spanish el 3-ago-2026.** Lo que esta lista cubría ahora lo cubre una lista que ya viene activada en tu bloqueador. **Hoy no necesitas instalar esta.**
+- **Instalar la extensión:** [Chrome Web Store](https://chromewebstore.google.com/detail/ocpbbfpkealhfipeffcmajokbdoledgj)
+- **Sitio:** [filtrosmx.com](https://filtrosmx.com) · **Contacto:** contacto@filtrosmx.com
 
-## Lo primero, para no hacerte perder el tiempo
+Este repositorio tiene las dos piezas:
+
+| Carpeta | Qué es |
+|---|---|
+| `extension/` | **La extensión**, Manifest V3: bloqueo de red, filtrado cosmético, el detector de anuncios que se cuelan, «Quitar un elemento» y la interfaz en español e inglés |
+| `herramientas/extension/` | Cómo se construye: el compilador de listas, el empaquetador y las mediciones que se corren antes de publicar |
+| `mexico.txt` y los `.md` de la raíz | **La lista** de filtros para sitios mexicanos, con su método, sus mediciones y su compromiso de mantenimiento |
+
+## La extensión
+
+Bloquea con **EasyList, EasyPrivacy y EasyList Spanish**, quita los anuncios de video de **YouTube** con las reglas de **uBlock Origin**, y cuando un anuncio se escapa de todas las listas **lo detecta en la página** para que lo quites con un clic o lo reportes a EasyList Spanish. **No manda nada a ningún servidor**: no tiene una sola llamada de red saliente, y eso se puede comprobar leyendo `extension/src/`.
+
+### Compilarla desde el código
+
+Hace falta Node.js 22 o posterior. Desde la raíz del repositorio:
+
+```
+node herramientas/extension/construir.mjs     # baja las listas y genera extension/reglas/
+```
+
+Después, en Chrome: `chrome://extensions` → **Modo de desarrollador** → **Cargar descomprimida** → la carpeta `extension/`.
+
+```
+node herramientas/extension/empaquetar.mjs    # el ZIP para la tienda, en paquetes/
+```
+
+`extension/reglas/` **no está en el repositorio a propósito**: se genera de las listas del día, y una copia guardada sería cobertura vieja.
+
+### Antes de cada versión
+
+```
+node herramientas/extension/medir-youtube.mjs  # 12 videos: 0 con anuncio y 12 reproduciéndose, o no se publica
+```
+
+Necesita Chrome for Testing (`npx @puppeteer/browsers install chrome@stable`).
+
+## La lista de filtros
+
+> **0 reglas activas — porque las que tenía se aceptaron en EasyList Spanish.** Lo que esta lista cubría ahora lo cubre una lista que ya viene activada en tu bloqueador. **Hoy no necesitas agregar esta.**
+
+### Lo primero, para no hacerte perder el tiempo
 
 Esta lista **está vacía hoy**. No oculta nada, y no tiene sentido que la agregues.
 
-Los 5 sitios mexicanos que cubría —`elsiglodetorreon.com.mx`, `zocalo.com.mx`, `elmanana.com.mx`, `eldiariodechihuahua.mx` y `periodicocorreo.com.mx`— quedaron cubiertos por **EasyList Spanish**, que la mayoría de los bloqueadores activa sola según el idioma del navegador. Reportamos los 5 huecos el 31-jul-2026 y el mantenedor los arregló todos el 3-ago. Detalle: [`AGUAS-ARRIBA.md`](AGUAS-ARRIBA.md).
+Los sitios mexicanos que cubría quedaron cubiertos por **EasyList Spanish**, que la mayoría de los bloqueadores activa sola según el idioma del navegador. Desde julio de 2026 el proyecto ha enviado **12 reportes** allá: 9 aceptados, 2 resueltos con otro arreglo que medimos contra la página real, y 1 a medias. Detalle: [`AGUAS-ARRIBA.md`](AGUAS-ARRIBA.md).
 
-**Eso es el éxito del proyecto, no su fracaso.** El objetivo nunca fue tener una lista grande; era que estos sitios dejaran de mostrar publicidad a quien usa un bloqueador. Se logró en el lugar donde le sirve a todo el mundo y donde **lo mantiene más gente que nosotros dos**.
+**Eso es el éxito del proyecto, no su fracaso.** El objetivo nunca fue tener una lista grande; era que estos sitios dejaran de mostrar publicidad a quien usa un bloqueador. Se logró en el lugar donde le sirve a todo el mundo y donde **lo mantiene más gente que nosotros**.
 
 Sigue publicada porque no se rompe a quien ya la tenga puesta, y porque vuelve a llenarse en cuanto se mida un hueco nuevo que aguas arriba no tome.
 
-## Qué es
+### Qué es
 
 Medimos 17 sitios mexicanos el 30 de julio de 2026, ejecutando los selectores cosméticos de las cinco listas principales contra el DOM real de cada uno. Resultado: **9 quedan cubiertos, 1 no tiene publicidad, y 6 tienen al menos un contenedor que ninguna lista nombra.** De esos 6, uno resultó ser autopromoción del propio sitio y se excluyó a propósito — los otros **5 son los que esta lista cubrió, y que desde el 3-ago-2026 cubre EasyList Spanish**.
 
@@ -33,35 +74,24 @@ Las reglas genéricas nombran los contenedores estándar. No pueden nombrar una 
 
 **No sustituye a las listas base: se usa además de ellas.**
 
-## Qué NO afirma
+### Qué NO afirma
 
 - **México NO está peor cubierto que otros países, y lo medimos.** En tres regionales de España y Argentina sobreviven contenedores propios sin cubrir, igual que en los mexicanos. El hueco es de los medios pequeños en cualquier país, no de México. Detalle: [`CONTROLES.md`](CONTROLES.md).
 - **No decimos que bloquee más ni mejor que ninguna otra lista.** En 9 de los 17 sitios medidos las listas existentes ya lo resuelven, y ahí esta lista no aporta nada.
 - **La medición es de 17 sitios elegidos a mano.** No es una estimación poblacional: con la fuga concentrada en pocos sitios, cambiar uno mueve el resultado.
 - **Que un sitio no tenga regla propia no significa que muestre anuncios.**
 
-## Por qué existe entonces
+### Por qué existe entonces
 
 Porque estos sitios tienen publicidad visible que ninguna lista cubre, y alguien tiene que escribir las reglas. Se trabajan sitios mexicanos porque son los que conocemos y podemos verificar — no porque estén peor.
 
 **Y por eso mismo, lo que se pueda, se reporta aguas arriba a EasyList Spanish antes que quedarse aquí.** Si el problema es global, la regla sirve más allá donde la mantiene más gente.
 
-## Compromisos
+### Es una lista para tu bloqueador
 
-1. **Nada se cobra.** No hay plan de paga, no hay funciones reservadas, no habrá.
-2. **Ningún anunciante puede pagar para pasar el filtro.** No existe ni existirá lista blanca pagada.
-3. **No se recolecta nada.** La lista es un archivo de texto: no ejecuta código, no reporta, no sabe quién la usa.
-4. **Si deja de mantenerse, se retira.** Una lista sin mantener es peor que ninguna — el usuario se cree protegido y no lo está. Qué significa eso en concreto, y cada cuándo se revisa: [MANTENIMIENTO.md](MANTENIMIENTO.md).
+La lista es un archivo de texto con reglas, y funciona en cualquier bloqueador que acepte el formato de Adblock Plus — **uBlock Origin**, uBlock Origin Lite, AdGuard o la propia extensión Filtros MX, que la incluye.
 
-## Esto no es un bloqueador. Es una lista para tu bloqueador.
-
-**Filtros MX no se instala.** No es una extensión y no hay nada que descargar.
-
-Es un archivo de texto con reglas. Quien bloquea es tu bloqueador — **uBlock Origin**, uBlock Origin Lite o AdGuard — y esta lista le dice qué ocultar en unos sitios mexicanos que sus listas base no cubren.
-
-Si no tienes bloqueador, primero instala uno. **uBlock Origin** es gratuito, abierto y el más recomendado.
-
-## Cómo agregarla
+### Cómo agregarla
 
 > **Hoy no hace falta.** La lista tiene 0 reglas: agregarla no cambia nada. Estas instrucciones sirven para cuando vuelva a tener contenido, y para quien quiera dejarla puesta desde ya.
 
@@ -88,7 +118,7 @@ Funciona en cualquier bloqueador que acepte el formato de Adblock Plus.
 
 ## Cómo contribuir
 
-Ver [CONTRIBUIR.md](CONTRIBUIR.md). La regla corta: **ninguna regla entra sin haberse verificado en el sitio real.**
+Ver [CONTRIBUIR.md](CONTRIBUIR.md). La regla corta: **ninguna regla entra sin haberse verificado en el sitio real.** Para un problema con la extensión: [abre una incidencia](https://github.com/edso79/filtros-mx/issues) o escribe a contacto@filtrosmx.com.
 
 ## Aguas arriba primero
 
@@ -98,23 +128,31 @@ Cuando una regla se acepte allá, **se retira de aquí**: dos copias de la misma
 
 **Eso ya pasó, con las 6.** Es la razón de que la lista esté vacía. La regla se cumplió aunque dejara al proyecto sin contenido — que es cuando se sabe si una regla era de verdad.
 
+## Compromisos
+
+1. **Nada se cobra.** No hay plan de paga, no hay funciones reservadas, no habrá.
+2. **Ningún anunciante puede pagar para pasar el filtro.** No existe ni existirá lista blanca pagada.
+3. **Cero datos de navegación fuera de tu equipo.** La lista es un archivo de texto que no ejecuta nada; la extensión analiza cada página en tu navegador y no tiene servidor al que mandar nada.
+4. **Si deja de mantenerse, se retira.** Una lista sin mantener es peor que ninguna — el usuario se cree protegido y no lo está. Qué significa eso en concreto, y cada cuándo se revisa: [MANTENIMIENTO.md](MANTENIMIENTO.md).
+
 ## Licencia y atribución
 
 Copyright (C) 2026 Edgar Alonso Sosa Camargo.
 
 GPLv3 — ver [LICENSE](LICENSE). Cualquier obra derivada se comparte igual.
 
-Las 6 reglas que tuvo eran originales: se escribieron observando sitios, no se copiaron de ninguna lista. **Esta lista no es obra derivada de EasyList ni de ninguna otra**, así que hoy no arrastra sus cláusulas — la GPLv3 es elección propia. Eso cambia en cuanto se copie o adapte una regla ajena.
+- **La lista** es original: sus reglas se escribieron observando sitios, no se copiaron de ninguna lista, así que no es obra derivada de EasyList.
+- **La extensión** compila las listas de **The EasyList authors** (GPLv3 / CC BY-SA 3.0) y, para YouTube, incluye **sin modificar** el motor de scriptlets de **uBlock Origin** (Raymond Hill y colaboradores, GPLv3) en `herramientas/extension/ubo/`, con su licencia.
+- **Las tipografías** del sitio son Bricolage Grotesque y Martian Mono, bajo SIL Open Font License.
 
-Las licencias de las listas base se verificaron contra su fuente el 31-jul-2026 y una afirmación resultó falsa. Ver [ATRIBUCION.md](ATRIBUCION.md).
+Las licencias se verificaron contra su fuente. Ver [ATRIBUCION.md](ATRIBUCION.md).
 
 ## Estado
 
 | | |
 |---|---|
-| Reglas activas | **0** — las 6 se aceptaron aguas arriba el 3-ago-2026 |
-| Reglas aportadas a EasyList Spanish | 5 incidencias, 5 aceptadas ([#357–#361](https://github.com/easylist/easylistspanish/issues)) |
-| Sitios cubiertos | 5 de 17 medidos — **hoy los cubre EasyList Spanish, no esta lista** |
-| Publicada | Sí, vacía. No se despublica: la estructura y el compromiso siguen |
+| Extensión | Publicada en la Chrome Web Store, en español e inglés |
+| Reglas activas en la lista | **0** — las que tuvo se aceptaron aguas arriba |
+| Reportes a EasyList Spanish | 12 (#357–#369): 9 aceptados, 2 resueltos con otro arreglo, 1 a medias |
 | Licencia | GPLv3 |
 | Mantenimiento | Revisión mensual — ver [MANTENIMIENTO.md](MANTENIMIENTO.md) |

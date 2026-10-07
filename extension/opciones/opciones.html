@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Filtros MX</title>
+  <link rel="stylesheet" href="../popup/popup.css">
+  <style>
+    /* La pagina de opciones reusa la paleta del popup y cambia el envoltorio:
+       columna de lectura, tarjetas por seccion, y numeros alineados. Sin esto
+       se lee como un volcado de configuracion. */
+    body {
+      width: auto;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 24px 56px;
+      background: var(--panel);
+    }
+
+    .cabecera {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .cabecera img { border-radius: 11px; }
+    .cabecera h1 { font-size: 21px; letter-spacing: -0.02em; }
+    .lema { color: var(--suave); font-size: 13px; margin: 0 0 26px 58px; }
+
+    .tarjeta {
+      background: var(--fondo);
+      border: 1px solid var(--linea);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+
+    .tarjeta > h2 {
+      font-size: 12px;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--suave);
+      margin: 0 0 14px;
+    }
+
+    .opcion {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      padding: 13px 0;
+      border-top: 1px solid var(--linea);
+    }
+    .opcion:first-of-type { border-top: none; padding-top: 0; }
+    .opcion:last-child { padding-bottom: 0; }
+    .opcion input { margin-top: 3px; flex: none; accent-color: var(--verde); width: 15px; height: 15px; }
+    .opcion label { font-weight: 620; display: block; font-size: 13.5px; cursor: pointer; }
+    .opcion p { margin: 3px 0 0; font-size: 12.5px; color: var(--suave); line-height: 1.45; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    td { padding: 8px 0; border-bottom: 1px solid var(--linea); }
+    tr:last-child td { border-bottom: none; }
+    td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    /* Las filas de "no aplicable" van atenuadas: son ciertas y estan a la
+       vista, pero no compiten con lo que si se esta aplicando. */
+    tr.fuera td { color: var(--suave); font-weight: 400; }
+    tr.fuera td:last-child { font-weight: 500; }
+
+    .prosa { font-size: 13px; line-height: 1.55; color: var(--texto); margin: 0 0 12px; }
+    .prosa:last-child { margin-bottom: 0; }
+    .prosa strong { font-weight: 650; }
+    .prosa.menor { font-size: 12px; color: var(--suave); }
+
+    .sitios td:last-child { text-align: right; }
+    .sitios .modo-txt { color: var(--suave); font-weight: 500; text-align: left; }
+    .vacio { color: var(--suave); font-size: 12.5px; }
+    .sitios td.vacio { text-align: left; font-weight: 400; }
+
+    td code {
+      font: 12px/1.4 ui-monospace, "Cascadia Code", Consolas, monospace;
+      word-break: break-all;
+    }
+    a { color: var(--verde); text-underline-offset: 2px; }
+    .suave { font-weight: 400; color: var(--suave); }
+  </style>
+</head>
+<body>
+  <div class="cabecera">
+    <img src="../iconos/icono-48.png" alt="" width="44" height="44">
+    <h1>Filtros MX</h1>
+  </div>
+  <p class="lema" data-i18n="bLema"></p>
+
+  <div class="tarjeta">
+    <h2 data-i18n="oFiltrado"></h2>
+
+    <div class="opcion">
+      <input type="checkbox" id="genericas">
+      <div>
+        <label for="genericas" data-i18n-html="oGenericas"></label>
+        <p data-i18n-html="oGenericasAyuda"></p>
+      </div>
+    </div>
+
+    <div class="opcion">
+      <input type="checkbox" id="detector">
+      <div>
+        <label for="detector" data-i18n="oDetector"></label>
+        <p data-i18n="oDetectorAyuda"></p>
+      </div>
+    </div>
+
+    <div class="opcion">
+      <input type="checkbox" id="cosmeticas">
+      <div>
+        <label for="cosmeticas" data-i18n="oCosmeticas"></label>
+        <p data-i18n="oCosmeticasAyuda"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <h2 data-i18n="oSitios"></h2>
+    <p class="prosa menor" data-i18n="oSitiosAyuda"></p>
+    <table id="tablaSitios" class="sitios"></table>
+  </div>
+
+  <div class="tarjeta">
+    <h2 data-i18n="oTuyas"></h2>
+    <p class="prosa menor" data-i18n="oTuyasAyuda"></p>
+    <table id="tablaTuyas" class="sitios"></table>
+  </div>
+
+  <div class="tarjeta">
+    <h2 data-i18n="oAplicando"></h2>
+    <table id="tabla"></table>
+  </div>
+
+  <div class="tarjeta">
+    <h2 data-i18n="oComo"></h2>
+    <p class="prosa" data-i18n-html="oComo1"></p>
+    <p class="prosa" data-i18n-html="oComo2"></p>
+    <p class="prosa" data-i18n-html="oComo3"></p>
+    <p class="prosa menor" data-i18n="oCredito"></p>
+    <p class="prosa menor">
+      <a id="verBienvenida" href="#" target="_blank" data-i18n="oVerBienvenida"></a>
+    </p>
+  </div>
+
+  <script src="../src/i18n.js"></script>
+  <script src="opciones.js"></script>
+</body>
+</html>
