@@ -33,12 +33,13 @@ node herramientas/extension/construir.mjs
 | Pieza | Archivo | Qué hace |
 |---|---|---|
 | Motor de red | `reglas/red.json` | Reglas `declarativeNetRequest` compiladas de las listas |
+| **Grupos de listas** | `reglas/red-*.json`, `cosmeticas-*.json`, `src/fondo.js` | Desde la 1.2.0, un conjunto DNR por grupo. **EasyList Portuguese** se enciende sola si Chrome está en portugués; **EasyList Cookie List** (quitar avisos de cookies) solo si la persona la enciende en opciones. Se prueban con `herramientas/extension/probar-listas.mjs` |
 | Motor cosmético | `src/fondo.js` | Inyecta CSS por dominio. **MV3 no trae filtrado cosmético**; sin esto se perdería el 73-77% de lo que hacen las listas regionales |
 | **Motor extendido** | `src/contenido.js` | Aplica 299 de las 305 reglas `#?#` de las listas: `:has()` es CSS nativo desde Chrome 105 y el texto (`:has-text()`) lo evalúa un motor propio. Llegan **precompiladas** por `construir.mjs` — el cliente no parsea sintaxis ABP |
 | Detector | `src/contenido.js` | Encuentra publicidad que ninguna lista cubre |
 | Modos por sitio | `src/fondo.js` | **Apagado / Básico / Completo** desde la 1.0.0. Completo (genéricas incluidas) es el de fábrica, salvo donde la propia lista lo prohíbe con `$generichide`; Básico es la salida a un clic si un sitio se rompe. Gestión en opciones |
 | **«Quitar un elemento»** | `src/selector.js` | Selector con el ratón (1.0.0), inyectado por el popup solo al pulsar el botón. Crea una regla local como la de abajo. Es la salida cuando el detector no ve |
-| **Textos es/en** | `_locales/`, `src/i18n.js` | Generados por `herramientas/extension/generar-locales.mjs`; no se editan a mano |
+| **Textos es/en/pt** | `_locales/`, `src/i18n.js` | Generados por `herramientas/extension/generar-locales.mjs`; no se editan a mano |
 | **Reglas locales** | `src/fondo.js`, `popup/` | El botón **«Quitar»** de cada anuncio colado (antes «Ocultar aquí») crea una regla cosmética del usuario: local, reversible desde el popup y opciones, y que no toca ninguna lista. Es lo que convierte al detector en beneficio directo — no solo en instrumento de reporte |
 | Contador de red | `popup/` | Peticiones frenadas por pestaña vía `getMatchedRules`. **Filtra las excepciones** (van primero, ids `1..reglasPermiso` de `meta.json`): contar un permiso como bloqueo sería presumir un bloqueo que no ocurrió. La ventana de 5 minutos de Chrome se declara en la propia etiqueta |
 | Icono por modo | `src/fondo.js` | Gris cuando el sitio está en Apagado — el estado se ve sin abrir el popup |

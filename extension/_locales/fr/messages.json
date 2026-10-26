@@ -1,0 +1,445 @@
+{
+  "extName": {
+    "message": "Filtros MX — Bloqueur de pubs qui attrape celles qui passent"
+  },
+  "extShortName": {
+    "message": "Filtros MX"
+  },
+  "idioma": {
+    "message": "fr-FR"
+  },
+  "extDescription": {
+    "message": "Bloque pubs et traqueurs. Si une pub passe, il vous la signale et vous la retirez en un clic. Gratuit, libre, sans télémétrie."
+  },
+  "modoGrupo": {
+    "message": "Mode sur ce site"
+  },
+  "modoApagado": {
+    "message": "Désactivé"
+  },
+  "modoBasico": {
+    "message": "Basique"
+  },
+  "modoCompleto": {
+    "message": "Complet"
+  },
+  "notaApagado": {
+    "message": "Rien n’est filtré sur ce site."
+  },
+  "notaBasico": {
+    "message": "Seulement les règles propres à ce site. Nettoie moins, mais ne casse presque jamais rien."
+  },
+  "notaCompleto": {
+    "message": "Nettoyage maximal. Si quelque chose semble cassé, essayez Basique."
+  },
+  "notaSinSitio": {
+    "message": "Ce n’est pas un site web : il n’y a rien à filtrer ici."
+  },
+  "notaExcluido": {
+    "message": "Filtros MX reste désactivé ici exprès : c’est un site de démarches administratives, sans rien à bloquer."
+  },
+  "recargar": {
+    "message": "Recharger pour appliquer le changement"
+  },
+  "cifraOcultos": {
+    "message": "éléments publicitaires masqués"
+  },
+  "cifraRed": {
+    "message": "requêtes de pubs et traqueurs bloquées"
+  },
+  "cifraRedAyuda": {
+    "message": "Requêtes de pubs et de traqueurs bloquées dans cet onglet ces 5 dernières minutes. Chrome n’en garde pas plus."
+  },
+  "totalDesde": {
+    "message": "Depuis l’installation : <b>$P1$</b> éléments publicitaires masqués",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladosTitulo": {
+    "message": "Pubs qui sont passées"
+  },
+  "coladosExplica": {
+    "message": "Aucune liste ne les couvre encore. Retirez-les en un clic — cela ne touche que votre navigateur."
+  },
+  "coladoServido": {
+    "message": "Pub, $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoVacio": {
+    "message": "Espace publicitaire vide, $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoAlcance": {
+    "message": "La retirer masque $P1$ éléments de cette page",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladoFragil": {
+    "message": "Peut cesser de fonctionner si le site change"
+  },
+  "quitar": {
+    "message": "Retirer"
+  },
+  "quitado": {
+    "message": "Retiré ✓"
+  },
+  "quitarEnApagado": {
+    "message": "Ce site est en Désactivé : passez en Basique ou Complet pour que cela s’applique."
+  },
+  "reportar": {
+    "message": "Prévenir EasyList pour que ce soit corrigé pour tous"
+  },
+  "reportarNota": {
+    "message": "Ouvre GitHub avec le texte déjà rédigé. Vous décidez de l’envoyer ou non."
+  },
+  "sinColados": {
+    "message": "Aucune pub passée entre les mailles n’a été détectée sur cette page."
+  },
+  "ceguera": {
+    "message": "Cette page charge de la pub que nous n’avons pas pu localiser. Si vous en voyez, utilisez « Retirer un élément »."
+  },
+  "sinReglaUno": {
+    "message": "Il y a 1 pub impossible à retirer avec une règle sûre. Si elle vous gêne, utilisez « Retirer un élément »."
+  },
+  "sinRegla": {
+    "message": "Il y a $P1$ pubs impossibles à retirer avec une règle sûre. Si elles vous gênent, utilisez « Retirer un élément ».",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tuyasTitulo": {
+    "message": "Retirés par vous sur ce site"
+  },
+  "tuyasExplica": {
+    "message": "Ils restent uniquement dans ce navigateur. Vous pouvez les annuler à tout moment."
+  },
+  "mostrar": {
+    "message": "Afficher"
+  },
+  "elegir": {
+    "message": "Retirer un élément"
+  },
+  "elegirAyuda": {
+    "message": "Choisissez n’importe quoi sur la page avec la souris et ça disparaît — aussi lors de vos prochaines visites."
+  },
+  "problema": {
+    "message": "Quelque chose ne va pas ?"
+  },
+  "problemaAsunto": {
+    "message": "Filtros MX : problème sur $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "reanalizar": {
+    "message": "Analyser à nouveau"
+  },
+  "analizando": {
+    "message": "Analyse…"
+  },
+  "analizado": {
+    "message": "Analysé ✓"
+  },
+  "noAnalizable": {
+    "message": "Analyse impossible ici"
+  },
+  "opciones": {
+    "message": "Options"
+  },
+  "listasDel": {
+    "message": "listes du $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "resenaPide": {
+    "message": "Ça vous est utile ? Un avis sur la boutique aide plus de gens à trouver Filtros MX."
+  },
+  "resenaSi": {
+    "message": "Laisser un avis"
+  },
+  "resenaNo": {
+    "message": "Pas maintenant"
+  },
+  "insigniaColados": {
+    "message": "Filtros MX : des pubs sont passées sur cette page. Cliquez pour les retirer."
+  },
+  "selPista": {
+    "message": "Cliquez sur ce que vous voulez retirer · Échap pour quitter"
+  },
+  "selUno": {
+    "message": "1 élément sera masqué"
+  },
+  "selVarios": {
+    "message": "$P1$ éléments seront masqués",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "selMasGrande": {
+    "message": "Plus grand"
+  },
+  "selMasChico": {
+    "message": "Plus petit"
+  },
+  "selQuitar": {
+    "message": "Retirer"
+  },
+  "selCancelar": {
+    "message": "Annuler"
+  },
+  "selListo": {
+    "message": "C’est fait — cela restera masqué lors de vos prochaines visites."
+  },
+  "selDeshacer": {
+    "message": "Annuler"
+  },
+  "bTitulo": {
+    "message": "C’est prêt. Filtros MX bloque déjà."
+  },
+  "bLema": {
+    "message": "Gratuit, open source et sans télémétrie. Fait au Mexique."
+  },
+  "bFijarTitulo": {
+    "message": "Une étape : épinglez-le dans la barre"
+  },
+  "bFijar": {
+    "message": "Cliquez sur la pièce de puzzle <b>🧩</b> en haut à droite de Chrome, puis sur l’<b>épingle</b> à côté de Filtros MX. Vous verrez ainsi sur chaque page combien de pub il a retirée, et il sera à portée de main si quelque chose passe."
+  },
+  "bHaceTitulo": {
+    "message": "Ce qu’il fait pour vous"
+  },
+  "bHace1": {
+    "message": "<b>Bloque pubs et traqueurs</b> dès maintenant, avec EasyList, EasyPrivacy et Liste FR : les listes ouvertes utilisées par des millions de personnes. Rien à configurer."
+  },
+  "bHace2": {
+    "message": "<b>Attrape celles qui passent.</b> Quand une pub échappe à toutes les listes, Filtros MX vous la signale sur son icône et vous la retirez en un clic."
+  },
+  "bHace3": {
+    "message": "<b>Retire ce qui vous gêne.</b> Avec « Retirer un élément », vous choisissez n’importe quoi sur la page et ça disparaît — aussi lors de vos prochaines visites."
+  },
+  "bHaceYoutube": {
+    "message": "<b>YouTube sans pubs vidéo.</b> Retire les pubs avant et pendant les vidéos avec les règles d’uBlock Origin."
+  },
+  "bHace4": {
+    "message": "<b>Vous décidez sur chaque site.</b> Complet pour un nettoyage maximal, Basique si un site se comporte mal, Désactivé si vous voulez le soutenir."
+  },
+  "bPrivTitulo": {
+    "message": "Votre vie privée, sans petits caractères"
+  },
+  "bPriv1": {
+    "message": "<b>Zéro télémétrie.</b> Tout se passe sur votre appareil : ni ce que vous consultez ni ce qui est bloqué ne quitte votre navigateur."
+  },
+  "bPriv2": {
+    "message": "<b>Pas de « publicités acceptables » payantes.</b> Aucun annonceur ne peut payer pour passer le filtre. Jamais."
+  },
+  "bPriv3": {
+    "message": "<b>Vraiment gratuit.</b> Pas de version payante, pas de compte, et le code est ouvert à qui veut le vérifier."
+  },
+  "bTodosTitulo": {
+    "message": "Il a déjà amélioré le web pour tous"
+  },
+  "bTodos": {
+    "message": "Les pubs que Filtros MX a trouvées sur des sites d’info mexicains ont été signalées à EasyList Spanish : <b>12 signalements, 11 déjà entièrement corrigés</b>. Aujourd’hui, toute personne qui utilise ces listes les bloque, quel que soit son bloqueur. Si vous en trouvez une, l’extension prépare le signalement pour vous."
+  },
+  "bAbrirOpciones": {
+    "message": "Ouvrir les options"
+  },
+  "bVerCodigo": {
+    "message": "Voir le code"
+  },
+  "oTitulo": {
+    "message": "Filtros MX — Options"
+  },
+  "oFiltrado": {
+    "message": "Filtrage"
+  },
+  "oCosmeticas": {
+    "message": "Masquer les espaces publicitaires"
+  },
+  "oCosmeticasAyuda": {
+    "message": "Referme l’espace laissé par la pub. C’est l’essentiel du travail des listes : le désactiver rend presque tout sans effet."
+  },
+  "oGenericas": {
+    "message": "Nettoyage complet sur tous les sites <span class=\"suave\">· recommandé</span>"
+  },
+  "oGenericasAyuda": {
+    "message": "Applique aussi les règles générales, qui ne nomment aucun site. C’est ce qui nettoie le plus. Si un site semble cassé, mettez-le en <em>Basique</em> depuis l’icône. Désactivé, tous les sites démarrent en Basique."
+  },
+  "oDetector": {
+    "message": "M’avertir des pubs qui passent"
+  },
+  "oDetectorAyuda": {
+    "message": "Cherche sur chaque page la pub qu’aucune liste ne couvre. L’analyse est locale : rien ne quitte votre appareil."
+  },
+  "oListas": {
+    "message": "Listes"
+  },
+  "oListasAyuda": {
+    "message": "EasyList, EasyPrivacy et EasyList Spanish sont toujours actives. Celles-ci s’y ajoutent."
+  },
+  "oGrupo_pt": {
+    "message": "Sites en portugais <span class=\"suave\">· EasyList Portuguese</span>"
+  },
+  "oGrupo_de": {
+    "message": "Sites en allemand <span class=\"suave\">· EasyList Germany</span>"
+  },
+  "oGrupo_fr": {
+    "message": "Sites en français <span class=\"suave\">· Liste FR</span>"
+  },
+  "oGrupo_it": {
+    "message": "Sites en italien <span class=\"suave\">· EasyList Italy</span>"
+  },
+  "oGrupo_nl": {
+    "message": "Sites en néerlandais <span class=\"suave\">· EasyList Dutch</span>"
+  },
+  "oGrupo_pl": {
+    "message": "Sites en polonais <span class=\"suave\">· EasyList Polish</span>"
+  },
+  "oGrupo_ru": {
+    "message": "Sites en russe et ukrainien <span class=\"suave\">· RU AdList</span>"
+  },
+  "oGrupo_zh": {
+    "message": "Sites en chinois <span class=\"suave\">· EasyList China</span>"
+  },
+  "oRegionalAyuda": {
+    "message": "S’active toute seule si votre navigateur est dans cette langue."
+  },
+  "oSinCupo": {
+    "message": "Elle ne tenait pas dans la limite de règles de Chrome avec vos autres listes : seule la partie masquage est appliquée."
+  },
+  "oGrupo_cookies": {
+    "message": "Retirer les bandeaux de cookies <span class=\"suave\">· EasyList Cookie List</span>"
+  },
+  "oGrupo_cookiesAyuda": {
+    "message": "Masque les bandeaux de cookies sans y répondre : vous n’acceptez rien, et le site se comporte comme si vous n’aviez pas répondu. Rechargez la page pour le voir."
+  },
+  "oAuto": {
+    "message": "automatique"
+  },
+  "oVolverAuto": {
+    "message": "Revenir en automatique"
+  },
+  "oSitios": {
+    "message": "Sites avec leur propre mode"
+  },
+  "oSitiosAyuda": {
+    "message": "Ce que vous réglez avec les boutons de l’icône, géré ici."
+  },
+  "oSitiosVacio": {
+    "message": "Aucun : tous les sites utilisent le mode par défaut."
+  },
+  "oVolver": {
+    "message": "Revenir au mode par défaut"
+  },
+  "oTuyas": {
+    "message": "Retirés par vous"
+  },
+  "oTuyasAyuda": {
+    "message": "Ce que vous avez retiré avec « Retirer » ou « Retirer un élément ». Ce sont vos propres règles : elles restent sur cet appareil et ne sont envoyées nulle part."
+  },
+  "oTuyasVacio": {
+    "message": "Aucun pour l’instant. « Retirer un élément », dans l’icône, crée le premier."
+  },
+  "oMostrarDeNuevo": {
+    "message": "Afficher à nouveau"
+  },
+  "oAplicando": {
+    "message": "Ce qui est appliqué"
+  },
+  "oFilaRed": {
+    "message": "Règles réseau actives"
+  },
+  "oFilaLineas": {
+    "message": "Lignes de filtre compilées"
+  },
+  "oFilaDominios": {
+    "message": "Sites avec leurs propres règles"
+  },
+  "oFilaSelectores": {
+    "message": "Règles pour masquer la pub"
+  },
+  "oFilaExtendidas": {
+    "message": "Règles avancées appliquées par notre moteur"
+  },
+  "oFilaGrupo": {
+    "message": "$P1$ : règles réseau et de masquage",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaNoExt": {
+    "message": "Non applicables : règles avancées hors du moteur"
+  },
+  "oFilaNoScript": {
+    "message": "Non applicables : scriptlets d’uBlock Origin"
+  },
+  "oFilaNoRegex": {
+    "message": "Non applicables : expressions régulières"
+  },
+  "oFilaNoPopup": {
+    "message": "Non applicables : blocage des fenêtres pop-up"
+  },
+  "oFilaYoutube": {
+    "message": "Règles pour YouTube (uBlock Origin $P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaRecortadas": {
+    "message": "Coupées par la limite de Chrome"
+  },
+  "oFilaFecha": {
+    "message": "Listes compilées le"
+  },
+  "oComo": {
+    "message": "Comment ça marche"
+  },
+  "oComo1": {
+    "message": "Filtros MX bloque avec les <strong>mêmes listes publiques</strong> que les bloqueurs les plus répandus — EasyList, EasyPrivacy, EasyList Spanish et celle de votre langue s’il y en a une —, maintenues par des centaines de personnes. <strong>Votre copie date du jour indiqué dans le tableau ci-dessus</strong> et est renouvelée à chaque version de l’extension."
+  },
+  "oComo2": {
+    "message": "En plus, il <strong>attrape la pub qu’aucune liste ne couvre</strong> sur la page que vous consultez, vous permet de la retirer en un clic et, si vous le souhaitez, prépare le signalement pour qu’elle soit corrigée pour tous."
+  },
+  "oComo3": {
+    "message": "Le tableau ci-dessus montre aussi <strong>ce qui n’a pas pu être appliqué</strong>. Un bloqueur qui n’affiche que ce qui est passé vous fait croire que vous êtes mieux protégé que vous ne l’êtes."
+  },
+  "oCredito": {
+    "message": "Les listes de base et les listes régionales d’EasyList (portugais, allemand, italien, néerlandais, polonais et chinois) sont de The EasyList authors, sous GPLv3 et CC BY-SA 3.0 ; Liste FR, sous CC BY-SA 3.0 ; RU AdList et EasyList Cookie List, sous CC BY 3.0. Les règles et le moteur YouTube sont d’uBlock Origin (Raymond Hill et contributeurs), sous GPLv3."
+  },
+  "oVerBienvenida": {
+    "message": "Revoir la page d’accueil"
+  }
+}

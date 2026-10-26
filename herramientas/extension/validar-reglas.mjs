@@ -15,7 +15,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const REGLAS = path.join(HERE, '..', '..', 'extension', 'reglas', 'red.json');
+const EXT = path.join(HERE, '..', '..', 'extension');
+// Desde la 1.2.0 hay varios conjuntos (principal, regionales, opcionales): se
+// validan TODOS los que declara el manifest, porque Chrome rechaza cada uno por
+// separado y un regional roto falla igual de callado que la principal.
+const CONJUNTOS = JSON.parse(fs.readFileSync(path.join(EXT, 'manifest.json'), 'utf8'))
+  .declarative_net_request.rule_resources;
 
 // Limites reales de la plataforma, verificados el 29-jul-2026.
 const TOPE_ESTATICAS = 30_000;
@@ -31,15 +36,26 @@ const ACCIONES_VALIDAS = new Set([
   'block', 'redirect', 'allow', 'upgradeScheme', 'modifyHeaders', 'allowAllRequests',
 ]);
 
-const reglas = JSON.parse(fs.readFileSync(REGLAS, 'utf8'));
 const problemas = [];
 const cuenta = (m) => problemas.push(m);
-
-const ids = new Set();
 let conRegex = 0;
+const todas = [];
+const porConjunto = {};
+
+console.log('Validador de reglas declarativeNetRequest\n');
+
+for (const conjunto of CONJUNTOS) {
+const archivo = path.join(EXT, conjunto.path);
+if (!fs.existsSync(archivo)) { cuenta(`${conjunto.id}: no existe ${conjunto.path} — correr construir.mjs`); continue; }
+const reglas = JSON.parse(fs.readFileSync(archivo, 'utf8'));
+todas.push(...reglas);
+porConjunto[conjunto.id] = reglas.length;
+console.log(`   ${conjunto.id.padEnd(10)} ${conjunto.path.padEnd(24)} ${reglas.length.toLocaleString().padStart(7)} reglas`);
+// Los ids son por conjunto: cada uno empieza en 1.
+const ids = new Set();
 
 reglas.forEach((r, i) => {
-  const donde = `regla #${i} (id ${r.id})`;
+  const donde = `${conjunto.id} regla #${i} (id ${r.id})`;
 
   // --- id ---
   if (!Number.isInteger(r.id) || r.id < 1) cuenta(`${donde}: id invalido`);
@@ -90,6 +106,11 @@ reglas.forEach((r, i) => {
         cuenta(`${donde}: urlFilter con caracteres no ASCII: ${c.urlFilter.slice(0, 40)}`);
       }
       // "||" solo vale al principio.
+      // "||" exige un dominio detras. "||*algo" o "||" a secas los rechaza
+      // Chrome con todo el conjunto (red-zh.json, 23-oct-2026).
+      if (/^\|\|?$|^\|\|[*^.|]/.test(c.urlFilter)) {
+        cuenta(`${donde}: "||" sin dominio detras: ${c.urlFilter.slice(0, 40)}`);
+      }
       if (c.urlFilter.lastIndexOf('||') > 0) {
         cuenta(`${donde}: "||" fuera del inicio: ${c.urlFilter.slice(0, 40)}`);
       }
@@ -126,19 +147,30 @@ reglas.forEach((r, i) => {
   const tieneAlgo = c.urlFilter || c.regexFilter || c.requestDomains || c.initiatorDomains;
   if (!tieneAlgo) cuenta(`${donde}: condition sin urlFilter ni dominios — casaria con TODO`);
 });
+}
+const reglas = todas;
 
 // --- Presupuesto ---
-if (reglas.length > TOPE_ESTATICAS) {
-  cuenta(`${reglas.length} reglas superan el tope garantizado de ${TOPE_ESTATICAS}`);
+// Las regionales van una por idioma y no se encienden todas juntas: el caso
+// que tiene que caber es principal + opcionales + la regional mas grande.
+const meta = JSON.parse(fs.readFileSync(path.join(EXT, 'reglas', 'meta.json'), 'utf8'));
+const tipo = Object.fromEntries((meta.grupos || []).map((g) => [g.id, g.tipo]));
+let peorCaso = 0, mayorRegional = 0;
+for (const [id, n] of Object.entries(porConjunto)) {
+  if (tipo[id] === 'regional') mayorRegional = Math.max(mayorRegional, n);
+  else peorCaso += n;
+}
+peorCaso += mayorRegional;
+if (peorCaso > TOPE_ESTATICAS) {
+  cuenta(`${peorCaso} reglas en el peor caso de un idioma superan el tope garantizado de ${TOPE_ESTATICAS}`);
 }
 if (conRegex > TOPE_REGEX) {
   cuenta(`${conRegex} reglas con regex superan el tope de ${TOPE_REGEX}`);
 }
 
 // --- Informe ---
-console.log('Validador de reglas declarativeNetRequest\n');
-console.log(`   archivo:  ${path.relative(process.cwd(), REGLAS)}`);
-console.log(`   reglas:   ${reglas.length.toLocaleString()}  (tope ${TOPE_ESTATICAS.toLocaleString()})`);
+console.log(`\n   reglas, todos los conjuntos: ${reglas.length.toLocaleString()}`);
+console.log(`   peor caso de un idioma:      ${peorCaso.toLocaleString()}  (tope ${TOPE_ESTATICAS.toLocaleString()})`);
 console.log(`   con regex: ${conRegex.toLocaleString()}  (tope ${TOPE_REGEX.toLocaleString()})`);
 console.log(`   bloqueo:   ${reglas.filter((r) => r.action.type === 'block').length.toLocaleString()}`);
 console.log(`   excepcion: ${reglas.filter((r) => r.action.type === 'allow').length.toLocaleString()}\n`);

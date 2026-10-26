@@ -14,9 +14,11 @@ Filtros MX is a free, open-source ad blocker with zero telemetry, made in Mexico
 
 • You decide on every site: Full for maximum cleanup, Basic if a site acts up, Off if you want to support it. One click, no hidden menus.
 
+• Removes cookie notices, if you want: an option, off by default, that hides them without accepting them. You accept nothing; the site behaves as if you had not replied.
+
 • Shows you what it did: ad elements hidden and tracker requests stopped on every page, plus the total since you installed it.
 
-• In English and Spanish.
+• In 10 languages: English, Spanish, Portuguese, German, French, Italian, Dutch, Polish, Russian and Chinese. In each one it adds that language’s ad list on its own (EasyList Portuguese, EasyList Germany, Liste FR, RU AdList, EasyList China…), just like uBlock Origin.
 
 ★ YOUR PRIVACY, NO FINE PRINT
 
@@ -36,4 +38,4 @@ Code: https://github.com/edso79/filtros-mx
 Privacy, in detail: https://filtrosmx.com/#privacidad
 Contact: contacto@filtrosmx.com
 
-The base lists are by The EasyList authors (GPLv3 / CC BY-SA 3.0). The YouTube rules and engine are by uBlock Origin, by Raymond Hill and contributors (GPLv3).
+The base lists and the EasyList regional lists are by The EasyList authors (GPLv3 / CC BY-SA 3.0); Liste FR, under CC BY-SA 3.0; RU AdList and EasyList Cookie List, under CC BY 3.0. The YouTube rules and engine are by uBlock Origin, by Raymond Hill and contributors (GPLv3).

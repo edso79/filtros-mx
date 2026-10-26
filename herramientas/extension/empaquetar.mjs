@@ -92,6 +92,16 @@ if (!fs.existsSync(reglas)) {
   }
 }
 
+// Cada conjunto que declara el manifest tiene que existir y estar al dia. Un
+// regional que falta no tumba la carga entera, pero el usuario de ese idioma
+// se queda sin sus reglas y nada lo avisa.
+for (const c of manifiesto.declarative_net_request?.rule_resources || []) {
+  const p = path.join(EXT, c.path);
+  if (!fs.existsSync(p)) { problemas.push(`Falta ${c.path} (conjunto "${c.id}"). Correr construir.mjs.`); continue; }
+  const dias = (Date.now() - fs.statSync(p).mtimeMs) / 86400000;
+  if (dias > 2) problemas.push(`${c.path} tiene ${dias.toFixed(1)} dias. Recompilar con construir.mjs.`);
+}
+
 // Sin scriptlets la extension se instala y YouTube sigue mostrando anuncios de
 // video, sin que nada lo avise. Mismo criterio que con red.json.
 const scriptlets = path.join(EXT, 'reglas', 'scriptlets.json');
@@ -188,6 +198,13 @@ if (pedidos.size) {
       for (const m of txt.matchAll(/\b(?:t|getMessage)\(\s*'(\w+)'/g)) claves.add(m[1]);
     }
   })(escenario);
+  // Los textos de cada grupo de listas se piden por id ('oGrupo_' + g.id) y
+  // el escaneo de arriba no los ve: se anaden desde meta.json.
+  const metaPaq = JSON.parse(fs.readFileSync(path.join(escenario, 'reglas', 'meta.json'), 'utf8'));
+  for (const g of metaPaq.grupos || []) {
+    claves.add('oGrupo_' + g.id);
+    if (g.tipo !== 'regional') claves.add('oGrupo_' + g.id + 'Ayuda');
+  }
   const faltan = [];
   for (const id of idiomas) {
     const msgs = JSON.parse(fs.readFileSync(path.join(escenario, '_locales', id, 'messages.json'), 'utf8'));

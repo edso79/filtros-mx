@@ -1,0 +1,445 @@
+{
+  "extName": {
+    "message": "Filtros MX — Adblocker die ook de doorgeglipte advertenties vangt"
+  },
+  "extShortName": {
+    "message": "Filtros MX"
+  },
+  "idioma": {
+    "message": "nl-NL"
+  },
+  "extDescription": {
+    "message": "Blokkeert advertenties en trackers. Glipt er een door, dan zie je dat en wis je hem met één klik. Gratis, open, geen telemetrie."
+  },
+  "modoGrupo": {
+    "message": "Modus op deze site"
+  },
+  "modoApagado": {
+    "message": "Uit"
+  },
+  "modoBasico": {
+    "message": "Basis"
+  },
+  "modoCompleto": {
+    "message": "Volledig"
+  },
+  "notaApagado": {
+    "message": "Op deze site wordt niets gefilterd."
+  },
+  "notaBasico": {
+    "message": "Alleen de regels van deze site. Ruimt minder op, maar maakt bijna nooit iets kapot."
+  },
+  "notaCompleto": {
+    "message": "Maximale opschoning. Ziet iets er kapot uit, probeer dan Basis."
+  },
+  "notaSinSitio": {
+    "message": "Dit is geen website: hier valt niets te filteren."
+  },
+  "notaExcluido": {
+    "message": "Filtros MX staat hier bewust uit: het is een overheidsportaal zonder iets om te blokkeren."
+  },
+  "recargar": {
+    "message": "Herladen om de wijziging toe te passen"
+  },
+  "cifraOcultos": {
+    "message": "advertentie-elementen verborgen"
+  },
+  "cifraRed": {
+    "message": "advertentie- en trackerverzoeken gestopt"
+  },
+  "cifraRedAyuda": {
+    "message": "Advertentie- en trackerverzoeken die de afgelopen 5 minuten in dit tabblad zijn gestopt. Chrome bewaart niet meer dan dat."
+  },
+  "totalDesde": {
+    "message": "Sinds de installatie: <b>$P1$</b> advertentie-elementen verborgen",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladosTitulo": {
+    "message": "Doorgeglipte advertenties"
+  },
+  "coladosExplica": {
+    "message": "Nog geen enkele lijst dekt ze af. Verwijder ze met één klik — het geldt alleen voor jouw browser."
+  },
+  "coladoServido": {
+    "message": "Advertentie, $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoVacio": {
+    "message": "Lege advertentieruimte, $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoAlcance": {
+    "message": "Verwijderen verbergt $P1$ elementen op deze pagina",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladoFragil": {
+    "message": "Kan stoppen met werken als de site verandert"
+  },
+  "quitar": {
+    "message": "Verwijderen"
+  },
+  "quitado": {
+    "message": "Verwijderd ✓"
+  },
+  "quitarEnApagado": {
+    "message": "Deze site staat op Uit: kies Basis of Volledig om het te laten werken."
+  },
+  "reportar": {
+    "message": "EasyList laten weten zodat het voor iedereen wordt opgelost"
+  },
+  "reportarNota": {
+    "message": "Opent GitHub met de tekst al geschreven. Jij beslist of je hem verstuurt."
+  },
+  "sinColados": {
+    "message": "Op deze pagina zijn geen doorgeglipte advertenties gevonden."
+  },
+  "ceguera": {
+    "message": "Deze pagina laadt advertenties die we niet konden aanwijzen. Zie je er een, gebruik dan „Element verwijderen”."
+  },
+  "sinReglaUno": {
+    "message": "Er is 1 advertentie die niet met een veilige regel te verwijderen is. Stoort ze, gebruik dan „Element verwijderen”."
+  },
+  "sinRegla": {
+    "message": "Er zijn $P1$ advertenties die niet met een veilige regel te verwijderen zijn. Storen ze, gebruik dan „Element verwijderen”.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tuyasTitulo": {
+    "message": "Door jou verwijderd op deze site"
+  },
+  "tuyasExplica": {
+    "message": "Ze blijven alleen in deze browser. Je kunt ze altijd ongedaan maken."
+  },
+  "mostrar": {
+    "message": "Tonen"
+  },
+  "elegir": {
+    "message": "Element verwijderen"
+  },
+  "elegirAyuda": {
+    "message": "Kies met de muis iets op de pagina en het verdwijnt — ook bij volgende bezoeken."
+  },
+  "problema": {
+    "message": "Ziet iets er verkeerd uit?"
+  },
+  "problemaAsunto": {
+    "message": "Filtros MX: probleem op $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "reanalizar": {
+    "message": "Opnieuw analyseren"
+  },
+  "analizando": {
+    "message": "Analyseren…"
+  },
+  "analizado": {
+    "message": "Geanalyseerd ✓"
+  },
+  "noAnalizable": {
+    "message": "Hier niet te analyseren"
+  },
+  "opciones": {
+    "message": "Opties"
+  },
+  "listasDel": {
+    "message": "lijsten van $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "resenaPide": {
+    "message": "Heb je er iets aan? Een beoordeling in de store helpt meer mensen Filtros MX te vinden."
+  },
+  "resenaSi": {
+    "message": "Beoordelen"
+  },
+  "resenaNo": {
+    "message": "Nu niet"
+  },
+  "insigniaColados": {
+    "message": "Filtros MX: er zijn advertenties doorgeglipt op deze pagina. Klik om ze te verwijderen."
+  },
+  "selPista": {
+    "message": "Klik op wat je wilt verwijderen · Esc om te stoppen"
+  },
+  "selUno": {
+    "message": "1 element wordt verborgen"
+  },
+  "selVarios": {
+    "message": "$P1$ elementen worden verborgen",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "selMasGrande": {
+    "message": "Groter"
+  },
+  "selMasChico": {
+    "message": "Kleiner"
+  },
+  "selQuitar": {
+    "message": "Verwijderen"
+  },
+  "selCancelar": {
+    "message": "Annuleren"
+  },
+  "selListo": {
+    "message": "Klaar — het blijft ook bij volgende bezoeken verborgen."
+  },
+  "selDeshacer": {
+    "message": "Ongedaan maken"
+  },
+  "bTitulo": {
+    "message": "Klaar. Filtros MX blokkeert al."
+  },
+  "bLema": {
+    "message": "Gratis, open source en zonder telemetrie. Gemaakt in Mexico."
+  },
+  "bFijarTitulo": {
+    "message": "Eén stap: zet hem vast in de balk"
+  },
+  "bFijar": {
+    "message": "Klik op het puzzelstukje <b>🧩</b> rechtsboven in Chrome en daarna op de <b>punaise</b> naast Filtros MX. Zo zie je op elke pagina hoeveel advertenties er zijn verwijderd, en heb je hem bij de hand als er iets doorglipt."
+  },
+  "bHaceTitulo": {
+    "message": "Wat hij voor je doet"
+  },
+  "bHace1": {
+    "message": "<b>Blokkeert advertenties en trackers</b> meteen, met EasyList, EasyPrivacy en EasyList Dutch: de open lijsten die miljoenen mensen gebruiken. Niets in te stellen."
+  },
+  "bHace2": {
+    "message": "<b>Vangt wat doorglipt.</b> Ontsnapt een advertentie aan alle lijsten, dan wijst Filtros MX die aan in het pictogram en verwijder je hem met één klik."
+  },
+  "bHace3": {
+    "message": "<b>Verwijdert wat in de weg zit.</b> Met „Element verwijderen” kies je iets op de pagina en het verdwijnt — ook bij volgende bezoeken."
+  },
+  "bHaceYoutube": {
+    "message": "<b>YouTube zonder videoadvertenties.</b> Verwijdert de advertenties voor en tijdens video’s met de regels van uBlock Origin."
+  },
+  "bHace4": {
+    "message": "<b>Jij beslist per site.</b> Volledig voor maximale opschoning, Basis als een site raar doet, Uit als je hem wilt steunen."
+  },
+  "bPrivTitulo": {
+    "message": "Je privacy, zonder kleine lettertjes"
+  },
+  "bPriv1": {
+    "message": "<b>Nul telemetrie.</b> Alles gebeurt op je apparaat: niets van wat je bekijkt of wat er wordt geblokkeerd verlaat je browser."
+  },
+  "bPriv2": {
+    "message": "<b>Geen betaalde „acceptabele advertenties”.</b> Geen adverteerder kan betalen om door het filter te komen. Nooit."
+  },
+  "bPriv3": {
+    "message": "<b>Echt gratis.</b> Geen betaalde versie, geen accounts, en de code is open voor wie hem wil nakijken."
+  },
+  "bTodosTitulo": {
+    "message": "Het heeft het web al voor iedereen beter gemaakt"
+  },
+  "bTodos": {
+    "message": "De advertenties die Filtros MX op Mexicaanse nieuwssites vond, zijn gemeld bij EasyList Spanish: <b>12 meldingen, 11 al volledig opgelost</b>. Vandaag blokkeert iedereen die deze lijsten gebruikt ze, welke blocker ook. Vind je er een, dan bereidt de extensie de melding voor je voor."
+  },
+  "bAbrirOpciones": {
+    "message": "Opties openen"
+  },
+  "bVerCodigo": {
+    "message": "Code bekijken"
+  },
+  "oTitulo": {
+    "message": "Filtros MX — Opties"
+  },
+  "oFiltrado": {
+    "message": "Filteren"
+  },
+  "oCosmeticas": {
+    "message": "Advertentieruimtes verbergen"
+  },
+  "oCosmeticasAyuda": {
+    "message": "Sluit de ruimte die de advertentie achterlaat. Het is het grootste deel van het werk van de lijsten: uitzetten laat bijna alles zonder effect."
+  },
+  "oGenericas": {
+    "message": "Volledige opschoning op alle sites <span class=\"suave\">· aanbevolen</span>"
+  },
+  "oGenericasAyuda": {
+    "message": "Past ook de algemene regels toe, die geen enkele site noemen. Dit ruimt het meest op. Ziet een site er kapot uit, zet hem dan via het pictogram op <em>Basis</em>. Uitgeschakeld starten alle sites in Basis."
+  },
+  "oDetector": {
+    "message": "Waarschuw me voor doorgeglipte advertenties"
+  },
+  "oDetectorAyuda": {
+    "message": "Zoekt op elke pagina naar advertenties die geen enkele lijst dekt. De analyse is lokaal: niets verlaat je apparaat."
+  },
+  "oListas": {
+    "message": "Lijsten"
+  },
+  "oListasAyuda": {
+    "message": "EasyList, EasyPrivacy en EasyList Spanish staan altijd aan. Deze komen erbij."
+  },
+  "oGrupo_pt": {
+    "message": "Portugeestalige sites <span class=\"suave\">· EasyList Portuguese</span>"
+  },
+  "oGrupo_de": {
+    "message": "Duitstalige sites <span class=\"suave\">· EasyList Germany</span>"
+  },
+  "oGrupo_fr": {
+    "message": "Franstalige sites <span class=\"suave\">· Liste FR</span>"
+  },
+  "oGrupo_it": {
+    "message": "Italiaanstalige sites <span class=\"suave\">· EasyList Italy</span>"
+  },
+  "oGrupo_nl": {
+    "message": "Nederlandstalige sites <span class=\"suave\">· EasyList Dutch</span>"
+  },
+  "oGrupo_pl": {
+    "message": "Poolstalige sites <span class=\"suave\">· EasyList Polish</span>"
+  },
+  "oGrupo_ru": {
+    "message": "Russische en Oekraïense sites <span class=\"suave\">· RU AdList</span>"
+  },
+  "oGrupo_zh": {
+    "message": "Chineestalige sites <span class=\"suave\">· EasyList China</span>"
+  },
+  "oRegionalAyuda": {
+    "message": "Gaat vanzelf aan als je browser in die taal staat."
+  },
+  "oSinCupo": {
+    "message": "Paste samen met je andere lijsten niet binnen de regellimiet van Chrome: alleen het verbergdeel wordt toegepast."
+  },
+  "oGrupo_cookies": {
+    "message": "Cookiemeldingen verwijderen <span class=\"suave\">· EasyList Cookie List</span>"
+  },
+  "oGrupo_cookiesAyuda": {
+    "message": "Verbergt cookiemeldingen zonder ze te beantwoorden: je accepteert niets, en de site doet alsof je niet hebt geantwoord. Herlaad de pagina om het te zien."
+  },
+  "oAuto": {
+    "message": "automatisch"
+  },
+  "oVolverAuto": {
+    "message": "Terug naar automatisch"
+  },
+  "oSitios": {
+    "message": "Sites met een eigen modus"
+  },
+  "oSitiosAyuda": {
+    "message": "Wat je instelt met de knoppen in het pictogram, hier beheerd."
+  },
+  "oSitiosVacio": {
+    "message": "Geen: alle sites gebruiken de standaardmodus."
+  },
+  "oVolver": {
+    "message": "Terug naar standaard"
+  },
+  "oTuyas": {
+    "message": "Door jou verwijderd"
+  },
+  "oTuyasAyuda": {
+    "message": "Wat je verwijderde met „Verwijderen” of „Element verwijderen”. Het zijn je eigen regels: ze blijven op dit apparaat en worden nergens heen gestuurd."
+  },
+  "oTuyasVacio": {
+    "message": "Nog geen. „Element verwijderen” in het pictogram maakt de eerste."
+  },
+  "oMostrarDeNuevo": {
+    "message": "Weer tonen"
+  },
+  "oAplicando": {
+    "message": "Wat er wordt toegepast"
+  },
+  "oFilaRed": {
+    "message": "Actieve netwerkregels"
+  },
+  "oFilaLineas": {
+    "message": "Gecompileerde filterregels"
+  },
+  "oFilaDominios": {
+    "message": "Sites met eigen regels"
+  },
+  "oFilaSelectores": {
+    "message": "Regels om advertenties te verbergen"
+  },
+  "oFilaExtendidas": {
+    "message": "Geavanceerde regels via onze eigen engine"
+  },
+  "oFilaGrupo": {
+    "message": "$P1$: netwerk- en verbergregels",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaNoExt": {
+    "message": "Niet toepasbaar: geavanceerde regels buiten de engine"
+  },
+  "oFilaNoScript": {
+    "message": "Niet toepasbaar: scriptlets van uBlock Origin"
+  },
+  "oFilaNoRegex": {
+    "message": "Niet toepasbaar: reguliere expressies"
+  },
+  "oFilaNoPopup": {
+    "message": "Niet toepasbaar: pop-upblokkering"
+  },
+  "oFilaYoutube": {
+    "message": "Regels voor YouTube (uBlock Origin $P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaRecortadas": {
+    "message": "Afgekapt door de limiet van Chrome"
+  },
+  "oFilaFecha": {
+    "message": "Lijsten gecompileerd op"
+  },
+  "oComo": {
+    "message": "Hoe het werkt"
+  },
+  "oComo1": {
+    "message": "Filtros MX blokkeert met <strong>dezelfde openbare lijsten</strong> als de meest gebruikte blockers — EasyList, EasyPrivacy, EasyList Spanish en die van jouw taal als die er is —, onderhouden door honderden mensen. <strong>Jouw kopie is van de datum in de tabel hierboven</strong> en wordt bij elke versie van de extensie vernieuwd."
+  },
+  "oComo2": {
+    "message": "Daarbovenop <strong>vangt hij advertenties die geen lijst dekt</strong> op de pagina die je bekijkt, laat je ze met één klik verwijderen en bereidt, als je wilt, de melding voor zodat het voor iedereen wordt opgelost."
+  },
+  "oComo3": {
+    "message": "De tabel hierboven toont ook <strong>wat niet kon worden toegepast</strong>. Een blocker die alleen laat zien wat lukte, laat je geloven dat je beter beschermd bent dan je bent."
+  },
+  "oCredito": {
+    "message": "De basislijsten en de regionale EasyList-lijsten (Portugees, Duits, Italiaans, Nederlands, Pools en Chinees) zijn van The EasyList authors, onder GPLv3 en CC BY-SA 3.0; Liste FR onder CC BY-SA 3.0; RU AdList en EasyList Cookie List onder CC BY 3.0. De YouTube-regels en -engine zijn van uBlock Origin (Raymond Hill en bijdragers), onder GPLv3."
+  },
+  "oVerBienvenida": {
+    "message": "De welkomstpagina opnieuw bekijken"
+  }
+}

@@ -159,9 +159,9 @@ function descargar(fuente) {
 // Las que llevan ruta (/search?) se aplican al host entero: es mas amplio que
 // la regla original, y el error va hacia el lado inocuo — ocultar de menos en
 // la pagina de resultados, no romperla.
-const sinGenericas = { dominios: new Set(), tldComodin: new Set(), prefijos: new Set() };
 
-function anotarSinGenericas(linea) {
+
+function anotarSinGenericas(linea, sinGenericas) {
   const corte = linea.lastIndexOf('$');
   const patron = linea.slice(2, corte);
   const opciones = linea.slice(corte + 1).split(',');
@@ -271,6 +271,20 @@ function reglaDeRed(linea, descartes) {
         return null;
       }
     }
+  }
+
+  // Dos formas que Chrome rechaza y tumban el conjunto ENTERO, halladas el
+  // 23-oct-2026 al sumar las regionales (el validador no las veia):
+  //   "||*xav.*/guang/*.gif" (EasyList China): "||" exige un dominio detras,
+  //     no un comodin. Sin el ancla significa lo mismo: un host cualquiera.
+  //   "@@||$domain=auth.wi-fi.ru" (RU AdList): patron vacio, "todo lo que
+  //     pida ese sitio". Se expresa sin urlFilter, solo con el iniciador; sin
+  //     iniciador casaria con la web entera, y eso se descarta.
+  if (/^(\|\|?|\*|\|\|\*)$/.test(cuerpo)) {
+    if (!condicion.initiatorDomains) { descartes.vacia++; return null; }
+    delete condicion.urlFilter;
+  } else if (cuerpo.startsWith('||*')) {
+    condicion.urlFilter = cuerpo.slice(2);
   }
 
   // El patron viaja en urlFilter, que Chrome exige en ASCII puro.
@@ -428,130 +442,69 @@ function reglaCosmetica(linea) {
 }
 
 // ---------------------------------------------------------------- construir --
-
-console.log('Compilador de listas -> extension MV3\n');
-
-const descartes = {
-  regex: 0, popup: 0, opcion: 0, desconocida: 0, vacia: 0,
-  dominioComodin: 0, tiposEnConflicto: 0, patronNoAscii: 0,
-  cosmeticaExtendida: 0, scriptlet: 0, detalleOpciones: {},
-};
-
-const reglasRed = [];
-const cosmeticasPorDominio = new Map();   // dominio -> Set(selector)
-const cosmeticasGenericas = new Set();
-const excepcionesCosmeticas = new Map();  // dominio -> Set(selector)
-const extendidasPorDominio = new Map();   // dominio -> [regla compilada]
-const extendidasGenericas = [];           // sin dominio: solo con genericas activas
-let extendidasAplicables = 0;
-const resumenFuentes = [];
-
-for (const fuente of FUENTES) {
-  let texto;
-  try {
-    texto = descargar(fuente);
-  } catch (e) {
-    console.log(`   !  ${fuente.nombre}: ${e.message}`);
-    resumenFuentes.push({ nombre: fuente.nombre, error: e.message });
-    continue;
-  }
-
-  let red = 0, cosm = 0, comentarios = 0;
-
-  for (const cruda of texto.split('\n')) {
-    const linea = cruda.trim();
-    if (!linea) continue;
-    if (linea.startsWith('!') || linea.startsWith('[')) { comentarios++; continue; }
-
-    if (/#@?\??\$?#/.test(linea)) {
-      const c = reglaCosmetica(linea);
-      if (!c) continue;
-      if (c.tipo === 'extendidaNoAplicable') { descartes.cosmeticaExtendida++; continue; }
-      if (c.tipo === 'extendidaAplicable') {
-        extendidasAplicables++;
-        if (c.dominios.length === 0) {
-          extendidasGenericas.push(c.compilada);
-        } else {
-          for (const d of c.dominios) {
-            if (d.startsWith('~')) continue;
-            // "dominio.*" (cualquier TLD) nunca casaria con la busqueda por
-            // dominio del cliente: guardarlo seria fingir una cobertura muerta.
-            if (d.includes('*')) { descartes.dominioComodin++; continue; }
-            if (!extendidasPorDominio.has(d)) extendidasPorDominio.set(d, []);
-            extendidasPorDominio.get(d).push(c.compilada);
-          }
-        }
-        cosm++;
-        continue;
-      }
-      if (c.tipo === 'scriptlet') { descartes.scriptlet++; continue; }
-
-      const destino = c.tipo === 'excepcion' ? excepcionesCosmeticas : null;
-      if (destino) {
-        for (const d of c.dominios) {
-          if (!destino.has(d)) destino.set(d, new Set());
-          destino.get(d).add(c.selector);
-        }
-      } else if (c.dominios.length === 0) {
-        cosmeticasGenericas.add(c.selector);
-      } else {
-        for (const d of c.dominios) {
-          if (d.startsWith('~')) continue;
-          if (!cosmeticasPorDominio.has(d)) cosmeticasPorDominio.set(d, new Set());
-          cosmeticasPorDominio.get(d).add(c.selector);
-        }
-      }
-      cosm++;
-      continue;
-    }
-
-    // $generichide: "en este sitio NO apliques las cosmeticas genericas".
-    // DNR no lo entiende —sigue contandose como descarte de red—, pero la
-    // extension SI tiene que respetarlo, porque es la lista diciendo "aqui las
-    // genericas rompen". Hasta la 1.0.0 no importaba: las genericas solo iban
-    // en Reforzado. Al encenderlas de fabrica (7-oct-2026), ignorarlo habria
-    // roto Amazon Mexico, la cuenta de Google y el panel del router de casa.
-    if (/^@@.*[$,]generichide(,|$)/.test(linea)) anotarSinGenericas(linea);
-
-    const r = reglaDeRed(linea, descartes);
-    if (r) { reglasRed.push({ ...r, _peso: fuente.peso }); red++; }
-  }
-
-  resumenFuentes.push({ nombre: fuente.nombre, red, cosm, comentarios });
-  console.log(`   ok ${fuente.nombre.padEnd(18)} ${String(red).padStart(6)} de red   ${String(cosm).padStart(6)} cosmeticas`);
-}
-
-// --- Fusion de reglas por dominio ---
 //
-// Aqui es donde EasyList entera pasa de no caber a caber con holgura.
-const porFirma = new Map();
-const sueltas = [];
+// Desde la 1.2.0 se compila por GRUPOS, y cada grupo es un conjunto de reglas
+// DNR propio con su mapa cosmetico propio:
+//
+//   principal  EasyList + EasyPrivacy + EasyList Spanish + mexico.txt. Siempre.
+//   regional   una lista por idioma, que la extension enciende sola cuando el
+//              navegador esta en ese idioma. Medido el 23-oct-2026: buena parte
+//              de las instalaciones son de navegadores en portugues de Brasil,
+//              y para ellos la principal no trae ni una regla de sus medios.
+//   opcional   apagado de fabrica; lo enciende la persona en opciones.
+//
+// Conjuntos separados y no uno solo por una razon de producto: Chrome deja
+// encender y apagar un conjunto estatico entero sin tocar el paquete
+// (updateEnabledRulesets), asi que un usuario en espanol no carga las reglas de
+// los medios brasilenos ni la lista de cookies si no la pidio.
 
-for (const r of reglasRed) {
-  if (r.fusionable) {
-    const f = firma(r);
-    if (!porFirma.has(f)) porFirma.set(f, { modelo: r, dominios: new Set(), peso: r._peso });
-    const g = porFirma.get(f);
-    g.dominios.add(r.dominio);
-    g.peso = Math.min(g.peso, r._peso);
-  } else {
-    sueltas.push(r);
-  }
-}
+const GRUPOS = [
+  { id: 'principal', tipo: 'base', fuentes: FUENTES, exclusiones: true },
+  {
+    id: 'pt',
+    tipo: 'regional',
+    idiomas: ['pt'],
+    fuentes: [{
+      id: 'easylistportuguese',
+      nombre: 'EasyList Portuguese',
+      url: 'https://easylist-downloads.adblockplus.org/easylistportuguese.txt',
+      peso: 4,
+    }],
+  },
+  // Las demas regionales (1.2.0, pedido de Edgar: "hay que cubrir los idiomas
+  // tambien"). Las mismas que uBlock Origin ofrece por idioma, todas con
+  // licencia declarada en su encabezado (verificado el 23-oct-2026, detalle en
+  // filtros/ATRIBUCION.md). RU AdList cubre tambien ucraniano, bielorruso y
+  // kazajo, que es como la activa uBlock.
+  ...[
+    ['de', ['de'], 'EasyList Germany', 'https://easylist.to/easylistgermany/easylistgermany.txt'],
+    ['fr', ['fr'], 'Liste FR', 'https://easylist-downloads.adblockplus.org/liste_fr.txt'],
+    ['it', ['it'], 'EasyList Italy', 'https://easylist-downloads.adblockplus.org/easylistitaly.txt'],
+    ['nl', ['nl'], 'EasyList Dutch', 'https://easylist-downloads.adblockplus.org/easylistdutch.txt'],
+    ['pl', ['pl'], 'EasyList Polish', 'https://easylist-downloads.adblockplus.org/easylistpolish.txt'],
+    ['ru', ['ru', 'uk', 'be', 'kk'], 'RU AdList', 'https://easylist-downloads.adblockplus.org/advblock.txt'],
+    ['zh', ['zh'], 'EasyList China', 'https://easylist-downloads.adblockplus.org/easylistchina.txt'],
+  ].map(([id, idiomas, nombre, url]) => ({
+    id, tipo: 'regional', idiomas,
+    fuentes: [{ id: 'regional-' + id, nombre, url, peso: 4 }],
+  })),
+  {
+    id: 'cookies',
+    tipo: 'opcional',
+    fuentes: [{
+      id: 'easylistcookie',
+      nombre: 'EasyList Cookie List',
+      url: 'https://secure.fanboy.co.nz/fanboy-cookiemonster.txt',
+      peso: 5,
+    }],
+  },
+];
 
-const lineasFusionables = [...porFirma.values()].reduce((a, g) => a + g.dominios.size, 0);
-const fusionadas = [];
-for (const g of porFirma.values()) {
-  const todos = [...g.dominios];
-  for (let i = 0; i < todos.length; i += DOMINIOS_POR_REGLA) {
-    fusionadas.push({
-      priority: g.modelo.priority,
-      action: g.modelo.action,
-      condition: { ...g.modelo.resto, requestDomains: todos.slice(i, i + DOMINIOS_POR_REGLA) },
-      _peso: g.peso,
-    });
-  }
-}
+// Archivos de cada grupo. El principal conserva los nombres de siempre: los
+// arneses de medicion y la casilla de omision de revision los conocen asi.
+const archivosDe = (id) => id === 'principal'
+  ? { red: 'red.json', cosmeticas: 'cosmeticas.json' }
+  : { red: `red-${id}.json`, cosmeticas: `cosmeticas-${id}.json` };
 
 // --- Sitios donde la extension NO actua, por decision de producto ------------
 //
@@ -569,100 +522,332 @@ for (const g of porFirma.values()) {
 // subdominios, y el SAT reparte el tramite entre loginda.siat, cfdiau,
 // portalcfdi.facturaelectronica y mas. El apagado por sitio del popup guarda por
 // host exacto, asi que no cubre este caso — por eso hace falta aqui.
+//
+// Vive solo en el conjunto principal y basta: la prioridad de DNR se compara
+// entre TODOS los conjuntos de la extension, y este 5 le gana al 1-4 de
+// cualquier grupo.
 const SITIOS_EXCLUIDOS = ['sat.gob.mx'];
 
-// allowAllRequests con main_frame y sub_frame: permite TODA peticion hecha desde
-// una pagina de esos dominios. Prioridad 5, por encima del 4 de las importantes.
-const exclusiones = SITIOS_EXCLUIDOS.map((dominio) => ({
-  priority: 5,
-  action: { type: 'allowAllRequests' },
-  condition: { requestDomains: [dominio], resourceTypes: ['main_frame', 'sub_frame'] },
-  _peso: -1, // van delante de todo, incluidas las excepciones @@
-}));
-
-const candidatas = [...fusionadas, ...sueltas.map(({ fusionable, dominio, resto, ...r }) => r)];
-candidatas.unshift(...exclusiones);
-
-// --- Presupuesto ---
-//
-// Se ordena por peso de fuente antes de recortar, para que lo que se pierda sea
-// lo que menos usuarios cubre. Las excepciones (@@) NUNCA se recortan: perder
-// una excepcion no deja de bloquear, deja ROTO un sitio que funcionaba.
 const esPermiso = (r) => r.action.type === 'allow' || r.action.type === 'allowAllRequests';
-candidatas.sort((a, b) => {
-  if (esPermiso(a) !== esPermiso(b)) return esPermiso(a) ? -1 : 1;
-  return a._peso - b._peso;
-});
 
-const lineasTotales = reglasRed.length;
-const totalAntes = candidatas.length;
-const recortadas = Math.max(0, totalAntes - TOPE_ESTATICAS);
-const finales = candidatas.slice(0, TOPE_ESTATICAS).map((r, i) => {
-  const { _peso, ...limpia } = r;
-  return { id: i + 1, ...limpia };
-});
+function compilarGrupo(grupo, tope) {
+  const descartes = {
+    regex: 0, popup: 0, opcion: 0, desconocida: 0, vacia: 0,
+    dominioComodin: 0, tiposEnConflicto: 0, patronNoAscii: 0,
+    cosmeticaExtendida: 0, scriptlet: 0, detalleOpciones: {},
+  };
 
-// Como las excepciones van ordenadas PRIMERO, ocupan los ids 1..reglasPermiso.
-// El popup necesita ese numero para el contador de red: getMatchedRules no dice
-// si la regla que caso era de bloqueo o de permiso, y contar un permiso como
-// bloqueo seria presumir un bloqueo que no ocurrio.
-const reglasPermiso = finales.filter(esPermiso).length;
+  const reglasRed = [];
+  const cosmeticasPorDominio = new Map();   // dominio -> Set(selector)
+  const cosmeticasGenericas = new Set();
+  const excepcionesCosmeticas = new Map();  // dominio -> Set(selector)
+  const extendidasPorDominio = new Map();   // dominio -> [regla compilada]
+  const extendidasGenericas = [];           // sin dominio: solo con genericas activas
+  const sinGenericas = { dominios: new Set(), tldComodin: new Set(), prefijos: new Set() };
+  let extendidasAplicables = 0;
+  const resumenFuentes = [];
 
-// --- Escribir ---
+  for (const fuente of grupo.fuentes) {
+    let texto;
+    try {
+      texto = descargar(fuente);
+    } catch (e) {
+      console.log(`   !  ${fuente.nombre}: ${e.message}`);
+      resumenFuentes.push({ nombre: fuente.nombre, error: e.message });
+      continue;
+    }
+
+    let red = 0, cosm = 0, comentarios = 0;
+
+    for (const cruda of texto.split('\n')) {
+      const linea = cruda.trim();
+      if (!linea) continue;
+      if (linea.startsWith('!') || linea.startsWith('[')) { comentarios++; continue; }
+
+      if (/#@?\??\$?#/.test(linea)) {
+        const c = reglaCosmetica(linea);
+        if (!c) continue;
+        if (c.tipo === 'extendidaNoAplicable') { descartes.cosmeticaExtendida++; continue; }
+        if (c.tipo === 'extendidaAplicable') {
+          extendidasAplicables++;
+          if (c.dominios.length === 0) {
+            extendidasGenericas.push(c.compilada);
+          } else {
+            for (const d of c.dominios) {
+              if (d.startsWith('~')) continue;
+              // "dominio.*" (cualquier TLD) nunca casaria con la busqueda por
+              // dominio del cliente: guardarlo seria fingir una cobertura muerta.
+              if (d.includes('*')) { descartes.dominioComodin++; continue; }
+              if (!extendidasPorDominio.has(d)) extendidasPorDominio.set(d, []);
+              extendidasPorDominio.get(d).push(c.compilada);
+            }
+          }
+          cosm++;
+          continue;
+        }
+        if (c.tipo === 'scriptlet') { descartes.scriptlet++; continue; }
+
+        const destino = c.tipo === 'excepcion' ? excepcionesCosmeticas : null;
+        if (destino) {
+          for (const d of c.dominios) {
+            if (!destino.has(d)) destino.set(d, new Set());
+            destino.get(d).add(c.selector);
+          }
+        } else if (c.dominios.length === 0) {
+          cosmeticasGenericas.add(c.selector);
+        } else {
+          for (const d of c.dominios) {
+            if (d.startsWith('~')) continue;
+            if (!cosmeticasPorDominio.has(d)) cosmeticasPorDominio.set(d, new Set());
+            cosmeticasPorDominio.get(d).add(c.selector);
+          }
+        }
+        cosm++;
+        continue;
+      }
+
+      // $generichide: "en este sitio NO apliques las cosmeticas genericas".
+      // DNR no lo entiende —sigue contandose como descarte de red—, pero la
+      // extension SI tiene que respetarlo, porque es la lista diciendo "aqui las
+      // genericas rompen". Hasta la 1.0.0 no importaba: las genericas solo iban
+      // en Reforzado. Al encenderlas de fabrica (7-oct-2026), ignorarlo habria
+      // roto Amazon Mexico, la cuenta de Google y el panel del router de casa.
+      if (/^@@.*[$,]generichide(,|$)/.test(linea)) anotarSinGenericas(linea, sinGenericas);
+
+      const r = reglaDeRed(linea, descartes);
+      if (r) { reglasRed.push({ ...r, _peso: fuente.peso }); red++; }
+    }
+
+    resumenFuentes.push({ nombre: fuente.nombre, url: fuente.url || null, red, cosm, comentarios });
+    console.log(`   ok ${fuente.nombre.padEnd(20)} ${String(red).padStart(6)} de red   ${String(cosm).padStart(6)} cosmeticas`);
+  }
+
+  // --- Fusion de reglas por dominio ---
+  //
+  // Aqui es donde EasyList entera pasa de no caber a caber con holgura.
+  const porFirma = new Map();
+  const sueltas = [];
+
+  for (const r of reglasRed) {
+    if (r.fusionable) {
+      const f = firma(r);
+      if (!porFirma.has(f)) porFirma.set(f, { modelo: r, dominios: new Set(), peso: r._peso });
+      const g = porFirma.get(f);
+      g.dominios.add(r.dominio);
+      g.peso = Math.min(g.peso, r._peso);
+    } else {
+      sueltas.push(r);
+    }
+  }
+
+  const lineasFusionables = [...porFirma.values()].reduce((a, g) => a + g.dominios.size, 0);
+  const fusionadas = [];
+  for (const g of porFirma.values()) {
+    const todos = [...g.dominios];
+    for (let i = 0; i < todos.length; i += DOMINIOS_POR_REGLA) {
+      fusionadas.push({
+        priority: g.modelo.priority,
+        action: g.modelo.action,
+        condition: { ...g.modelo.resto, requestDomains: todos.slice(i, i + DOMINIOS_POR_REGLA) },
+        _peso: g.peso,
+      });
+    }
+  }
+
+  // allowAllRequests con main_frame y sub_frame: permite TODA peticion hecha
+  // desde una pagina de esos dominios. Prioridad 5, por encima del 4 de las
+  // importantes.
+  const exclusiones = grupo.exclusiones ? SITIOS_EXCLUIDOS.map((dominio) => ({
+    priority: 5,
+    action: { type: 'allowAllRequests' },
+    condition: { requestDomains: [dominio], resourceTypes: ['main_frame', 'sub_frame'] },
+    _peso: -1, // van delante de todo, incluidas las excepciones @@
+  })) : [];
+
+  const candidatas = [...fusionadas, ...sueltas.map(({ fusionable, dominio, resto, ...r }) => r)];
+  candidatas.unshift(...exclusiones);
+
+  // --- Presupuesto ---
+  //
+  // Se ordena por peso de fuente antes de recortar, para que lo que se pierda sea
+  // lo que menos usuarios cubre. Las excepciones (@@) NUNCA se recortan: perder
+  // una excepcion no deja de bloquear, deja ROTO un sitio que funcionaba.
+  candidatas.sort((a, b) => {
+    if (esPermiso(a) !== esPermiso(b)) return esPermiso(a) ? -1 : 1;
+    return a._peso - b._peso;
+  });
+
+  const totalAntes = candidatas.length;
+  const recortadas = Math.max(0, totalAntes - tope);
+  const finales = candidatas.slice(0, tope).map((r, i) => {
+    const { _peso, ...limpia } = r;
+    return { id: i + 1, ...limpia };
+  });
+
+  // Como las excepciones van ordenadas PRIMERO, ocupan los ids 1..reglasPermiso.
+  // El popup necesita ese numero para el contador de red: getMatchedRules no dice
+  // si la regla que caso era de bloqueo o de permiso, y contar un permiso como
+  // bloqueo seria presumir un bloqueo que no ocurrio. Los ids son POR CONJUNTO:
+  // cada grupo empieza en 1 y lleva su propio numero.
+  const reglasPermiso = finales.filter(esPermiso).length;
+
+  const cosmeticas = {
+    porDominio: Object.fromEntries([...cosmeticasPorDominio].map(([d, s]) => [d, [...s]])),
+    excepciones: Object.fromEntries([...excepcionesCosmeticas].map(([d, s]) => [d, [...s]])),
+    // Las genericas van en el modo Completo, que es el de fabrica desde la 1.0.0,
+    // salvo en los sitios donde la propia lista dice que rompen.
+    genericas: [...cosmeticasGenericas],
+    sinGenericas: {
+      dominios: [...sinGenericas.dominios],
+      tldComodin: [...sinGenericas.tldComodin],
+      prefijos: [...sinGenericas.prefijos],
+    },
+    // Extendidas ya compiladas: {css} para :has() puro (CSS nativo), {o,i,t}
+    // para las de texto, que evalua el motor del content script.
+    extendidas: {
+      porDominio: Object.fromEntries([...extendidasPorDominio]),
+      genericas: extendidasGenericas,
+    },
+  };
+
+  const archivos = archivosDe(grupo.id);
+  fs.writeFileSync(path.join(DESTINO, archivos.red), JSON.stringify(finales));
+  fs.writeFileSync(path.join(DESTINO, archivos.cosmeticas), JSON.stringify(cosmeticas));
+
+  return {
+    finales, reglasPermiso, totalAntes, recortadas, sueltas, lineasFusionables,
+    lineasTotales: reglasRed.length, resumenFuentes, descartes,
+    cosmeticasPorDominio, cosmeticasGenericas, extendidasPorDominio,
+    extendidasGenericas, extendidasAplicables, archivos,
+    selectores: [...cosmeticasPorDominio.values()].reduce((a, s) => a + s.size, 0),
+  };
+}
+
+// --- Compilar ---
 fs.mkdirSync(DESTINO, { recursive: true });
 
-fs.writeFileSync(path.join(DESTINO, 'red.json'), JSON.stringify(finales));
+// Restos de grupos que ya no existen: un red-xx.json huerfano viajaria en el
+// paquete sin que nada lo declare.
+for (const f of fs.readdirSync(DESTINO)) {
+  const m = /^(?:red|cosmeticas)-([a-z]+)\.json$/.exec(f);
+  if (m && !GRUPOS.some((g) => g.id === m[1])) fs.unlinkSync(path.join(DESTINO, f));
+}
 
-const cosmeticas = {
-  porDominio: Object.fromEntries([...cosmeticasPorDominio].map(([d, s]) => [d, [...s]])),
-  excepciones: Object.fromEntries([...excepcionesCosmeticas].map(([d, s]) => [d, [...s]])),
-  // Las genericas van en el modo Completo, que es el de fabrica desde la 1.0.0,
-  // salvo en los sitios donde la propia lista dice que rompen.
-  genericas: [...cosmeticasGenericas],
-  sinGenericas: {
-    dominios: [...sinGenericas.dominios],
-    tldComodin: [...sinGenericas.tldComodin],
-    prefijos: [...sinGenericas.prefijos],
-  },
-  // Extendidas ya compiladas: {css} para :has() puro (CSS nativo), {o,i,t}
-  // para las de texto, que evalua el motor del content script.
-  extendidas: {
-    porDominio: Object.fromEntries([...extendidasPorDominio]),
-    genericas: extendidasGenericas,
-  },
-};
-fs.writeFileSync(path.join(DESTINO, 'cosmeticas.json'), JSON.stringify(cosmeticas));
+// El presupuesto de 30,000 garantizadas es de la extension ENTERA, no por
+// conjunto. Pero las regionales no se encienden juntas: cada una va con su
+// idioma. Repartirlo en fila, como si todas fueran a la vez, recortaba la
+// china y la de cookies aunque nadie las tuviera puestas con las otras siete
+// (medido el 23-oct-2026: 3,541 y 1,787 reglas perdidas).
+//
+// El reparto real: la principal primero, despues las opcionales, y CADA
+// regional recibe lo que queda tras esas dos — el caso de un usuario con un
+// idioma regional y la lista de cookies encendida. Si alguien tiene varios
+// idiomas, fondo.js las enciende en orden de preferencia mientras quepan y
+// dice cual no cupo, en vez de fallar en silencio.
+const resultados = {};
+let restante = TOPE_ESTATICAS;
+const orden = [
+  ...GRUPOS.filter((g) => g.tipo === 'base'),
+  ...GRUPOS.filter((g) => g.tipo === 'opcional'),
+];
+for (const grupo of orden) {
+  console.log(`
+[${grupo.id}]`);
+  const r = compilarGrupo(grupo, restante);
+  resultados[grupo.id] = r;
+  restante -= r.finales.length;
+  if (r.recortadas > 0) console.log(`   !  ${r.recortadas.toLocaleString()} reglas recortadas por presupuesto`);
+}
+const cupoRegional = restante;
+for (const grupo of GRUPOS.filter((g) => g.tipo === 'regional')) {
+  console.log(`
+[${grupo.id}]`);
+  const r = compilarGrupo(grupo, cupoRegional);
+  resultados[grupo.id] = r;
+  if (r.recortadas > 0) console.log(`   !  ${r.recortadas.toLocaleString()} reglas recortadas por presupuesto`);
+}
 
+// El manifest declara los conjuntos a mano. Si un grupo se compila y el
+// manifest no lo declara, sus reglas viajan en el paquete y nunca se aplican:
+// el fallo silencioso de siempre. Se comprueba aqui, no en la tienda.
+{
+  const manifest = JSON.parse(fs.readFileSync(path.join(RAIZ, 'extension', 'manifest.json'), 'utf8'));
+  const declarados = manifest.declarative_net_request?.rule_resources || [];
+  for (const g of GRUPOS) {
+    const d = declarados.find((x) => x.id === g.id);
+    const esperado = 'reglas/' + archivosDe(g.id).red;
+    if (!d || d.path !== esperado) {
+      throw new Error(`manifest.json no declara el conjunto "${g.id}" con path ${esperado}`);
+    }
+    // Solo la principal arranca encendida: las demas las enciende fondo.js
+    // segun idioma o ajuste. Encendidas de fabrica, un usuario en espanol
+    // cargaria la lista de cookies sin haberla pedido.
+    if (d.enabled !== (g.id === 'principal')) {
+      throw new Error(`manifest.json: el conjunto "${g.id}" debe ir con enabled: ${g.id === 'principal'}`);
+    }
+  }
+}
+
+const p = resultados.principal;
 const meta = {
   compilado: new Date().toISOString(),
-  fuentes: resumenFuentes,
-  lineasDeRedCompiladas: lineasTotales,
-  reglasRed: finales.length,
-  reglasPermiso,
-  reglasRedAntesDelTope: totalAntes,
-  lineasFusionadasEnRequestDomains: lineasFusionables,
-  reglasNoFusionables: sueltas.length,
-  recortadasPorPresupuesto: recortadas,
-  dominiosConCosmeticas: cosmeticasPorDominio.size,
-  selectoresCosmeticos: [...cosmeticasPorDominio.values()].reduce((a, s) => a + s.size, 0),
-  cosmeticasGenericas: cosmeticasGenericas.size,
-  extendidasAplicables,
-  extendidasNoAplicables: descartes.cosmeticaExtendida,
-  descartes,
+  fuentes: p.resumenFuentes,
+  lineasDeRedCompiladas: p.lineasTotales,
+  reglasRed: p.finales.length,
+  reglasPermiso: p.reglasPermiso,
+  reglasRedAntesDelTope: p.totalAntes,
+  lineasFusionadasEnRequestDomains: p.lineasFusionables,
+  reglasNoFusionables: p.sueltas.length,
+  recortadasPorPresupuesto: p.recortadas,
+  dominiosConCosmeticas: p.cosmeticasPorDominio.size,
+  selectoresCosmeticos: p.selectores,
+  cosmeticasGenericas: p.cosmeticasGenericas.size,
+  extendidasAplicables: p.extendidasAplicables,
+  extendidasNoAplicables: p.descartes.cosmeticaExtendida,
+  descartes: p.descartes,
+  // Lo que fondo.js necesita para encender cada grupo y el popup para contar
+  // bien sus bloqueos. La principal no va aqui: esta siempre.
+  grupos: GRUPOS.filter((g) => g.id !== 'principal').map((g) => {
+    const r = resultados[g.id];
+    return {
+      id: g.id,
+      tipo: g.tipo,
+      ...(g.idiomas ? { idiomas: g.idiomas } : {}),
+      cosmeticas: 'reglas/' + r.archivos.cosmeticas,
+      fuentes: r.resumenFuentes,
+      reglasRed: r.finales.length,
+      reglasPermiso: r.reglasPermiso,
+      recortadasPorPresupuesto: r.recortadas,
+      selectoresCosmeticos: r.selectores,
+      cosmeticasGenericas: r.cosmeticasGenericas.size,
+    };
+  }),
 };
 fs.writeFileSync(path.join(DESTINO, 'meta.json'), JSON.stringify(meta, null, 2));
 
 // --- Informe ---
-console.log('\n=== LO QUE ENTRO ===\n');
+const { descartes, sueltas, lineasTotales, lineasFusionables, finales, recortadas,
+  cosmeticasPorDominio, cosmeticasGenericas, extendidasAplicables,
+  extendidasPorDominio, extendidasGenericas } = p;
+
+console.log('\n=== LO QUE ENTRO (principal) ===\n');
 console.log(`   lineas de red compiladas: ${lineasTotales.toLocaleString()}`);
 console.log(`      de las cuales fusionadas por dominio: ${lineasFusionables.toLocaleString()}`);
 console.log(`      que no se pueden fusionar (patron):   ${sueltas.length.toLocaleString()}`);
 console.log(`   -> reglas DNR resultantes: ${finales.length.toLocaleString()}  (tope ${TOPE_ESTATICAS.toLocaleString()})`);
 console.log(`   dominios con cosmeticas:  ${cosmeticasPorDominio.size.toLocaleString()}`);
 console.log(`   selectores cosmeticos:    ${meta.selectoresCosmeticos.toLocaleString()}`);
-console.log(`   genericas (no activas):   ${cosmeticasGenericas.size.toLocaleString()}`);
+console.log(`   genericas:                ${cosmeticasGenericas.size.toLocaleString()}`);
 
-console.log('\n=== LO QUE SE DESCARTO, Y POR QUE ===\n');
+console.log('\n=== GRUPOS (cada uno, su conjunto DNR) ===\n');
+for (const g of meta.grupos) {
+  console.log(`   ${g.id.padEnd(9)} ${g.tipo.padEnd(9)} ${String(g.reglasRed).padStart(6)} reglas DNR  ${String(g.selectoresCosmeticos).padStart(6)} selectores  ${String(g.cosmeticasGenericas).padStart(6)} genericas`);
+}
+const fijo = TOPE_ESTATICAS - cupoRegional;
+const mayor = Math.max(0, ...meta.grupos.filter((g) => g.tipo === 'regional').map((g) => g.reglasRed));
+console.log(`   peor caso de un idioma: principal + opcionales + la regional mayor = ${(fijo + mayor).toLocaleString()} de ${TOPE_ESTATICAS.toLocaleString()}`);
+
+console.log('\n=== LO QUE SE DESCARTO, Y POR QUE (principal) ===\n');
 console.log('   Esto no es letra chica: es lo que la extension NO va a bloquear.\n');
 if (recortadas > 0) {
   console.log(`   ${recortadas.toLocaleString()} reglas no caben en el presupuesto de ${TOPE_ESTATICAS.toLocaleString()}.`);
@@ -689,9 +874,10 @@ if (top.length) {
 }
 
 console.log(`\nEscrito en ${path.relative(process.cwd(), DESTINO)}/`);
-console.log('   red.json         reglas de declarativeNetRequest');
-console.log('   cosmeticas.json  mapa dominio -> selectores');
-console.log('   meta.json        de donde salio cada cosa y que se descarto');
+console.log('   red.json         reglas de declarativeNetRequest (principal)');
+console.log('   cosmeticas.json  mapa dominio -> selectores (principal)');
+console.log('   red-*.json, cosmeticas-*.json  lo mismo por grupo');
+console.log('   meta.json        de donde salio cada cosa, que se descarto y los grupos');
 
 // Scriptlets de YouTube (1.1.0): van en el mismo paso para que nunca se empaquete
 // una version con listas de hoy y reglas de YouTube de otro dia. YouTube

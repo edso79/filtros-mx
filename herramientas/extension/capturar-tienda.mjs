@@ -40,6 +40,9 @@ const ESCENAS = [
     archivo: '1-bloqueo.png',
     tipo: 'popup',
     urls: ['https://www.zocalo.com.mx/'],
+    // En portugues, un medio brasileno: es lo que vera quien instala desde alli,
+    // con EasyList Portuguese encendida sola por el idioma.
+    urlsPt: ['https://www.terra.com.br/', 'https://g1.globo.com/'],
     es: {
       titulo: 'Bloquea anuncios y rastreadores <em>desde el primer minuto</em>',
       pie: 'Con las listas abiertas que usan millones de personas. Sin configurar nada, y en cada página te dice lo que quitó.',
@@ -47,6 +50,10 @@ const ESCENAS = [
     en: {
       titulo: 'Blocks ads and trackers <em>from the very first minute</em>',
       pie: 'With the open filter lists millions of people rely on. Nothing to configure, and on every page it shows you what it removed.',
+    },
+    pt: {
+      titulo: 'Bloqueia anúncios e rastreadores <em>desde o primeiro minuto</em>',
+      pie: 'Com as listas abertas que milhões de pessoas usam, incluindo a EasyList Portuguese. Sem configurar nada, e em cada página mostra o que removeu.',
     },
   },
   {
@@ -63,6 +70,10 @@ const ESCENAS = [
     en: {
       titulo: 'YouTube <em>without video ads</em>',
       pie: 'Using the rules of uBlock Origin. Measured on 12 popular videos: none with an ad, all 12 playing.',
+    },
+    pt: {
+      titulo: 'YouTube <em>sem anúncios em vídeo</em>',
+      pie: 'Com as regras do uBlock Origin. Medido em 12 vídeos muito vistos: nenhum com anúncio, os 12 reproduzindo.',
     },
   },
   {
@@ -88,12 +99,17 @@ const ESCENAS = [
       titulo: 'If an ad <em>slips through</em>, it points it out',
       pie: 'It finds the ads no filter list covers yet. Remove them in one click — and if you want, tell EasyList so they get fixed for everyone.',
     },
+    pt: {
+      titulo: 'Se um anúncio <em>escapar</em>, ele mostra',
+      pie: 'Detecta a publicidade que nenhuma lista cobre ainda. Você remove com um clique e, se quiser, avisa a EasyList para corrigir para todos.',
+    },
   },
   {
     archivo: '4-quitar.png',
     tipo: 'selector',
     url: 'https://es.wikipedia.org/wiki/Monterrey',
     urlEn: 'https://en.wikipedia.org/wiki/Monterrey',
+    urlPt: 'https://pt.wikipedia.org/wiki/Monterrei',
     // Lo primero que exista: el banner de aviso de Wikipedia es exactamente
     // "algo que estorba"; si ese dia no hay, la imagen de la ficha.
     objetivos: ['#siteNotice #centralNotice', '#siteNotice', '.infobox img', '#firstHeading'],
@@ -104,6 +120,10 @@ const ESCENAS = [
     en: {
       titulo: 'Remove <em>whatever gets in your way</em>',
       pie: 'Pick anything on the page with your mouse and it disappears — on future visits too. Undo it any time.',
+    },
+    pt: {
+      titulo: 'Remova <em>o que atrapalha</em>',
+      pie: 'Escolha com o mouse qualquer coisa da página e ela some, também nas próximas visitas. Dá para desfazer quando quiser.',
     },
   },
   {
@@ -117,6 +137,10 @@ const ESCENAS = [
     en: {
       titulo: 'Zero telemetry. <em>Zero paid ads.</em>',
       pie: 'Nothing you browse leaves your browser, no advertiser can pay to get past the filter, and the code is open.',
+    },
+    pt: {
+      titulo: 'Zero telemetria. <em>Zero anúncios pagos.</em>',
+      pie: 'Nada do que você vê sai do seu navegador, nenhum anunciante pode pagar para passar pelo filtro, e o código é aberto.',
     },
   },
 ];
@@ -141,9 +165,11 @@ const soloPromo = process.argv.includes('--solo-promo');
 // del lienzo en ingles, y salida en tienda-capturas/en/ — es lo que se sube a la
 // ficha en ingles. Sin la bandera, todo en espa~nol, como siempre.
 const IDIOMA = process.argv.includes('--lang') ? process.argv[process.argv.indexOf('--lang') + 1] : 'es';
-if (!['es', 'en'].includes(IDIOMA)) { console.error('--lang es|en'); process.exit(2); }
+if (!['es', 'en', 'pt'].includes(IDIOMA)) { console.error('--lang es|en|pt'); process.exit(2); }
+// Chrome necesita la variante: "pt" a secas no carga _locales/pt_BR.
+const LANG_CHROME = { es: 'es', en: 'en', pt: 'pt-BR' }[IDIOMA];
 const chromeExe = process.argv[2] && fs.existsSync(process.argv[2]) ? process.argv[2] : buscarChrome();
-const SALIDA = IDIOMA === 'en' ? path.join(SALIDA_BASE, 'en') : SALIDA_BASE;
+const SALIDA = IDIOMA === 'es' ? SALIDA_BASE : path.join(SALIDA_BASE, IDIOMA);
 if (!chromeExe) {
   console.error('No encuentro Chrome for Testing. Instalalo con:');
   console.error('  npx @puppeteer/browsers install chrome@stable');
@@ -278,9 +304,11 @@ function promocional(ancho, alto, iconoB64) {
       font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
   </style></head><body>
     <div class="fila"><img src="data:image/png;base64,${iconoB64}"><b>Filtros MX</b></div>
-    ${IDIOMA === 'en'
-      ? '<h1>Blocks ads and trackers.<br>And <em>catches the ones that slip through.</em></h1><p>free · open source · no telemetry · made in Mexico</p>'
-      : '<h1>Bloquea anuncios y rastreadores.<br>Y <em>atrapa los que se cuelan.</em></h1><p>gratis · código abierto · sin telemetría · hecho en México</p>'}
+    ${{
+      en: '<h1>Blocks ads and trackers.<br>And <em>catches the ones that slip through.</em></h1><p>free · open source · no telemetry · made in Mexico</p>',
+      pt: '<h1>Bloqueia anúncios e rastreadores.<br>E <em>pega os que escapam.</em></h1><p>grátis · código aberto · sem telemetria · feito no México</p>',
+      es: '<h1>Bloquea anuncios y rastreadores.<br>Y <em>atrapa los que se cuelan.</em></h1><p>gratis · código abierto · sin telemetría · hecho en México</p>',
+    }[IDIOMA]}
   </body></html>`;
 }
 
@@ -292,7 +320,7 @@ const chrome = spawn(chromeExe, [
   '--no-first-run', '--no-default-browser-check', '--disable-sync',
   '--hide-scrollbars',
   '--window-size=1280,800',
-  `--lang=${IDIOMA}`,
+  `--lang=${LANG_CHROME}`,
   'about:blank',
 ], { stdio: 'ignore' });
 
@@ -368,7 +396,7 @@ try {
       // Popup pintado con los datos REALES del detector sobre un sitio real,
       // en el modo de fabrica (Completo).
       let hecho = false;
-      for (const url of esc.urls) {
+      for (const url of (IDIOMA === 'pt' && esc.urlsPt) || esc.urls) {
         const host = new URL(url).hostname;
         await evaluar(cExt, `chrome.runtime.sendMessage({ tipo: 'fijarModo', host: ${JSON.stringify(host)}, modo: 'completo' })`);
         const { pest, cPag } = await cargar(url);
@@ -424,7 +452,7 @@ try {
       // "Quitar un elemento" en accion: el selector real, inyectado como lo
       // inyecta el popup, con el objetivo elegido por el mismo clic que haria
       // una persona.
-      const url = IDIOMA === 'en' && esc.urlEn ? esc.urlEn : esc.url;
+      const url = (IDIOMA === 'en' && esc.urlEn) || (IDIOMA === 'pt' && esc.urlPt) || esc.url;
       const { pest, cPag } = await cargar(url);
       // Al frente: una pestana de fondo se capturaba EN BLANCO.
       await cPag.llamar('Page.bringToFront');

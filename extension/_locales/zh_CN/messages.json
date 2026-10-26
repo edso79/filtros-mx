@@ -1,0 +1,445 @@
+{
+  "extName": {
+    "message": "Filtros MX — 能拦住漏网广告的广告拦截器"
+  },
+  "extShortName": {
+    "message": "Filtros MX"
+  },
+  "idioma": {
+    "message": "zh-CN"
+  },
+  "extDescription": {
+    "message": "拦截广告和跟踪器。如有广告漏网，它会指出来，一键即可移除。免费、开源、无遥测。"
+  },
+  "modoGrupo": {
+    "message": "此网站的模式"
+  },
+  "modoApagado": {
+    "message": "关闭"
+  },
+  "modoBasico": {
+    "message": "基础"
+  },
+  "modoCompleto": {
+    "message": "完整"
+  },
+  "notaApagado": {
+    "message": "此网站上不过滤任何内容。"
+  },
+  "notaBasico": {
+    "message": "只用此网站自己的规则。清理得少，但几乎不会弄坏什么。"
+  },
+  "notaCompleto": {
+    "message": "最大程度清理。如果有内容显示异常，请试试“基础”。"
+  },
+  "notaSinSitio": {
+    "message": "这不是网站，这里没有可过滤的内容。"
+  },
+  "notaExcluido": {
+    "message": "Filtros MX 在这里特意保持关闭：这是政府服务网站，没有需要拦截的内容。"
+  },
+  "recargar": {
+    "message": "重新加载以应用更改"
+  },
+  "cifraOcultos": {
+    "message": "已隐藏的广告元素"
+  },
+  "cifraRed": {
+    "message": "已拦截的广告和跟踪请求"
+  },
+  "cifraRedAyuda": {
+    "message": "最近 5 分钟内此标签页中被拦截的广告和跟踪请求。Chrome 只保留这么久。"
+  },
+  "totalDesde": {
+    "message": "自安装以来：已隐藏 <b>$P1$</b> 个广告元素",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladosTitulo": {
+    "message": "漏网的广告"
+  },
+  "coladosExplica": {
+    "message": "目前还没有任何列表覆盖它们。一键移除——只影响你的浏览器。"
+  },
+  "coladoServido": {
+    "message": "广告，$P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoVacio": {
+    "message": "空的广告位，$P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoAlcance": {
+    "message": "移除后将隐藏此页面上的 $P1$ 个元素",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladoFragil": {
+    "message": "网站改版后可能失效"
+  },
+  "quitar": {
+    "message": "移除"
+  },
+  "quitado": {
+    "message": "已移除 ✓"
+  },
+  "quitarEnApagado": {
+    "message": "此网站处于“关闭”模式：切换到“基础”或“完整”才会生效。"
+  },
+  "reportar": {
+    "message": "告诉 EasyList，让所有人都能修复"
+  },
+  "reportarNota": {
+    "message": "会打开已写好内容的 GitHub 页面，由你决定是否发送。"
+  },
+  "sinColados": {
+    "message": "此页面未检测到漏网广告。"
+  },
+  "ceguera": {
+    "message": "此页面加载了我们无法定位的广告。如果看到广告，请使用“移除元素”。"
+  },
+  "sinReglaUno": {
+    "message": "有 1 个广告无法用安全的规则移除。如果它碍事，请使用“移除元素”。"
+  },
+  "sinRegla": {
+    "message": "有 $P1$ 个广告无法用安全的规则移除。如果它们碍事，请使用“移除元素”。",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tuyasTitulo": {
+    "message": "你在此网站移除的内容"
+  },
+  "tuyasExplica": {
+    "message": "仅保存在此浏览器中，随时可以撤销。"
+  },
+  "mostrar": {
+    "message": "显示"
+  },
+  "elegir": {
+    "message": "移除元素"
+  },
+  "elegirAyuda": {
+    "message": "用鼠标选中页面上的任何内容，它就会消失，以后访问时也一样。"
+  },
+  "problema": {
+    "message": "有显示问题？"
+  },
+  "problemaAsunto": {
+    "message": "Filtros MX：$P1$ 上的问题",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "reanalizar": {
+    "message": "重新分析"
+  },
+  "analizando": {
+    "message": "正在分析…"
+  },
+  "analizado": {
+    "message": "已分析 ✓"
+  },
+  "noAnalizable": {
+    "message": "此处无法分析"
+  },
+  "opciones": {
+    "message": "选项"
+  },
+  "listasDel": {
+    "message": "列表日期：$P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "resenaPide": {
+    "message": "觉得有用吗？在商店留下评价，能帮助更多人找到 Filtros MX。"
+  },
+  "resenaSi": {
+    "message": "去评价"
+  },
+  "resenaNo": {
+    "message": "以后再说"
+  },
+  "insigniaColados": {
+    "message": "Filtros MX：此页面有广告漏网。点击即可移除。"
+  },
+  "selPista": {
+    "message": "点击你想移除的内容 · 按 Esc 退出"
+  },
+  "selUno": {
+    "message": "将隐藏 1 个元素"
+  },
+  "selVarios": {
+    "message": "将隐藏 $P1$ 个元素",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "selMasGrande": {
+    "message": "扩大"
+  },
+  "selMasChico": {
+    "message": "缩小"
+  },
+  "selQuitar": {
+    "message": "移除"
+  },
+  "selCancelar": {
+    "message": "取消"
+  },
+  "selListo": {
+    "message": "完成——以后访问时也会保持隐藏。"
+  },
+  "selDeshacer": {
+    "message": "撤销"
+  },
+  "bTitulo": {
+    "message": "好了，Filtros MX 已经在拦截了。"
+  },
+  "bLema": {
+    "message": "免费、开源、无遥测。墨西哥制作。"
+  },
+  "bFijarTitulo": {
+    "message": "只需一步：把它固定到工具栏"
+  },
+  "bFijar": {
+    "message": "点击 Chrome 右上角的拼图图标 <b>🧩</b>，再点击 Filtros MX 旁边的<b>图钉</b>。这样每个页面上都能看到它移除了多少广告，有广告漏网时也能随手处理。"
+  },
+  "bHaceTitulo": {
+    "message": "它能为你做什么"
+  },
+  "bHace1": {
+    "message": "<b>立即拦截广告和跟踪器</b>，使用 EasyList、EasyPrivacy 和 EasyList China——数百万人使用的开放列表。无需任何设置。"
+  },
+  "bHace2": {
+    "message": "<b>拦住漏网之鱼。</b>当广告躲过所有列表时，Filtros MX 会在图标上提示你，一键即可移除。"
+  },
+  "bHace3": {
+    "message": "<b>移除碍事的内容。</b>用“移除元素”选中页面上的任何内容，它就会消失，以后访问时也一样。"
+  },
+  "bHaceYoutube": {
+    "message": "<b>YouTube 无视频广告。</b>借助 uBlock Origin 的规则，移除视频播放前和播放中的广告。"
+  },
+  "bHace4": {
+    "message": "<b>每个网站由你做主。</b>“完整”清理最彻底，网站异常时用“基础”，想支持某个网站就选“关闭”。"
+  },
+  "bPrivTitulo": {
+    "message": "你的隐私，没有隐藏条款"
+  },
+  "bPriv1": {
+    "message": "<b>零遥测。</b>一切都在你的设备上完成：你浏览的内容和被拦截的内容都不会离开浏览器。"
+  },
+  "bPriv2": {
+    "message": "<b>没有付费的“可接受广告”。</b>任何广告商都不能花钱绕过过滤。永远不能。"
+  },
+  "bPriv3": {
+    "message": "<b>真正免费。</b>没有付费版，不需要账号，代码向所有想检查的人开放。"
+  },
+  "bTodosTitulo": {
+    "message": "它已经让网络对所有人都变好了"
+  },
+  "bTodos": {
+    "message": "Filtros MX 在墨西哥新闻网站上发现的广告已报告给 EasyList Spanish：<b>12 份报告，11 份已完全修复</b>。如今，任何使用这些列表的人都能拦截它们，无论用的是哪款拦截器。如果你发现了新的，扩展会帮你准备好报告。"
+  },
+  "bAbrirOpciones": {
+    "message": "打开选项"
+  },
+  "bVerCodigo": {
+    "message": "查看代码"
+  },
+  "oTitulo": {
+    "message": "Filtros MX — 选项"
+  },
+  "oFiltrado": {
+    "message": "过滤"
+  },
+  "oCosmeticas": {
+    "message": "隐藏广告位"
+  },
+  "oCosmeticasAyuda": {
+    "message": "关闭广告留下的空白。这是列表的主要工作：关闭后几乎一切都会失效。"
+  },
+  "oGenericas": {
+    "message": "在所有网站上完整清理 <span class=\"suave\">· 推荐</span>"
+  },
+  "oGenericasAyuda": {
+    "message": "同时应用不针对特定网站的通用规则，清理效果最好。如果某个网站显示异常，请通过图标把它设为<em>基础</em>。关闭此项后，所有网站都以“基础”模式开始。"
+  },
+  "oDetector": {
+    "message": "提醒我漏网的广告"
+  },
+  "oDetectorAyuda": {
+    "message": "在每个页面上查找任何列表都未覆盖的广告。分析在本地进行：没有任何数据离开你的设备。"
+  },
+  "oListas": {
+    "message": "列表"
+  },
+  "oListasAyuda": {
+    "message": "EasyList、EasyPrivacy 和 EasyList Spanish 始终开启，以下列表在此基础上追加。"
+  },
+  "oGrupo_pt": {
+    "message": "葡萄牙语网站 <span class=\"suave\">· EasyList Portuguese</span>"
+  },
+  "oGrupo_de": {
+    "message": "德语网站 <span class=\"suave\">· EasyList Germany</span>"
+  },
+  "oGrupo_fr": {
+    "message": "法语网站 <span class=\"suave\">· Liste FR</span>"
+  },
+  "oGrupo_it": {
+    "message": "意大利语网站 <span class=\"suave\">· EasyList Italy</span>"
+  },
+  "oGrupo_nl": {
+    "message": "荷兰语网站 <span class=\"suave\">· EasyList Dutch</span>"
+  },
+  "oGrupo_pl": {
+    "message": "波兰语网站 <span class=\"suave\">· EasyList Polish</span>"
+  },
+  "oGrupo_ru": {
+    "message": "俄语和乌克兰语网站 <span class=\"suave\">· RU AdList</span>"
+  },
+  "oGrupo_zh": {
+    "message": "中文网站 <span class=\"suave\">· EasyList China</span>"
+  },
+  "oRegionalAyuda": {
+    "message": "如果浏览器使用该语言，会自动开启。"
+  },
+  "oSinCupo": {
+    "message": "与你的其他列表一起超出了 Chrome 的规则上限：只应用了隐藏部分。"
+  },
+  "oGrupo_cookies": {
+    "message": "移除 Cookie 提示 <span class=\"suave\">· EasyList Cookie List</span>"
+  },
+  "oGrupo_cookiesAyuda": {
+    "message": "隐藏 Cookie 提示而不作答：你没有接受任何内容，网站会当作你没有回应。重新加载页面即可看到效果。"
+  },
+  "oAuto": {
+    "message": "自动"
+  },
+  "oVolverAuto": {
+    "message": "恢复自动"
+  },
+  "oSitios": {
+    "message": "设置了专属模式的网站"
+  },
+  "oSitiosAyuda": {
+    "message": "你用图标中的按钮设置的内容，在这里管理。"
+  },
+  "oSitiosVacio": {
+    "message": "无：所有网站都使用默认模式。"
+  },
+  "oVolver": {
+    "message": "恢复默认"
+  },
+  "oTuyas": {
+    "message": "你移除的内容"
+  },
+  "oTuyasAyuda": {
+    "message": "你用“移除”或“移除元素”去掉的内容。这些是你自己的规则：保存在此设备上，不会发送到任何地方。"
+  },
+  "oTuyasVacio": {
+    "message": "暂无。图标里的“移除元素”可以创建第一条。"
+  },
+  "oMostrarDeNuevo": {
+    "message": "重新显示"
+  },
+  "oAplicando": {
+    "message": "正在应用的内容"
+  },
+  "oFilaRed": {
+    "message": "生效的网络规则"
+  },
+  "oFilaLineas": {
+    "message": "已编译的过滤行"
+  },
+  "oFilaDominios": {
+    "message": "有专属规则的网站"
+  },
+  "oFilaSelectores": {
+    "message": "隐藏广告的规则"
+  },
+  "oFilaExtendidas": {
+    "message": "由自有引擎应用的高级规则"
+  },
+  "oFilaGrupo": {
+    "message": "$P1$：网络规则和隐藏规则",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaNoExt": {
+    "message": "无法应用：引擎之外的高级规则"
+  },
+  "oFilaNoScript": {
+    "message": "无法应用：uBlock Origin 的 scriptlet"
+  },
+  "oFilaNoRegex": {
+    "message": "无法应用：正则表达式"
+  },
+  "oFilaNoPopup": {
+    "message": "无法应用：弹出窗口拦截"
+  },
+  "oFilaYoutube": {
+    "message": "YouTube 规则（uBlock Origin $P1$）",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaRecortadas": {
+    "message": "因 Chrome 上限被截掉"
+  },
+  "oFilaFecha": {
+    "message": "列表编译日期"
+  },
+  "oComo": {
+    "message": "工作原理"
+  },
+  "oComo1": {
+    "message": "Filtros MX 使用与最常见拦截器<strong>相同的公开列表</strong>——EasyList、EasyPrivacy、EasyList Spanish，以及你所用语言的列表（如有）——由数百人维护。<strong>你的副本日期见上表</strong>，并随扩展的每个版本更新。"
+  },
+  "oComo2": {
+    "message": "此外，它会在你正在浏览的页面上<strong>找出任何列表都未覆盖的广告</strong>，让你一键移除；如果你愿意，还会准备好报告，让所有人都能修复。"
+  },
+  "oComo3": {
+    "message": "上表还列出了<strong>无法应用的内容</strong>。只展示成功部分的拦截器，会让你以为自己受到的保护比实际更多。"
+  },
+  "oCredito": {
+    "message": "基础列表和 EasyList 的区域列表（葡萄牙语、德语、意大利语、荷兰语、波兰语和中文）由 The EasyList authors 提供，采用 GPLv3 和 CC BY-SA 3.0；Liste FR 采用 CC BY-SA 3.0；RU AdList 和 EasyList Cookie List 采用 CC BY 3.0。YouTube 的规则和引擎来自 uBlock Origin（Raymond Hill 及贡献者），采用 GPLv3。"
+  },
+  "oVerBienvenida": {
+    "message": "再次查看欢迎页面"
+  }
+}

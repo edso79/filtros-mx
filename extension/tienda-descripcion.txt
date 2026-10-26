@@ -14,9 +14,11 @@ Filtros MX es un bloqueador de anuncios gratuito, de código abierto y sin telem
 
 • Tú mandas en cada sitio: Completo para la máxima limpieza, Básico si un sitio se porta raro, Apagado si lo quieres apoyar. Un clic, sin menús escondidos.
 
+• Quita los avisos de cookies, si quieres: una opción apagada de fábrica que los oculta sin aceptarlos. No aceptas nada; el sitio se queda como si no hubieras contestado.
+
 • Te enseña lo que hizo: publicidad oculta y peticiones de rastreo frenadas en cada página, y el total desde que la instalaste.
 
-• En español y en inglés.
+• En 10 idiomas: español, inglés, portugués, alemán, francés, italiano, neerlandés, polaco, ruso y chino. Y en cada uno suma sola la lista de anuncios de ese idioma (EasyList Portuguese, EasyList Germany, Liste FR, RU AdList, EasyList China…), como hace uBlock Origin.
 
 ★ TU PRIVACIDAD, SIN LETRA CHIQUITA
 
@@ -36,4 +38,4 @@ Código: https://github.com/edso79/filtros-mx
 Privacidad, en detalle: https://filtrosmx.com/#privacidad
 Contacto: contacto@filtrosmx.com
 
-Las listas base son de The EasyList authors (GPLv3 / CC BY-SA 3.0). Las reglas y el motor de YouTube son de uBlock Origin, de Raymond Hill y colaboradores (GPLv3).
+Las listas base y las regionales de EasyList son de The EasyList authors (GPLv3 / CC BY-SA 3.0); Liste FR, bajo CC BY-SA 3.0; RU AdList y EasyList Cookie List, bajo CC BY 3.0. Las reglas y el motor de YouTube son de uBlock Origin, de Raymond Hill y colaboradores (GPLv3).

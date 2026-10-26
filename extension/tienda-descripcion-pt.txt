@@ -1,0 +1,43 @@
+Bloqueia anúncios e rastreadores. E pega os que escapam.
+
+O Filtros MX é um bloqueador de anúncios gratuito, de código aberto e sem telemetria, feito no México. Remove a publicidade e os rastreadores das páginas que você visita com as listas abertas que milhões de pessoas usam — EasyList, EasyPrivacy e, com o navegador em português, EasyList Portuguese — e faz algo a mais: quando um anúncio escapa de todas essas listas, ele mostra para você remover com um clique.
+
+★ O QUE ELE FAZ POR VOCÊ
+
+• Bloqueia anúncios, banners e rastreadores desde a instalação. Não há nada para configurar.
+
+• Sites brasileiros incluídos: se o seu navegador estiver em português, liga sozinho a EasyList Portuguese, a lista feita para os sites em português.
+
+• YouTube sem anúncios em vídeo: remove os anúncios antes e durante os vídeos, com as regras do uBlock Origin.
+
+• Pega os anúncios que escapam. Detecta na página a publicidade que nenhuma lista cobre ainda, o ícone fica âmbar para avisar, e você remove com um botão.
+
+• Remove o que atrapalha com “Remover um elemento”: escolha com o mouse qualquer coisa da página e ela some, também nas próximas visitas. Dá para desfazer quando quiser.
+
+• Remove os avisos de cookies, se você quiser: uma opção, desligada de fábrica, que os oculta sem aceitá-los. Você não aceita nada; o site fica como se você não tivesse respondido.
+
+• Você manda em cada site: Completo para a limpeza máxima, Básico se um site se comportar mal, Desligado se quiser apoiá-lo. Um clique, sem menus escondidos.
+
+• Mostra o que fez: publicidade oculta e requisições de rastreamento barradas em cada página, e o total desde a instalação.
+
+• Em 10 idiomas: português, espanhol, inglês, alemão, francês, italiano, holandês, polonês, russo e chinês, cada um com a lista de anúncios do seu idioma.
+
+★ SUA PRIVACIDADE, SEM LETRAS MIÚDAS
+
+• Zero telemetria. Toda a análise acontece no seu computador: nem o que você vê nem o que é bloqueado sai do seu navegador. A extensão não se conecta a nenhum servidor nosso.
+
+• Sem “anúncios aceitáveis” pagos. Nenhum anunciante pode pagar para passar pelo filtro. Nunca.
+
+• Grátis de verdade: sem versão paga, sem funções reservadas e sem contas.
+
+• Código aberto sob GPLv3: qualquer pessoa pode revisar exatamente o que ele faz.
+
+★ JÁ MELHOROU A INTERNET PARA TODOS
+
+Os anúncios que o Filtros MX encontrou em jornais mexicanos foram reportados à EasyList Spanish: 12 relatórios, 11 já corrigidos por completo. Hoje qualquer pessoa que use essas listas os bloqueia, seja qual for o bloqueador. Se você encontrar um, a extensão prepara o relatório e você decide se envia.
+
+Código: https://github.com/edso79/filtros-mx
+Privacidade, em detalhe: https://filtrosmx.com/#privacidad
+Contato: contacto@filtrosmx.com
+
+As listas base e as regionais da EasyList são de The EasyList authors (GPLv3 / CC BY-SA 3.0); a Liste FR, sob CC BY-SA 3.0; a RU AdList e a EasyList Cookie List, sob CC BY 3.0. As regras e o motor do YouTube são do uBlock Origin, de Raymond Hill e colaboradores (GPLv3).

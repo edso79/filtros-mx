@@ -300,6 +300,54 @@
   "oDetectorAyuda": {
     "message": "Busca en cada página la publicidad que ninguna lista cubre. El análisis es local: no sale nada de tu equipo."
   },
+  "oListas": {
+    "message": "Listas"
+  },
+  "oListasAyuda": {
+    "message": "EasyList, EasyPrivacy y EasyList Spanish van siempre. Estas se suman encima."
+  },
+  "oGrupo_pt": {
+    "message": "Sitios en portugués <span class=\"suave\">· EasyList Portuguese</span>"
+  },
+  "oGrupo_de": {
+    "message": "Sitios en alemán <span class=\"suave\">· EasyList Germany</span>"
+  },
+  "oGrupo_fr": {
+    "message": "Sitios en francés <span class=\"suave\">· Liste FR</span>"
+  },
+  "oGrupo_it": {
+    "message": "Sitios en italiano <span class=\"suave\">· EasyList Italy</span>"
+  },
+  "oGrupo_nl": {
+    "message": "Sitios en neerlandés <span class=\"suave\">· EasyList Dutch</span>"
+  },
+  "oGrupo_pl": {
+    "message": "Sitios en polaco <span class=\"suave\">· EasyList Polish</span>"
+  },
+  "oGrupo_ru": {
+    "message": "Sitios en ruso y ucraniano <span class=\"suave\">· RU AdList</span>"
+  },
+  "oGrupo_zh": {
+    "message": "Sitios en chino <span class=\"suave\">· EasyList China</span>"
+  },
+  "oRegionalAyuda": {
+    "message": "Se enciende sola si tu navegador está en ese idioma."
+  },
+  "oSinCupo": {
+    "message": "No cupo en el límite de reglas de Chrome junto con tus otras listas: solo se aplica la parte de ocultar."
+  },
+  "oGrupo_cookies": {
+    "message": "Quitar los avisos de cookies <span class=\"suave\">· EasyList Cookie List</span>"
+  },
+  "oGrupo_cookiesAyuda": {
+    "message": "Oculta los avisos de cookies sin contestarlos: no aceptas nada, el sitio se queda como si no hubieras respondido. Recarga la página para verlo."
+  },
+  "oAuto": {
+    "message": "automático"
+  },
+  "oVolverAuto": {
+    "message": "Volver a automático"
+  },
   "oSitios": {
     "message": "Sitios con modo propio"
   },
@@ -342,6 +390,14 @@
   "oFilaExtendidas": {
     "message": "Reglas avanzadas aplicadas por el motor propio"
   },
+  "oFilaGrupo": {
+    "message": "$P1$: reglas de red y para ocultar",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
   "oFilaNoExt": {
     "message": "No aplicables: reglas avanzadas fuera del motor"
   },
@@ -372,7 +428,7 @@
     "message": "Cómo funciona"
   },
   "oComo1": {
-    "message": "Filtros MX bloquea con las <strong>mismas listas públicas</strong> que usan los bloqueadores más extendidos —EasyList, EasyPrivacy y EasyList Spanish—, mantenidas por cientos de personas. <strong>Tu copia es la del día que marca la tabla de arriba</strong> y se renueva con cada versión de la extensión."
+    "message": "Filtros MX bloquea con las <strong>mismas listas públicas</strong> que usan los bloqueadores más extendidos —EasyList, EasyPrivacy, EasyList Spanish y la de tu idioma si la hay—, mantenidas por cientos de personas. <strong>Tu copia es la del día que marca la tabla de arriba</strong> y se renueva con cada versión de la extensión."
   },
   "oComo2": {
     "message": "Encima de eso, <strong>atrapa la publicidad que ninguna lista cubre</strong> en la página que estás viendo, te deja quitarla con un clic y, si quieres, prepara el reporte para que se corrija para todos."
@@ -381,7 +437,7 @@
     "message": "La tabla de arriba enseña también <strong>lo que no se pudo aplicar</strong>. Un bloqueador que solo presume lo que sí entró te hace creer que estás más protegido de lo que estás."
   },
   "oCredito": {
-    "message": "Las listas base son de The EasyList authors, bajo GPLv3 y CC BY-SA 3.0. Las reglas y el motor de YouTube son de uBlock Origin (Raymond Hill y colaboradores), bajo GPLv3."
+    "message": "Las listas base y las regionales de EasyList (portugués, alemán, italiano, neerlandés, polaco y chino) son de The EasyList authors, bajo GPLv3 y CC BY-SA 3.0; Liste FR, bajo CC BY-SA 3.0; RU AdList y EasyList Cookie List, bajo CC BY 3.0. Las reglas y el motor de YouTube son de uBlock Origin (Raymond Hill y colaboradores), bajo GPLv3."
   },
   "oVerBienvenida": {
     "message": "Volver a ver la página de bienvenida"

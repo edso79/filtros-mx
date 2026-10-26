@@ -1,0 +1,445 @@
+{
+  "extName": {
+    "message": "Filtros MX — Bloker reklam, który łapie te, które się prześlizgną"
+  },
+  "extShortName": {
+    "message": "Filtros MX"
+  },
+  "idioma": {
+    "message": "pl-PL"
+  },
+  "extDescription": {
+    "message": "Blokuje reklamy i trackery. Gdy któraś się prześlizgnie, wskaże ją, a usuniesz ją jednym klikiem. Darmowy, otwarty, bez telemetrii."
+  },
+  "modoGrupo": {
+    "message": "Tryb na tej stronie"
+  },
+  "modoApagado": {
+    "message": "Wyłączony"
+  },
+  "modoBasico": {
+    "message": "Podstawowy"
+  },
+  "modoCompleto": {
+    "message": "Pełny"
+  },
+  "notaApagado": {
+    "message": "Na tej stronie nic nie jest filtrowane."
+  },
+  "notaBasico": {
+    "message": "Tylko reguły tej strony. Czyści mniej, ale prawie nigdy niczego nie psuje."
+  },
+  "notaCompleto": {
+    "message": "Maksymalne czyszczenie. Jeśli coś wygląda na zepsute, wypróbuj Podstawowy."
+  },
+  "notaSinSitio": {
+    "message": "To nie jest strona internetowa: nie ma tu czego filtrować."
+  },
+  "notaExcluido": {
+    "message": "Filtros MX celowo nie działa tutaj: to portal urzędowy, na którym nie ma czego blokować."
+  },
+  "recargar": {
+    "message": "Odśwież, aby zastosować zmianę"
+  },
+  "cifraOcultos": {
+    "message": "ukrytych elementów reklamowych"
+  },
+  "cifraRed": {
+    "message": "zatrzymanych żądań reklam i trackerów"
+  },
+  "cifraRedAyuda": {
+    "message": "Żądania reklam i śledzenia zatrzymane w tej karcie w ciągu ostatnich 5 minut. Chrome nie przechowuje więcej."
+  },
+  "totalDesde": {
+    "message": "Od instalacji: <b>$P1$</b> ukrytych elementów reklamowych",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladosTitulo": {
+    "message": "Reklamy, które się prześlizgnęły"
+  },
+  "coladosExplica": {
+    "message": "Żadna lista ich jeszcze nie obejmuje. Usuń je jednym kliknięciem — dotyczy to tylko twojej przeglądarki."
+  },
+  "coladoServido": {
+    "message": "Reklama, $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoVacio": {
+    "message": "Puste miejsce na reklamę, $P1$ × $P2$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "coladoAlcance": {
+    "message": "Usunięcie ukryje $P1$ elementów na tej stronie",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "coladoFragil": {
+    "message": "Może przestać działać, jeśli strona się zmieni"
+  },
+  "quitar": {
+    "message": "Usuń"
+  },
+  "quitado": {
+    "message": "Usunięto ✓"
+  },
+  "quitarEnApagado": {
+    "message": "Ta strona jest w trybie Wyłączony: przełącz na Podstawowy lub Pełny, aby to zadziałało."
+  },
+  "reportar": {
+    "message": "Zgłoś do EasyList, aby naprawić to dla wszystkich"
+  },
+  "reportarNota": {
+    "message": "Otwiera GitHub z gotowym tekstem. Ty decydujesz, czy go wysłać."
+  },
+  "sinColados": {
+    "message": "Na tej stronie nie wykryto reklam, które się prześlizgnęły."
+  },
+  "ceguera": {
+    "message": "Ta strona wczytuje reklamy, których nie udało nam się zlokalizować. Jeśli jakąś widzisz, użyj „Usuń element”."
+  },
+  "sinReglaUno": {
+    "message": "Jest 1 reklama, której nie da się usunąć bezpieczną regułą. Jeśli przeszkadza, użyj „Usuń element”."
+  },
+  "sinRegla": {
+    "message": "Reklam, których nie da się usunąć bezpieczną regułą: $P1$. Jeśli przeszkadzają, użyj „Usuń element”.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tuyasTitulo": {
+    "message": "Usunięte przez ciebie na tej stronie"
+  },
+  "tuyasExplica": {
+    "message": "Pozostają tylko w tej przeglądarce. Możesz je cofnąć w każdej chwili."
+  },
+  "mostrar": {
+    "message": "Pokaż"
+  },
+  "elegir": {
+    "message": "Usuń element"
+  },
+  "elegirAyuda": {
+    "message": "Wybierz myszą cokolwiek na stronie, a zniknie — także przy kolejnych wizytach."
+  },
+  "problema": {
+    "message": "Coś wygląda źle?"
+  },
+  "problemaAsunto": {
+    "message": "Filtros MX: problem na $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "reanalizar": {
+    "message": "Analizuj ponownie"
+  },
+  "analizando": {
+    "message": "Analizowanie…"
+  },
+  "analizado": {
+    "message": "Przeanalizowano ✓"
+  },
+  "noAnalizable": {
+    "message": "Tutaj nie można analizować"
+  },
+  "opciones": {
+    "message": "Opcje"
+  },
+  "listasDel": {
+    "message": "listy z $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "resenaPide": {
+    "message": "Przydaje się? Opinia w sklepie pomaga większej liczbie osób znaleźć Filtros MX."
+  },
+  "resenaSi": {
+    "message": "Wystaw opinię"
+  },
+  "resenaNo": {
+    "message": "Nie teraz"
+  },
+  "insigniaColados": {
+    "message": "Filtros MX: na tej stronie prześlizgnęły się reklamy. Kliknij, aby je usunąć."
+  },
+  "selPista": {
+    "message": "Kliknij to, co chcesz usunąć · Esc, aby wyjść"
+  },
+  "selUno": {
+    "message": "Zostanie ukryty 1 element"
+  },
+  "selVarios": {
+    "message": "Elementy do ukrycia: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "selMasGrande": {
+    "message": "Większy"
+  },
+  "selMasChico": {
+    "message": "Mniejszy"
+  },
+  "selQuitar": {
+    "message": "Usuń"
+  },
+  "selCancelar": {
+    "message": "Anuluj"
+  },
+  "selListo": {
+    "message": "Gotowe — pozostanie ukryte także przy kolejnych wizytach."
+  },
+  "selDeshacer": {
+    "message": "Cofnij"
+  },
+  "bTitulo": {
+    "message": "Gotowe. Filtros MX już blokuje."
+  },
+  "bLema": {
+    "message": "Darmowy, open source i bez telemetrii. Zrobiony w Meksyku."
+  },
+  "bFijarTitulo": {
+    "message": "Jeden krok: przypnij go na pasku"
+  },
+  "bFijar": {
+    "message": "Kliknij element układanki <b>🧩</b> w prawym górnym rogu Chrome, a potem <b>pinezkę</b> obok Filtros MX. Dzięki temu na każdej stronie zobaczysz, ile reklam usunął, i będziesz go mieć pod ręką, gdy coś się prześlizgnie."
+  },
+  "bHaceTitulo": {
+    "message": "Co dla ciebie robi"
+  },
+  "bHace1": {
+    "message": "<b>Blokuje reklamy i trackery</b> od razu, z EasyList, EasyPrivacy i EasyList Polish: otwartymi listami, których używają miliony osób. Nic do ustawiania."
+  },
+  "bHace2": {
+    "message": "<b>Łapie te, które się prześlizgną.</b> Gdy reklama umknie wszystkim listom, Filtros MX wskaże ją na ikonie, a ty usuniesz ją jednym kliknięciem."
+  },
+  "bHace3": {
+    "message": "<b>Usuwa to, co przeszkadza.</b> Z „Usuń element” wybierasz cokolwiek na stronie i znika — także przy kolejnych wizytach."
+  },
+  "bHaceYoutube": {
+    "message": "<b>YouTube bez reklam wideo.</b> Usuwa reklamy przed filmami i w ich trakcie dzięki regułom uBlock Origin."
+  },
+  "bHace4": {
+    "message": "<b>Ty decydujesz na każdej stronie.</b> Pełny dla maksymalnego czyszczenia, Podstawowy, gdy strona działa dziwnie, Wyłączony, jeśli chcesz ją wspierać."
+  },
+  "bPrivTitulo": {
+    "message": "Twoja prywatność, bez drobnego druku"
+  },
+  "bPriv1": {
+    "message": "<b>Zero telemetrii.</b> Wszystko dzieje się na twoim urządzeniu: ani to, co oglądasz, ani to, co jest blokowane, nie opuszcza przeglądarki."
+  },
+  "bPriv2": {
+    "message": "<b>Bez płatnych „akceptowalnych reklam”.</b> Żaden reklamodawca nie może zapłacić, by przejść przez filtr. Nigdy."
+  },
+  "bPriv3": {
+    "message": "<b>Naprawdę za darmo.</b> Bez płatnej wersji, bez kont, a kod jest otwarty dla każdego, kto chce go sprawdzić."
+  },
+  "bTodosTitulo": {
+    "message": "Już poprawił internet dla wszystkich"
+  },
+  "bTodos": {
+    "message": "Reklamy, które Filtros MX znalazł na meksykańskich serwisach informacyjnych, zgłoszono do EasyList Spanish: <b>12 zgłoszeń, 11 już w pełni naprawionych</b>. Dziś blokuje je każdy, kto używa tych list, niezależnie od blokera. Jeśli znajdziesz taką reklamę, rozszerzenie przygotuje zgłoszenie."
+  },
+  "bAbrirOpciones": {
+    "message": "Otwórz opcje"
+  },
+  "bVerCodigo": {
+    "message": "Zobacz kod"
+  },
+  "oTitulo": {
+    "message": "Filtros MX — Opcje"
+  },
+  "oFiltrado": {
+    "message": "Filtrowanie"
+  },
+  "oCosmeticas": {
+    "message": "Ukrywaj miejsca na reklamy"
+  },
+  "oCosmeticasAyuda": {
+    "message": "Zamyka miejsce, które zostawia reklama. To większość pracy list: wyłączenie sprawia, że prawie nic nie działa."
+  },
+  "oGenericas": {
+    "message": "Pełne czyszczenie na wszystkich stronach <span class=\"suave\">· zalecane</span>"
+  },
+  "oGenericasAyuda": {
+    "message": "Stosuje też reguły ogólne, które nie wymieniają żadnej strony. To one czyszczą najwięcej. Jeśli strona wygląda na zepsutą, ustaw ją na <em>Podstawowy</em> z ikony. Po wyłączeniu wszystkie strony startują w trybie Podstawowym."
+  },
+  "oDetector": {
+    "message": "Powiadamiaj o reklamach, które się prześlizgną"
+  },
+  "oDetectorAyuda": {
+    "message": "Szuka na każdej stronie reklam, których nie obejmuje żadna lista. Analiza jest lokalna: nic nie opuszcza twojego urządzenia."
+  },
+  "oListas": {
+    "message": "Listy"
+  },
+  "oListasAyuda": {
+    "message": "EasyList, EasyPrivacy i EasyList Spanish są zawsze włączone. Te dochodzą do nich."
+  },
+  "oGrupo_pt": {
+    "message": "Strony portugalskojęzyczne <span class=\"suave\">· EasyList Portuguese</span>"
+  },
+  "oGrupo_de": {
+    "message": "Strony niemieckojęzyczne <span class=\"suave\">· EasyList Germany</span>"
+  },
+  "oGrupo_fr": {
+    "message": "Strony francuskojęzyczne <span class=\"suave\">· Liste FR</span>"
+  },
+  "oGrupo_it": {
+    "message": "Strony włoskojęzyczne <span class=\"suave\">· EasyList Italy</span>"
+  },
+  "oGrupo_nl": {
+    "message": "Strony niderlandzkojęzyczne <span class=\"suave\">· EasyList Dutch</span>"
+  },
+  "oGrupo_pl": {
+    "message": "Strony polskojęzyczne <span class=\"suave\">· EasyList Polish</span>"
+  },
+  "oGrupo_ru": {
+    "message": "Strony rosyjskie i ukraińskie <span class=\"suave\">· RU AdList</span>"
+  },
+  "oGrupo_zh": {
+    "message": "Strony chińskojęzyczne <span class=\"suave\">· EasyList China</span>"
+  },
+  "oRegionalAyuda": {
+    "message": "Włącza się sama, jeśli przeglądarka jest w tym języku."
+  },
+  "oSinCupo": {
+    "message": "Nie zmieściła się w limicie reguł Chrome razem z innymi listami: stosowana jest tylko część ukrywająca."
+  },
+  "oGrupo_cookies": {
+    "message": "Usuwaj komunikaty o ciasteczkach <span class=\"suave\">· EasyList Cookie List</span>"
+  },
+  "oGrupo_cookiesAyuda": {
+    "message": "Ukrywa komunikaty o ciasteczkach bez odpowiadania na nie: niczego nie akceptujesz, a strona zachowuje się, jakbyś nie odpowiedział. Odśwież stronę, aby to zobaczyć."
+  },
+  "oAuto": {
+    "message": "automatycznie"
+  },
+  "oVolverAuto": {
+    "message": "Wróć do automatycznego"
+  },
+  "oSitios": {
+    "message": "Strony z własnym trybem"
+  },
+  "oSitiosAyuda": {
+    "message": "To, co ustawiasz przyciskami w ikonie, zarządzane tutaj."
+  },
+  "oSitiosVacio": {
+    "message": "Brak: wszystkie strony używają trybu domyślnego."
+  },
+  "oVolver": {
+    "message": "Wróć do domyślnego"
+  },
+  "oTuyas": {
+    "message": "Usunięte przez ciebie"
+  },
+  "oTuyasAyuda": {
+    "message": "To, co usunięto przyciskiem „Usuń” lub „Usuń element”. To twoje własne reguły: zostają na tym urządzeniu i nigdzie nie są wysyłane."
+  },
+  "oTuyasVacio": {
+    "message": "Na razie brak. „Usuń element” w ikonie tworzy pierwszą."
+  },
+  "oMostrarDeNuevo": {
+    "message": "Pokaż ponownie"
+  },
+  "oAplicando": {
+    "message": "Co jest stosowane"
+  },
+  "oFilaRed": {
+    "message": "Aktywne reguły sieciowe"
+  },
+  "oFilaLineas": {
+    "message": "Skompilowane linie filtrów"
+  },
+  "oFilaDominios": {
+    "message": "Strony z własnymi regułami"
+  },
+  "oFilaSelectores": {
+    "message": "Reguły ukrywania reklam"
+  },
+  "oFilaExtendidas": {
+    "message": "Zaawansowane reguły stosowane przez własny silnik"
+  },
+  "oFilaGrupo": {
+    "message": "$P1$: reguły sieciowe i ukrywania",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaNoExt": {
+    "message": "Niestosowalne: zaawansowane reguły poza silnikiem"
+  },
+  "oFilaNoScript": {
+    "message": "Niestosowalne: scriptlety uBlock Origin"
+  },
+  "oFilaNoRegex": {
+    "message": "Niestosowalne: wyrażenia regularne"
+  },
+  "oFilaNoPopup": {
+    "message": "Niestosowalne: blokowanie wyskakujących okien"
+  },
+  "oFilaYoutube": {
+    "message": "Reguły dla YouTube (uBlock Origin $P1$)",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "oFilaRecortadas": {
+    "message": "Obcięte przez limit Chrome"
+  },
+  "oFilaFecha": {
+    "message": "Listy skompilowane"
+  },
+  "oComo": {
+    "message": "Jak to działa"
+  },
+  "oComo1": {
+    "message": "Filtros MX blokuje z użyciem <strong>tych samych publicznych list</strong> co najpopularniejsze blokery — EasyList, EasyPrivacy, EasyList Spanish i listy twojego języka, jeśli istnieje — utrzymywanych przez setki osób. <strong>Twoja kopia pochodzi z dnia podanego w tabeli powyżej</strong> i jest odnawiana z każdą wersją rozszerzenia."
+  },
+  "oComo2": {
+    "message": "Ponadto <strong>łapie reklamy, których nie obejmuje żadna lista</strong>, na oglądanej stronie, pozwala usunąć je jednym kliknięciem i, jeśli chcesz, przygotowuje zgłoszenie, aby naprawiono to dla wszystkich."
+  },
+  "oComo3": {
+    "message": "Tabela powyżej pokazuje też, <strong>czego nie udało się zastosować</strong>. Bloker, który chwali się tylko tym, co weszło, każe ci wierzyć, że jesteś lepiej chroniony, niż jesteś."
+  },
+  "oCredito": {
+    "message": "Listy podstawowe i regionalne listy EasyList (portugalska, niemiecka, włoska, niderlandzka, polska i chińska) są autorstwa The EasyList authors, na licencji GPLv3 i CC BY-SA 3.0; Liste FR na CC BY-SA 3.0; RU AdList i EasyList Cookie List na CC BY 3.0. Reguły i silnik YouTube pochodzą z uBlock Origin (Raymond Hill i współtwórcy), na licencji GPLv3."
+  },
+  "oVerBienvenida": {
+    "message": "Zobacz ponownie stronę powitalną"
+  }
+}

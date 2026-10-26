@@ -32,17 +32,118 @@ const ajustesPorDefecto = {
 // Son ~900 KB. Cargarlos en cada arranque del worker seria caro, y el worker se
 // mata y revive constantemente en MV3. Se cachea en memoria y se vuelve a leer
 // solo si el worker murio.
-let cosmeticasPromesa = null;
-function cargarCosmeticas() {
-  if (!cosmeticasPromesa) {
-    cosmeticasPromesa = fetch(chrome.runtime.getURL('reglas/cosmeticas.json'))
+const mapasCargados = new Map(); // ruta -> promesa del mapa
+function cargarMapa(ruta) {
+  if (!mapasCargados.has(ruta)) {
+    mapasCargados.set(ruta, fetch(chrome.runtime.getURL(ruta))
       .then((r) => r.json())
       .catch((e) => {
-        console.error('Filtros MX: no se pudo cargar el mapa cosmetico', e);
+        console.error('Filtros MX: no se pudo cargar el mapa cosmetico', ruta, e);
         return { porDominio: {}, excepciones: {}, genericas: [] };
-      });
+      }));
   }
-  return cosmeticasPromesa;
+  return mapasCargados.get(ruta);
+}
+
+let metaPromesa = null;
+function cargarMeta() {
+  if (!metaPromesa) {
+    metaPromesa = fetch(chrome.runtime.getURL('reglas/meta.json'))
+      .then((r) => r.json())
+      .catch(() => ({ grupos: [] }));
+  }
+  return metaPromesa;
+}
+
+// --- Grupos de listas (1.2.0) -----------------------------------------------
+//
+// Ademas de la principal hay listas que no le sirven a todo el mundo:
+//
+//   regional  la de un idioma. Se enciende SOLA si el navegador esta en ese
+//             idioma: medido el 23-oct-2026, buena parte de las instalaciones
+//             vienen de navegadores en portugues, y la principal no trae ni una
+//             regla de sus medios. Es lo mismo que hace uBlock Origin.
+//   opcional  apagada de fabrica; la enciende la persona en opciones.
+//
+// La eleccion explicita de la persona (ajustes.grupos[id] = true/false) gana
+// siempre sobre lo automatico.
+// En orden de preferencia: primero el idioma de Chrome, luego los preferidos.
+// El orden decide que regional entra primero si no caben todas.
+function idiomasEnOrden() {
+  const todos = [chrome.i18n.getUILanguage(), ...(self.navigator?.languages || [])];
+  return [...new Set(todos.filter(Boolean).map((l) => l.toLowerCase().split(/[-_]/)[0]))];
+}
+
+function idiomasDelNavegador() {
+  return new Set(idiomasEnOrden());
+}
+
+function grupoActivo(g, ajustes, idiomas) {
+  const elegido = (ajustes.grupos || {})[g.id];
+  if (typeof elegido === 'boolean') return elegido;
+  if (g.tipo === 'regional') return (g.idiomas || []).some((i) => idiomas.has(i));
+  return false;
+}
+
+async function estadoGrupos() {
+  const meta = await cargarMeta();
+  const ajustes = await leerAjustes();
+  const idiomas = idiomasDelNavegador();
+  const { sinCupo } = await chrome.storage.local.get('sinCupo');
+  return (meta.grupos || []).map((g) => ({
+    id: g.id,
+    tipo: g.tipo,
+    idiomas: g.idiomas || [],
+    fuentes: (g.fuentes || []).map((f) => f.nombre),
+    cosmeticas: g.cosmeticas,
+    activo: grupoActivo(g, ajustes, idiomas),
+    automatico: typeof (ajustes.grupos || {})[g.id] !== 'boolean',
+    sinCupo: (sinCupo || []).includes(g.id),
+  }));
+}
+
+// Enciende y apaga los conjuntos DNR de cada grupo. Chrome guarda el estado,
+// pero lo devuelve al del manifest en cada actualizacion de la extension: por
+// eso se llama al instalar, al actualizar y al arrancar.
+//
+// Se encienden UNO A UNO y en orden: primero lo que la persona eligio a mano,
+// despues las regionales por preferencia de idioma. Chrome garantiza 30,000
+// reglas para la extension entera; quien tenga varios idiomas regionales
+// podria pasarse, y encenderlas todas de un golpe haria fallar la llamada
+// entera en silencio. Asi entra lo que cabe, y lo que no se anota en
+// "sinCupo" para que opciones lo diga. Las cosmeticas del grupo se aplican
+// igual: no gastan presupuesto de Chrome.
+async function sincronizarGrupos() {
+  const grupos = await estadoGrupos();
+  if (!grupos.length) return;
+  const idiomas = idiomasEnOrden();
+  const rango = (g) => {
+    if (!g.automatico) return -1;
+    const pos = g.idiomas.map((i) => idiomas.indexOf(i)).filter((k) => k >= 0);
+    return pos.length ? Math.min(...pos) : 99;
+  };
+  await chrome.declarativeNetRequest.updateEnabledRulesets({
+    disableRulesetIds: grupos.filter((g) => !g.activo).map((g) => g.id),
+  });
+  const sinCupo = [];
+  for (const g of grupos.filter((x) => x.activo).sort((a, b) => rango(a) - rango(b))) {
+    try {
+      await chrome.declarativeNetRequest.updateEnabledRulesets({ enableRulesetIds: [g.id] });
+    } catch (e) {
+      sinCupo.push(g.id);
+      console.warn('Filtros MX: sin cupo para el conjunto', g.id, e);
+    }
+  }
+  await chrome.storage.local.set({ sinCupo });
+}
+
+// Los mapas cosmeticos que tocan: la principal y los grupos encendidos.
+async function mapasActivos() {
+  const grupos = (await estadoGrupos()).filter((g) => g.activo && g.cosmeticas);
+  return Promise.all([
+    cargarMapa('reglas/cosmeticas.json'),
+    ...grupos.map((g) => cargarMapa(g.cosmeticas)),
+  ]);
 }
 
 // Un selector para "www.a.b.com" puede estar registrado como "a.b.com" o
@@ -68,14 +169,17 @@ function dominiosPadre(hostname) {
 // el error que el proyecto tiene escrito — comprobar SIEMPRE si ya existe regla
 // antes de escribir una— y ante el mantenedor que acaba de aceptarnos cinco.
 async function extendidasPara(hostname, conGenericas) {
-  const mapa = await cargarCosmeticas();
-  const ext = mapa.extendidas || { porDominio: {}, genericas: [] };
+  const mapas = await mapasActivos();
+  const sinGen = mapas.some((m) => listaPideSinGenericas(hostname, m));
   const salida = [];
-  for (const d of dominiosPadre(hostname)) {
-    for (const r of ext.porDominio[d] || []) salida.push(r);
-  }
-  if (conGenericas && !listaPideSinGenericas(hostname, mapa)) {
-    for (const r of ext.genericas) salida.push(r);
+  for (const mapa of mapas) {
+    const ext = mapa.extendidas || { porDominio: {}, genericas: [] };
+    for (const d of dominiosPadre(hostname)) {
+      for (const r of ext.porDominio[d] || []) salida.push(r);
+    }
+    if (conGenericas && !sinGen) {
+      for (const r of ext.genericas) salida.push(r);
+    }
   }
   return salida;
 }
@@ -83,6 +187,8 @@ async function extendidasPara(hostname, conGenericas) {
 // ¿La propia lista dice que aqui las genericas rompen? ($generichide, que
 // construir.mjs junta en mapa.sinGenericas). Ejemplos reales: mail.google.com,
 // facebook.com, amazon.com.mx, y 192.168.* — el panel del router de casa.
+// Con varios grupos encendidos basta con que UNA lo pida: $generichide en ABP
+// apaga todas las genericas del sitio, no solo las de la lista que lo dice.
 function listaPideSinGenericas(hostname, mapa) {
   const sg = mapa.sinGenericas;
   if (!sg) return false;
@@ -97,22 +203,28 @@ function listaPideSinGenericas(hostname, mapa) {
 // no respeta la exencion. Si la respetara, en mail.google.com reportaria como
 // colado lo que una generica nombra y la lista decidio no aplicar a proposito.
 async function selectoresPara(hostname, ajustes, conGenericas = null, paraCobertura = false) {
-  const mapa = await cargarCosmeticas();
+  const mapas = await mapasActivos();
   const candidatos = dominiosPadre(hostname);
+  const conGen = conGenericas === null ? ajustes.genericas : conGenericas;
+  const sinGen = mapas.some((m) => listaPideSinGenericas(hostname, m));
 
   const sel = new Set();
-  for (const d of candidatos) {
-    for (const s of mapa.porDominio[d] || []) sel.add(s);
-  }
-  const conGen = conGenericas === null ? ajustes.genericas : conGenericas;
-  if (conGen && (paraCobertura || !listaPideSinGenericas(hostname, mapa))) {
-    for (const s of mapa.genericas) sel.add(s);
+  for (const mapa of mapas) {
+    for (const d of candidatos) {
+      for (const s of mapa.porDominio[d] || []) sel.add(s);
+    }
+    if (conGen && (paraCobertura || !sinGen)) {
+      for (const s of mapa.genericas) sel.add(s);
+    }
   }
   // Las excepciones (#@#) quitan lo que una regla mas amplia habia puesto.
   // Aplicarlas DESPUES no es un detalle: es lo que evita romper un sitio que
-  // el propio mantenedor de la lista ya marco como falso positivo.
-  for (const d of candidatos) {
-    for (const s of mapa.excepciones[d] || []) sel.delete(s);
+  // el propio mantenedor de la lista ya marco como falso positivo. Las de
+  // cualquier grupo valen contra las reglas de todos.
+  for (const mapa of mapas) {
+    for (const d of candidatos) {
+      for (const s of mapa.excepciones[d] || []) sel.delete(s);
+    }
   }
   return [...sel];
 }
@@ -535,12 +647,32 @@ chrome.runtime.onMessage.addListener((msg, sender, responder) => {
       case 'listaLocales':
         return responder({ locales: await reglasLocales() });
 
-      case 'guardarAjustes':
-        await chrome.storage.local.set({ ajustes: msg.ajustes });
+      case 'guardarAjustes': {
+        // Se mezcla con lo guardado: la pagina de opciones manda solo las
+        // casillas que conoce, y no debe borrar la eleccion de listas.
+        const { ajustes } = await chrome.storage.local.get('ajustes');
+        await chrome.storage.local.set({ ajustes: { ...(ajustes || {}), ...msg.ajustes } });
         return responder({ ok: true });
+      }
+
+      case 'grupos':
+        return responder({ grupos: await estadoGrupos() });
+
+      // valor: true | false | 'auto' (vuelve a decidir por el idioma).
+      case 'fijarGrupo': {
+        const { ajustes } = await chrome.storage.local.get('ajustes');
+        const a = { ...(ajustes || {}) };
+        const grupos = { ...(a.grupos || {}) };
+        if (msg.valor === 'auto') delete grupos[msg.id];
+        else grupos[msg.id] = !!msg.valor;
+        a.grupos = grupos;
+        await chrome.storage.local.set({ ajustes: a });
+        await sincronizarGrupos();
+        return responder({ grupos: await estadoGrupos() });
+      }
 
       case 'meta':
-        return responder(await (await fetch(chrome.runtime.getURL('reglas/meta.json'))).json());
+        return responder(await cargarMeta());
 
       default:
         return responder({ error: 'mensaje desconocido' });
@@ -579,6 +711,7 @@ chrome.runtime.onInstalled.addListener(async (det) => {
     await migrarA100();
   }
   sincronizarReglasApagado();
+  sincronizarGrupos().catch((e) => console.warn('Filtros MX: grupos', e));
   registrarScriptlets().catch((e) => console.warn('Filtros MX: scriptlets', e));
   // Solo en la primera instalacion. Abrirla en cada actualizacion seria
   // interrumpir a quien ya sabe usar la extension.
@@ -588,5 +721,6 @@ chrome.runtime.onInstalled.addListener(async (det) => {
 });
 chrome.runtime.onStartup.addListener(() => {
   sincronizarReglasApagado();
+  sincronizarGrupos().catch((e) => console.warn('Filtros MX: grupos', e));
   registrarScriptlets().catch((e) => console.warn('Filtros MX: scriptlets', e));
 });

@@ -29,6 +29,37 @@ Verificado el **7 de octubre de 2026** contra los archivos `LICENSE` de los dos 
 
 **No se reescribieron a propósito.** YouTube cambia su reproductor cada pocas semanas para esquivarlos, y quien publica los arreglos es uBlock Origin. Tomar su código tal cual es lo que permite recoger esos arreglos recompilando, en vez de perseguirlos a mano.
 
+## EasyList Portuguese y EasyList Cookie List (extensión 1.2.0)
+
+Verificado el **23 de octubre de 2026** contra el encabezado de cada lista tal como se sirve.
+
+| | EasyList Portuguese | EasyList Cookie List |
+|---|---|---|
+| Fuente | `https://easylist-downloads.adblockplus.org/easylistportuguese.txt` | `https://secure.fanboy.co.nz/fanboy-cookiemonster.txt` |
+| Encabezado de licencia | `! Licence: https://easylist.to/pages/licence.html` | `! License: http://creativecommons.org/licenses/by/3.0/` |
+| Licencia | La de EasyList: **GPLv3 o posterior y CC BY-SA 3.0 o posterior** | **Creative Commons Attribution 3.0** — solo pide atribución, sin compartir igual |
+| Autoría | The EasyList authors | Declara `Homepage: https://easylist.to/` y el correo de EasyList; no nombra autor |
+| Cómo viaja | Compilada en `extension/reglas/red-pt.json` y `cosmeticas-pt.json`. Se enciende sola si el navegador está en portugués | Compilada en `red-cookies.json` y `cosmeticas-cookies.json`. **Apagada de fábrica**: la enciende la persona en opciones |
+| Atribución | En la página de opciones y en la ficha de la tienda | Ídem, con el nombre de la licencia |
+
+### Las demás regionales (también 1.2.0)
+
+Verificadas el **23 de octubre de 2026** contra el encabezado de cada lista servida. Se encienden solas por idioma del navegador, como en uBlock Origin.
+
+| Lista | Idiomas que la encienden | Encabezado de licencia | Licencia |
+|---|---|---|---|
+| EasyList Germany | `de` | `! Licence: https://easylist.to/pages/licence.html` | La de EasyList (GPLv3 / CC BY-SA 3.0) |
+| EasyList Italy | `it` | `! Licenza: https://easylist.to/pages/licence.html` | La de EasyList |
+| EasyList Dutch | `nl` | `! Licence: https://easylist.to/pages/licence.html` | La de EasyList |
+| EasyList Polish | `pl` | `! Licence: https://easylist.to/pages/licence.html` | La de EasyList |
+| EasyList China | `zh` | `! License: https://easylist.to/pages/licence.html` | La de EasyList |
+| Liste FR | `fr` | `! Licence : https://creativecommons.org/licenses/by-sa/3.0/` | **CC BY-SA 3.0** |
+| RU AdList (`advblock.txt`) | `ru`, `uk`, `be`, `kk` | `! Лицензия CC-BY: http://creativecommons.org/licenses/by/3.0/` | **CC BY 3.0** |
+
+Todas se sirven desde `easylist.to` o `easylist-downloads.adblockplus.org`. Atribución en la página de opciones de la extensión, en los once idiomas.
+
+**Ojo con la URL de la Cookie List:** `easylist.to/easylist/easylist-cookie.txt` y la de `easylist-downloads.adblockplus.org` dan **404** (medido el 23-oct-2026). La que sirve es la de `secure.fanboy.co.nz`, que es la que enlazan uBlock Origin y AdGuard.
+
 ## Lista de Peter Lowe
 
 > ⚠️ **No declara licencia. Ninguna.**

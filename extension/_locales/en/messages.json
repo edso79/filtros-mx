@@ -300,6 +300,54 @@
   "oDetectorAyuda": {
     "message": "Looks on every page for ads no list covers. The analysis is local: nothing leaves your device."
   },
+  "oListas": {
+    "message": "Lists"
+  },
+  "oListasAyuda": {
+    "message": "EasyList, EasyPrivacy and EasyList Spanish are always on. These are added on top."
+  },
+  "oGrupo_pt": {
+    "message": "Portuguese-language sites <span class=\"suave\">· EasyList Portuguese</span>"
+  },
+  "oGrupo_de": {
+    "message": "German-language sites <span class=\"suave\">· EasyList Germany</span>"
+  },
+  "oGrupo_fr": {
+    "message": "French-language sites <span class=\"suave\">· Liste FR</span>"
+  },
+  "oGrupo_it": {
+    "message": "Italian-language sites <span class=\"suave\">· EasyList Italy</span>"
+  },
+  "oGrupo_nl": {
+    "message": "Dutch-language sites <span class=\"suave\">· EasyList Dutch</span>"
+  },
+  "oGrupo_pl": {
+    "message": "Polish-language sites <span class=\"suave\">· EasyList Polish</span>"
+  },
+  "oGrupo_ru": {
+    "message": "Russian and Ukrainian sites <span class=\"suave\">· RU AdList</span>"
+  },
+  "oGrupo_zh": {
+    "message": "Chinese-language sites <span class=\"suave\">· EasyList China</span>"
+  },
+  "oRegionalAyuda": {
+    "message": "Turns on by itself if your browser is in that language."
+  },
+  "oSinCupo": {
+    "message": "It did not fit in Chrome’s rule limit together with your other lists: only the hiding part is applied."
+  },
+  "oGrupo_cookies": {
+    "message": "Remove cookie notices <span class=\"suave\">· EasyList Cookie List</span>"
+  },
+  "oGrupo_cookiesAyuda": {
+    "message": "Hides cookie notices without answering them: you accept nothing, and the site behaves as if you had not replied. Reload the page to see it."
+  },
+  "oAuto": {
+    "message": "automatic"
+  },
+  "oVolverAuto": {
+    "message": "Back to automatic"
+  },
   "oSitios": {
     "message": "Sites with their own mode"
   },
@@ -342,6 +390,14 @@
   "oFilaExtendidas": {
     "message": "Advanced rules applied by our own engine"
   },
+  "oFilaGrupo": {
+    "message": "$P1$: network and hiding rules",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
   "oFilaNoExt": {
     "message": "Not applicable: advanced rules outside the engine"
   },
@@ -372,7 +428,7 @@
     "message": "How it works"
   },
   "oComo1": {
-    "message": "Filtros MX blocks with the <strong>same public lists</strong> the most widely used blockers rely on — EasyList, EasyPrivacy and EasyList Spanish — maintained by hundreds of people. <strong>Your copy is from the date shown in the table above</strong> and is renewed with every version of the extension."
+    "message": "Filtros MX blocks with the <strong>same public lists</strong> the most widely used blockers rely on — EasyList, EasyPrivacy, EasyList Spanish and the one for your language if there is one — maintained by hundreds of people. <strong>Your copy is from the date shown in the table above</strong> and is renewed with every version of the extension."
   },
   "oComo2": {
     "message": "On top of that, it <strong>catches the ads no list covers</strong> on the page you are viewing, lets you remove them in one click and, if you want, drafts the report so they get fixed for everyone."
@@ -381,7 +437,7 @@
     "message": "The table above also shows <strong>what could not be applied</strong>. A blocker that only shows off what made it in makes you believe you are better protected than you are."
   },
   "oCredito": {
-    "message": "The base lists are by The EasyList authors, under GPLv3 and CC BY-SA 3.0. The YouTube rules and engine are by uBlock Origin (Raymond Hill and contributors), under GPLv3."
+    "message": "The base lists and the EasyList regional lists (Portuguese, German, Italian, Dutch, Polish and Chinese) are by The EasyList authors, under GPLv3 and CC BY-SA 3.0; Liste FR, under CC BY-SA 3.0; RU AdList and EasyList Cookie List, under CC BY 3.0. The YouTube rules and engine are by uBlock Origin (Raymond Hill and contributors), under GPLv3."
   },
   "oVerBienvenida": {
     "message": "See the welcome page again"

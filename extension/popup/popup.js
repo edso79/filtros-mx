@@ -201,9 +201,14 @@ async function pintarRed() {
   if (!estado.host || estado.tabId == null) { el.textContent = '–'; return; }
   if (!meta || typeof meta.reglasPermiso !== 'number') { el.textContent = '–'; return; }
   try {
+    // Desde la 1.2.0 hay un conjunto por grupo, cada uno con sus ids desde 1
+    // y su propio número de excepciones. Las reglas dinámicas (el Apagado por
+    // sitio) no están en el mapa: son permisos y no cuentan.
+    const permisos = { principal: meta.reglasPermiso };
+    for (const g of meta.grupos || []) permisos[g.id] = g.reglasPermiso;
     const { rulesMatchedInfo } = await chrome.declarativeNetRequest.getMatchedRules({ tabId: estado.tabId });
     const n = rulesMatchedInfo.filter((m) =>
-      m.rule.rulesetId === 'principal' && m.rule.ruleId > meta.reglasPermiso).length;
+      m.rule.rulesetId in permisos && m.rule.ruleId > permisos[m.rule.rulesetId]).length;
     el.textContent = numero(n);
   } catch {
     // Cuota de consultas agotada: Chrome limita cuántas veces por intervalo se

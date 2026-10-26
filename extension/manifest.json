@@ -2,10 +2,9 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "__MSG_extShortName__",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "__MSG_extDescription__",
-  "default_locale": "es",
-
+  "default_locale": "en",
   "permissions": [
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
@@ -13,33 +12,80 @@
     "scripting",
     "webNavigation"
   ],
-
-  "host_permissions": ["<all_urls>"],
-
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "background": {
     "service_worker": "src/fondo.js",
     "type": "module"
   },
-
   "declarative_net_request": {
     "rule_resources": [
       {
         "id": "principal",
         "enabled": true,
         "path": "reglas/red.json"
+      },
+      {
+        "id": "pt",
+        "enabled": false,
+        "path": "reglas/red-pt.json"
+      },
+      {
+        "id": "de",
+        "enabled": false,
+        "path": "reglas/red-de.json"
+      },
+      {
+        "id": "fr",
+        "enabled": false,
+        "path": "reglas/red-fr.json"
+      },
+      {
+        "id": "it",
+        "enabled": false,
+        "path": "reglas/red-it.json"
+      },
+      {
+        "id": "nl",
+        "enabled": false,
+        "path": "reglas/red-nl.json"
+      },
+      {
+        "id": "pl",
+        "enabled": false,
+        "path": "reglas/red-pl.json"
+      },
+      {
+        "id": "ru",
+        "enabled": false,
+        "path": "reglas/red-ru.json"
+      },
+      {
+        "id": "zh",
+        "enabled": false,
+        "path": "reglas/red-zh.json"
+      },
+      {
+        "id": "cookies",
+        "enabled": false,
+        "path": "reglas/red-cookies.json"
       }
     ]
   },
-
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
-      "js": ["src/contenido.js"],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "src/contenido.js"
+      ],
       "run_at": "document_idle",
       "all_frames": false
     }
   ],
-
   "action": {
     "default_popup": "popup/popup.html",
     "default_title": "__MSG_extShortName__",
@@ -50,9 +96,7 @@
       "128": "iconos/icono-128.png"
     }
   },
-
   "options_page": "opciones/opciones.html",
-
   "icons": {
     "16": "iconos/icono-16.png",
     "32": "iconos/icono-32.png",

@@ -473,14 +473,19 @@ try {
       // 10-ago —los ids 1..reglasPermiso— y este arnes no; se vio el 25-ago, al
       // excluir sat.gob.mx con una regla que casa en cada peticion: 81 "frenadas"
       // en un sitio donde no se frena ninguna.
-      let permisos = 0;
+      // Desde la 1.2.0, un umbral por conjunto: cada grupo numera desde 1.
+      let permisos = { principal: 0 };
       try {
-        permisos = JSON.parse(fs.readFileSync(
-          path.join(EXTENSION_USADA, 'reglas', 'meta.json'), 'utf8')).reglasPermiso ?? 0;
+        const m = JSON.parse(fs.readFileSync(path.join(EXTENSION_USADA, 'reglas', 'meta.json'), 'utf8'));
+        permisos = { principal: m.reglasPermiso ?? 0 };
+        for (const g of m.grupos || []) permisos[g.id] = g.reglasPermiso ?? 0;
       } catch { /* sin meta.json se cuenta todo, como antes */ }
       const frenadas = await evaluar(cExt,
         `chrome.declarativeNetRequest.getMatchedRules({ tabId: ${tabId} })
-           .then(r => r.rulesMatchedInfo.filter(m => m.rule.ruleId > ${permisos}).length)
+           .then(r => r.rulesMatchedInfo.filter(m => {
+             const p = ${JSON.stringify(permisos)}[m.rule.rulesetId];
+             return p !== undefined && m.rule.ruleId > p;
+           }).length)
            .catch(() => -1)`);
 
       // --que-frena: QUE regla paro QUE peticion. El conteo basta para probar que

@@ -51,6 +51,8 @@
       border-top: 1px solid var(--linea);
     }
     .opcion:first-of-type { border-top: none; padding-top: 0; }
+    #listas .opcion:first-child { border-top: 1px solid var(--linea); padding-top: 13px; }
+    .auto { font-size: 11.5px; color: var(--suave); margin-left: 6px; font-weight: 500; }
     .opcion:last-child { padding-bottom: 0; }
     .opcion input { margin-top: 3px; flex: none; accent-color: var(--verde); width: 15px; height: 15px; }
     .opcion label { font-weight: 620; display: block; font-size: 13.5px; cursor: pointer; }
@@ -121,6 +123,12 @@
         <p data-i18n="oCosmeticasAyuda"></p>
       </div>
     </div>
+  </div>
+
+  <div class="tarjeta">
+    <h2 data-i18n="oListas"></h2>
+    <p class="prosa menor" data-i18n="oListasAyuda"></p>
+    <div id="listas"></div>
   </div>
 
   <div class="tarjeta">
