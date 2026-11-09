@@ -171,3 +171,53 @@ for (const [nombre, color] of [['icono', VERDE], ['icono-gris', GRIS]]) {
   }
 }
 console.log(`\nEscrito en ${path.relative(process.cwd(), DESTINO)}/`);
+
+// --- Iconos del sitio filtrosmx.com (26-oct-2026) ---------------------------
+//
+// El sitio llevaba solo un favicon SVG en linea (data:). Los navegadores piden
+// /favicon.ico igual, y las metricas de Cloudflare lo mostraban como 404 en
+// cada visita. Y lo que importa mas: Google NO usa un favicon data: para el
+// icono junto al resultado de busqueda; pide un archivo rastreable de lado
+// multiplo de 48. Se escriben:
+//   favicon.ico          16, 32 y 48 dentro (ICO con PNG embebido, valido desde Vista)
+//   icono-192.png        el que se declara para buscadores y Android
+//   apple-touch-icon.png 180, OPACO: iOS pinta de negro lo transparente y
+//                        redondea el solo, asi que va a sangre sobre el verde
+const SITIO = path.join(HERE, '..', '..', 'sitio');
+
+function ico(lados) {
+  const imagenes = lados.map((l) => png(l, l, dibujar(l, VERDE)));
+  const cabecera = Buffer.alloc(6);
+  cabecera.writeUInt16LE(0, 0);
+  cabecera.writeUInt16LE(1, 2);            // 1 = icono
+  cabecera.writeUInt16LE(lados.length, 4);
+  const entradas = [];
+  let desplazamiento = 6 + 16 * lados.length;
+  lados.forEach((l, k) => {
+    const e = Buffer.alloc(16);
+    e[0] = l; e[1] = l;                    // ancho y alto (0 seria 256)
+    e.writeUInt16LE(1, 4);                 // planos
+    e.writeUInt16LE(32, 6);                // bits por pixel
+    e.writeUInt32LE(imagenes[k].length, 8);
+    e.writeUInt32LE(desplazamiento, 12);
+    desplazamiento += imagenes[k].length;
+    entradas.push(e);
+  });
+  return Buffer.concat([cabecera, ...entradas, ...imagenes]);
+}
+
+function opaco(lado) {
+  const px = dibujar(lado, VERDE);
+  // Lo transparente (las esquinas redondeadas) se rellena de verde.
+  for (let i = 0; i < px.length; i += 4) {
+    const a = px[i + 3] / 255;
+    for (let k = 0; k < 3; k++) px[i + k] = Math.round(px[i + k] * a + VERDE[k] * (1 - a));
+    px[i + 3] = 255;
+  }
+  return png(lado, lado, px);
+}
+
+fs.writeFileSync(path.join(SITIO, 'favicon.ico'), ico([16, 32, 48]));
+fs.writeFileSync(path.join(SITIO, 'icono-192.png'), png(192, 192, dibujar(192, VERDE)));
+fs.writeFileSync(path.join(SITIO, 'apple-touch-icon.png'), opaco(180));
+console.log('Iconos del sitio en sitio/: favicon.ico, icono-192.png, apple-touch-icon.png');
